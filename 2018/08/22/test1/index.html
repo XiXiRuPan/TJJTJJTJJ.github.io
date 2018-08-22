@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="E=mc^2">
+<meta name="description" content="$$E=mc^2$$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test1">
 <meta property="og:url" content="http://yoursite.com/2018/08/22/test1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="E=mc^2">
+<meta property="og:description" content="$$E=mc^2$$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-22T07:33:22.858Z">
+<meta property="og:updated_time" content="2018-08-22T07:46:14.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="test1">
-<meta name="twitter:description" content="E=mc^2">
+<meta name="twitter:description" content="$$E=mc^2$$">
 
 
 
@@ -370,7 +370,8 @@
       
 
       
-        <script type="math/tex; mode=display">E=mc^2</script>
+        <p>$$E=mc^2$$</p>
+
       
     </div>
     
@@ -731,6 +732,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
