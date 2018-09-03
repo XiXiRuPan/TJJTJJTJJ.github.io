@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpya = t.from_numpy(a)# Numpy -&amp;gt; Tensorx = x.cuda">
+<meta name="description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpya = t.from_numpy(a)# Numpy -&amp;gt; Tensorx = x.cud">
 <meta name="keywords" content="pytorch-learn chenyun">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch">
 <meta property="og:url" content="http://yoursite.com/2018/08/26/pytorch/index.html">
 <meta property="og:site_name" content="田佳杰">
-<meta property="og:description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpya = t.from_numpy(a)# Numpy -&amp;gt; Tensorx = x.cuda">
+<meta property="og:description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpya = t.from_numpy(a)# Numpy -&amp;gt; Tensorx = x.cud">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-03T06:33:52.808Z">
+<meta property="og:updated_time" content="2018-09-03T06:36:31.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pytorch">
-<meta name="twitter:description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpya = t.from_numpy(a)# Numpy -&amp;gt; Tensorx = x.cuda">
+<meta name="twitter:description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpya = t.from_numpy(a)# Numpy -&amp;gt; Tensorx = x.cud">
 
 
 
@@ -393,7 +393,8 @@
       
 
       
-        <p>魔术方法: P23  </p>
+        <a id="more"></a>
+<p>魔术方法: P23  </p>
 <p>调试: P27<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ipdb</span><br><span class="line"><span class="title">ipdb</span>.set_trace()</span><br></pre></td></tr></table></figure></p>
 <p>带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别  </p>
 <h2 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h2><p>Numpy与Tensor共享内存<br>b = a.numpy() # Tensor -&gt; Numpy<br>a = t.from_numpy(a)# Numpy -&gt; Tensor<br>x = x.cuda()<br>tensor的操作:torch.function,tensor.function.<br>普通索引共享内存<br>高级索引不共享内存<br>线性代数函数 P70<br>自动广播原则: unsqueese(view),expand(expand_as)<br>tensor=Tensor+Storage<br>持久化和加载: t.save(a,’a.pth’) b=t.load(‘a.pth’) P77<br>%timeit -n 10</p>
