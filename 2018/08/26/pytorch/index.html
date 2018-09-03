@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpy    a = t.from_numpy(a)# Numpy -&amp;gt; Tensorx = x">
+<meta name="description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpy">
 <meta name="keywords" content="pytorch-learn chenyun">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch">
 <meta property="og:url" content="http://yoursite.com/2018/08/26/pytorch/index.html">
 <meta property="og:site_name" content="田佳杰">
-<meta property="og:description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpy    a = t.from_numpy(a)# Numpy -&amp;gt; Tensorx = x">
+<meta property="og:description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpy">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-03T06:41:23.230Z">
+<meta property="og:updated_time" content="2018-09-03T06:45:12.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pytorch">
-<meta name="twitter:description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpy    a = t.from_numpy(a)# Numpy -&amp;gt; Tensorx = x">
+<meta name="twitter:description" content="魔术方法: P23   调试: P2712import ipdbipdb.set_trace() 带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别   TensorNumpy与Tensor共享内存b = a.numpy() # Tensor -&amp;gt; Numpy">
 
 
 
@@ -393,13 +393,10 @@
       
 
       
-        <a id="more"></a>
-<p>魔术方法: P23  </p>
+        <p>魔术方法: P23  </p>
 <p>调试: P27<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ipdb</span><br><span class="line"><span class="title">ipdb</span>.set_trace()</span><br></pre></td></tr></table></figure></p>
 <p>带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别  </p>
-<h2 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h2><p>Numpy与Tensor共享内存<br>b = a.numpy() # Tensor -&gt; Numpy  </p>
-<!--more-->
-<p>a = t.from_numpy(a)# Numpy -&gt; Tensor<br>x = x.cuda()<br>tensor的操作:torch.function,tensor.function.<br>普通索引共享内存<br>高级索引不共享内存<br>线性代数函数 P70<br>自动广播原则: unsqueese(view),expand(expand_as)<br>tensor=Tensor+Storage<br>持久化和加载: t.save(a,’a.pth’) b=t.load(‘a.pth’) P77<br>%timeit -n 10</p>
+<h2 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h2><p>Numpy与Tensor共享内存<br>b = a.numpy() # Tensor -&gt; Numpy<br><a id="more"></a><br>a = t.from_numpy(a)# Numpy -&gt; Tensor<br>x = x.cuda()<br>tensor的操作:torch.function,tensor.function.<br>普通索引共享内存<br>高级索引不共享内存<br>线性代数函数 P70<br>自动广播原则: unsqueese(view),expand(expand_as)<br>tensor=Tensor+Storage<br>持久化和加载: t.save(a,’a.pth’) b=t.load(‘a.pth’) P77<br>%timeit -n 10</p>
 <hr>
 <h2 id="Variable和autograd"><a href="#Variable和autograd" class="headerlink" title="Variable和autograd"></a>Variable和autograd</h2><p>from torch.autograd import Variable<br>三个属性<br>data: 对应Tensor<br>grad: 梯度，和data大小一样，也是Variable<br>grad_fn: 指向Function对象,用于构建计算图。用户创建对应叶子节点,grad_fn=None.记录的是它什么操作的输出。<br>Variable的构造函数的关键字参数:requires_grad(bool):是否需要求导; volatile(bool):True表示之上的计算图都不会求导<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = Variable(t.ones(2,2),requires_grad = True)</span><br><span class="line">y = x.sum()</span><br><span class="line">y.grad_fn</span><br><span class="line">y.backward()</span><br><span class="line">x.grad</span><br><span class="line">x.grad.data.zero_() <span class="comment"># 反向传播清零</span></span><br></pre></td></tr></table></figure></p>
 <p>variable.backward(grad_variable=None, retain_graph=None, create_graph=None)<br>假设用户输入的数据是真实的不需要求导的。<br>数值在前向传导过程成会保存成buffer,计算梯度之后自动清空。多次反向求导可以使用关键字参数retain_graph=True<br>retain_graph=True 实现多次反向传播？？？？</p>
