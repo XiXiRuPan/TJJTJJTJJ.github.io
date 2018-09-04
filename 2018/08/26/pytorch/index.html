@@ -422,14 +422,14 @@
 </li>
 </ol>
 <hr>
-<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><p>自定义的数据集需要继承Dataset类，并实现两个Python魔术方法<br>__getitem__:返回一个样本。obj[index]=obj.<strong>getitem</strong>(index)<br>__len__:返回样本数量。<br>transform=T.Compose()<br>trans=T.Lambda(lambda img:img.rotate(randonm()*360))<br>ImageFolder(root,transform,target_transform,loader)P139<br>self.class_to_idx了解label和文件夹名的映射关系<br>DataLoader()定义shuffle等P142<br>取样:P146<br>工具包:torchvision  P147</p>
+<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><p>自定义的数据集需要继承Dataset类，并实现两个Python魔术方法<br>__getitem<strong>:返回一个样本。obj[index]=obj.</strong>getitem<strong>(index)<br>__len</strong>:返回样本数量。<br>transform=T.Compose()<br>trans=T.Lambda(lambda img:img.rotate(randonm()*360))<br>ImageFolder(root,transform,target_transform,loader)P139<br>self.class_to_idx了解label和文件夹名的映射关系<br>DataLoader()定义shuffle等P142<br>取样:P146<br>工具包:torchvision  P147</p>
 <ul>
 <li>models:训练好模型</li>
 <li>dataset:数据集加载</li>
 <li>transforms:数据预处理操作，主要针对Tensor和PIL Image对象的操作    </li>
 </ul>
 <p>make_grid和save_img<br>可视化工具 Tensorboard和visdom<br>tensor_board和TensorboardX<br>visdom:env pane</p>
-<p>%env LS_COLORS=None<br>!tree –charset ascii data/dogcat<br>Tensor–numpy:np.array(Tensor) torch.Tensor(np.darray)<br>PIL.image–numpy:np.asarray(PIL.image) image.fromarray(numpy.ndarray)<br>PIL.image–Tensor:trans = transforms.Compose([transforms.ToTensor()]) tens = trans(img)  ToPILImage()  </p>
+<p>%env LS_COLORS=None<br>!tree —charset ascii data/dogcat<br>Tensor—numpy:np.array(Tensor) torch.Tensor(np.darray)<br>PIL.image—numpy:np.asarray(PIL.image) image.fromarray(numpy.ndarray)<br>PIL.image—Tensor:trans = transforms.Compose([transforms.ToTensor()]) tens = trans(img)  ToPILImage()  </p>
 <h2 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h2><p>P158<br>with t.cuda.device(1):<br>t.cuda.set_device(1)<br>export CUDA_VISIVLE_DEVICES=1<br>b = t.load(‘a.pth’)<br>c = t.load(‘a.pth’,map_location=lamdba storage, loc: storage)<br>d = t.load(‘a.pth’,map_location={‘cuda:1’:’cuda:0’})<br>Module和Optimizer: state_dict  </p>
 <h2 id="Dog-vs-Cat"><a href="#Dog-vs-Cat" class="headerlink" title="Dog.vs.Cat"></a>Dog.vs.Cat</h2><p>checkpoints/ 中间模型<br>data/</p>
 <ul>
@@ -460,7 +460,7 @@
 <li>def train(**kwargs):</li>
 <li>def test(**kwargs):</li>
 <li>def val(model,dataloader):</li>
-<li>def help():<br>*<pre><code>if __name__==&apos;main&apos;:
+<li>def help():<br>*<pre><code>if __name__==&#39;main&#39;:
   import fire
   fire.Fire()
 </code></pre></li>
@@ -468,7 +468,7 @@
 <p>pytorch 中文文档<br><a href="https://pytorch-cn.readthedocs.io/zh/latest/package_references/functional/" target="_blank" rel="noopener">https://pytorch-cn.readthedocs.io/zh/latest/package_references/functional/</a></p>
 <h1 id="PyTorch实战指南-第六章-Dog-VS-Cat"><a href="#PyTorch实战指南-第六章-Dog-VS-Cat" class="headerlink" title="PyTorch实战指南 第六章  Dog.VS.Cat"></a>PyTorch实战指南 第六章  Dog.VS.Cat</h1><p>这是根据深度学习框架：PyTorch入门与实践这本书的第六章写的代码，是关于猫狗识别的，在这个过程中，一边看，一边写，刚开始是运行作者已经写好的代码，后来自己在jupyter上进行复制的复现，发现import无法导入ipynb文件，在使用了Ipynb_importer.py之后可以实现同一文件内导入ipynb模块，如果是在其他文件中进行导入，会有点费事，以下会记录Ipynb_importer.py的用法。因为费事，自己开始开始使用pycharm+jupyter的方式，直接自己根据作者提供的源码进行编写，在编写的过程中接受作者的思想。用pycharm的不方便的地方是无法直接运行测试，所以采取的是对自己不熟悉的模块或者方法，用jupyter进行测试，而直接编写则是pycharm。但是感觉pycharm还是没有那么好用，可能是自己用的少。我是按照data、model、util、main+config、requirement的顺序编写的。在编写函数的过程中，因为刚开始不理解各个模块是怎么组织起来的，所以都是从简单的开始，所以函数的位置和作者的不一样，其中对于model.save和model.load、vis.plot和vis.log的封装让我感觉很有意思，刚开始是编写的时候只能直接打上问号，因为不懂这么编写的意义，但在编写主函数main的时候才感觉到了这种编写的好处，基本把模型训练和对模型、结果的处理完全分离开，避免了耦合性很强的后果。</p>
 <hr>
-<h1 id="Ipynb-importer-py"><a href="#Ipynb-importer-py" class="headerlink" title="Ipynb_importer.py"></a>Ipynb_importer.py</h1><p>我通过几次测试发现，import Ipynb_importer 只需要放在你的当前要运行的文件中即可，然后在其他文件下的<strong>init</strong>.py 中导入所有的当前文件夹中的Module，就像这样<br>/first/second/models/<br>—–<strong>init</strong>.py<br>————- None<br>—–BasicModule.ipynb<br>—–AlexNet.ipynb<br>———-from models.BasicModule import BasicModule</p>
+<h1 id="Ipynb-importer-py"><a href="#Ipynb-importer-py" class="headerlink" title="Ipynb_importer.py"></a>Ipynb_importer.py</h1><p>我通过几次测试发现，import Ipynb_importer 只需要放在你的当前要运行的文件中即可，然后在其他文件下的<strong>init</strong>.py 中导入所有的当前文件夹中的Module，就像这样<br>/first/second/models/<br>——-<strong>init</strong>.py<br>——————- None<br>——-BasicModule.ipynb<br>——-AlexNet.ipynb<br>—————from models.BasicModule import BasicModule</p>
 <p>/first/main.py<br>import Ipynb_importer<br>from models import AlexNet    </p>
 <p>之所以在AlexNet中写models.BasicModule是因为直接导入BasicModule会报错，我根据<strong>dict</strong>的输出发现有问题，这一点和<a href="https://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Importing%20Notebooks.html" target="_blank" rel="noopener">官网</a>介绍的有一点区别，我没有实现官网说明的跨文件夹导入。因为如果改文件夹导入的话，models.BasicModule要接着换成相应的名字，与我预想的不一致，我预想的是不管在哪里导入，已经导入的应该不受影响才对。</p>
 <hr>
@@ -519,6 +519,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/04/deconv/" rel="prev" title="deconv\dilated conv">
+                deconv\dilated conv <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -599,7 +603,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -610,7 +614,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -621,7 +625,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
