@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="田佳杰">
 <meta property="og:description" content="最近看的一片论文里看到了反卷积，找了一些材料，记录一下，留作纪念。首先定义符号：      假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同     $i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel si">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-04T11:13:04.837Z">
+<meta property="og:updated_time" content="2018-09-04T11:21:18.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deconv\dilated conv">
 <meta name="twitter:description" content="最近看的一片论文里看到了反卷积，找了一些材料，记录一下，留作纪念。首先定义符号：      假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同     $i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel si">
@@ -396,12 +396,12 @@
         <p>最近看的一片论文里看到了反卷积，找了一些材料，记录一下，留作纪念。<br>首先定义符号：    </p>
 <ul>
 <li>假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同    </li>
-<li>$i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel size，padding，stride.<br>[动图演示]<a href="https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic" target="_blank" rel="noopener">https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic</a><br>[详细解析]<a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">https://buptldy.github.io/2016/10/29/2016-10-29-deconv/</a>    </li>
+<li>$i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel size，padding，stride.<br><a href="https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic" target="_blank" rel="noopener">动图演示</a><br><a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">详细解析</a>    </li>
 </ul>
-<p>对应的公式如下：</p>
-<script type="math/tex; mode=display">i'=o</script><script type="math/tex; mode=display">o'=i</script><script type="math/tex; mode=display">k'=k</script><script type="math/tex; mode=display">s'=1</script><script type="math/tex; mode=display">p'=k-1-p</script><script type="math/tex; mode=display">o' = (s-1)(i'-1)+s-k'+2p'</script><script type="math/tex; mode=display">o' =   s(i'-1)+k-2p</script><p>以上只是先说明了对应尺寸的大小，具体的数学原理留作补充。</p>
-<p>扩张卷积的计算公式与上面不一样<br>[扩张卷积]<a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">https://blog.csdn.net/Quincuntial/article/details/78743033</a></p>
-<script type="math/tex; mode=display">o'=\frac{i'-k+2p-(k-1)*(p-1)}{s}+1</script>
+<p>对应的公式如下：<br>$$ i’=o$$<br>$$ o’=i $$<br>$$ k’=k $$<br>$$ s’=1$$<br>$$ p’=k-1-p $$<br>$$ o’ = (s-1)(i’-1)+s-k’+2p’ $$<br>$$ o’ =   s(i’-1)+k-2p $$</p>
+<p>以上只是先说明了对应尺寸的大小，具体的数学原理留作补充。</p>
+<p>扩张卷积的计算公式与上面不一样<br><a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">扩张卷积</a><br>$$ o’=\frac{i’-k+2p-(k-1)*(p-1)}{s}+1$$</p>
+
       
     </div>
     
@@ -440,6 +440,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/04/Inception/" rel="prev" title="Inception">
+                Inception <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -511,7 +515,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
