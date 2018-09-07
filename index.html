@@ -850,11 +850,11 @@
             <p>最近看的一片论文里看到了反卷积，找了一些材料，记录一下，留作纪念。<br>首先定义符号：    </p>
 <ul>
 <li>假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同    </li>
-<li>$i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel size，padding，stride.<br><a href="https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic" target="_blank" rel="noopener">动图演示</a><br><a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">详细解析</a><br>反卷积对应的是直接在原图上添加0<br>对应的公式如下：<br>$$ i’=o$$<br>$$ o’=i $$<br>$$ k’=k $$<br>$$ s’=1$$<br>$$ p’=k-1-p $$<br>$$ d’=1 $$<br>$$ o’ = (s-1)(i’-1)+i’-k’+2p’ $$<br>$$ o’ =   s(i’-1)+k-2p $$<br>$$ d’ = 2$$<br>$$ k’ = k + (d-1)<em>(k-1) $$<br>$$ p’ = k-1-p+(d-1)</em>(k-1) $$<br>$$ o’ = (s-1)(i’-1)+i’-k’+2p’ $$<br>$$ o’ = s(i’-1)+k+(d-1)<em>(k-1)-2p’ $$<br>所以要保持图片图片大小不变，必须令s=1，$$ d = \frac{2}{k-1}</em>p $$<br>例如：k=3，d=p,</li>
+<li>$i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel size，padding，stride.<br><a href="https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic" target="_blank" rel="noopener">动图演示</a><br><a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">详细解析</a><br>反卷积对应的是直接在原图上添加0<br>对应的公式如下：<script type="math/tex; mode=display">i'=o</script><script type="math/tex; mode=display">o'=i</script><script type="math/tex; mode=display">k'=k</script><script type="math/tex; mode=display">s'=1</script><script type="math/tex; mode=display">p'=k-1-p</script><script type="math/tex; mode=display">d'=1</script><script type="math/tex; mode=display">o' = (s-1)(i'-1)+i'-k'+2p'</script><script type="math/tex; mode=display">o' =   s(i'-1)+k-2p</script><script type="math/tex; mode=display">d' = 2</script><script type="math/tex; mode=display">k' = k + (d-1)*(k-1)</script><script type="math/tex; mode=display">p' = k-1-p+(d-1)*(k-1)</script><script type="math/tex; mode=display">o' = (s-1)(i'-1)+i'-k'+2p'</script><script type="math/tex; mode=display">o' = s(i'-1)+k+(d-1)*(k-1)-2p'</script>所以要保持图片图片大小不变，必须令s=1，<script type="math/tex">d = \frac{2}{k-1}*p</script><br>例如：k=3，d=p,</li>
 </ul>
 <p>以上只是先说明了对应尺寸的大小，具体的数学原理留作补充。</p>
-<p>扩张卷积的计算公式与上面不一样<br>扩张卷积扩张的是卷积核的大小，在卷积核上添加0<br><a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">扩张卷积</a><br>$$ o’=\frac{i’-k+2p-(k-1)*(d-1)}{s}+1$$</p>
-
+<p>扩张卷积的计算公式与上面不一样<br>扩张卷积扩张的是卷积核的大小，在卷积核上添加0<br><a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">扩张卷积</a></p>
+<script type="math/tex; mode=display">o'=\frac{i'-k+2p-(k-1)*(d-1)}{s}+1</script>
           
         
       
@@ -994,7 +994,7 @@
 
       
         
-          <p>魔术方法: P23  </p>
+          <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>魔术方法: P23  </p>
 <p>调试: P27<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ipdb</span><br><span class="line"><span class="title">ipdb</span>.set_trace()</span><br></pre></td></tr></table></figure></p>
 <p>带下划线_的函数会修改Tensor本身，比如x.add_(y)和x.add(y)的区别  </p>
 <h2 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h2><p>Numpy与Tensor共享内存<br>b = a.numpy() # Tensor -&gt; Numpy<br>
@@ -1399,17 +1399,21 @@
       
         
           
-            <p>$$E=mc^2$$</p>
-<p>\begin{aligned}<br>\dot{x} &amp; = \sigma(y-x) \\<br>\dot{y} &amp; = \rho x - y - xz \\<br>\dot{z} &amp; = -\beta z + xy<br>\end{aligned}</p>
+            <script type="math/tex; mode=display">E=mc^2</script><p>\begin{aligned}<br>\dot{x} &amp; = \sigma(y-x) \\\<br>\dot{y} &amp; = \rho x - y - xz \\\<br>\dot{z} &amp; = -\beta z + xy<br>\end{aligned}</p>
 <p>基准测试<a href="http:www.baidu.com" target="_blank" rel="noopener">百度</a></p>
 <p>是一个链接测试<a href="http://www.baidu.com" title="baid" target="_blank" rel="noopener">百度</a></p>
 <p>第二个链接测试<a href="http://www.baidu.com" target="_blank" rel="noopener">bai du</a></p>
 <p>第三个链接测试<a href="http://www.baidu.com" target="_blank" rel="noopener">badu</a></p>
 <p>第四个测试<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></p>
-<p>第五个测试这是一个链接到谷歌的<a href="http://www.google.com" target="_blank" rel="noopener">^脚注</a>。</p>
-<p>第六个测试 Here is a footnote reference,<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> and another.[^longnote]</p>
-<p>[^longnote]: Here’s one with multiple blocks.</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Here is the footnote.</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+<p>第五个测试这是一个链接到谷歌的<sup><a href="#fn_脚注" id="reffn_脚注">脚注</a></sup>。</p>
+<blockquote id="fn_脚注">
+<sup>脚注</sup>. <a href="http://www.google.com" target="_blank" rel="noopener">http://www.google.com</a><a href="#reffn_脚注" title="Jump back to footnote [脚注] in the text."> &#8617;</a>
+</blockquote>
+<p>第六个测试 Here is a footnote reference,<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> and another.<sup><a href="#fn_longnote" id="reffn_longnote">longnote</a></sup></p>
+<blockquote id="fn_longnote">
+<sup>longnote</sup>. Here’s one with multiple blocks.<a href="#reffn_longnote" title="Jump back to footnote [longnote] in the text."> &#8617;</a>
+</blockquote>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Here is the footnote.</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">http://www.baidu.com</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
           
         
       

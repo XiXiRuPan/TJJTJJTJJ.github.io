@@ -396,11 +396,11 @@
         <p>最近看的一片论文里看到了反卷积，找了一些材料，记录一下，留作纪念。<br>首先定义符号：    </p>
 <ul>
 <li>假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同    </li>
-<li>$i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel size，padding，stride.<br><a href="https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic" target="_blank" rel="noopener">动图演示</a><br><a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">详细解析</a><br>反卷积对应的是直接在原图上添加0<br>对应的公式如下：<br>$$ i’=o$$<br>$$ o’=i $$<br>$$ k’=k $$<br>$$ s’=1$$<br>$$ p’=k-1-p $$<br>$$ d’=1 $$<br>$$ o’ = (s-1)(i’-1)+i’-k’+2p’ $$<br>$$ o’ =   s(i’-1)+k-2p $$<br>$$ d’ = 2$$<br>$$ k’ = k + (d-1)<em>(k-1) $$<br>$$ p’ = k-1-p+(d-1)</em>(k-1) $$<br>$$ o’ = (s-1)(i’-1)+i’-k’+2p’ $$<br>$$ o’ = s(i’-1)+k+(d-1)<em>(k-1)-2p’ $$<br>所以要保持图片图片大小不变，必须令s=1，$$ d = \frac{2}{k-1}</em>p $$<br>例如：k=3，d=p,</li>
+<li>$i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel size，padding，stride.<br><a href="https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic" target="_blank" rel="noopener">动图演示</a><br><a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">详细解析</a><br>反卷积对应的是直接在原图上添加0<br>对应的公式如下：<script type="math/tex; mode=display">i'=o</script><script type="math/tex; mode=display">o'=i</script><script type="math/tex; mode=display">k'=k</script><script type="math/tex; mode=display">s'=1</script><script type="math/tex; mode=display">p'=k-1-p</script><script type="math/tex; mode=display">d'=1</script><script type="math/tex; mode=display">o' = (s-1)(i'-1)+i'-k'+2p'</script><script type="math/tex; mode=display">o' =   s(i'-1)+k-2p</script><script type="math/tex; mode=display">d' = 2</script><script type="math/tex; mode=display">k' = k + (d-1)*(k-1)</script><script type="math/tex; mode=display">p' = k-1-p+(d-1)*(k-1)</script><script type="math/tex; mode=display">o' = (s-1)(i'-1)+i'-k'+2p'</script><script type="math/tex; mode=display">o' = s(i'-1)+k+(d-1)*(k-1)-2p'</script>所以要保持图片图片大小不变，必须令s=1，<script type="math/tex">d = \frac{2}{k-1}*p</script><br>例如：k=3，d=p,</li>
 </ul>
 <p>以上只是先说明了对应尺寸的大小，具体的数学原理留作补充。</p>
-<p>扩张卷积的计算公式与上面不一样<br>扩张卷积扩张的是卷积核的大小，在卷积核上添加0<br><a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">扩张卷积</a><br>$$ o’=\frac{i’-k+2p-(k-1)*(d-1)}{s}+1$$</p>
-
+<p>扩张卷积的计算公式与上面不一样<br>扩张卷积扩张的是卷积核的大小，在卷积核上添加0<br><a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">扩张卷积</a></p>
+<script type="math/tex; mode=display">o'=\frac{i'-k+2p-(k-1)*(d-1)}{s}+1</script>
       
     </div>
     
