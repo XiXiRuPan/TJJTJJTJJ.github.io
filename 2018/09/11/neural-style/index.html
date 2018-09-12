@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="田佳杰">
 <meta property="og:description" content="1 前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。这是我的代码大神链接：(https://github.com/anishathalye/neural-style)这是论文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-11T16:15:03.123Z">
+<meta property="og:updated_time" content="2018-09-12T03:05:59.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="neural style">
 <meta name="twitter:description" content="1 前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。这是我的代码大神链接：(https://github.com/anishathalye/neural-style)这是论文">
@@ -441,7 +441,12 @@
 <h3 id="train"><a href="#train" class="headerlink" title="train()"></a>train()</h3><p>图片分为两种：风格图片，只需要一张，内容图片，很多，用于训练，这一点没有暂时没有理解为什么这么设置。其中，对输入的图片进行了乘以255，我觉得是因为为了使模型的输出直接就是255，不需要再进行处理，没有验证。<br>ensor.item()<br> tensor.tolist()<br>content_image = tv.datasets.folder.default_loader(opt.content_path)</p>
 <h3 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保存图片的几种方法，第七章的是 </span></span><br><span class="line"><span class="comment"># 0-1</span></span><br><span class="line">tv.utils.save_image(fix_fake_imgs,<span class="string">'%s/%s.png'</span> % (opt.img_save_path, epoch),normalize=<span class="keyword">True</span>, range=(<span class="number">-1</span>,<span class="number">1</span>))</span><br><span class="line"><span class="comment"># vis.save竟然没找到  我的神   </span></span><br><span class="line"><span class="comment"># 0-1</span></span><br><span class="line">vis.img(<span class="string">'input'</span>)</span><br><span class="line">vis.save([opt.env])</span><br></pre></td></tr></table></figure>
 <h3 id="utils-py"><a href="#utils-py" class="headerlink" title="utils.py"></a>utils.py</h3><p>这里的疑问是得到gram矩阵的时候，为什么要除以c*h*w,而不是h*w，虽然源码都是这么写的。</p>
-<p>写到这里也还是还要很多疑问，暂时保留。</p>
+<p>写到这里也还是还要很多疑问，暂时保留。<br>昨天发现训练的过程不对，今天在对比代码的过程中，发现了自己写代码的一些漏洞，主要有</p>
+<ol>
+<li>命名不规范：表示同一个东西出现了两个命名，导致了自己在写代码的过程中传参出现了问题，或者是一类东西没有一个规则进行命名，导致自己在写代码的过程中用到之前的变量的时候必须返回去去查找这个变量，效率低且容易出错。</li>
+<li>对源码的修改不是很恰当，导致在写上卷积层的输出和源码完全不一致，这个是自己之前没有遇到的。</li>
+<li>visdom的运用，我用不同的environment导致结果也不一样，default是之前一直用的，这次换成了test1之后显示的结果就对了。这个暂时还不清楚原因，如果是会保留信息的话，但是plot是重新开始画的，等会测试测试vis的问题。</li>
+</ol>
 
       
     </div>
