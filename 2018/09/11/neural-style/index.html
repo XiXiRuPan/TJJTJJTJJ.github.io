@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="田佳杰">
 <meta property="og:description" content="1 前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。这是我的代码大神链接：(https://github.com/anishathalye/neural-style)这是论文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-12T03:05:59.749Z">
+<meta property="og:image" content="http://yoursite.com/pictures/neural-style/pic1.png">
+<meta property="og:updated_time" content="2018-09-12T10:43:57.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="neural style">
 <meta name="twitter:description" content="1 前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。这是我的代码大神链接：(https://github.com/anishathalye/neural-style)这是论文">
+<meta name="twitter:image" content="http://yoursite.com/pictures/neural-style/pic1.png">
 
 
 
@@ -369,6 +371,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/11/neural-style/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/11/neural-style/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -438,15 +451,17 @@
 <p>这种表示可以使得某一个网络不参与梯度下降这个过程，但是对于网络的输入和输出还是支持梯度下降的。<br>requires_grad只是表示当前的变量不再需要梯度下降，<br>综上所述，对于中间变量，需要使用x.detach()，使其变成默认的叶子节点，对于叶子节点，使用x.requires_grad。并且对于中间变量使用requires_grad会报错。</p>
 <p>在第八章，还有一种表示方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> t.no_grad():</span><br><span class="line">    features = vgg16(style_img)</span><br><span class="line">    gram_style = [gram_matrix(feature) <span class="keyword">for</span> feature <span class="keyword">in</span> features]</span><br><span class="line"></span><br><span class="line"><span class="meta">@t.no_grad()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stylize</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></p>
 <p>这种方法会使得任何计算得到的结果都是requires_grad = False,暂时不清楚和detach()的区别。也是一种表示只前向传播的方法，不参与反向传播和梯度下降。</p>
-<h3 id="train"><a href="#train" class="headerlink" title="train()"></a>train()</h3><p>图片分为两种：风格图片，只需要一张，内容图片，很多，用于训练，这一点没有暂时没有理解为什么这么设置。其中，对输入的图片进行了乘以255，我觉得是因为为了使模型的输出直接就是255，不需要再进行处理，没有验证。<br>ensor.item()<br> tensor.tolist()<br>content_image = tv.datasets.folder.default_loader(opt.content_path)</p>
+<h3 id="train"><a href="#train" class="headerlink" title="train()"></a>train()</h3><p>图片分为两种：风格图片，只需要一张，内容图片，很多，用于训练，这一点没有暂时没有理解为什么这么设置。其中，对输入的图片进行了乘以255，我觉得是因为为了使模型的输出直接就是255，不需要再进行处理，没有验证。<br>ensor.item()<br> tensor.tolist()<br>content_image = tv.datasets.folder.default_loader(opt.content_path)<br>在训练过程中，会发现对于整个训练过程，不仅有神经网络，而且还有自己定义的函数，nn.functional，还有两个损失函数，这是之前没有预料到的。</p>
 <h3 id="保存图片"><a href="#保存图片" class="headerlink" title="保存图片"></a>保存图片</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保存图片的几种方法，第七章的是 </span></span><br><span class="line"><span class="comment"># 0-1</span></span><br><span class="line">tv.utils.save_image(fix_fake_imgs,<span class="string">'%s/%s.png'</span> % (opt.img_save_path, epoch),normalize=<span class="keyword">True</span>, range=(<span class="number">-1</span>,<span class="number">1</span>))</span><br><span class="line"><span class="comment"># vis.save竟然没找到  我的神   </span></span><br><span class="line"><span class="comment"># 0-1</span></span><br><span class="line">vis.img(<span class="string">'input'</span>)</span><br><span class="line">vis.save([opt.env])</span><br></pre></td></tr></table></figure>
 <h3 id="utils-py"><a href="#utils-py" class="headerlink" title="utils.py"></a>utils.py</h3><p>这里的疑问是得到gram矩阵的时候，为什么要除以c*h*w,而不是h*w，虽然源码都是这么写的。</p>
 <p>写到这里也还是还要很多疑问，暂时保留。<br>昨天发现训练的过程不对，今天在对比代码的过程中，发现了自己写代码的一些漏洞，主要有</p>
 <ol>
 <li>命名不规范：表示同一个东西出现了两个命名，导致了自己在写代码的过程中传参出现了问题，或者是一类东西没有一个规则进行命名，导致自己在写代码的过程中用到之前的变量的时候必须返回去去查找这个变量，效率低且容易出错。</li>
 <li>对源码的修改不是很恰当，导致在写上卷积层的输出和源码完全不一致，这个是自己之前没有遇到的。</li>
-<li>visdom的运用，我用不同的environment导致结果也不一样，default是之前一直用的，这次换成了test1之后显示的结果就对了。这个暂时还不清楚原因，如果是会保留信息的话，但是plot是重新开始画的，等会测试测试vis的问题。</li>
+<li>visdom的运用，我用不同的environment导致结果也不一样，default是之前一直用的，这次换成了test1之后显示的结果就对了。这个暂时还不清楚原因，如果是会保留信息的话，但是plot是重新开始画的，等会测试测试vis的问题。是网络的问题。但是vis.save()的介绍是序列化信息，暂时还没有理解。</li>
 </ol>
+<p>贴两个成果图看看效果。<br><img src="/pictures/neural-style/pic1.png" alt="训练过程中的图片"></p>
+<h2 id="遗留的问题"><a href="#遗留的问题" class="headerlink" title="遗留的问题"></a>遗留的问题</h2><p>Gram矩阵为什么可以代表图片风格，这里有个解释(<a href="https://arxiv.org/pdf/1701.01036.pdf)，还没来得及看。" target="_blank" rel="noopener">https://arxiv.org/pdf/1701.01036.pdf)，还没来得及看。</a></p>
 
       
     </div>
@@ -513,6 +528,16 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -621,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-前言"><span class="nav-number">1.</span> <span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-问题及其解决"><span class="nav-number">2.</span> <span class="nav-text">2 问题及其解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-文件组织形式"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 文件组织形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-models"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PackedVGG-py"><span class="nav-number">2.2.1.</span> <span class="nav-text">PackedVGG.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transformer-py"><span class="nav-number">2.2.2.</span> <span class="nav-text">transformer.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-py-amp-visualize-py"><span class="nav-number">2.2.3.</span> <span class="nav-text">dataset.py &amp; visualize.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main-py-amp-utils-py-amp-config-py"><span class="nav-number">2.2.4.</span> <span class="nav-text">main.py &amp; utils.py &amp;  config.py</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cuda"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">cuda</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tqdm"><span class="nav-number">2.2.5.</span> <span class="nav-text">tqdm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向传播和梯度下降"><span class="nav-number">2.2.6.</span> <span class="nav-text">反向传播和梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train"><span class="nav-number">2.2.7.</span> <span class="nav-text">train()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存图片"><span class="nav-number">2.2.8.</span> <span class="nav-text">保存图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#utils-py"><span class="nav-number">2.2.9.</span> <span class="nav-text">utils.py</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-前言"><span class="nav-number">1.</span> <span class="nav-text">1 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-问题及其解决"><span class="nav-number">2.</span> <span class="nav-text">2 问题及其解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-文件组织形式"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 文件组织形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-models"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PackedVGG-py"><span class="nav-number">2.2.1.</span> <span class="nav-text">PackedVGG.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transformer-py"><span class="nav-number">2.2.2.</span> <span class="nav-text">transformer.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-py-amp-visualize-py"><span class="nav-number">2.2.3.</span> <span class="nav-text">dataset.py &amp; visualize.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main-py-amp-utils-py-amp-config-py"><span class="nav-number">2.2.4.</span> <span class="nav-text">main.py &amp; utils.py &amp;  config.py</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cuda"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">cuda</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tqdm"><span class="nav-number">2.2.5.</span> <span class="nav-text">tqdm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向传播和梯度下降"><span class="nav-number">2.2.6.</span> <span class="nav-text">反向传播和梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train"><span class="nav-number">2.2.7.</span> <span class="nav-text">train()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存图片"><span class="nav-number">2.2.8.</span> <span class="nav-text">保存图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#utils-py"><span class="nav-number">2.2.9.</span> <span class="nav-text">utils.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗留的问题"><span class="nav-number">2.3.</span> <span class="nav-text">遗留的问题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -795,6 +820,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://tjj-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/09/11/neural-style/';
+          this.page.identifier = '2018/09/11/neural-style/';
+          this.page.title = 'neural style';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tjj-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -807,10 +852,6 @@
   
 
 
-
-
-
-  
 
 
 
