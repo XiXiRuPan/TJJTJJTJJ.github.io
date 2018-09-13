@@ -3,6 +3,51 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/2018/09/13/test2/</loc>
+    <lastmod>2018-09-13T14:32:44.801Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2018-09-13T14:31:32.607Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/13/test/</loc>
+    <lastmod>2018-09-13T14:30:24.982Z</lastmod>
+    <data>
+        <display>
+        <title>test</title>
+        <pubTime>2018-09-13T14:30:24.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/13/numpy/</loc>
+    <lastmod>2018-09-13T14:28:36.851Z</lastmod>
+    <data>
+        <display>
+        <title>numpy</title>
+        <pubTime>2018-09-13T14:27:14.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://yoursite.com/2018/08/17/hello-hexo/</loc>
