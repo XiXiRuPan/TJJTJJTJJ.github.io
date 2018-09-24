@@ -4,57 +4,71 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/09/13/test2/</loc>
-    <lastmod>2018-09-13T14:32:44.801Z</lastmod>
+    <loc>http://yoursite.com/2018/09/23/pytorch-chapter9-CharRNN/</loc>
+    <lastmod>2018-09-24T05:55:28.397Z</lastmod>
     <data>
         <display>
-        <title></title>
-        <pubTime>2018-09-13T14:31:32.607Z</pubTime>
+        <title>pytorch chapter9 CharRNN</title>
+        <pubTime>2018-09-23T15:04:12.000Z</pubTime>
         
+        <tag>numpy</tag>
+         
          
            
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
         </display>
     </data>
     </url>
 
     
   <url>
-    <loc>http://yoursite.com/2018/09/13/test/</loc>
-    <lastmod>2018-09-13T14:30:24.982Z</lastmod>
+    <loc>http://yoursite.com/2018/09/11/pytorch-chapter8-neural-style/</loc>
+    <lastmod>2018-09-24T05:55:12.957Z</lastmod>
     <data>
         <display>
-        <title>test</title>
-        <pubTime>2018-09-13T14:30:24.000Z</pubTime>
+        <title>pytorch chapter8 neural style</title>
+        <pubTime>2018-09-11T03:19:25.000Z</pubTime>
         
+        <tag>neural style transfer</tag>
+         
          
            
+             
+              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
+          
         </display>
     </data>
     </url>
 
     
   <url>
-    <loc>http://yoursite.com/2018/09/13/numpy/</loc>
-    <lastmod>2018-09-13T14:28:36.851Z</lastmod>
+    <loc>http://yoursite.com/2018/08/26/Cmd%20Markdown/</loc>
+    <lastmod>2018-09-24T05:54:21.073Z</lastmod>
     <data>
         <display>
-        <title>numpy</title>
-        <pubTime>2018-09-13T14:27:14.000Z</pubTime>
+        <title>Cmd Markdown</title>
+        <pubTime>2018-08-26T09:34:06.000Z</pubTime>
         
+        <tag>Markdown</tag>
+         
          
            
+             
+              <breadCrumb title="Markdown" url="http://yoursite.com/categories/Markdown/"/>
+          
         </display>
     </data>
     </url>
 
     
-    
   <url>
-    <loc>http://yoursite.com/2018/08/17/hello-hexo/</loc>
-    <lastmod>2018-09-13T05:13:43.364Z</lastmod>
+    <loc>http://yoursite.com/2018/08/17/hexo/</loc>
+    <lastmod>2018-09-24T05:53:53.240Z</lastmod>
     <data>
         <display>
-        <title>hello hexo </title>
+        <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
         <tag>hexo</tag>
@@ -76,24 +90,162 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/09/11/neural-style/</loc>
-    <lastmod>2018-09-12T10:43:57.537Z</lastmod>
+    <loc>http://yoursite.com/2018/08/26/python/</loc>
+    <lastmod>2018-09-24T05:52:47.533Z</lastmod>
     <data>
         <display>
-        <title>neural style</title>
-        <pubTime>2018-09-11T03:19:25.000Z</pubTime>
+        <title>python</title>
+        <pubTime>2018-08-26T09:34:06.000Z</pubTime>
         
-        <tag>neural style transfer</tag>
+        <tag>python</tag>
          
          
            
              
-              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/04/Inception/</loc>
+    <lastmod>2018-09-24T05:50:40.398Z</lastmod>
+    <data>
+        <display>
+        <title>Inception</title>
+        <pubTime>2018-09-04T11:23:43.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/24/python-picture/</loc>
+    <lastmod>2018-09-24T05:46:13.394Z</lastmod>
+    <data>
+        <display>
+        <title>python-picture</title>
+        <pubTime>2018-09-24T04:08:02.000Z</pubTime>
+        
+        <tag>python,picture</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/24/CMC/</loc>
+    <lastmod>2018-09-24T05:46:07.768Z</lastmod>
+    <data>
+        <display>
+        <title>CMC</title>
+        <pubTime>2018-09-24T04:00:17.000Z</pubTime>
+        
+        <tag>CMC</tag>
+         
+         
+           
+             
+              <breadCrumb title="person-reid" url="http://yoursite.com/categories/person-reid/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/13/numpy/</loc>
+    <lastmod>2018-09-24T05:45:59.852Z</lastmod>
+    <data>
+        <display>
+        <title>numpy</title>
+        <pubTime>2018-09-13T14:27:14.000Z</pubTime>
+        
+        <tag>numpy</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/24/html/</loc>
+    <lastmod>2018-09-24T04:21:07.345Z</lastmod>
+    <data>
+        <display>
+        <title>html</title>
+        <pubTime>2018-09-24T04:20:24.000Z</pubTime>
+        
+        <tag>html</tag>
+         
+         
+           
+             
+              <breadCrumb title="html" url="http://yoursite.com/categories/html/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/06/data/</loc>
+    <lastmod>2018-09-17T09:13:19.360Z</lastmod>
+    <data>
+        <display>
+        <title>data</title>
+        <pubTime>2018-09-06T15:06:10.000Z</pubTime>
+        
+        <tag>data</tag>
+         
+        <tag>re-id</tag>
+         
+         
+           
+             
+              <breadCrumb title="re-id" url="http://yoursite.com/categories/re-id/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/08/26/pytorch-1/</loc>
+    <lastmod>2018-09-17T07:36:14.630Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch</title>
+        <pubTime>2018-08-26T13:38:25.000Z</pubTime>
+        
+        <tag>pytorch-learn chenyun</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://yoursite.com/2018/09/04/deconv/</loc>
@@ -115,153 +267,6 @@
     </url>
 
     
-  <url>
-    <loc>http://yoursite.com/2018/08/20/markdown/</loc>
-    <lastmod>2018-09-11T06:14:53.443Z</lastmod>
-    <data>
-        <display>
-        <title>markdown</title>
-        <pubTime>2018-08-20T14:19:47.000Z</pubTime>
-        
-        <tag>markdown教程</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/06/data/</loc>
-    <lastmod>2018-09-11T03:03:05.762Z</lastmod>
-    <data>
-        <display>
-        <title>data</title>
-        <pubTime>2018-09-06T15:06:10.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/26/pytorch/</loc>
-    <lastmod>2018-09-07T02:32:09.408Z</lastmod>
-    <data>
-        <display>
-        <title>pytorch</title>
-        <pubTime>2018-08-26T13:38:25.000Z</pubTime>
-        
-        <tag>pytorch-learn chenyun</tag>
-         
-         
-           
-             
-              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/26/python-learning/</loc>
-    <lastmod>2018-09-05T01:43:22.096Z</lastmod>
-    <data>
-        <display>
-        <title>python learning</title>
-        <pubTime>2018-08-26T09:34:06.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/04/Inception/</loc>
-    <lastmod>2018-09-04T11:31:01.245Z</lastmod>
-    <data>
-        <display>
-        <title>Inception</title>
-        <pubTime>2018-09-04T11:23:43.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/04/dataset/</loc>
-    <lastmod>2018-09-04T11:28:47.887Z</lastmod>
-    <data>
-        <display>
-        <title>dataset</title>
-        <pubTime>2018-09-04T11:28:20.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/22/test1/</loc>
-    <lastmod>2018-08-22T10:24:08.816Z</lastmod>
-    <data>
-        <display>
-        <title>test1</title>
-        <pubTime>2018-08-22T07:30:17.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/17/hello-world/</loc>
-    <lastmod>2018-08-22T10:04:07.521Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2018-08-17T12:52:19.357Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/21/%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8%20Cmd%20Markdown%20%E7%BC%96%E8%BE%91%E9%98%85%E8%AF%BB%E5%99%A8/</loc>
-    <lastmod>2018-08-22T08:59:09.145Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2018-08-21T14:18:26.574Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://yoursite.com/2018/08/22/MdEditor/</loc>
@@ -279,19 +284,4 @@
 
     
     
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/17/hello-world-1/</loc>
-    <lastmod>2018-08-17T12:59:52.387Z</lastmod>
-    <data>
-        <display>
-        <title>hello world</title>
-        <pubTime>2018-08-17T12:59:52.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>
