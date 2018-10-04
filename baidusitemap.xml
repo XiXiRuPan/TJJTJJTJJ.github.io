@@ -4,8 +4,88 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/09/30/pytorch-chapter10-ImageCaption/</loc>
+    <lastmod>2018-10-04T07:56:16.532Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch-chapter10-ImageCaption</title>
+        <pubTime>2018-09-30T03:00:50.000Z</pubTime>
+        
+        <tag>pytorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/08/26/python/</loc>
+    <lastmod>2018-10-01T14:00:03.639Z</lastmod>
+    <data>
+        <display>
+        <title>python</title>
+        <pubTime>2018-08-26T09:34:06.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/11/pytorch-chapter8-neural-style/</loc>
+    <lastmod>2018-10-01T07:49:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch chapter8 neural style</title>
+        <pubTime>2018-09-11T03:19:25.000Z</pubTime>
+        
+        <tag>neural style transfer</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/13/numpy/</loc>
+    <lastmod>2018-10-01T06:02:51.164Z</lastmod>
+    <data>
+        <display>
+        <title>numpy</title>
+        <pubTime>2018-09-13T14:27:14.000Z</pubTime>
+        
+        <tag>numpy</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/09/23/pytorch-chapter9-CharRNN/</loc>
-    <lastmod>2018-09-24T05:55:28.397Z</lastmod>
+    <lastmod>2018-09-30T06:40:41.242Z</lastmod>
     <data>
         <display>
         <title>pytorch chapter9 CharRNN</title>
@@ -24,19 +104,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/09/11/pytorch-chapter8-neural-style/</loc>
-    <lastmod>2018-09-24T05:55:12.957Z</lastmod>
+    <loc>http://yoursite.com/2018/09/24/html/</loc>
+    <lastmod>2018-09-24T08:40:45.746Z</lastmod>
     <data>
         <display>
-        <title>pytorch chapter8 neural style</title>
-        <pubTime>2018-09-11T03:19:25.000Z</pubTime>
+        <title>html</title>
+        <pubTime>2018-09-24T04:20:24.000Z</pubTime>
         
-        <tag>neural style transfer</tag>
+        <tag>html</tag>
          
          
            
              
-              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
+              <breadCrumb title="html" url="http://yoursite.com/categories/html/"/>
           
         </display>
     </data>
@@ -83,26 +163,6 @@
            
              
               <breadCrumb title="搭建博客" url="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/26/python/</loc>
-    <lastmod>2018-09-24T05:52:47.533Z</lastmod>
-    <data>
-        <display>
-        <title>python</title>
-        <pubTime>2018-08-26T09:34:06.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
@@ -158,46 +218,6 @@
            
              
               <breadCrumb title="person-reid" url="http://yoursite.com/categories/person-reid/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/13/numpy/</loc>
-    <lastmod>2018-09-24T05:45:59.852Z</lastmod>
-    <data>
-        <display>
-        <title>numpy</title>
-        <pubTime>2018-09-13T14:27:14.000Z</pubTime>
-        
-        <tag>numpy</tag>
-         
-         
-           
-             
-              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/24/html/</loc>
-    <lastmod>2018-09-24T04:21:07.345Z</lastmod>
-    <data>
-        <display>
-        <title>html</title>
-        <pubTime>2018-09-24T04:20:24.000Z</pubTime>
-        
-        <tag>html</tag>
-         
-         
-           
-             
-              <breadCrumb title="html" url="http://yoursite.com/categories/html/"/>
           
         </display>
     </data>
