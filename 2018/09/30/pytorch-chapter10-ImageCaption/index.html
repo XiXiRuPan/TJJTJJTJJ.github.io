@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。这是我的代码大神链接：https://github.com/anishathalye/neural-style这是论文作者写">
+<meta name="description" content="前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。">
 <meta name="keywords" content="pytorch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytorch-chapter10-ImageCaption">
 <meta property="og:url" content="http://yoursite.com/2018/09/30/pytorch-chapter10-ImageCaption/index.html">
 <meta property="og:site_name" content="田佳杰">
-<meta property="og:description" content="前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。这是我的代码大神链接：https://github.com/anishathalye/neural-style这是论文作者写">
+<meta property="og:description" content="前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-04T07:56:16.532Z">
+<meta property="og:updated_time" content="2018-10-04T07:58:45.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pytorch-chapter10-ImageCaption">
-<meta name="twitter:description" content="前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。这是我的代码大神链接：https://github.com/anishathalye/neural-style这是论文作者写">
+<meta name="twitter:description" content="前言本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。">
 
 
 
@@ -440,8 +440,7 @@
       
 
       
-        <a id="more"></a>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。<br>这是我的<a href="https://github.com/TJJTJJTJJ/pytorch__learn" target="_blank" rel="noopener">代码</a><br>大神链接：<a href="https://github.com/anishathalye/neural-style" target="_blank" rel="noopener">https://github.com/anishathalye/neural-style</a><br>这是论文作者写的</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要是针对陈云的PyTorch入门与实践的第八章的内容进行复现，准确地说，是看着他写的代码，自己再实现一遍，所以更多地是在讲解实现过程中遇到的问题或者看到的好的方法，而不是针对论文的原理的进行讲解。对于原理，也只是会一笔带过。原理篇暂时不准备留坑，因为原理是个玄学。<br><a id="more"></a><br>这是我的<a href="https://github.com/TJJTJJTJJ/pytorch__learn" target="_blank" rel="noopener">代码</a><br>大神链接：<a href="https://github.com/anishathalye/neural-style" target="_blank" rel="noopener">https://github.com/anishathalye/neural-style</a><br>这是论文作者写的</p>
 <h1 id="问题以及思考"><a href="#问题以及思考" class="headerlink" title="问题以及思考"></a>问题以及思考</h1><p>这一次感觉写起来很顺利，数据的处理+基本模型的走读基本只用了两天，剩下的两天主要是耗在了beam_searching上，原理的解析和代码的思考。<br>现在记录一下这次走读的过程中学习到的东西，如果是和之前的记录有联系，那么则尽量记在一起。</p>
 <hr>
 <h2 id="局部反向传播管理"><a href="#局部反向传播管理" class="headerlink" title="局部反向传播管理"></a>局部反向传播管理</h2><p>部分参考第八章，基本来自官网文档<br>一共是四种</p>
