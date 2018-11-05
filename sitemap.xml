@@ -2,16 +2,100 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/09/30/pytorch-chapter10-ImageCaption/</loc>
+    <loc>http://yoursite.com/2018/11/05/pytorch-init/</loc>
     
-    <lastmod>2018-10-04T07:58:45.171Z</lastmod>
+    <lastmod>2018-11-05T15:16:03.014Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/pytorch-optim/</loc>
+    
+    <lastmod>2018-11-05T15:15:49.854Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    
+    <lastmod>2018-11-05T15:15:14.489Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/beyond-part-models/</loc>
+    
+    <lastmod>2018-11-05T15:14:46.007Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/pytorch-cuda/</loc>
+    
+    <lastmod>2018-11-05T15:12:27.757Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/tensorflow/</loc>
+    
+    <lastmod>2018-11-05T15:10:47.797Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/24/CMC/</loc>
+    
+    <lastmod>2018-11-05T14:43:50.570Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/08/26/python/</loc>
     
-    <lastmod>2018-10-01T14:00:03.639Z</lastmod>
+    <lastmod>2018-11-05T14:29:42.568Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/23/pytorch-chapter9-CharRNN/</loc>
+    
+    <lastmod>2018-11-05T09:21:35.883Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/cuda/</loc>
+    
+    <lastmod>2018-11-05T08:53:08.588Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/24/html/</loc>
+    
+    <lastmod>2018-11-04T14:51:31.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/10/05/python-reptilian/</loc>
+    
+    <lastmod>2018-10-05T14:39:27.400Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/10/04/git/</loc>
+    
+    <lastmod>2018-10-04T09:18:19.813Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/30/pytorch-chapter10-ImageCaption/</loc>
+    
+    <lastmod>2018-10-04T07:58:45.171Z</lastmod>
     
   </url>
   
@@ -26,20 +110,6 @@
     <loc>http://yoursite.com/2018/09/13/numpy/</loc>
     
     <lastmod>2018-10-01T06:02:51.164Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/23/pytorch-chapter9-CharRNN/</loc>
-    
-    <lastmod>2018-09-30T06:40:41.242Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/24/html/</loc>
-    
-    <lastmod>2018-09-24T08:40:45.746Z</lastmod>
     
   </url>
   
@@ -72,13 +142,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/09/24/CMC/</loc>
-    
-    <lastmod>2018-09-24T05:46:07.768Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/09/06/data/</loc>
     
     <lastmod>2018-09-17T09:13:19.360Z</lastmod>
@@ -86,7 +149,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/08/26/pytorch-1/</loc>
+    <loc>http://yoursite.com/2018/08/26/pytorch-1.0/</loc>
     
     <lastmod>2018-09-17T07:36:14.630Z</lastmod>
     

@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/09/30/pytorch-chapter10-ImageCaption/</loc>
-    <lastmod>2018-10-04T07:58:45.171Z</lastmod>
+    <loc>http://yoursite.com/2018/11/05/pytorch-init/</loc>
+    <lastmod>2018-11-05T15:16:03.014Z</lastmod>
     <data>
         <display>
-        <title>pytorch-chapter10-ImageCaption</title>
-        <pubTime>2018-09-30T03:00:50.000Z</pubTime>
+        <title>pytorch-init</title>
+        <pubTime>2018-11-05T08:55:36.000Z</pubTime>
         
         <tag>pytorch</tag>
          
@@ -24,8 +24,128 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/11/05/pytorch-optim/</loc>
+    <lastmod>2018-11-05T15:15:49.854Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch-optim</title>
+        <pubTime>2018-11-05T09:13:57.000Z</pubTime>
+        
+        <tag>pytorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    <lastmod>2018-11-05T15:15:14.489Z</lastmod>
+    <data>
+        <display>
+        <title>python-2.0</title>
+        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/beyond-part-models/</loc>
+    <lastmod>2018-11-05T15:14:46.007Z</lastmod>
+    <data>
+        <display>
+        <title>beyond-part-models</title>
+        <pubTime>2018-11-05T12:59:51.000Z</pubTime>
+        
+        <tag>paper</tag>
+         
+         
+           
+             
+              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/pytorch-cuda/</loc>
+    <lastmod>2018-11-05T15:12:27.757Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch-cuda</title>
+        <pubTime>2018-11-05T13:04:26.000Z</pubTime>
+        
+        <tag>pytorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/tensorflow/</loc>
+    <lastmod>2018-11-05T15:10:47.797Z</lastmod>
+    <data>
+        <display>
+        <title>tensorflow</title>
+        <pubTime>2018-11-05T14:41:03.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+         
+           
+             
+              <breadCrumb title="tensorflow" url="http://yoursite.com/categories/tensorflow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/24/CMC/</loc>
+    <lastmod>2018-11-05T14:43:50.570Z</lastmod>
+    <data>
+        <display>
+        <title>CMC</title>
+        <pubTime>2018-09-24T04:00:17.000Z</pubTime>
+        
+        <tag>CMC</tag>
+         
+         
+           
+             
+              <breadCrumb title="person-reid" url="http://yoursite.com/categories/person-reid/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/08/26/python/</loc>
-    <lastmod>2018-10-01T14:00:03.639Z</lastmod>
+    <lastmod>2018-11-05T14:29:42.568Z</lastmod>
     <data>
         <display>
         <title>python</title>
@@ -37,6 +157,121 @@
            
              
               <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/23/pytorch-chapter9-CharRNN/</loc>
+    <lastmod>2018-11-05T09:21:35.883Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch chapter9 CharRNN</title>
+        <pubTime>2018-09-23T15:04:12.000Z</pubTime>
+        
+        <tag>numpy</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/cuda/</loc>
+    <lastmod>2018-11-05T08:53:08.588Z</lastmod>
+    <data>
+        <display>
+        <title>cuda安装教程</title>
+        <pubTime>2018-11-05T08:49:29.000Z</pubTime>
+        
+        <tag>cuda</tag>
+         
+         
+           
+             
+              <breadCrumb title="cuda" url="http://yoursite.com/categories/cuda/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/24/html/</loc>
+    <lastmod>2018-11-04T14:51:31.429Z</lastmod>
+    <data>
+        <display>
+        <title>html</title>
+        <pubTime>2018-09-24T04:20:24.000Z</pubTime>
+        
+        <tag>html</tag>
+         
+         
+           
+             
+              <breadCrumb title="html" url="http://yoursite.com/categories/html/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/10/05/python-reptilian/</loc>
+    <lastmod>2018-10-05T14:39:27.400Z</lastmod>
+    <data>
+        <display>
+        <title>python_reptilian</title>
+        <pubTime>2018-10-05T03:13:00.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/10/04/git/</loc>
+    <lastmod>2018-10-04T09:18:19.813Z</lastmod>
+    <data>
+        <display>
+        <title>git</title>
+        <pubTime>2018-10-04T08:06:55.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://yoursite.com/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/30/pytorch-chapter10-ImageCaption/</loc>
+    <lastmod>2018-10-04T07:58:45.171Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch-chapter10-ImageCaption</title>
+        <pubTime>2018-09-30T03:00:50.000Z</pubTime>
+        
+        <tag>pytorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
           
         </display>
     </data>
@@ -77,46 +312,6 @@
            
              
               <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/23/pytorch-chapter9-CharRNN/</loc>
-    <lastmod>2018-09-30T06:40:41.242Z</lastmod>
-    <data>
-        <display>
-        <title>pytorch chapter9 CharRNN</title>
-        <pubTime>2018-09-23T15:04:12.000Z</pubTime>
-        
-        <tag>numpy</tag>
-         
-         
-           
-             
-              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/24/html/</loc>
-    <lastmod>2018-09-24T08:40:45.746Z</lastmod>
-    <data>
-        <display>
-        <title>html</title>
-        <pubTime>2018-09-24T04:20:24.000Z</pubTime>
-        
-        <tag>html</tag>
-         
-         
-           
-             
-              <breadCrumb title="html" url="http://yoursite.com/categories/html/"/>
           
         </display>
     </data>
@@ -205,26 +400,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/09/24/CMC/</loc>
-    <lastmod>2018-09-24T05:46:07.768Z</lastmod>
-    <data>
-        <display>
-        <title>CMC</title>
-        <pubTime>2018-09-24T04:00:17.000Z</pubTime>
-        
-        <tag>CMC</tag>
-         
-         
-           
-             
-              <breadCrumb title="person-reid" url="http://yoursite.com/categories/person-reid/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/09/06/data/</loc>
     <lastmod>2018-09-17T09:13:19.360Z</lastmod>
     <data>
@@ -247,7 +422,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/08/26/pytorch-1/</loc>
+    <loc>http://yoursite.com/2018/08/26/pytorch-1.0/</loc>
     <lastmod>2018-09-17T07:36:14.630Z</lastmod>
     <data>
         <display>
