@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/11/19/cycleGAN/</loc>
+    <lastmod>2018-11-19T05:44:34.982Z</lastmod>
+    <data>
+        <display>
+        <title>cycleGAN</title>
+        <pubTime>2018-11-19T01:11:24.000Z</pubTime>
+        
+        <tag>cycleGAN</tag>
+         
+         
+           
+             
+              <breadCrumb title="DeepLearning" url="http://yoursite.com/categories/DeepLearning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/24/python-picture/</loc>
+    <lastmod>2018-11-19T05:40:14.908Z</lastmod>
+    <data>
+        <display>
+        <title>python-picture</title>
+        <pubTime>2018-09-24T04:08:02.000Z</pubTime>
+        
+        <tag>python,picture</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/10/04/git/</loc>
+    <lastmod>2018-11-19T05:03:22.267Z</lastmod>
+    <data>
+        <display>
+        <title>git</title>
+        <pubTime>2018-10-04T08:06:55.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://yoursite.com/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/11/05/pytorch-init/</loc>
     <lastmod>2018-11-05T15:16:03.014Z</lastmod>
     <data>
@@ -239,26 +299,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/10/04/git/</loc>
-    <lastmod>2018-10-04T09:18:19.813Z</lastmod>
-    <data>
-        <display>
-        <title>git</title>
-        <pubTime>2018-10-04T08:06:55.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-             
-              <breadCrumb title="git" url="http://yoursite.com/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/09/30/pytorch-chapter10-ImageCaption/</loc>
     <lastmod>2018-10-04T07:58:45.171Z</lastmod>
     <data>
@@ -374,26 +414,6 @@
         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/24/python-picture/</loc>
-    <lastmod>2018-09-24T05:46:13.394Z</lastmod>
-    <data>
-        <display>
-        <title>python-picture</title>
-        <pubTime>2018-09-24T04:08:02.000Z</pubTime>
-        
-        <tag>python,picture</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
         </display>
     </data>
     </url>
