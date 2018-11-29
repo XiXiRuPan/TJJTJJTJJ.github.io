@@ -359,7 +359,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/29/transfer_learning/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/11/29/transfer_learning/" itemprop="url">readme</a></h1>
         
 
         <div class="post-meta">
@@ -371,7 +371,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T23:06:42+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T23:02:12+08:00">
                 2018-11-29
               </time>
             
@@ -421,160 +421,14 @@
 
       
         
-          
-            <h1 id="transfer-learning"><a href="#transfer-learning" class="headerlink" title="transfer learning"></a>transfer learning</h1><p>这个博客主要是因为最近看了几篇关于无监督迁移学习在行人重识别领域的论文，发现隔了几天，自己对论文就忘记得差不多了，所以对论文的关键内容做个简单记录。</p>
-<p>参考链接: <a href="https://github.com/layumi/DukeMTMC-reID_evaluation/blob/master/State-of-the-art/README.md" target="_blank" rel="noopener">Transfer Learning</a></p>
-<hr>
-<h2 id="ARN"><a href="#ARN" class="headerlink" title="ARN"></a>ARN</h2><p><a href="http://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w6/Li_Adaptation_and_Re-Identification_CVPR_2018_paper.pdf" target="_blank" rel="noopener">Adaptation and Re-Identification Network: An Unsupervised Deep Transfer Learning Approach to Person Re-Identification</a><br>Yu-Jhe Li, Fu-En Yang, Yen-Cheng Liu, Yu-Ying Yeh, Xiaofei Du, and Yu-Chiang Frank Wang, CVPR 2018 Workshop</p>
-<p>这篇论文主要分离了数据集的特有特征和行人特征。</p>
-<p>作者是台湾人，没有公布代码。有其他人复现了<a href="https://github.com/huanghoujing/ARN" target="_blank" rel="noopener">代码</a>，但是效果很差。</p>
-<p>我下一步也会尝试复现一下。</p>
-<h3 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h3><p><img src="./pic/ARN/ARN.png" alt="ARN的网络架构"></p>
-<p>根据作者的描述，</p>
-<ul>
-<li>$E_I$是resnet50的前四个layer,输入是3X256X256,输出$X^s$是2048X7X7</li>
-<li>$E_T,E_C,E_S$,是相同的网络架构，来自FCN的三层，通过查阅FCN的网络设置，初步猜想是FCN的conv6，conv7，conv8，相应的Decoder暂时按照反卷积来设置。这一部分还需要参考FCN的网络设置。</li>
-<li>$E_T,E_C,E_S$ conv6:7X7X2048,relu6,drop6(0.5),conv7:1X1X2048,relu6,drop6(0.5),conv8:1X1X2048,至于conv6,7的bn和conv8的bn，relu要不要，还需要实验的验证</li>
-<li>在FCN中，逆卷积的使用方式是 deconv(k=64, s=32, p=0)+crop(offset=19)，参考资料:<a href="https://zhuanlan.zhihu.com/p/22976342?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">FCN学习:Semantic Segmentation</a>,<a href="https://blog.csdn.net/zlrai5895/article/details/80473814" target="_blank" rel="noopener">经典网络复现系列（一）：FCN</a></li>
-<li>反卷积的时候一般都是k=2n, s=n,</li>
-<li>参考FCN和pytorch的入门与实践第六章的生成器，我们的Decoder使用deconv(k=1,s=1), deconv(k=1, s=1), deconv(k=7, s=1)</li>
-<li>encoder和decoder都使用bn和relu</li>
-<li>分类层有dropout</li>
-<li>学习率，$E_I=10^{-7}, E_T E_C E_S D_C = 10^{-3}, C_S = 2*10^{-3}  $，并且在前几个epoch只更新$E_I$</li>
-<li>优化器：SGD</li>
-</ul>
-<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>分类损失<br>$$L_{class}=-\sum_{i=1}^{N_s}y_i^s.log\hat{y}_i^s \tag {1}$$</p>
-<p>对比损失<br>$$L_{ctrs}=\sum_{i,j}{\lambda}(e_{c,i}^s-e_{c,j}^s)^2+ ({1-\lambda}) [max(0, m-(e_{c,i}^s-e_{c,j}^s))]^2 \tag {2}$$</p>
-<p>重构误差<br>$$ L_{rec} = \sum_{i=1}^{N_s} ||X_i^s-\hat{X_i^s}||^2 + \sum_{i=1}^{N_t} ||X_i^t-\hat{X_i^t}||^2 \tag 3 $$</p>
-<p>差别损失<br>$$ L_{diff} = || {H_c^s}^T H_p^s ||_F^2 + || {H_c^t}^T H_p^t ||_F^2 \tag 4 $$</p>
-<p>总损失<br>$$ L_{total} = L_{class} + \alpha L_{ctrs} + \beta L_{rec} + \gamma L_{diff} \tag {5} $$</p>
-<p>其中<br>$$ \alpha=0.01, \beta= 2.0, \gamma=1500 $$</p>
-<h3 id="模块分析"><a href="#模块分析" class="headerlink" title="模块分析"></a>模块分析</h3><p>三个模块:</p>
-<ol>
-<li><strong>$ L_{rec} $</strong></li>
-<li><strong>$ L_{class} $和$ L_{ctrs} $</strong></li>
-<li><strong>$ E_T$和$E_S$</strong></li>
-</ol>
-<h4 id="半监督-L-rec"><a href="#半监督-L-rec" class="headerlink" title="半监督$ L_{rec} $"></a>半监督$ L_{rec} $</h4><p>这里不是很懂这个重构误差损失函数的作用，下面的这个解释也不行。重构损失是半监督损失函数。暂时理解成重构损失保证在获取特征的过程中尽可能减少信息损失。或者说，类似PCA，保留主成分，这个主成分只能保证尽可能地把样本分开。至于这个主成分是否重要，是否有利于分类，不得而知。</p>
-<p>参考链接：<a href="https://blog.csdn.net/hijack00/article/details/52238549" target="_blank" rel="noopener">深度学习中的“重构”</a></p>
-<p>作者在这里提示，当只有重构损失函数的时候，应该保持$E_I$不更新，只更新$E_C$.</p>
-<p>S: Market, T: Duke; S: Duke, T: Market</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">method</th>
-<th style="text-align:center">rank-1</th>
-<th style="text-align:center">mAP</th>
-<th style="text-align:center">rank-1</th>
-<th style="text-align:center">mAP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$L_{rec}$</td>
-<td style="text-align:center">44.5</td>
-<td style="text-align:center">20.3</td>
-<td style="text-align:center">31.2</td>
-<td style="text-align:center">18.4</td>
-</tr>
-</tbody>
-</table>
-<h4 id="监督-L-rec-L-class-和-L-ctrs"><a href="#监督-L-rec-L-class-和-L-ctrs" class="headerlink" title="监督$ L_{rec} $, $ L_{class} $和$ L_{ctrs} $"></a>监督$ L_{rec} $, $ L_{class} $和$ L_{ctrs} $</h4><p>半监督和监督</p>
-<p>监督损失使得共享空间捕获到行人语义信息。</p>
-<p>S: Market, T: Duke; S: Duke, T: Market</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">method</th>
-<th style="text-align:center">rank-1</th>
-<th style="text-align:center">mAP</th>
-<th style="text-align:center">rank-1</th>
-<th style="text-align:center">mAP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">w/o $ L_{class} $, $ L_{ctrs} $</td>
-<td style="text-align:center">52.2</td>
-<td style="text-align:center">23.7</td>
-<td style="text-align:center">36.7</td>
-<td style="text-align:center">19.6</td>
-</tr>
-<tr>
-<td style="text-align:center">w $ L_{class} $, $ L_{ctrs} $</td>
-<td style="text-align:center">70.3</td>
-<td style="text-align:center">39.4</td>
-<td style="text-align:center">60.2</td>
-<td style="text-align:center">33.4</td>
-</tr>
-<tr>
-<td style="text-align:center">$L_{rec}$</td>
-<td style="text-align:center">44.5</td>
-<td style="text-align:center">20.3</td>
-<td style="text-align:center">31.2</td>
-<td style="text-align:center">18.4</td>
-</tr>
-<tr>
-<td style="text-align:center">$L_{rec}$, $ L_{class} $和$ L_{ctrs} $</td>
-<td style="text-align:center">60.5</td>
-<td style="text-align:center">28.7</td>
-<td style="text-align:center">48.4</td>
-<td style="text-align:center">26.8</td>
-</tr>
-</tbody>
-</table>
-<h4 id="无监督-L-rec-E-T-和-E-S"><a href="#无监督-L-rec-E-T-和-E-S" class="headerlink" title="无监督$ L_{rec} $, $ E_T $和$ E_S $"></a>无监督$ L_{rec} $, $ E_T $和$ E_S $</h4><p>特有特征的提取是为了去除共享空间的噪声。</p>
-<p>假设共享空间存在，且特有特征空间存在，如果没有特有特征的提取，那么得到的行人特征或多或少地都会包含特征空间的基向量。</p>
-<p>当然，这里也隐含了一些假设，共享空间和特有空间一定是线性无关的。空间的基向量是2048维。</p>
-<p>S: Market, T: Duke; S: Duke, T: Market</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">method</th>
-<th style="text-align:center">rank-1</th>
-<th style="text-align:center">mAP</th>
-<th style="text-align:center">rank-1</th>
-<th style="text-align:center">mAP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">w/o  $ E_T $, $ E_S $</td>
-<td style="text-align:center">60.5</td>
-<td style="text-align:center">28.7</td>
-<td style="text-align:center">48.4</td>
-<td style="text-align:center">26.8</td>
-</tr>
-<tr>
-<td style="text-align:center">w $ L_{class} $, $ L_{ctrs} $</td>
-<td style="text-align:center">70.3</td>
-<td style="text-align:center">39.4</td>
-<td style="text-align:center">60.2</td>
-<td style="text-align:center">33.4</td>
-</tr>
-<tr>
-<td style="text-align:center">$L_{rec}$</td>
-<td style="text-align:center">44.5</td>
-<td style="text-align:center">20.3</td>
-<td style="text-align:center">31.2</td>
-<td style="text-align:center">18.4</td>
-</tr>
-<tr>
-<td style="text-align:center">$ L_{rec} $, $ E_T $和$ E_S $</td>
-<td style="text-align:center">52.2</td>
-<td style="text-align:center">23.7</td>
-<td style="text-align:center">36.7</td>
-<td style="text-align:center">19.6</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="HHL"><a href="#HHL" class="headerlink" title="HHL"></a>HHL</h2><p><a href="https://github.com/zhunzhong07/zhunzhong07.github.io/blob/master/paper/HHL.pdf" target="_blank" rel="noopener">Generalizing A Person Retrieval Model Hetero- and Homogeneously</a><br>Zhun Zhong, Liang Zheng, Shaozi Li, Yi Yang, ECCV 2018</p>
-<p>code: <a href="https://github.com/zhunzhong07/HHL" target="_blank" rel="noopener">https://github.com/zhunzhong07/HHL</a></p>
-<p>web: <a href="http://zhunzhong.site/paper/HHL.pdf" target="_blank" rel="noopener">http://zhunzhong.site/paper/HHL.pdf</a></p>
-<p>中文: <a href="http://www.cnblogs.com/Thinker-pcw/p/9787440.html" target="_blank" rel="noopener">http://www.cnblogs.com/Thinker-pcw/p/9787440.html</a></p>
-
-          
+          <h1 id="transfer-learning"><a href="#transfer-learning" class="headerlink" title="transfer learning"></a>transfer learning</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/29/transfer_learning/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
