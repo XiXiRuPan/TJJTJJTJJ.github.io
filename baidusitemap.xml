@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/11/29/person-reid-transfer-learning/</loc>
-    <lastmod>2018-11-29T16:12:13.499Z</lastmod>
+    <lastmod>2018-12-03T15:03:59.405Z</lastmod>
     <data>
         <display>
         <title>person-reid-transfer-learning</title>
@@ -19,6 +19,118 @@
            
              
               <breadCrumb title="ind1" url="http://yoursite.com/categories/ind1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    <lastmod>2018-12-03T05:22:46.972Z</lastmod>
+    <data>
+        <display>
+        <title>python-2.0</title>
+        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
+    <lastmod>2018-12-03T03:41:11.477Z</lastmod>
+    <data>
+        <display>
+        <title>markdown-math</title>
+        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+        <tag>math</tag>
+         
+         
+           
+             
+              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/08/17/hexo/</loc>
+    <lastmod>2018-12-03T03:39:38.748Z</lastmod>
+    <data>
+        <display>
+        <title>hexo</title>
+        <pubTime>2018-08-17T13:00:33.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+        <tag>hexo</tag>
+         
+        <tag>npm</tag>
+         
+        <tag>基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="搭建博客" url="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/03/github-markdown-mathjax/</loc>
+    <lastmod>2018-12-03T03:22:05.493Z</lastmod>
+    <data>
+        <display>
+        <title>github-markdown-mathjax</title>
+        <pubTime>2018-12-03T02:59:51.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+        <tag>markdown</tag>
+         
+        <tag>mathjax</tag>
+         
+         
+           
+             
+              <breadCrumb title="github-markdown" url="http://yoursite.com/categories/github-markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/04/deconv/</loc>
+    <lastmod>2018-12-03T02:14:24.828Z</lastmod>
+    <data>
+        <display>
+        <title>deconv\dilated conv</title>
+        <pubTime>2018-09-04T08:07:46.000Z</pubTime>
+        
+        <tag>卷积\反卷积 空洞卷积</tag>
+         
+         
+           
+             
+              <breadCrumb title="深度学习" url="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
           
         </display>
     </data>
@@ -119,26 +231,6 @@
            
              
               <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    <lastmod>2018-11-05T15:15:14.489Z</lastmod>
-    <data>
-        <display>
-        <title>python-2.0</title>
-        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
@@ -401,32 +493,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/08/17/hexo/</loc>
-    <lastmod>2018-09-24T05:53:53.240Z</lastmod>
-    <data>
-        <display>
-        <title>hexo</title>
-        <pubTime>2018-08-17T13:00:33.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>github</tag>
-         
-        <tag>npm</tag>
-         
-        <tag>基础</tag>
-         
-         
-           
-             
-              <breadCrumb title="搭建博客" url="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/09/04/Inception/</loc>
     <lastmod>2018-09-24T05:50:40.398Z</lastmod>
     <data>
@@ -483,26 +549,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/04/deconv/</loc>
-    <lastmod>2018-09-12T03:09:02.924Z</lastmod>
-    <data>
-        <display>
-        <title>deconv\dilated conv</title>
-        <pubTime>2018-09-04T08:07:46.000Z</pubTime>
-        
-        <tag>卷积\反卷积 扩张卷积</tag>
-         
-         
-           
-             
-              <breadCrumb title="深度学习" url="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
   <url>

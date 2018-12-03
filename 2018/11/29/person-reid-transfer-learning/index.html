@@ -90,7 +90,13 @@
 <meta property="og:description" content="transfer learning">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/ARN.png">
-<meta property="og:updated_time" content="2018-11-29T16:12:13.499Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/HHL.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/HHL2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/HHL3.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/HHL4.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/pic/HHL/HHL5.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/HHL5.png">
+<meta property="og:updated_time" content="2018-12-03T15:03:59.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="person-reid-transfer-learning">
 <meta name="twitter:description" content="transfer learning">
@@ -594,6 +600,128 @@
 <p>code: <a href="https://github.com/zhunzhong07/HHL" target="_blank" rel="noopener">https://github.com/zhunzhong07/HHL</a></p>
 <p>web: <a href="http://zhunzhong.site/paper/HHL.pdf" target="_blank" rel="noopener">http://zhunzhong.site/paper/HHL.pdf</a></p>
 <p>中文: <a href="http://www.cnblogs.com/Thinker-pcw/p/9787440.html" target="_blank" rel="noopener">http://www.cnblogs.com/Thinker-pcw/p/9787440.html</a></p>
+<p>preson-reid中主要面临的问题：</p>
+<ol>
+<li>数据集之间的差异</li>
+<li>数据集内部摄像头的差异</li>
+</ol>
+<p>解决方法：</p>
+<ol>
+<li>相机差异：利用StarGAN进行风格转化</li>
+<li>数据集差异：将源域/目标域图片视为负匹配</li>
+</ol>
+<p>数据集之间的三元组损失有把不同数据集的行人特征映射到同一特征空间的效果。</p>
+<h3 id="网络架构-1"><a href="#网络架构-1" class="headerlink" title="网络架构"></a>网络架构</h3><img src="/2018/11/29/person-reid-transfer-learning/HHL.png" title="HHL的网络架构">
+<p>网络的简要介绍</p>
+<ul>
+<li>CNN是resnet50，网络包括两个分支，一个计算源数据集的分类损失，一个计算相似度学习的triplet损失。</li>
+<li>FC-2014的组成：linear(2048，1024)–&gt;bn(1024)–&gt;relu–&gt;dropout(0.5),相当于一个embedding。</li>
+<li>FC-#ID是linear(1024,751), FC-128是linear(1024, 128), 两个分支的具体情况是：</li>
+<li><ul>
+<li>x1–&gt;linear(2048,1024)–&gt;x2–&gt;bn(1024)–&gt;x3–&gt;relu–&gt;x4–&gt;dropout(0.5)–&gt;x5–&gt;linear(102, 751)–&gt;x6</li>
+</ul>
+</li>
+<li><ul>
+<li>x1–&gt;linear(2048, 1024)–&gt;x2–&gt;bn(1024)–&gt;x3–&gt;relu–&gt;x4–&gt;linear(1024, 128)</li>
+</ul>
+</li>
+<li>网络的triplet损失是Batch Hard Triplet Loss</li>
+<li>网络的输入设置：在每一个batch中，对于分类损失，source domain随机选取batchsize=128张图片，对于triplet损失，source domain随机选取8个人的共batchsize=64张图片，其中连续的8张图片属于同一个人，target domain随机选取batchsize=16个人的共16X9=144张图片，假设这16个人都是不同的人。实验发现，当source domain的分类损失的图片比较少的时候，无法实现预期效果，其他情况下没有测试。当batchsize是这样的配比时，可以达到作者的效果。理由未知．</li>
+<li>starGAN是离线训练</li>
+<li>学习率设置：base：$10^{-1}$，其他：$10^{-2}$，并且每过40个epoch，学习率阶梯性地乘以0.1.一共训练60个epoch就可以达到预期效果，这部分设置和PCB很类似。不知道是经验还是怎么。</li>
+<li>关于StarGAN待自己复现之后再做进一步解释，现在只复现过StyleGAN。</li>
+<li>triplet损失的margin=0.3</li>
+</ul>
+<h3 id="损失函数-1"><a href="#损失函数-1" class="headerlink" title="损失函数"></a>损失函数</h3><p>分类损失<br>$$L_{cross}=-\sum_{i=1}^{N_s}y_i^s.log\hat{y}_i^s$$</p>
+<p>triplet损失<br>$$L_T=\sum_{x_a, x_p, x_n}[D_{x_a, x_p}+m-D_{x_a, x_n}]_+$$</p>
+<p>相机不变性的triplet损失</p>
+<p>目标域中一张原始图片作为anchor，StarGAN图片为positive，其他图片为negative<br>$$L_C=L_T((x_t^i)_{i=1}^{n_t}\bigcup(x_{t*}^i)_{i=1}^{n_t^*})$$</p>
+<p>域不变性的triplet损失</p>
+<p>源域中一张图片为anchor，同一id的其他图片作为positive，目标域的任一图片为negative<br>$$L_D=L_T((x_s^i)_{i=1}^{n_s}\bigcup(x_t^i)_{i=1}^{n_t})$$</p>
+<p>相机不变性和域不变性的triplet损失</p>
+<p>是将相机不变性和域不变性合为一体，源域的positive不变，negative为源域的其他图片和目标域的图片，目标域的positive不变，negative为源域的图片和目标域的其他行人图片</p>
+<p>$$L_{CD}=L_T((x_s^i)_{i=1}^{n_s}\bigcup(x_t^i)_{i=1}^{n_t}\bigcup(x_{t*}^i)_{i=1}^{n_t^*})$$</p>
+<p>总损失：<br>$$L_{HHL}=L_{cross}+\beta*L_{CD}$$</p>
+<p>其中：<br>$$\beta=0.5$$</p>
+<h3 id="模块分析-1"><a href="#模块分析-1" class="headerlink" title="模块分析"></a>模块分析</h3><ol>
+<li><strong>starGAN</strong></li>
+<li><strong>sample方法</strong></li>
+</ol>
+<h4 id="starGAN"><a href="#starGAN" class="headerlink" title="starGAN"></a>starGAN</h4><p>在源数据集上训练，在目标数据集上测试不同图像增强方法下的图片距离，通过表格可以得出，预训练的模型对于目标数据集的随机翻转等等有很好的鲁棒性，但是，对于不同摄像头的同一个人，其距离还是很大。因此，利用StarGAN和相机不变性的triplet损失来减少由于摄像头带来的偏差。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Source</th>
+<th style="text-align:center">Target</th>
+<th style="text-align:center">Random Crop</th>
+<th style="text-align:center">Random Flip</th>
+<th style="text-align:center">CamStyle Transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Duke</td>
+<td style="text-align:center">Market</td>
+<td style="text-align:center">0.049</td>
+<td style="text-align:center">0.034</td>
+<td style="text-align:center">0.485</td>
+</tr>
+<tr>
+<td style="text-align:center">Market</td>
+<td style="text-align:center">Duke</td>
+<td style="text-align:center">0.059</td>
+<td style="text-align:center">0.044</td>
+<td style="text-align:center">0.614</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sample方法"><a href="#sample方法" class="headerlink" title="sample方法"></a>sample方法</h4><p>对于目标域的取样方法，对比了三种方法的性能，分别是随机取样、聚类取样、有监督取样，通过下图可以看出，这三种方法的性能是一样的，最后，作者给的代码是随机取样。</p>
+<img src="/2018/11/29/person-reid-transfer-learning/HHL2.png" title="sample方法">
+<h3 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h3><h4 id="Camera-style-transfer-model：StarGAN"><a href="#Camera-style-transfer-model：StarGAN" class="headerlink" title="Camera style transfer model：StarGAN"></a>Camera style transfer model：StarGAN</h4><p>使用StarGAN进行对于摄像头风格转化。</p>
+<ul>
+<li>2 conv + 6 residual + 2 transposed</li>
+<li>input 128X64</li>
+<li>Adam $\beta_1=0.5, \beta_2=0.999$</li>
+<li>数据初始化:随机翻转和随机裁剪</li>
+<li>学习率：前100个epoch为0.0001，后100个epoch线性衰减到0</li>
+</ul>
+<h4 id="Re-ID-model-training"><a href="#Re-ID-model-training" class="headerlink" title="Re-ID model training"></a>Re-ID model training</h4><ul>
+<li>设置可以参考Zhong, Z., Zheng, L., Zheng, Z., Li, S., Yang, Y.: Camera style adaptation for person re-identification</li>
+<li>input 256*128</li>
+<li>数据初始化：随机裁剪和随机翻转</li>
+<li>dropout=0.5</li>
+<li>学习率：新增的层：0.1，base：0.01，每隔40个epoch乘以0.1</li>
+<li>mini-batch：源域上对于IDE为128，对于tripletloss是64.目标域上对于triplet loss是16.</li>
+<li>epoch=60</li>
+<li>测试：2048-dim计算欧式距离</li>
+</ul>
+<h3 id="超参数设置"><a href="#超参数设置" class="headerlink" title="超参数设置"></a>超参数设置</h3><ul>
+<li>triplet loss的权重$\beta$</li>
+<li>一个batch中目标域上$n_t$的个数</li>
+</ul>
+<h4 id="参数的设置-beta"><a href="#参数的设置-beta" class="headerlink" title="参数的设置$\beta$"></a>参数的设置$\beta$</h4><img src="/2018/11/29/person-reid-transfer-learning/HHL3.png" title="$\beta$参数的设置">
+<p>$\beta$应该设置成0.4-0.8</p>
+<h4 id="参数的设置-n-t"><a href="#参数的设置-n-t" class="headerlink" title="参数的设置$n_t$"></a>参数的设置$n_t$</h4><img src="/2018/11/29/person-reid-transfer-learning/HHL4.png" title="$n_t$参数的设置">
+<p>$n_t$在当前设置(源域上对于IDE为128，对于tripletloss是64)下，应该$n_t&gt;16$</p>
+<p>通过上述参数的设置，结合自己实验时的错误，不妨这么理解，在固定mini-batch=128的情况下</p>
+<ul>
+<li>首先引入源域的triplet_loss，并调整batch和$\beta$，使效果达到最优，,batch的选取2倍数的等间隔，$\beta$可以取等间隔，最后batch=64，即128/2=64，$\beta$则可以先固定成某个值.</li>
+<li>然后引入目标域的triplet_loss，并且要先考虑只有目标域的性能，再考虑结合的性能，每次都需要重新考虑$\beta$和batch的大小</li>
+<li>这么一想，这篇论文做的实验还是很多的。</li>
+</ul>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="./pic/HHL/HHL5.png" alt="实验结果"><br><img src="/2018/11/29/person-reid-transfer-learning/HHL5.png" title="实验结果"></p>
+<p>通过结果我们看出来，其实提升的效果主要来源于$L_C$，说明预训练的模型对于目标域不同摄像头的图片鲁棒性很差。</p>
+<p>是否说明预训练的模型只学习到了源数据集的跨摄像头的不变行人特征，而对于目标域的摄像头下的不同风格很敏感，而对目标域的同一摄像头下的行人特征很鲁棒。</p>
+<p>$L_T$的提升效果很小是否可以说明目标数据集与源数据集的行人特征空间本身就已经很好地重合了，假如tripl_loss真得具有将不同数据集的行人特征映射到同一特征空间的效果的话。</p>
+<p>通过这篇论文，我们能学到的东西很多，比如对比实验，参数设置实验，想法验证实验等等。</p>
+<h3 id="补充：triplet-loss"><a href="#补充：triplet-loss" class="headerlink" title="补充：triplet_loss"></a>补充：triplet_loss</h3><p>发现triplet_loss很厉害的样子，不妨看看是个什么情况。</p>
+<p>参考链接：<br><a href="https://omoindrot.github.io/triplet-loss" target="_blank" rel="noopener">Triplet Loss and Online Triplet Mining in TensorFlow</a></p>
+<p><a href="http://www.itkeyword.com/doc/2025902251705572502/re-id-with-triplet-loss" target="_blank" rel="noopener">Re-ID with Triplet Loss</a></p>
+<p><a href="https://arxiv.org/pdf/1703.07737.pdf" target="_blank" rel="noopener">In Defense of the Triplet Loss for Person Re-Identification</a></p>
+<p><a href="https://github.com/VisualComputingInstitute/triplet-reid" target="_blank" rel="noopener">code</a></p>
+<p><a href="https://omoindrot.github.io/triplet-loss" target="_blank" rel="noopener">Triplet Loss and Online Triplet Mining in TensorFlow</a>这个博客讲述了triplet_loss的起源、发展和具体使用的几种形式。最后的结论是应该使用在线的batch hard策略。</p>
+<p><a href="http://www.itkeyword.com/doc/2025902251705572502/re-id-with-triplet-loss" target="_blank" rel="noopener">Re-ID with Triplet Loss</a>这篇博客则逻辑性地介绍了各种triplet_loss的变体。最后的结论是batch hard+soft margin效果更好。</p>
+<p>也有提及到，triplet_loss总是不如分类损失强。</p>
 
       
     </div>
@@ -635,6 +763,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/03/markdown-math/" rel="prev" title="markdown-math">
+                markdown-math <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -725,7 +857,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -736,7 +868,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -747,7 +879,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -787,7 +919,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#transfer-learning"><span class="nav-number">1.</span> <span class="nav-text">transfer learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ARN"><span class="nav-number">1.1.</span> <span class="nav-text">ARN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络架构"><span class="nav-number">1.1.1.</span> <span class="nav-text">网络架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块分析"><span class="nav-number">1.1.3.</span> <span class="nav-text">模块分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#半监督-L-rec"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">半监督$ L_{rec} $</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监督-L-rec-L-class-和-L-ctrs"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">监督$ L_{rec} $, $ L_{class} $和$ L_{ctrs} $</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督-L-rec-E-T-和-E-S"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">无监督$ L_{rec} $, $ E_T $和$ E_S $</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HHL"><span class="nav-number">1.2.</span> <span class="nav-text">HHL</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#transfer-learning"><span class="nav-number">1.</span> <span class="nav-text">transfer learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ARN"><span class="nav-number">1.1.</span> <span class="nav-text">ARN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络架构"><span class="nav-number">1.1.1.</span> <span class="nav-text">网络架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块分析"><span class="nav-number">1.1.3.</span> <span class="nav-text">模块分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#半监督-L-rec"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">半监督$ L_{rec} $</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监督-L-rec-L-class-和-L-ctrs"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">监督$ L_{rec} $, $ L_{class} $和$ L_{ctrs} $</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督-L-rec-E-T-和-E-S"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">无监督$ L_{rec} $, $ E_T $和$ E_S $</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HHL"><span class="nav-number">1.2.</span> <span class="nav-text">HHL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络架构-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">网络架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块分析-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">模块分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#starGAN"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">starGAN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sample方法"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">sample方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验设置"><span class="nav-number">1.2.4.</span> <span class="nav-text">实验设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Camera-style-transfer-model：StarGAN"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">Camera style transfer model：StarGAN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Re-ID-model-training"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">Re-ID model training</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超参数设置"><span class="nav-number">1.2.5.</span> <span class="nav-text">超参数设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数的设置-beta"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">参数的设置$\beta$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数的设置-n-t"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">参数的设置$n_t$</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验结果"><span class="nav-number">1.2.6.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充：triplet-loss"><span class="nav-number">1.2.7.</span> <span class="nav-text">补充：triplet_loss</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

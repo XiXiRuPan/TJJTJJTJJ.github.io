@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="卷积\反卷积 扩张卷积," />
+  <meta name="keywords" content="卷积\反卷积 空洞卷积," />
 
 
 
@@ -81,18 +81,20 @@
 
 
 
-<meta name="description" content="最近看的一片论文里看到了反卷积，找了一些材料，记录一下，留作纪念。首先定义符号：      假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同     $i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel si">
-<meta name="keywords" content="卷积\反卷积 扩张卷积">
+<meta name="description" content="反卷积之前一直以为反卷积和空洞卷积是一回事，后来才发现是两个事情，反卷积是为了能够将小图片生成大图片，空洞卷积是为了扩大感受野。 反卷积多用于图像生成中，例如从特征生成图片，GAN，图像分割等等中，常与conv相对应，也有其他名称，比如: Transposed Convolution, Fractional Strided Convolution。 首先定义符号：  假设本文提到的图形和卷积核都是">
+<meta name="keywords" content="卷积\反卷积 空洞卷积">
 <meta property="og:type" content="article">
 <meta property="og:title" content="deconv\dilated conv">
 <meta property="og:url" content="http://yoursite.com/2018/09/04/deconv/index.html">
 <meta property="og:site_name" content="田佳杰">
-<meta property="og:description" content="最近看的一片论文里看到了反卷积，找了一些材料，记录一下，留作纪念。首先定义符号：      假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同     $i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel si">
+<meta property="og:description" content="反卷积之前一直以为反卷积和空洞卷积是一回事，后来才发现是两个事情，反卷积是为了能够将小图片生成大图片，空洞卷积是为了扩大感受野。 反卷积多用于图像生成中，例如从特征生成图片，GAN，图像分割等等中，常与conv相对应，也有其他名称，比如: Transposed Convolution, Fractional Strided Convolution。 首先定义符号：  假设本文提到的图形和卷积核都是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-12T03:09:02.924Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3232548-f8342b17bb77e4ed.png?imageMogr2/auto-orient/">
+<meta property="og:updated_time" content="2018-12-03T02:14:24.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deconv\dilated conv">
-<meta name="twitter:description" content="最近看的一片论文里看到了反卷积，找了一些材料，记录一下，留作纪念。首先定义符号：      假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同     $i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel si">
+<meta name="twitter:description" content="反卷积之前一直以为反卷积和空洞卷积是一回事，后来才发现是两个事情，反卷积是为了能够将小图片生成大图片，空洞卷积是为了扩大感受野。 反卷积多用于图像生成中，例如从特征生成图片，GAN，图像分割等等中，常与conv相对应，也有其他名称，比如: Transposed Convolution, Fractional Strided Convolution。 首先定义符号：  假设本文提到的图形和卷积核都是">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3232548-f8342b17bb77e4ed.png?imageMogr2/auto-orient/">
 
 
 
@@ -440,14 +442,29 @@
       
 
       
-        <p>最近看的一片论文里看到了反卷积，找了一些材料，记录一下，留作纪念。<br>首先定义符号：    </p>
+        <h1 id="反卷积"><a href="#反卷积" class="headerlink" title="反卷积"></a>反卷积</h1><p>之前一直以为反卷积和空洞卷积是一回事，后来才发现是两个事情，反卷积是为了能够将小图片生成大图片，空洞卷积是为了扩大感受野。</p>
+<p>反卷积多用于图像生成中，例如从特征生成图片，GAN，图像分割等等中，常与conv相对应，也有其他名称，比如: Transposed Convolution, Fractional Strided Convolution。</p>
+<p>首先定义符号：</p>
 <ul>
-<li>假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同    </li>
-<li>$i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel size，padding，stride.<br><a href="https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic" target="_blank" rel="noopener">动图演示</a><br><a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">详细解析</a>    <a id="more"></a>
-反卷积对应的是直接在原图上添加0<br>对应的公式如下：<br>$$ i’=o$$<br>$$ o’=i $$<br>$$ k’=k $$<br>$$ s’=1$$<br>$$ p’=k-1-p $$<br>$$ d’=1 $$<br>$$ o’ = (s-1)(i’-1)+i’-k’+2p’ $$<br>$$ o’ =   s(i’-1)+k-2p $$<br>$$ d’ = 2$$<br>$$ k’ = k + (d-1)<em>(k-1) $$<br>$$ p’ = k-1-p+(d-1)</em>(k-1) $$<br>$$ o’ = (s-1)(i’-1)+i’-k’+2p’ $$<br>$$ o’ = s(i’-1)+k+(d-1)<em>(k-1)-2p’ $$<br>所以要保持图片图片大小不变，必须令s=1，$$ d = \frac{2}{k-1}</em>p $$<br>例如：k=3，d=p,</li>
+<li>假设本文提到的图形和卷积核都是一维的线或者二维的正方形，$x$和$y$轴方向的padding和stride相同</li>
+<li>$i,o,k,p,s,i’,o’,k’,p’,s’$分别表示卷积/反卷积输入图片的大小input size, 输出图片的大小 output size，卷积/反卷积的核大小kernel size，padding，stride.</li>
 </ul>
-<p>以上只是先说明了对应尺寸的大小，具体的数学原理留作补充。</p>
-<p>扩张卷积的计算公式与上面不一样<br>扩张卷积扩张的是卷积核的大小，在卷积核上添加0<br><a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">扩张卷积</a><br>$$ o’=\frac{i’-k+2p-(k-1)*(d-1)}{s}+1$$</p>
+<p><a href="https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic" target="_blank" rel="noopener">动图演示</a><br><a href="https://github.com/TJJTJJTJJ/conv_arithmetic" target="_blank" rel="noopener">https://github.com/TJJTJJTJJ/conv_arithmetic</a></p>
+<p><a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">详细解析</a><br><a id="more"></a></p>
+<p>卷积的公式如下：<br>$$ o = \lfloor\frac{i-k+2p}{s}\rfloor+1 $$</p>
+<p>反卷积对应的是直接在原图上填充0<br>$$ o’ = s’(i’-1)+k’-2p’+out_padding $$</p>
+<p>其中涉及到的数学公式非常简单，因为卷积和反卷积都可以对应到一个矩阵相乘上，可以简单地理解成卷积的卷积核矩阵和反卷积的卷积核矩阵互为转置，当然，我们知道，这只是在大小上可以这么理解，其中的数值是不一样的，除非是正交矩阵。</p>
+<p>根据动图演示的动态图可以看出：</p>
+<ol>
+<li>反卷积的No padding的演示效果就是卷积的full padding，在padding效果上，反卷积和卷积总是以互补的形式出现。</li>
+<li>从stride的效果上来看，conv的stride好理解，deconv的stride实际上是在输入图片内加入0</li>
+<li>out_padding就是为了应对odd情况，这种情况下，out_padding指得是在padding和stride填充之后，为了能得到预期大小的图片，在输入图片最外面单侧填充0.</li>
+</ol>
+<h1 id="空洞卷积"><a href="#空洞卷积" class="headerlink" title="空洞卷积"></a>空洞卷积</h1><p>扩张卷积的计算公式与上面不一样</p>
+<p>扩张卷积扩张的是卷积，在卷积核内部和外部同时填充0.主要是为了扩大感受野，应用在目标分割等上面.</p>
+<p><a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">扩张卷积</a><br>$$ o’=\lfloor\frac{i’-k+2p-(k-1)*(d-1)}{s}\rfloor+1$$</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3232548-f8342b17bb77e4ed.png?imageMogr2/auto-orient/" alt="感受野示意图"></p>
+<p>感受野的计算公式<br>(a) 普通卷积，1-dilated convolution，卷积核的感受野为$3 \times 3 = 9$。<br>(b) 扩张卷积，2-dilated convolution，卷积核的感受野为$7 \times 7 = 49$。<br>(c) 扩张卷积，4-dilated convolution，卷积核的感受野为$15 \times 15 = 225$。</p>
 
       
     </div>
@@ -465,7 +482,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/卷积-反卷积-扩张卷积/" rel="tag"># 卷积\反卷积 扩张卷积</a>
+            <a href="/tags/卷积-反卷积-空洞卷积/" rel="tag"># 卷积\反卷积 空洞卷积</a>
           
         </div>
       
@@ -552,8 +569,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -572,7 +598,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -583,7 +609,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -594,7 +620,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -624,6 +650,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#反卷积"><span class="nav-number">1.</span> <span class="nav-text">反卷积</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#空洞卷积"><span class="nav-number">2.</span> <span class="nav-text">空洞卷积</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
