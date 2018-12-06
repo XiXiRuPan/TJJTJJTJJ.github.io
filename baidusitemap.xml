@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/11/29/person-reid-transfer-learning/</loc>
-    <lastmod>2018-12-03T15:03:59.405Z</lastmod>
+    <lastmod>2018-12-06T03:26:50.630Z</lastmod>
     <data>
         <display>
         <title>person-reid-transfer-learning</title>
@@ -19,6 +19,28 @@
            
              
               <breadCrumb title="ind1" url="http://yoursite.com/categories/ind1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
+    <lastmod>2018-12-04T03:08:39.223Z</lastmod>
+    <data>
+        <display>
+        <title>markdown-math</title>
+        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+        <tag>math</tag>
+         
+         
+           
+             
+              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
           
         </display>
     </data>
@@ -46,28 +68,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
-    <lastmod>2018-12-03T03:41:11.477Z</lastmod>
-    <data>
-        <display>
-        <title>markdown-math</title>
-        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
-        
-        <tag>markdown</tag>
-         
-        <tag>math</tag>
-         
-         
-           
-             
-              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/08/17/hexo/</loc>
     <lastmod>2018-12-03T03:39:38.748Z</lastmod>
     <data>
@@ -75,9 +75,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>github</tag>
          
         <tag>npm</tag>
          
