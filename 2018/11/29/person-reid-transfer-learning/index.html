@@ -139,7 +139,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/pic/TJ-AIDL/TJ-AIDL4.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/pic/TJ-AIDL/TJ-AIDL5.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/29/person-reid-transfer-learning/TJ-AIDL5.png">
-<meta property="og:updated_time" content="2018-12-10T02:45:17.877Z">
+<meta property="og:updated_time" content="2018-12-10T02:52:37.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="person-reid-transfer-learning">
 <meta name="twitter:description" content="transfer learning">
@@ -906,10 +906,13 @@
 </ul>
 <h3 id="5-3-损失函数"><a href="#5-3-损失函数" class="headerlink" title="5.3 损失函数"></a>5.3 损失函数</h3><p>Identity Loss:</p>
 <script type="math/tex; mode=display">L_{id}=-\frac{1}{n_s}\sum_{i=1}^{n_S}log(p_{id}(h_{S,i}^{id},y_{S,i}))</script><p>Attribute Loss:</p>
-<script type="math/tex; mode=display">L_{attr}=-\frac{1}{M}\frac{1}{n_S}\sum_{m=1}^{M}\sum_{i=1}^{n_S}(a_{S,i}^{m}\cdot log(p_{attr}(h_{S,i}^{attr_m}, m)) - (1-a_{S,i}^{m})\cdot log(1-p_{attr}(h_{S,i}^{attr_m}, m)))</script><p>Attribute Feature Adaptation</p>
-<script type="math/tex; mode=display">L_{AAL}=\frac{1}{M}\sum_{m=1}^{M}MMD(H_{S}^{attr_m}, H_{T}^{attr_m})^2\\
-         =\frac{1}{M}\sum_{m=1}^{M}\parallel \frac{1}{n_S}\sum_{i=1}^{n_S}\phi(h_{S,i}^{attr_m}) - \frac{1}{n_T}\sum_{i=1}^{n_T}\phi(h_{T,j}^{attr_m}) \parallel _{H}^2 \\
-         =\frac{1}{M}\sum_{m=1}^{M}[ \frac{1}{(n_S)^2}\sum_{i=1}^{n_S}\sum_{i'=1}^{n_S}k(h_{S,i}^{attr_m}, h_{S,i'}^{attr_m})+\frac{1}{(n_T)^2}\sum_{i=1}^{n_T}\sum_{i'=1}^{n_T}k(h_{T,i}^{attr_m}, h_{T,i'}^{attr_m})-\frac{2}{n_S\cdot n_T}\sum_{i=1}^{n_S}\sum_{j=1}^{n_T}k(h_{S,i}^{attr_m}, h_{T,j}^{attr_m})  ]</script><script type="math/tex; mode=display">k(h_{S,i}^{attr_m}, h_{T,j}^{attr_m})=exp(-\frac{1}{2\alpha}\parallel  h_{S,i}^{attr_m} - h_{T,j}^{attr_m}\parallel ^2)</script><script type="math/tex; mode=display">\alpha=1,5,10</script><p>Mid-level Deep Feature Adaptation</p>
+<script type="math/tex; mode=display">L_{attr}=-\frac{1}{M}\frac{1}{n_S}\sum_{m=1}^{M}\sum_{i=1}^{n_S}(a_{S,i}^{m}\cdot log(p_{attr}(h_{S,i}^{attr_m}, m)) -\\\\
+(1-a_{S,i}^{m})\cdot log(1-p_{attr}(h_{S,i}^{attr_m}, m)))</script><p>Attribute Feature Adaptation</p>
+<script type="math/tex; mode=display">L_{AAL}=\frac{1}{M}\sum_{m=1}^{M}MMD(H_{S}^{attr_m}, H_{T}^{attr_m})^2\\\\
+         =\frac{1}{M}\sum_{m=1}^{M}\parallel \frac{1}{n_S}\sum_{i=1}^{n_S}\phi(h_{S,i}^{attr_m}) - \frac{1}{n_T}\sum_{i=1}^{n_T}\phi(h_{T,j}^{attr_m}) \parallel \_{H}^2 \\\\
+         =\frac{1}{M}\sum_{m=1}^{M}[ \frac{1}{(n_S)^2}\sum_{i=1}^{n_S}\sum_{i'=1}^{n_S}k(h_{S,i}^{attr_m}, h_{S,i'}^{attr_m})\\\\
+         +\frac{1}{(n_T)^2}\sum_{i=1}^{n_T}\sum_{i'=1}^{n_T}k(h_{T,i}^{attr_m}, h_{T,i'}^{attr_m})\\\\
+         -\frac{2}{n_S\cdot n_T}\sum_{i=1}^{n_S}\sum_{j=1}^{n_T}k(h_{S,i}^{attr_m}, h_{T,j}^{attr_m})  ]</script><script type="math/tex; mode=display">k(h_{S,i}^{attr_m}, h_{T,j}^{attr_m})=exp(-\frac{1}{2\alpha}\parallel  h_{S,i}^{attr_m} - h_{T,j}^{attr_m}\parallel ^2)</script><script type="math/tex; mode=display">\alpha=1,5,10</script><p>Mid-level Deep Feature Adaptation</p>
 <script type="math/tex; mode=display">L_{MDAL}=MMD(H_S,H_T)^2</script><p>Overall loss</p>
 <script type="math/tex; mode=display">L_{all}=L_{id}+\lambda_1 L_{attr}+\lambda_2 L_{AAL}+\lambda_3 L_{MDAL}</script><script type="math/tex; mode=display">\lambda_1=0.1,\lambda_2=1,\lambda_3=1</script><h3 id="5-4-实验分析"><a href="#5-4-实验分析" class="headerlink" title="5.4 实验分析"></a>5.4 实验分析</h3><h4 id="5-4-1-实验结果"><a href="#5-4-1-实验结果" class="headerlink" title="5.4.1 实验结果"></a>5.4.1 实验结果</h4><p><img src="./pic/MMFA/MMFA2.png" alt="实验结果"><br><img src="/2018/11/29/person-reid-transfer-learning/MMFA2.png" title="实验结果"></p>
 <h3 id="5-4-2-实验模块"><a href="#5-4-2-实验模块" class="headerlink" title="5.4.2 实验模块"></a>5.4.2 实验模块</h3><p>实验模块对比实验结果<br><img src="./pic/MMFA/MMFA3.png" alt="实验模块对比实验结果"><br><img src="/2018/11/29/person-reid-transfer-learning/MMFA3.png" title="实验模块对比实验结果"></p>
@@ -953,7 +956,7 @@
 <h3 id="6-3-损失函数"><a href="#6-3-损失函数" class="headerlink" title="6.3 损失函数"></a>6.3 损失函数</h3><p>Identity Branch (a) softmax</p>
 <script type="math/tex; mode=display">L_{id}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}log(p_{id}(I_i^S,y_i^S)) \tag{1}</script><p>Attribute Branch(b) sigmoid</p>
 <script type="math/tex; mode=display">L_{att}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}\sum_{j=1}^{m}(a_{i,j}log(p_{att}(I_i,j))+(1-a_{i,j})log(1-p_{att}(I_i,j))) \tag{2}</script><p>Identity Inferred Attribute (IIA) space (c)</p>
-<script type="math/tex; mode=display">L_{rec}=\parallel x_{id}-f_{IIA}(x_{id}) \parallel ^2 \tag{3}</script><script type="math/tex; mode=display">L_{ID-transfer}=\parallel e_{IIA}-\tilde{p}_{att} \parallel ^2 \tag{4}</script><script type="math/tex; mode=display">L_{att,IIA}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}\sum_{j=1}^{m}(a_{i,j}log(p_{IIA}(I_i,j))+(1-a_{i,j})log(1-p_{IIA}(I_i,j))) \tag{5}</script><script type="math/tex; mode=display">L_{IIA}=L_{att,IIA}+\lambda_1 L_{rec}+\lambda_2 L_{ID-transfer} \tag{6}</script><script type="math/tex; mode=display">\lambda_1=10, \lambda_2=10</script><p>Impact of IIA on Identity and Attribute Branches</p>
+<script type="math/tex; mode=display">L_{rec}=\parallel x_{id}-f_{IIA}(x_{id}) \parallel ^2 \tag{3}</script><script type="math/tex; mode=display">L_{ID-transfer}=\parallel e_{IIA}-\tilde{p}\_{att} \parallel ^2 \tag{4}</script><script type="math/tex; mode=display">L_{att,IIA}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}\sum_{j=1}^{m}(a_{i,j}log(p_{IIA}(I_i,j))+(1-a_{i,j})log(1-p_{IIA}(I_i,j))) \tag{5}</script><script type="math/tex; mode=display">L_{IIA}=L_{att,IIA}+\lambda_1 L_{rec}+\lambda_2 L_{ID-transfer} \tag{6}</script><script type="math/tex; mode=display">\lambda_1=10, \lambda_2=10</script><p>Impact of IIA on Identity and Attribute Branches</p>
 <script type="math/tex; mode=display">L_{att-total}=L_{att}+\lambda_2 L_{ID-transfer} \tag{7}</script><h3 id="6-4-训练与部署流程"><a href="#6-4-训练与部署流程" class="headerlink" title="6.4 训练与部署流程"></a>6.4 训练与部署流程</h3><p><img src="./pic/TJ-AIDL/TJ-AIDL3.png" alt="IJ-AIDL的训练与部署流程"><br></p>
 <h3 id="6-5-模块分析"><a href="#6-5-模块分析" class="headerlink" title="6.5 模块分析"></a>6.5 模块分析</h3><h4 id="6-5-1-ID和Attribute模块分析"><a href="#6-5-1-ID和Attribute模块分析" class="headerlink" title="6.5.1 ID和Attribute模块分析"></a>6.5.1 ID和Attribute模块分析</h4><p><img src="./pic/TJ-AIDL/TJ-AIDL4.png" alt="IJ-AIDL的ID和Attribute模块分析"><br></p>
 <p>通过ID only的mAP和HHL的baseline，可以看出MobileNet和Resnet50对mAP的影响不受很大。</p>
