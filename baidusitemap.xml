@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/12/11/RotationNet-paper/</loc>
-    <lastmod>2018-12-11T16:00:28.285Z</lastmod>
+    <lastmod>2018-12-12T01:52:22.615Z</lastmod>
     <data>
         <display>
         <title>RotationNet-paper</title>
@@ -159,9 +159,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>github</tag>
          
         <tag>npm</tag>
          
