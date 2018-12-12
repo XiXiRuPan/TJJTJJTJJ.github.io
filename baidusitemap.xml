@@ -4,6 +4,112 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/11/RotationNet-paper/</loc>
+    <lastmod>2018-12-11T16:00:28.285Z</lastmod>
+    <data>
+        <display>
+        <title>RotationNet-paper</title>
+        <pubTime>2018-12-11T08:18:45.000Z</pubTime>
+        
+        <tag>RotationNet</tag>
+         
+        <tag>paper</tag>
+         
+         
+           
+             
+              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
+    <lastmod>2018-12-10T07:44:25.722Z</lastmod>
+    <data>
+        <display>
+        <title>markdown-math</title>
+        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+        <tag>math</tag>
+         
+         
+           
+             
+              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/10/SPGAN-tensorflow/</loc>
+    <lastmod>2018-12-10T07:20:51.859Z</lastmod>
+    <data>
+        <display>
+        <title>SPGAN-tensorflow</title>
+        <pubTime>2018-12-10T03:07:15.000Z</pubTime>
+        
+        <tag>SPGAN</tag>
+         
+        <tag>tensorflow</tag>
+         
+         
+           
+             
+              <breadCrumb title="tensorflow" url="http://yoursite.com/categories/tensorflow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/10/pytorch-eval/</loc>
+    <lastmod>2018-12-10T07:20:22.017Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch-eval</title>
+        <pubTime>2018-12-10T07:18:25.000Z</pubTime>
+        
+        <tag>pytorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/08/26/pytorch-1.0/</loc>
+    <lastmod>2018-12-10T07:17:42.361Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch</title>
+        <pubTime>2018-08-26T13:38:25.000Z</pubTime>
+        
+        <tag>pytorch-learn chenyun</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/11/29/person-reid-transfer-learning/</loc>
     <lastmod>2018-12-10T02:52:37.959Z</lastmod>
     <data>
@@ -19,28 +125,6 @@
            
              
               <breadCrumb title="ind1" url="http://yoursite.com/categories/ind1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
-    <lastmod>2018-12-04T03:08:39.223Z</lastmod>
-    <data>
-        <display>
-        <title>markdown-math</title>
-        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
-        
-        <tag>markdown</tag>
-         
-        <tag>math</tag>
-         
-         
-           
-             
-              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
           
         </display>
     </data>
@@ -75,9 +159,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>github</tag>
+         
+        <tag>hexo</tag>
          
         <tag>npm</tag>
          
@@ -523,26 +607,6 @@
            
              
               <breadCrumb title="re-id" url="http://yoursite.com/categories/re-id/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/26/pytorch-1.0/</loc>
-    <lastmod>2018-09-17T07:36:14.630Z</lastmod>
-    <data>
-        <display>
-        <title>pytorch</title>
-        <pubTime>2018-08-26T13:38:25.000Z</pubTime>
-        
-        <tag>pytorch-learn chenyun</tag>
-         
-         
-           
-             
-              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
           
         </display>
     </data>

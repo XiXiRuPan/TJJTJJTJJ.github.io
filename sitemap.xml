@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/11/29/person-reid-transfer-learning/</loc>
+    <loc>http://yoursite.com/2018/12/11/RotationNet-paper/</loc>
     
-    <lastmod>2018-12-10T02:52:37.959Z</lastmod>
+    <lastmod>2018-12-11T16:00:28.285Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
     
-    <lastmod>2018-12-04T03:08:39.223Z</lastmod>
+    <lastmod>2018-12-10T07:44:25.722Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/10/SPGAN-tensorflow/</loc>
+    
+    <lastmod>2018-12-10T07:20:51.859Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/10/pytorch-eval/</loc>
+    
+    <lastmod>2018-12-10T07:20:22.017Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/08/26/pytorch-1.0/</loc>
+    
+    <lastmod>2018-12-10T07:17:42.361Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/29/person-reid-transfer-learning/</loc>
+    
+    <lastmod>2018-12-10T02:52:37.959Z</lastmod>
     
   </url>
   
@@ -180,13 +208,6 @@
     <loc>http://yoursite.com/2018/09/06/data/</loc>
     
     <lastmod>2018-09-17T09:13:19.360Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/08/26/pytorch-1.0/</loc>
-    
-    <lastmod>2018-09-17T07:36:14.630Z</lastmod>
     
   </url>
   

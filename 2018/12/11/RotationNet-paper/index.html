@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="RotationNet,paper," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="田佳杰" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1. RotationNet-paper">
+<meta name="keywords" content="RotationNet,paper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RotationNet-paper">
+<meta property="og:url" content="http://yoursite.com/2018/12/11/RotationNet-paper/index.html">
+<meta property="og:site_name" content="田佳杰">
+<meta property="og:description" content="1. RotationNet-paper">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/12/11/RotationNet-paper/RotationNet-paper/RotationNet.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/11/RotationNet-paper/RotationNet.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/11/RotationNet-paper/RotationNet-paper/RotationNet1.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/11/RotationNet-paper/RotationNet1.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/11/RotationNet-paper/RotationNet-paper/RotationNet2.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/11/RotationNet-paper/RotationNet2.png">
+<meta property="og:updated_time" content="2018-12-11T16:00:28.285Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RotationNet-paper">
+<meta name="twitter:description" content="1. RotationNet-paper">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/11/RotationNet-paper/RotationNet-paper/RotationNet.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/11/RotationNet-paper/"/>
+
+
+
+
+
+  <title>RotationNet-paper | 田佳杰</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/TJJTJJTJJ/TJJTJJTJJ.github.io.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">田佳杰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录一些学习到的东西和论文记录</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            something
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/RotationNet-paper/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiajie Tian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="田佳杰">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RotationNet-paper</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T16:18:45+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/11/RotationNet-paper/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/11/RotationNet-paper/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-RotationNet-paper"><a href="#1-RotationNet-paper" class="headerlink" title="1. RotationNet-paper"></a>1. RotationNet-paper</h1><a id="more"></a>
+<p>paper: <a href="https://arxiv.org/pdf/1603.06208.pdf" target="_blank" rel="noopener">RotationNet: Joint Object Categorization and Pose Estimation Using Multiviews from Unsupervised Viewpoints(CVPR2018)</a></p>
+<p><a href="https://github.com/kanezaki" target="_blank" rel="noopener">Asako Kanezaki</a>, Yasuyuki Matsushita2, and Yoshifumi Nishida.</p>
+<p>Asako Kanezaki 是日本东京研究所专门研究3D的一个老师。</p>
+<p>code-pytorch: <a href="https://github.com/kanezaki/pytorch-rotationnet" target="_blank" rel="noopener">https://github.com/kanezaki/pytorch-rotationnet</a><br>code-caffe: <a href="https://github.com/kanezaki/rotationnet" target="_blank" rel="noopener">https://github.com/kanezaki/rotationnet</a><br>project: <a href="https://kanezaki.github.io/rotationnet/" target="_blank" rel="noopener">https://kanezaki.github.io/rotationnet/</a></p>
+<p>MIMO data: <a href="https://github.com/kanezaki/MIRO" target="_blank" rel="noopener">https://github.com/kanezaki/MIRO</a></p>
+<p>作者是使用caffe版本提交的论文，我也只是看了看代码，作为理解作者论文的辅助，实际没有跑过代码。</p>
+<p>这篇博客以代码和论文混杂，因为是借助代码理解论文的，又因为不主要做这个方向，所以并没有在意精度什么的。</p>
+<h2 id="1-1-出发点"><a href="#1-1-出发点" class="headerlink" title="1.1 出发点"></a>1.1 出发点</h2><p>作者不仅想要预测出图片的类别label，还想预测出图片的view-points.</p>
+<p>我觉得作者的创新点在于对view的状态顺序编码成view-rotaion，限定了view的取值空间，使预测的结果变成了哪种排列的view准确率高。</p>
+<h2 id="1-2-网络架构"><a href="#1-2-网络架构" class="headerlink" title="1.2 网络架构"></a>1.2 网络架构</h2><p><img src="./RotationNet-paper/RotationNet.png" alt="RotationNet的网络架构"><br><img src="/2018/12/11/RotationNet-paper/RotationNet.png" title="RotationNet的网络架构"></p>
+<h3 id="1-2-1-训练过程："><a href="#1-2-1-训练过程：" class="headerlink" title="1.2.1 训练过程："></a>1.2.1 训练过程：</h3><p>以MIRO数据集、case=3为例，nview=160，vcand=(16, 160),view-rotation=16，num-classes=12.</p>
+<p>这里的view-roration，我的理解是view的排列方式，但是还是不太顺。</p>
+<p>输入的图片个数batch-size必须是nview的倍数，以输入一个样本的160个角度的图片为例，即batch-size=160，nsamp=1，不影响后续的分析，因为每个样本没有任何关系。</p>
+<p>输出是output=batch-size x ((num_classes+1) * nview)= 160 x (13 x 160). 可以理解成对每一个图片，输出网络架构的一行，可以理解成160张图片在160个view下属于13个类的概率。</p>
+<p><img src="./RotationNet-paper/RotationNet1.png" alt="模型的输出"><br><img src="/2018/12/11/RotationNet-paper/RotationNet1.png" title="模型的输出"></p>
+<p>预测view rotation: 利用下面的预测view公式，求log并相减得到output- = (160x160) x 12 x 1，可以理解成一个矩阵： (160x160) x 12，每行表示当前图片当前view下的属于各类的概率，第一个160行表示第一张图片在160个view下的概率分布，第二个160行表示第二张图片在160个view下的概率分布。scores = (16 x 12 x 1)。scores可以理解成当前view-rotation下这160张图片一起属于各类的概率。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">output = model(input_var)</span><br><span class="line">num_classes = int( output.size( <span class="number">1</span> ) / nview ) - <span class="number">1</span></span><br><span class="line">output = output.view( <span class="number">-1</span>, num_classes + <span class="number">1</span> )</span><br><span class="line"></span><br><span class="line"><span class="comment"># compute scores and decide target labels</span></span><br><span class="line">output_ = torch.nn.functional.log_softmax( output )</span><br><span class="line">output_ = output_[ :, :<span class="number">-1</span> ] - torch.t( output_[ :, <span class="number">-1</span> ].repeat( <span class="number">1</span>, output_.size(<span class="number">1</span>)<span class="number">-1</span> ).view( output_.size(<span class="number">1</span>)<span class="number">-1</span>, <span class="number">-1</span> ) )</span><br><span class="line">output_ = output_.view( <span class="number">-1</span>, nview * nview, num_classes )</span><br><span class="line">output_ = output_.data.cpu().numpy()</span><br><span class="line">output_ = output_.transpose( <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span> )</span><br><span class="line"></span><br><span class="line">scores = np.zeros( ( vcand.shape[ <span class="number">0</span> ], num_classes, nsamp ) )</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(vcand.shape[<span class="number">0</span>]):</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(vcand.shape[<span class="number">1</span>]):</span><br><span class="line">        scores[ j ] = scores[ j ] + output_[ vcand[ j ][ k ] * nview + k ]</span><br></pre></td></tr></table></figure>
+<p>生成动态真值target-：已知这160张图片的真值target[ n * nview ]，假设是第3类，j-max表示第j-max个view-rotation下，预测为第3类的概率最大，继而生成动态真值target-=(target.size(0) x nview)=160 x 160=25600，可以理解成160张图片在160个view下的真值，在j-max个view-rotation对应的view设置为类别3，其余的设置为13.</p>
+<p><img src="./RotationNet-paper/RotationNet2.png" alt="生成动态真值"><br><img src="/2018/12/11/RotationNet-paper/RotationNet2.png" title="生成动态真值"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">target_ = torch.LongTensor( target.size(<span class="number">0</span>) * nview )</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range( nsamp ):</span><br><span class="line">    j_max = np.argmax( scores[ :, target[ n * nview ], n ] )</span><br><span class="line">    <span class="comment"># assign target labels</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(vcand.shape[<span class="number">1</span>]):</span><br><span class="line">        target_[ n * nview * nview + vcand[ j_max ][ k ] * nview + k ] = target[ n * nview ]</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-2-验证过程"><a href="#1-2-2-验证过程" class="headerlink" title="1.2.2 验证过程"></a>1.2.2 验证过程</h3><p>与训练类似，可以得到output- = (160x160) x 12 x 1，可以理解成一个矩阵： (160x160) x 12，每行表示当前图片当前view下的属于各类的概率，第一个160行表示第一张图片在160个view下的概率分布，第二个160行表示第二张图片在160个view下的概率分布。scores = (16 x 12 x 1)。scores可以理解成每个view-rotation下这160张图片一起属于各类的概率。</p>
+<p>j-max表示在第j-max个view-rotation下，scores可以找到最大概率。</p>
+<p>output[n] 表示每连续的160张图片一起属于某类的概率。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">output = model(input_var)</span><br><span class="line">num_classes = int( output.size( <span class="number">1</span> ) / nview ) - <span class="number">1</span></span><br><span class="line">output = output.view( <span class="number">-1</span>, num_classes + <span class="number">1</span> )</span><br><span class="line">output = torch.nn.functional.log_softmax( output )</span><br><span class="line">output = output[ :, :<span class="number">-1</span> ] - torch.t( output[ :, <span class="number">-1</span> ].repeat( <span class="number">1</span>, output.size(<span class="number">1</span>)<span class="number">-1</span> ).view( output.size(<span class="number">1</span>)<span class="number">-1</span>, <span class="number">-1</span> ) )</span><br><span class="line">output = output.view( <span class="number">-1</span>, nview * nview, num_classes )</span><br><span class="line"></span><br><span class="line"><span class="comment"># measure accuracy and record loss</span></span><br><span class="line">prec1, prec5 = my_accuracy(output.data, target, topk=(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># def my_accuracy</span></span><br><span class="line"></span><br><span class="line">target = target[<span class="number">0</span>:<span class="number">-1</span>:nview]</span><br><span class="line">batch_size = target.size(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">num_classes = output_.size(<span class="number">2</span>)</span><br><span class="line">output_ = output_.cpu().numpy()</span><br><span class="line">output_ = output_.transpose( <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span> )</span><br><span class="line">scores = np.zeros( ( vcand.shape[ <span class="number">0</span> ], num_classes, batch_size ) )</span><br><span class="line">output = torch.zeros( ( batch_size, num_classes ) )</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(vcand.shape[<span class="number">0</span>]):</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(vcand.shape[<span class="number">1</span>]):</span><br><span class="line">        scores[ j ] = scores[ j ] + output_[ vcand[ j ][ k ] * nview + k ]</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range( batch_size ):</span><br><span class="line">    j_max = int( np.argmax( scores[ :, :, n ] ) / scores.shape[ <span class="number">1</span> ] )</span><br><span class="line">    output[ n ] = torch.FloatTensor( scores[ j_max, :, n ] )</span><br><span class="line">output = output.cuda()</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-3-测试过程"><a href="#1-2-3-测试过程" class="headerlink" title="1.2.3 测试过程"></a>1.2.3 测试过程</h3><p>因为caffe代码没有看懂，所以根据作者的论文和代码猜一下，当输入的图片没有160张，假设只有100张图片，那么又该怎么做？</p>
+<p>模型的输出是output=batch-size x ((num_classes+1) * nview)= 100 x (13 x 160)，那么怎么求scores？</p>
+<p>求scores是需要全部view的信息的。这里不会了，尽管已经给出了公式，但是公式只能算出output-，没有score，不会了。</p>
+<p>坐等作者回复。</p>
+<h2 id="1-3-预测公式"><a href="#1-3-预测公式" class="headerlink" title="1.3 预测公式"></a>1.3 预测公式</h2><p>$$\max_{(v_i)_{i=1}^M}\prod_{i=1}^M(\log p_{v_{i},y}^{(i)}-\log p_{v_{i},N+1}^{(i)})$$</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RotationNet/" rel="tag"># RotationNet</a>
+          
+            <a href="/tags/paper/" rel="tag"># paper</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/10/pytorch-eval/" rel="next" title="pytorch-eval">
+                <i class="fa fa-chevron-left"></i> pytorch-eval
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Jiajie Tian" />
+            
+              <p class="site-author-name" itemprop="name">Jiajie Tian</p>
+              <p class="site-description motion-element" itemprop="description">做一个有趣的灵魂</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-RotationNet-paper"><span class="nav-number">1.</span> <span class="nav-text">1. RotationNet-paper</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-出发点"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 出发点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-网络架构"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 网络架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-训练过程："><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 训练过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-验证过程"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 验证过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-测试过程"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 测试过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-预测公式"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 预测公式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiajie Tian</span>
+
+  
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+<span id="busuanzi_container_site_pv">
+    总访问量: <span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+    总访客: <span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://tjj-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/12/11/RotationNet-paper/';
+          this.page.identifier = '2018/12/11/RotationNet-paper/';
+          this.page.title = 'RotationNet-paper';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tjj-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('4');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
