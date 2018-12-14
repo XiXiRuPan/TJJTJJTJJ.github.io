@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CNN,paper," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="田佳杰" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization Gradient-weighted Class Activation Mapping Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedanta">
+<meta name="keywords" content="CNN,paper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grad-CAM">
+<meta property="og:url" content="http://yoursite.com/2018/12/14/Grad-CAM/index.html">
+<meta property="og:site_name" content="田佳杰">
+<meta property="og:description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization Gradient-weighted Class Activation Mapping Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedanta">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Deconvolution1.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Deconvolution1.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Backpropagation.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Backpropagation.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Backpropagation2.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Backpropagation2.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/CAM.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/CAM.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/CAM2.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/CAM2.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Grad-CAM.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Grad-CAM.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Grad-CAM2.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM2.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Grad-CAM3.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM3.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Grad-CAM4.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM4.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Grad-CAM5.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM5.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Grad-CAM6.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM6.jpg">
+<meta property="og:updated_time" content="2018-12-14T13:39:24.989Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grad-CAM">
+<meta name="twitter:description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization Gradient-weighted Class Activation Mapping Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedanta">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Deconvolution1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/14/Grad-CAM/"/>
+
+
+
+
+
+  <title>Grad-CAM | 田佳杰</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/TJJTJJTJJ/TJJTJJTJJ.github.io.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">田佳杰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录一些学习到的东西和论文记录</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            something
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/14/Grad-CAM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiajie Tian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="田佳杰">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Grad-CAM</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-14T09:50:53+08:00">
+                2018-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/14/Grad-CAM/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/14/Grad-CAM/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://arxiv.org/pdf/1610.02391.pdf" target="_blank" rel="noopener">Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization</a></p>
+<p>Gradient-weighted Class Activation Mapping</p>
+<p>Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam</p>
+<p>code-torch: <a href="https://github.com/ramprs/grad-cam/" target="_blank" rel="noopener">https://github.com/ramprs/grad-cam/</a></p>
+<p>code-pytorch: <a href="https://github.com/jacobgil/pytorch-grad-cam" target="_blank" rel="noopener">https://github.com/jacobgil/pytorch-grad-cam</a></p>
+<p>code-keras: <a href="https://github.com/jacobgil/keras-grad-cam" target="_blank" rel="noopener">https://github.com/jacobgil/keras-grad-cam</a></p>
+<p>参考链接：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/b2f7efe10ad8" target="_blank" rel="noopener">https://www.jianshu.com/p/b2f7efe10ad8</a></li>
+<li><a href="https://www.jianshu.com/p/1d7b5c4ecb93" target="_blank" rel="noopener">https://www.jianshu.com/p/1d7b5c4ecb93</a></li>
+</ul>
+<h1 id="1-声明"><a href="#1-声明" class="headerlink" title="1. 声明"></a>1. 声明</h1><p>最近在看到一篇person-reid的文章<a href="http://arxiv.org/abs/1811.07487v1" target="_blank" rel="noopener">Re-Identification with Consistent Attentive Siamese Networks</a>，其中涉及到了Grad-CAM，所以简单学习一下Grad-CAM，但不作为重点。</p>
+<a id="more"></a>
+<h1 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h1><p>对于深度模型的可解释性和可视化，现在已经研究出了一些方法，包括不限于<strong>Deconvolution, Guided-Backpropagation, CAM, Grad-CAM</strong>.</p>
+<p>其中 Deconvolution 和 Guided-Backpropagation 得到更偏向于细粒度图， CAM 和 Grad-CAM 得到更偏向于类区分的热力图。</p>
+<p>各种可视化方法及其效果图参见：<a href="https://github.com/utkuozbulak/pytorch-cnn-visualizations" target="_blank" rel="noopener">https://github.com/utkuozbulak/pytorch-cnn-visualizations</a></p>
+<p>参考链接: <a href="https://blog.csdn.net/geek_wh2016/article/details/81060315" target="_blank" rel="noopener">https://blog.csdn.net/geek_wh2016/article/details/81060315</a></p>
+<h2 id="2-1-Deconvolution"><a href="#2-1-Deconvolution" class="headerlink" title="2.1 Deconvolution"></a>2.1 <a href="https://arxiv.org/abs/1311.2901v3" target="_blank" rel="noopener">Deconvolution</a></h2><p><a href="https://arxiv.org/abs/1311.2901v3" target="_blank" rel="noopener">Deconvolution</a></p>
+<p>code: <a href="https://github.com/kvfrans/feature-visualization" target="_blank" rel="noopener">https://github.com/kvfrans/feature-visualization</a></p>
+<p>参考链接：</p>
+<ul>
+<li><a href="http://kvfrans.com/visualizing-features-from-a-convolutional-neural-network/" target="_blank" rel="noopener">http://kvfrans.com/visualizing-features-from-a-convolutional-neural-network/</a></li>
+<li><a href="https://blog.csdn.net/Julialove102123/article/details/78292807" target="_blank" rel="noopener">https://blog.csdn.net/Julialove102123/article/details/78292807</a></li>
+<li><a href="https://blog.csdn.net/gm_margin/article/details/79335140" target="_blank" rel="noopener">https://blog.csdn.net/gm_margin/article/details/79335140</a></li>
+</ul>
+<p>整个过程涉及到三个操作：反池化、反激活、反卷积。其中，反池化是池化的补零逆操作，反激活还是原激活函数，反卷积是卷积核的转置。</p>
+<p><img src="./Grad-CAM/Deconvolution1.png" alt="Deconvolution的结构图"><br><img src="/2018/12/14/Grad-CAM/Deconvolution1.png" title="Deconvolution的结构图"></p>
+<h2 id="2-2-Guided-Backpropagation"><a href="#2-2-Guided-Backpropagation" class="headerlink" title="2.2 Guided-Backpropagation"></a>2.2 Guided-Backpropagation</h2><p><a href="http://arxiv.org/abs/1412.6806" target="_blank" rel="noopener">Guided-Backpropagation</a></p>
+<p>反向传播、反卷积和导向反向传播都是反向传播，区别在于经过 ReLU 层时对梯度的不同处理策略。在这篇<a href="https://arxiv.org/pdf/1412.6806.pdf" target="_blank" rel="noopener">论文</a>中有详细的解释。</p>
+<p>计算公式如下：</p>
+<p><img src="./Grad-CAM/Guided-Backpropagation.jpg" alt="反向传播梯度的选择"><br><img src="/2018/12/14/Grad-CAM/Guided-Backpropagation.jpg" title="反向传播梯度的选择"></p>
+<p>文中提出使用 stride convolution 代替 pooling，研究这种结构的有效性。</p>
+<p>效果显示如下：</p>
+<p><img src="./Grad-CAM/Guided-Backpropagation2.png" alt="三种反向传播的效果"><br><img src="/2018/12/14/Grad-CAM/Guided-Backpropagation2.png" title="三种反向传播的效果"></p>
+<p>可以看出 Guided-Backpropagation 主要提取对分类有效果的特征，但是与是哪类没有关系。</p>
+<h2 id="2-3-CAM"><a href="#2-3-CAM" class="headerlink" title="2.3 CAM"></a>2.3 CAM</h2><p><a href="https://arxiv.org/abs/1512.04150" target="_blank" rel="noopener">CAM</a></p>
+<p>文中主要研究 global average pooling (GAP) 的有效性。</p>
+<p><img src="./Grad-CAM/CAM.png" alt="CAM的网络结构"><br><img src="/2018/12/14/Grad-CAM/CAM.png" title="CAM的网络结构"></p>
+<p><img src="./Grad-CAM/CAM2.png" alt="结果图"><br><img src="/2018/12/14/Grad-CAM/CAM2.png" title="结果图"></p>
+<h2 id="2-4-Grad-CAM"><a href="#2-4-Grad-CAM" class="headerlink" title="2.4 Grad-CAM"></a>2.4 Grad-CAM</h2><p>Grad-CAM 与 CAM 的不同点在于前者的特征加权系数是反向传播得到的，后者的特征加权系数是分类器的权重。</p>
+<h1 id="3-Introduction"><a href="#3-Introduction" class="headerlink" title="3. Introduction"></a>3. Introduction</h1><p>可视化即应该满足高分辨率，也应该满足类别定位能力。</p>
+<p>示例图像</p>
+<p><img src="./Grad-CAM/Grad-CAM.png" alt="示例图像"><br><img src="/2018/12/14/Grad-CAM/Grad-CAM.png" title="示例图像"></p>
+<h1 id="4-Approach"><a href="#4-Approach" class="headerlink" title="4. Approach"></a>4. Approach</h1><p><strong>CAM</strong><br>在CAM中，一个全连接层替换成GAP，参见上面的CAM图，则分类任务可以表示成</p>
+<script type="math/tex; mode=display">y^c = \sum_k w_k^c \frac{1}{Z} \sum_i \sum_j A_{ij}^k</script><p>其中，$y^c$表示分类结果，$w_k^c$表示第k个特征图(kxhxw)对第c个类别的贡献，即全连接层的系数，$Z$表示特征图的大小，$Z=h\cdot w$，$A_{ij}^k$表示第k个特征图。</p>
+<p>则 CAM 的输出图表示为：</p>
+<script type="math/tex; mode=display">L_{CAM}^c=\sum_k w_k^c A^k</script><p><strong>Grad-CAM</strong><br>在Grad-CAM中，权重系数是通过反向传播得到的。</p>
+<script type="math/tex; mode=display">\alpha_k^c=\frac{1}{Z}\sum_i \sum_j \frac{\partial y^c}{\partial A_{ij}^k}</script><p>则Grad-CAM的输出图表示为：</p>
+<script type="math/tex; mode=display">L_{Grad-CAM}^c=ReLu(\sum_k \alpha_k^c A^k)</script><p>可以证明，Grad-CAM与CAM的公式是同一个公式的变形。</p>
+<p><strong>Guided Grad-CAM</strong><br>Guided Grad-CAM 是将 Grad-CAM 与 Guided Backpropagation 得到的输出图简单地点乘，从而获得类区分定位的高分辨率细节图。</p>
+<p><img src="./Grad-CAM/Guided-Grad-CAM.png" alt="Guided-Grad-CAM的网络架构"><br><img src="/2018/12/14/Grad-CAM/Guided-Grad-CAM.png" title="Guided-Grad-CAM的网络架构"></p>
+<p>同时作者还分析了CNN分类错误的样本。<br><img src="./Grad-CAM/Guided-Grad-CAM2.png" alt="Guided-Grad-CAM分类错误的样本"><br><img src="/2018/12/14/Grad-CAM/Guided-Grad-CAM2.png" title="Guided-Grad-CAM分类错误的样本"></p>
+<h1 id="5-代码"><a href="#5-代码" class="headerlink" title="5. 代码"></a>5. 代码</h1><p>对于<a href="https://github.com/TJJTJJTJJ/pytorch-grad-cam" target="_blank" rel="noopener">pytorch代码</a>进行分析</p>
+<h2 id="5-1-Grad-CAM"><a href="#5-1-Grad-CAM" class="headerlink" title="5.1 Grad-CAM"></a>5.1 Grad-CAM</h2><p><strong>计算Grad-CAM</strong></p>
+<p>cam: (H,W), ~(0,1)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FeatureExtractor</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">""" Class for extracting activations and</span></span><br><span class="line"><span class="string">    registering gradients from targetted intermediate layers """</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    调用方式:</span></span><br><span class="line"><span class="string">    outputs, x = FeatureExtractor(x)</span></span><br><span class="line"><span class="string">    gradients = FeatureExtractor.gradients</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, model, target_layers)</span>:</span></span><br><span class="line">        self.model = model</span><br><span class="line">        self.target_layers = target_layers</span><br><span class="line">        self.gradients = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_gradient</span><span class="params">(self, grad)</span>:</span></span><br><span class="line">        self.gradients.append(grad)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :param x: N*C*H*W, a picture</span></span><br><span class="line"><span class="string">        :return: outputs: list, activations layer output, A in equation</span></span><br><span class="line"><span class="string">                 x : feature map, feature of model output n*c*h*w</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        outputs = []</span><br><span class="line">        self.gradients = []</span><br><span class="line">        <span class="keyword">for</span> name, module <span class="keyword">in</span> self.model._modules.items():</span><br><span class="line">            x = module(x)</span><br><span class="line">            <span class="keyword">if</span> name <span class="keyword">in</span> self.target_layers:</span><br><span class="line">                x.register_hook(self.save_gradient)</span><br><span class="line">                outputs += [x]</span><br><span class="line">        <span class="keyword">return</span> outputs, x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ModelOutputs</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">""" Class for making a forward pass, and getting:</span></span><br><span class="line"><span class="string">    1. The network output.</span></span><br><span class="line"><span class="string">    2. Activations from intermeddiate targetted layers.</span></span><br><span class="line"><span class="string">    3. Gradients from intermeddiate targetted layers. """</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    调用方式：</span></span><br><span class="line"><span class="string">    target_activations, output = ModelOutputs(x)</span></span><br><span class="line"><span class="string">    gradients = ModelOutputs.get_gradients()</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, model, target_layers)</span>:</span></span><br><span class="line">        self.model = model</span><br><span class="line">        self.feature_extractor = FeatureExtractor(self.model.features, target_layers)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_gradients</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.feature_extractor.gradients</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :param x: N*C*H*W, a picture</span></span><br><span class="line"><span class="string">        :return: target_activations: list, activations layer output, A in equation</span></span><br><span class="line"><span class="string">                 output : tensor, classification output. N*c. y in equation.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        target_activations, output = self.feature_extractor(x)</span><br><span class="line">        output = output.view(output.size(<span class="number">0</span>), <span class="number">-1</span>)</span><br><span class="line">        output = self.model.classifier(output)</span><br><span class="line">        <span class="keyword">return</span> target_activations, output</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GradCam</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Class for making Grad-CAM, and getting:</span></span><br><span class="line"><span class="string">    1. Grad-CAM</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    调用方式：</span></span><br><span class="line"><span class="string">    mask=GradCam(input)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, model, target_layer_names, use_cuda)</span>:</span></span><br><span class="line">        self.model = model</span><br><span class="line">        self.model.eval()</span><br><span class="line">        self.cuda = use_cuda</span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            self.model = model.cuda()</span><br><span class="line"></span><br><span class="line">        self.extractor = ModelOutputs(self.model, target_layer_names)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, input)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.model(input)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, input, index=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :param input: N*C*H*W, a picture</span></span><br><span class="line"><span class="string">        :param index: int</span></span><br><span class="line"><span class="string">        :return: cam: N*C*H*W ~(0,1) L_&#123;Grad-CAM&#125;^c</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            features, output = self.extractor(input.cuda())</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            features, output = self.extractor(input)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> index == <span class="keyword">None</span>:</span><br><span class="line">            index = np.argmax(output.cpu().data.numpy())</span><br><span class="line"></span><br><span class="line">        one_hot = np.zeros((<span class="number">1</span>, output.size()[<span class="number">-1</span>]), dtype=np.float32)</span><br><span class="line">        one_hot[<span class="number">0</span>][index] = <span class="number">1</span></span><br><span class="line">        <span class="comment"># After test, requires_grad could be False</span></span><br><span class="line">        one_hot = Variable(torch.from_numpy(one_hot), requires_grad=<span class="keyword">True</span>)</span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            one_hot = torch.sum(one_hot.cuda() * output)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            one_hot = torch.sum(one_hot * output)</span><br><span class="line"></span><br><span class="line">        self.model.features.zero_grad()</span><br><span class="line">        self.model.classifier.zero_grad()</span><br><span class="line">        <span class="comment"># After test, requires_grad could be False</span></span><br><span class="line">        one_hot.backward(retain_graph=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">        grads_val = self.extractor.get_gradients()[<span class="number">-1</span>].cpu().data.numpy()</span><br><span class="line"></span><br><span class="line">        target = features[<span class="number">-1</span>]</span><br><span class="line">        target = target.cpu().data.numpy()[<span class="number">0</span>, :]</span><br><span class="line"></span><br><span class="line">        weights = np.mean(grads_val, axis=(<span class="number">2</span>, <span class="number">3</span>))[<span class="number">0</span>, :]</span><br><span class="line">        cam = np.zeros(target.shape[<span class="number">1</span>:], dtype=np.float32)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i, w <span class="keyword">in</span> enumerate(weights):</span><br><span class="line">            cam += w * target[i, :, :]</span><br><span class="line"></span><br><span class="line">        cam = np.maximum(cam, <span class="number">0</span>)</span><br><span class="line">        cam = cv2.resize(cam, (<span class="number">224</span>, <span class="number">224</span>))</span><br><span class="line">        cam = cam - np.min(cam)</span><br><span class="line">        cam = cam / np.max(cam)</span><br><span class="line">        <span class="keyword">return</span> cam</span><br></pre></td></tr></table></figure>
+<p><strong>显示Grad-CAM</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_cam_on_image</span><span class="params">(img, mask)</span>:</span></span><br><span class="line">    heatmap = cv2.applyColorMap(np.uint8(<span class="number">255</span> * mask), cv2.COLORMAP_JET)</span><br><span class="line">    heatmap = np.float32(heatmap) / <span class="number">255</span></span><br><span class="line">    cam = heatmap + np.float32(img)</span><br><span class="line">    cam = cam / np.max(cam)</span><br><span class="line">    cv2.imwrite(<span class="string">"cam.jpg"</span>, np.uint8(<span class="number">255</span> * cam))</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-GuidedBackpropReLUModel"><a href="#5-2-GuidedBackpropReLUModel" class="headerlink" title="5.2 GuidedBackpropReLUModel"></a>5.2 GuidedBackpropReLUModel</h2><p>gb: (C,H,W) 任意值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GuidedBackpropReLU</span><span class="params">(Function)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, input)</span>:</span></span><br><span class="line">        positive_mask = (input &gt; <span class="number">0</span>).type_as(input)</span><br><span class="line">        output = torch.addcmul(torch.zeros(input.size()).type_as(input), input, positive_mask)</span><br><span class="line">        self.save_for_backward(input, output)</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(self, grad_output)</span>:</span></span><br><span class="line">        input, output = self.saved_tensors</span><br><span class="line">        grad_input = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">        positive_mask_1 = (input &gt; <span class="number">0</span>).type_as(grad_output)</span><br><span class="line">        positive_mask_2 = (grad_output &gt; <span class="number">0</span>).type_as(grad_output)</span><br><span class="line">        grad_input = torch.addcmul(torch.zeros(input.size()).type_as(input),</span><br><span class="line">                                   torch.addcmul(torch.zeros(input.size()).type_as(input), grad_output,</span><br><span class="line">                                                 positive_mask_1), positive_mask_2)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> grad_input</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GuidedBackpropReLUModel</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, model, use_cuda)</span>:</span></span><br><span class="line">        self.model = model</span><br><span class="line">        self.model.eval()</span><br><span class="line">        self.cuda = use_cuda</span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            self.model = model.cuda()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># replace ReLU with GuidedBackpropReLU</span></span><br><span class="line">        <span class="keyword">for</span> idx, module <span class="keyword">in</span> self.model.features._modules.items():</span><br><span class="line">            <span class="keyword">if</span> module.__class__.__name__ == <span class="string">'ReLU'</span>:</span><br><span class="line">                self.model.features._modules[idx] = GuidedBackpropReLU()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, input)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.model(input)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, input, index=None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            output = self.forward(input.cuda())</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            output = self.forward(input)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> index == <span class="keyword">None</span>:</span><br><span class="line">            index = np.argmax(output.cpu().data.numpy())</span><br><span class="line"></span><br><span class="line">        one_hot = np.zeros((<span class="number">1</span>, output.size()[<span class="number">-1</span>]), dtype=np.float32)</span><br><span class="line">        one_hot[<span class="number">0</span>][index] = <span class="number">1</span></span><br><span class="line">        <span class="comment"># After test, requires_grad could be False</span></span><br><span class="line">        one_hot = Variable(torch.from_numpy(one_hot), requires_grad=<span class="keyword">True</span>)</span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            one_hot = torch.sum(one_hot.cuda() * output)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            one_hot = torch.sum(one_hot * output)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># self.model.features.zero_grad()</span></span><br><span class="line">        <span class="comment"># self.model.classifier.zero_grad()</span></span><br><span class="line">        one_hot.backward(retain_graph=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">        output = input.grad.cpu().data.numpy()</span><br><span class="line">        output = output[<span class="number">0</span>, :, :, :]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+<h2 id="5-3-Guided-Grad-CAM"><a href="#5-3-Guided-Grad-CAM" class="headerlink" title="5.3 Guided Grad-CAM"></a>5.3 Guided Grad-CAM</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cam_mask = np.zeros(gb.shape)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, gb.shape[<span class="number">0</span>]):</span><br><span class="line">    cam_mask[i, :, :] = mask</span><br><span class="line"></span><br><span class="line">cam_gb = np.multiply(cam_mask, gb)</span><br><span class="line">utils.save_image(torch.from_numpy(cam_gb), <span class="string">'cam_gb.jpg'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="6-效果显示"><a href="#6-效果显示" class="headerlink" title="6. 效果显示"></a>6. 效果显示</h1><p>原图</p>
+<p><img src="./Grad-CAM/Guided-Grad-CAM3.png" alt="原图"><br><img src="/2018/12/14/Grad-CAM/Guided-Grad-CAM3.png" title="原图"></p>
+<p>Grad-CAM</p>
+<p><img src="./Grad-CAM/Guided-Grad-CAM4.jpg" alt="Grad-CAM"><br><img src="/2018/12/14/Grad-CAM/Guided-Grad-CAM4.jpg" title="Grad-CAM"></p>
+<p>Guided-Backpropagation</p>
+<p><img src="./Grad-CAM/Guided-Grad-CAM5.jpg" alt="Guided-Backpropagation"><br><img src="/2018/12/14/Grad-CAM/Guided-Grad-CAM5.jpg" title="Guided-Backpropagation"></p>
+<p>Guided Grad-CAM</p>
+<p><img src="./Grad-CAM/Guided-Grad-CAM6.jpg" alt="Guided Grad-CAM"><br><img src="/2018/12/14/Grad-CAM/Guided-Grad-CAM6.jpg" title="Guided Grad-CAM"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CNN/" rel="tag"># CNN</a>
+          
+            <a href="/tags/paper/" rel="tag"># paper</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/11/RotationNet-paper/" rel="next" title="RotationNet-paper">
+                <i class="fa fa-chevron-left"></i> RotationNet-paper
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Jiajie Tian" />
+            
+              <p class="site-author-name" itemprop="name">Jiajie Tian</p>
+              <p class="site-description motion-element" itemprop="description">做一个有趣的灵魂</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-声明"><span class="nav-number">1.</span> <span class="nav-text">1. 声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-前言"><span class="nav-number">2.</span> <span class="nav-text">2. 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Deconvolution"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 Deconvolution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Guided-Backpropagation"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Guided-Backpropagation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-CAM"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 CAM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-Grad-CAM"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 Grad-CAM</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Introduction"><span class="nav-number">3.</span> <span class="nav-text">3. Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Approach"><span class="nav-number">4.</span> <span class="nav-text">4. Approach</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-代码"><span class="nav-number">5.</span> <span class="nav-text">5. 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-Grad-CAM"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 Grad-CAM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-GuidedBackpropReLUModel"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 GuidedBackpropReLUModel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-Guided-Grad-CAM"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 Guided Grad-CAM</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-效果显示"><span class="nav-number">6.</span> <span class="nav-text">6. 效果显示</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiajie Tian</span>
+
+  
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+<span id="busuanzi_container_site_pv">
+    总访问量: <span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+    总访客: <span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://tjj-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/12/14/Grad-CAM/';
+          this.page.identifier = '2018/12/14/Grad-CAM/';
+          this.page.title = 'Grad-CAM';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tjj-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('4');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

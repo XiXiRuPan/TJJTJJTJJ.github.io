@@ -4,16 +4,38 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/14/Grad-CAM/</loc>
+    <lastmod>2018-12-14T13:39:24.989Z</lastmod>
+    <data>
+        <display>
+        <title>Grad-CAM</title>
+        <pubTime>2018-12-14T01:50:53.000Z</pubTime>
+        
+        <tag>CNN</tag>
+         
+        <tag>paper</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/11/RotationNet-paper/</loc>
-    <lastmod>2018-12-12T01:52:22.615Z</lastmod>
+    <lastmod>2018-12-13T06:26:35.932Z</lastmod>
     <data>
         <display>
         <title>RotationNet-paper</title>
         <pubTime>2018-12-11T08:18:45.000Z</pubTime>
         
-        <tag>RotationNet</tag>
-         
         <tag>paper</tag>
+         
+        <tag>RotationNet</tag>
          
          
            
