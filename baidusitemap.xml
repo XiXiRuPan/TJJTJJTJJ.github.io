@@ -4,16 +4,62 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/17/CASN/</loc>
+    <lastmod>2018-12-17T09:44:32.796Z</lastmod>
+    <data>
+        <display>
+        <title>CASN</title>
+        <pubTime>2018-12-17T03:42:25.000Z</pubTime>
+        
+        <tag>paper</tag>
+         
+        <tag>person-reid</tag>
+         
+        <tag>Grad-CAM</tag>
+         
+         
+           
+             
+              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/29/person-reid-transfer-learning/</loc>
+    <lastmod>2018-12-17T07:54:53.982Z</lastmod>
+    <data>
+        <display>
+        <title>person-reid-transfer-learning</title>
+        <pubTime>2018-11-29T15:29:52.000Z</pubTime>
+        
+        <tag>person-reid</tag>
+         
+        <tag>transfer learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="ind1" url="http://yoursite.com/categories/ind1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/14/Grad-CAM/</loc>
-    <lastmod>2018-12-14T13:52:20.827Z</lastmod>
+    <lastmod>2018-12-17T07:54:49.406Z</lastmod>
     <data>
         <display>
         <title>Grad-CAM</title>
         <pubTime>2018-12-14T01:50:53.000Z</pubTime>
         
-        <tag>CNN</tag>
-         
         <tag>paper</tag>
+         
+        <tag>CNN</tag>
          
          
            
@@ -132,28 +178,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/11/29/person-reid-transfer-learning/</loc>
-    <lastmod>2018-12-10T02:52:37.959Z</lastmod>
-    <data>
-        <display>
-        <title>person-reid-transfer-learning</title>
-        <pubTime>2018-11-29T15:29:52.000Z</pubTime>
-        
-        <tag>transfer learning</tag>
-         
-        <tag>person-reid</tag>
-         
-         
-           
-             
-              <breadCrumb title="ind1" url="http://yoursite.com/categories/ind1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
     <lastmod>2018-12-03T05:22:46.972Z</lastmod>
     <data>
@@ -181,9 +205,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>github</tag>
+         
+        <tag>hexo</tag>
          
         <tag>npm</tag>
          

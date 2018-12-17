@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CNN,paper," />
+  <meta name="keywords" content="paper,CNN," />
 
 
 
@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization Gradient-weighted Class Activation Mapping Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedanta">
-<meta name="keywords" content="CNN,paper">
+<meta name="description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization">
+<meta name="keywords" content="paper,CNN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Grad-CAM">
 <meta property="og:url" content="http://yoursite.com/2018/12/14/Grad-CAM/index.html">
 <meta property="og:site_name" content="田佳杰">
-<meta property="og:description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization Gradient-weighted Class Activation Mapping Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedanta">
+<meta property="og:description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Deconvolution1.png">
 <meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Deconvolution1.png">
@@ -113,10 +113,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM5.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Grad-CAM6.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM6.jpg">
-<meta property="og:updated_time" content="2018-12-14T13:52:20.827Z">
+<meta property="og:updated_time" content="2018-12-17T07:54:49.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grad-CAM">
-<meta name="twitter:description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization Gradient-weighted Class Activation Mapping Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedanta">
+<meta name="twitter:description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization">
 <meta name="twitter:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Deconvolution1.png">
 
 
@@ -466,6 +466,7 @@
 
       
         <p><a href="https://arxiv.org/pdf/1610.02391.pdf" target="_blank" rel="noopener">Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization</a></p>
+<a id="more"></a>
 <p>Gradient-weighted Class Activation Mapping</p>
 <p>Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam</p>
 <p>code-torch: <a href="https://github.com/ramprs/grad-cam/" target="_blank" rel="noopener">https://github.com/ramprs/grad-cam/</a></p>
@@ -478,7 +479,6 @@
 <li><a href="http://spytensor.com/index.php/archives/20/" target="_blank" rel="noopener">http://spytensor.com/index.php/archives/20/</a></li>
 </ul>
 <h1 id="1-声明"><a href="#1-声明" class="headerlink" title="1. 声明"></a>1. 声明</h1><p>最近在看到一篇person-reid的文章<a href="http://arxiv.org/abs/1811.07487v1" target="_blank" rel="noopener">Re-Identification with Consistent Attentive Siamese Networks</a>，其中涉及到了Grad-CAM，所以简单学习一下Grad-CAM，但不作为重点。</p>
-<a id="more"></a>
 <h1 id="2-前言"><a href="#2-前言" class="headerlink" title="2. 前言"></a>2. 前言</h1><p>对于深度模型的可解释性和可视化，现在已经研究出了一些方法，包括不限于<strong>Deconvolution, Guided-Backpropagation, CAM, Grad-CAM</strong>.</p>
 <p>其中 Deconvolution 和 Guided-Backpropagation 得到更偏向于细粒度图， CAM 和 Grad-CAM 得到更偏向于类区分的热力图。</p>
 <p>各种可视化方法及其效果图参见：<a href="https://github.com/utkuozbulak/pytorch-cnn-visualizations" target="_blank" rel="noopener">https://github.com/utkuozbulak/pytorch-cnn-visualizations</a></p>
@@ -509,11 +509,12 @@
 <h1 id="3-Introduction"><a href="#3-Introduction" class="headerlink" title="3. Introduction"></a>3. Introduction</h1><p>可视化即应该满足高分辨率，也应该满足类别定位能力。</p>
 <p>示例图像</p>
 <p><img src="./Grad-CAM/Grad-CAM.png" alt="示例图像"><br><img src="/2018/12/14/Grad-CAM/Grad-CAM.png" title="示例图像"></p>
-<h1 id="4-Approach"><a href="#4-Approach" class="headerlink" title="4. Approach"></a>4. Approach</h1><p><strong>CAM</strong><br>在CAM中，一个全连接层替换成GAP，参见上面的CAM图，则分类任务可以表示成<br>$$y^c = \sum_k w_k^c \frac{1}{Z} \sum_i \sum_j A_{ij}^k$$<br>其中，$y^c$表示分类结果，$w_k^c$表示第k个特征图(kxhxw)对第c个类别的贡献，即全连接层的系数，$Z$表示特征图的大小，$Z=h\cdot w$，$A_{ij}^k$表示第k个特征图。</p>
-<p>则 CAM 的输出图表示为：<br>$$L_{CAM}^c=\sum_k w_k^c A^k$$</p>
-<p><strong>Grad-CAM</strong><br>在Grad-CAM中，权重系数是通过反向传播得到的。<br>$$\alpha_k^c=\frac{1}{Z}\sum_i \sum_j \frac{\partial y^c}{\partial A_{ij}^k}$$</p>
-<p>则Grad-CAM的输出图表示为：<br>$$L_{Grad-CAM}^c=ReLu(\sum_k \alpha_k^c A^k)$$</p>
-<p>可以证明，Grad-CAM与CAM的公式是同一个公式的变形。</p>
+<h1 id="4-Approach"><a href="#4-Approach" class="headerlink" title="4. Approach"></a>4. Approach</h1><p><strong>CAM</strong><br>在CAM中，一个全连接层替换成GAP，参见上面的CAM图，则分类任务可以表示成</p>
+<script type="math/tex; mode=display">y^c = \sum_k w_k^c \frac{1}{Z} \sum_i \sum_j A_{ij}^k</script><p>其中，$y^c$表示分类结果，$w_k^c$表示第k个特征图(kxhxw)对第c个类别的贡献，即全连接层的系数，$Z$表示特征图的大小，$Z=h\cdot w$，$A_{ij}^k$表示第k个特征图。</p>
+<p>则 CAM 的输出图表示为：</p>
+<script type="math/tex; mode=display">L_{CAM}^c=\sum_k w_k^c A^k</script><p><strong>Grad-CAM</strong><br>在Grad-CAM中，权重系数是通过反向传播得到的。</p>
+<script type="math/tex; mode=display">\alpha_k^c=\frac{1}{Z}\sum_i \sum_j \frac{\partial y^c}{\partial A_{ij}^k}</script><p>则Grad-CAM的输出图表示为：</p>
+<script type="math/tex; mode=display">L_{Grad-CAM}^c=ReLu(\sum_k \alpha_k^c A^k)</script><p>可以证明，Grad-CAM与CAM的公式是同一个公式的变形。</p>
 <p><strong>Guided Grad-CAM</strong><br>Guided Grad-CAM 是将 Grad-CAM 与 Guided Backpropagation 得到的输出图简单地点乘，从而获得类区分定位的高分辨率细节图。</p>
 <p><img src="./Grad-CAM/Guided-Grad-CAM.png" alt="Guided-Grad-CAM的网络架构"><br><img src="/2018/12/14/Grad-CAM/Guided-Grad-CAM.png" title="Guided-Grad-CAM的网络架构"></p>
 <p>同时作者还分析了CNN分类错误的样本。<br><img src="./Grad-CAM/Guided-Grad-CAM2.png" alt="Guided-Grad-CAM分类错误的样本"><br><img src="/2018/12/14/Grad-CAM/Guided-Grad-CAM2.png" title="Guided-Grad-CAM分类错误的样本"></p>
@@ -551,9 +552,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CNN/" rel="tag"># CNN</a>
-          
             <a href="/tags/paper/" rel="tag"># paper</a>
+          
+            <a href="/tags/CNN/" rel="tag"># CNN</a>
           
         </div>
       
@@ -575,6 +576,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/17/CASN/" rel="prev" title="CASN">
+                CASN <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -665,7 +670,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -687,7 +692,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
