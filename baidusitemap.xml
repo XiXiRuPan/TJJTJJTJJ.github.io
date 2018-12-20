@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
+    <lastmod>2018-12-20T13:24:25.560Z</lastmod>
+    <data>
+        <display>
+        <title>starGAN</title>
+        <pubTime>2018-12-19T01:44:59.000Z</pubTime>
+        
+        <tag>starGAN</tag>
+         
+        <tag>GAN</tag>
+         
+         
+           
+             
+              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/14/Grad-CAM/</loc>
     <lastmod>2018-12-20T13:15:38.029Z</lastmod>
     <data>
@@ -19,28 +41,6 @@
            
              
               <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
-    <lastmod>2018-12-20T11:57:04.797Z</lastmod>
-    <data>
-        <display>
-        <title>starGAN</title>
-        <pubTime>2018-12-19T01:44:59.000Z</pubTime>
-        
-        <tag>starGAN</tag>
-         
-        <tag>GAN</tag>
-         
-         
-           
-             
-              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
           
         </display>
     </data>
