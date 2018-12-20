@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/12/14/Grad-CAM/</loc>
+    
+    <lastmod>2018-12-20T13:15:38.029Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
+    
+    <lastmod>2018-12-20T11:57:04.797Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/12/17/CASN/</loc>
     
-    <lastmod>2018-12-17T09:44:32.796Z</lastmod>
+    <lastmod>2018-12-18T07:59:48.469Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/2018/11/29/person-reid-transfer-learning/</loc>
     
     <lastmod>2018-12-17T07:54:53.982Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/12/14/Grad-CAM/</loc>
-    
-    <lastmod>2018-12-17T07:54:49.406Z</lastmod>
     
   </url>
   

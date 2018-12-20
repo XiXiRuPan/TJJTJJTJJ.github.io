@@ -425,7 +425,7 @@
 <li>法法</li>
 </ul>
 <hr>
-<h1 id="二、爬虫流程"><a href="#二、爬虫流程" class="headerlink" title="二、爬虫流程"></a>二、爬虫流程</h1><p>用户获取网络数据的方式<br>方式1:浏览器提交请求—-&gt;下载网页代码—-&gt;解析成页面<br>方式2:模拟浏览器发送请求(获取网页代码)—-&gt;提取有用数据—-&gt;存放在数据库或者文件中<br>爬虫就是指方式2.</p>
+<h1 id="二、爬虫流程"><a href="#二、爬虫流程" class="headerlink" title="二、爬虫流程"></a>二、爬虫流程</h1><p>用户获取网络数据的方式<br>方式1:浏览器提交请求——&gt;下载网页代码——&gt;解析成页面<br>方式2:模拟浏览器发送请求(获取网页代码)——&gt;提取有用数据——&gt;存放在数据库或者文件中<br>爬虫就是指方式2.</p>
 <h2 id="1-发起请求"><a href="#1-发起请求" class="headerlink" title="1.发起请求"></a>1.发起请求</h2><p>使用http库向目标站点发送请求，即发送一个Request。<br>Request包含：请求头，请求体等。<br>Request模块缺点：不能执行JS和CSS代码。</p>
 <h2 id="2-获取响应内容"><a href="#2-获取响应内容" class="headerlink" title="2.获取响应内容"></a>2.获取响应内容</h2><p>服务器正常响应，得到一个Response。<br>Response包含：html，json，图片，视频等。</p>
 <h2 id="3-解析内容"><a href="#3-解析内容" class="headerlink" title="3.解析内容"></a>3.解析内容</h2><p>解析html数据：正则表达式(RE模块)，第三方解析库如BeautifulSoup,pyquery等<br>解析json数据：json模块<br>解析二进制数据：以wb形式写入文件</p>
@@ -438,10 +438,10 @@
 <h2 id="2-Response"><a href="#2-Response" class="headerlink" title="2.Response"></a>2.Response</h2><h3 id="2-1-响应状态码"><a href="#2-1-响应状态码" class="headerlink" title="2.1 响应状态码"></a>2.1 响应状态码</h3><p>200：代表成功<br>301：代表调转<br>404：文件不存在<br>403：无权限访问<br>502：服务器错误</p>
 <h3 id="2-2-响应头"><a href="#2-2-响应头" class="headerlink" title="2.2 响应头"></a>2.2 响应头</h3><p>Set-Cookie:BDSVRTM=0; path=/：可能有多个，是来告诉浏览器，把cookie保存下来<br>Content-Location：服务端响应头中包含Location返回浏览器之后，浏览器就会重新访问另一个页面</p>
 <h3 id="2-3preview"><a href="#2-3preview" class="headerlink" title="2.3preview"></a>2.3preview</h3><p>网页源代码，包括：<br>Json数据、html、图片、二进制数据</p>
-<h1 id="接下来开始尝试写一些基本的爬虫代码，并做记录"><a href="#接下来开始尝试写一些基本的爬虫代码，并做记录" class="headerlink" title="接下来开始尝试写一些基本的爬虫代码，并做记录"></a>接下来开始尝试写一些基本的爬虫代码，并做记录</h1><p><code>`</code>python</p>
-<h1 id="发起请求，并获取请求内容"><a href="#发起请求，并获取请求内容" class="headerlink" title="发起请求，并获取请求内容"></a>发起请求，并获取请求内容</h1><p>from urllib import request<br>resp = request.urlopen(‘<a href="https://movie.douban.com/nowplaying/hangzhou/&#39;" target="_blank" rel="noopener">https://movie.douban.com/nowplaying/hangzhou/&#39;</a>) # http.client.HTTPResponse<br>html_data = resp.read().decode(‘utf-8’) # str 这里的print是最好看的</p>
+<h1 id="接下来开始尝试写一些基本的爬虫代码，并做记录"><a href="#接下来开始尝试写一些基本的爬虫代码，并做记录" class="headerlink" title="接下来开始尝试写一些基本的爬虫代码，并做记录"></a>接下来开始尝试写一些基本的爬虫代码，并做记录</h1><p>```python</p>
+<h1 id="发起请求，并获取请求内容"><a href="#发起请求，并获取请求内容" class="headerlink" title="发起请求，并获取请求内容"></a>发起请求，并获取请求内容</h1><p>from urllib import request<br>resp = request.urlopen(‘<a href="https://movie.douban.com/nowplaying/hangzhou/" target="_blank" rel="noopener">https://movie.douban.com/nowplaying/hangzhou/</a>‘) # http.client.HTTPResponse<br>html_data = resp.read().decode(‘utf-8’) # str 这里的print是最好看的</p>
 <h1 id="解析内容"><a href="#解析内容" class="headerlink" title="解析内容"></a>解析内容</h1><p>from bs4 import BeautifulSoup as bs<br>soup = bs(html_data, ‘html.parser’)  # bs4.BeautifulSoup<br>nowplaying_movie = soup.find_all(‘div’, id=’nowplaying’) # bs4.element.ResultSet list的形式，可以暂时看成是多个组成的list，需要先[0]的进行访问。<br>tmp = nowplaying_movie[0] # bs4.element.Tag<br>nowplaying_movie_list = nowplaying_movie[0].find_all(‘li’, class_=’list-item’) # bs4.element.ResultSet  list形式， bs4.element.Tag<br>nowplaying_list = []  # 此时就是直接获取数据了，find_all是对相应片段的截取<br>for item in nowplaying_movie_list:<br>    nowplaying_dict = {}<br>    nowplaying_dict[‘id’] = item[‘data-subject’]<br>    for tag_img_item in item.find_all(‘img’):<br>        nowplaying_dict[‘name’] = tag_img_item[‘alt’]<br>        nowplaying_list.append(nowplaying_dict)</p>
-<p>requrl = ‘<a href="https://movie.douban.com/subject/&#39;+nowplaying_list[0][&#39;id&#39;]" target="_blank" rel="noopener">https://movie.douban.com/subject/&#39;+nowplaying_list[0][&#39;id&#39;]</a> + ‘/comments’ +’?’ +’start=0’ + ‘&amp;limit=20’</p>
+<p>requrl = ‘<a href="https://movie.douban.com/subject/&#39;+nowplaying_list[0][&#39;id" target="_blank" rel="noopener">https://movie.douban.com/subject/&#39;+nowplaying_list[0][&#39;id</a>‘] + ‘/comments’ +’?’ +’start=0’ + ‘&amp;limit=20’</p>
 <h1 id="三句一体"><a href="#三句一体" class="headerlink" title="三句一体"></a>三句一体</h1><p>resp = request.urlopen(requrl)<br>html_data = resp.read().decode(‘utf-8’)<br>soup = bs(html_data, ‘html.parser’)</p>
 <p>comment_div_lists[0].find_all(‘span’, class_=”short”)[0].string # .string 可以暂时理解成中间的字符串</p>
 
@@ -571,7 +571,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -593,7 +593,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

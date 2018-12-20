@@ -4,8 +4,52 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/14/Grad-CAM/</loc>
+    <lastmod>2018-12-20T13:15:38.029Z</lastmod>
+    <data>
+        <display>
+        <title>Grad-CAM</title>
+        <pubTime>2018-12-14T01:50:53.000Z</pubTime>
+        
+        <tag>paper</tag>
+         
+        <tag>CNN</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
+    <lastmod>2018-12-20T11:57:04.797Z</lastmod>
+    <data>
+        <display>
+        <title>starGAN</title>
+        <pubTime>2018-12-19T01:44:59.000Z</pubTime>
+        
+        <tag>starGAN</tag>
+         
+        <tag>GAN</tag>
+         
+         
+           
+             
+              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/17/CASN/</loc>
-    <lastmod>2018-12-17T09:44:32.796Z</lastmod>
+    <lastmod>2018-12-18T07:59:48.469Z</lastmod>
     <data>
         <display>
         <title>CASN</title>
@@ -43,28 +87,6 @@
            
              
               <breadCrumb title="ind1" url="http://yoursite.com/categories/ind1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/14/Grad-CAM/</loc>
-    <lastmod>2018-12-17T07:54:49.406Z</lastmod>
-    <data>
-        <display>
-        <title>Grad-CAM</title>
-        <pubTime>2018-12-14T01:50:53.000Z</pubTime>
-        
-        <tag>paper</tag>
-         
-        <tag>CNN</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
           
         </display>
     </data>
