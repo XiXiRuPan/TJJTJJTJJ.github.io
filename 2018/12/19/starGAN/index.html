@@ -478,30 +478,30 @@
 </blockquote>
 <p><strong>符号说明</strong>：符号表<br>|符号|含义|<br>|:-:|:-:|<br>| x | input image |<br>| c | target domain label |<br>| c’| source domain label |<br>| y | generate image      |</p>
 <p><strong>Loss</strong>: training loss</p>
-<p><strong>Adversarial Loss</strong>:(CycleGAN也有)对抗损失</p>
-<script type="math/tex; mode=display">L_{adv}=E_x[log D_{src}(x)]+E_{x,c}[log (1-D_{src}(G(x,c)))] \tag{1}</script><p><strong>Domain Classification Loss</strong>:(特有)分类损失</p>
+<p><strong>Adversarial Loss</strong>:(CycleGAN也有)对抗损失<br>$$L_{adv}=E_x[log D_{src}(x)]+E_{x,c}[log (1-D_{src}(G(x,c)))] \tag{1}$$</p>
+<p><strong>Domain Classification Loss</strong>:(特有)分类损失</p>
 <blockquote>
 <p>That is, we decompose the objective into two terms: a domain classification loss of real images used to optimize D, and a domain classification loss of fake images used to optimize G.</p>
 </blockquote>
-<p><em>优化 D</em>:</p>
-<script type="math/tex; mode=display">L_{cls}^r=E_{x,c'}[-log D_{cls}(c'|x)] \tag{2}</script><blockquote>
+<p><em>优化 D</em>:<br>$$L_{cls}^r=E_{x,c’}[-log D_{cls}(c’|x)] \tag{2}$$</p>
+<blockquote>
 <p>By minimizing this objective, D learns to classify a real image x to its corresponding original domain c’.</p>
 </blockquote>
-<p><em>优化 G</em>:</p>
-<script type="math/tex; mode=display">L_{cls}^f=E_{x,c}[-log D_{cls}(c|G(x,c))] \tag{3}</script><blockquote>
+<p><em>优化 G</em>:<br>$$L_{cls}^f=E_{x,c}[-log D_{cls}(c|G(x,c))] \tag{3}$$</p>
+<blockquote>
 <p>G tries to minimize this objective to generate images that can be classified as the target domain c.</p>
 </blockquote>
-<p><strong>Reconstruction Loss</strong>: (共有)重构损失</p>
-<script type="math/tex; mode=display">L_{rec}=E_{x,c,c'}[\parallel x-G(G(x,c),c') \parallel _1]  \tag{4}</script><p><strong>Full Objective</strong>: 共有</p>
-<script type="math/tex; mode=display">L_D=-L_{adv}+\lambda_{cls} L_{cls}^r</script><script type="math/tex; mode=display">L_G=L_{adv}+\lambda_{cls} L_{cls}^f+\lambda_{rec}L_{rec} \tag{5}</script><script type="math/tex; mode=display">\lambda_{cls}=1, \lambda_{rec}=10</script><h2 id="2-2-Training-with-Multiple-Datasets"><a href="#2-2-Training-with-Multiple-Datasets" class="headerlink" title="2.2. Training with Multiple Datasets"></a>2.2. Training with Multiple Datasets</h2><p><img src="./starGAN/starGAN5.png" alt="starGAN in multi datasets"><br><img src="/2018/12/19/starGAN/starGAN5.png" title="starGAN in multi datasets"></p>
+<p><strong>Reconstruction Loss</strong>: (共有)重构损失<br>$$L_{rec}=E_{x,c,c’}[\parallel x-G(G(x,c),c’) \parallel _1]  \tag{4}$$</p>
+<p><strong>Full Objective</strong>: 共有<br>$$L_D=-L_{adv}+\lambda_{cls} L_{cls}^r$$<br>$$L_G=L_{adv}+\lambda_{cls} L_{cls}^f+\lambda_{rec}L_{rec} \tag{5}$$<br>$$\lambda_{cls}=1, \lambda_{rec}=10$$</p>
+<h2 id="2-2-Training-with-Multiple-Datasets"><a href="#2-2-Training-with-Multiple-Datasets" class="headerlink" title="2.2. Training with Multiple Datasets"></a>2.2. Training with Multiple Datasets</h2><p><img src="./starGAN/starGAN5.png" alt="starGAN in multi datasets"><br><img src="/2018/12/19/starGAN/starGAN5.png" title="starGAN in multi datasets"></p>
 <p>StarGAN也适用于多数据集间的转换，上述过程中的重构损失要求数据集之间的标签一致(？？？)。针对这个问题，作者引入Mask Vector.</p>
-<p><strong>Mask Vector</strong>: 修改真值。</p>
-<script type="math/tex; mode=display">\tilde{c} = [c_1, ..., c_n, m]</script><blockquote>
+<p><strong>Mask Vector</strong>: 修改真值。<br>$$\tilde{c} = [c_1, …, c_n, m]$$</p>
+<blockquote>
 <p>$c_i$ represents a vector for the labels of the i-th dataset. The vector of the known label $c_i$ can be represented as either a binary vector for binary attributes or a one-hot vector for categorical attributes. For the remaining n−1 unknown labels we simply assign zero values.</p>
 </blockquote>
 <p>这样的话，所有的c都需要变成$\tilde{c}$</p>
-<h1 id="3-Implementation"><a href="#3-Implementation" class="headerlink" title="3. Implementation"></a>3. Implementation</h1><p><strong>Improved GAN training</strong>: 为了稳定训练过程，替代方程1.</p>
-<script type="math/tex; mode=display">L_{adv}=E_x[log D_{src}(x)]-E_{x,c}[log (1-D_{src}(G(x,c)))]-\lambda_{gp}E_{\hat{x}}[(\parallel \nabla_{\hat{x}}  D_{src}(\hat{x}) \parallel _2-1)^2]</script><script type="math/tex; mode=display">\lambda_{gp}=10</script><p><strong>Network Architecture</strong>: 类似CycleGAN。</p>
+<h1 id="3-Implementation"><a href="#3-Implementation" class="headerlink" title="3. Implementation"></a>3. Implementation</h1><p><strong>Improved GAN training</strong>: 为了稳定训练过程，替代方程1.<br>$$L_{adv}=E_x[log D_{src}(x)]-E_{x,c}[log (1-D_{src}(G(x,c)))]-\lambda_{gp}E_{\hat{x}}[(\parallel \nabla_{\hat{x}}  D_{src}(\hat{x}) \parallel <em>2-1)^2]$$<br>$$\lambda</em>{gp}=10$$</p>
+<p><strong>Network Architecture</strong>: 类似CycleGAN。</p>
 <p>G: Leaky ReLU: 0.01</p>
 <p><img src="./starGAN/starGAN6.png" alt="G"><br><img src="/2018/12/19/starGAN/starGAN6.png" title="G"></p>
 <p>D: PatchGAN</p>
