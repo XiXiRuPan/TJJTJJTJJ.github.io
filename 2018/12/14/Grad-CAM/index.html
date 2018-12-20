@@ -119,7 +119,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM5.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Grad-CAM/Guided-Grad-CAM6.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/12/14/Grad-CAM/Guided-Grad-CAM6.jpg">
-<meta property="og:updated_time" content="2018-12-20T13:15:38.029Z">
+<meta property="og:updated_time" content="2018-12-20T14:37:49.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grad-CAM">
 <meta name="twitter:description" content="Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization">
@@ -537,7 +537,8 @@
 <p><strong>实现</strong>：通过最小化遮挡图像的物体来训练。</p>
 <p><img src="./Grad-CAM/GAIN2.png" alt="GAIN的网络架构"><br><img src="/2018/12/14/Grad-CAM/GAIN2.png" title="GAIN的网络架构"></p>
 <p>整体网络架构中，只有一个网络，两个处理流都是共享同一个网络。</p>
-<p><strong>公式</strong>：损失函数<br>$$w_{l,k}^c=GAP(\frac{\partial s^c}{\partial f_{l,k}})$$<br>$$A^c=ReLU(conv(f_l, w^c))$$<br>$$T(A^c)=\frac{1}{1+exp(-\omega(A^c-\sigma))}$$<br>$$I^{<em>c}=I-(T(A^c)\odot I)$$<br>$$L_{am}=\frac{1}{n}\sum_cs^c(I^{</em>c})$$<br>$$L_{self}=L_{cl}+\alpha L_{am}$$<br>$$\alpha=1$$</p>
+<p><strong>公式</strong>：损失函数<br>$$w_{l,k}^c=GAP(\frac{\partial s^c}{\partial f_{l,k}})$$<br>$$A^c=ReLU(conv(f_l, w^c))$$<br>$$T(A^c)=\frac{1}{1+exp(-\omega(A^c-\sigma))}$$<br>$$I^{*c}=I-(T(A^c)\odot I)$$</p>
+<p>$$L_{am}=\frac{1}{n}\sum_cs^c(I^{*c})$$<br>$$L_{self}=L_{cl}+\alpha L_{am}$$<br>$$\alpha=1$$</p>
 <p><strong>扩展</strong>：如果有额外的监督真值，比如分割，那么可以进行扩充网络</p>
 <p><img src="./Grad-CAM/GAIN3.png" alt="扩充的网络架构"><br><img src="/2018/12/14/Grad-CAM/GAIN3.png" title="扩充的网络架构"></p>
 <p>$$L_e=\frac{1}{n}\sum_c (A^c-H^c)^2$$<br>$$L_{ext}=L_{cl}+\alpha L_{am}+\omega L_e$$<br>$$\alpha=1, \omega=10$$</p>
