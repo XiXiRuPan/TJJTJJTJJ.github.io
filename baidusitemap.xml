@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
+    <lastmod>2018-12-21T15:45:17.785Z</lastmod>
+    <data>
+        <display>
+        <title>starGAN</title>
+        <pubTime>2018-12-19T01:44:59.000Z</pubTime>
+        
+        <tag>starGAN</tag>
+         
+        <tag>GAN</tag>
+         
+         
+           
+             
+              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/19/cycleGAN/</loc>
+    <lastmod>2018-12-21T13:25:36.390Z</lastmod>
+    <data>
+        <display>
+        <title>cycleGAN</title>
+        <pubTime>2018-11-19T01:11:24.000Z</pubTime>
+        
+        <tag>cycleGAN</tag>
+         
+         
+           
+             
+              <breadCrumb title="DeepLearning" url="http://yoursite.com/categories/DeepLearning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/14/Grad-CAM/</loc>
     <lastmod>2018-12-20T14:37:49.738Z</lastmod>
     <data>
@@ -19,28 +61,6 @@
            
              
               <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
-    <lastmod>2018-12-20T13:24:25.560Z</lastmod>
-    <data>
-        <display>
-        <title>starGAN</title>
-        <pubTime>2018-12-19T01:44:59.000Z</pubTime>
-        
-        <tag>starGAN</tag>
-         
-        <tag>GAN</tag>
-         
-         
-           
-             
-              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
           
         </display>
     </data>
@@ -283,26 +303,6 @@
            
              
               <breadCrumb title="深度学习" url="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/11/19/cycleGAN/</loc>
-    <lastmod>2018-11-19T05:44:34.982Z</lastmod>
-    <data>
-        <display>
-        <title>cycleGAN</title>
-        <pubTime>2018-11-19T01:11:24.000Z</pubTime>
-        
-        <tag>cycleGAN</tag>
-         
-         
-           
-             
-              <breadCrumb title="DeepLearning" url="http://yoursite.com/categories/DeepLearning/"/>
           
         </display>
     </data>
