@@ -451,9 +451,9 @@
 </ul>
 <p><a href="https://github.com/vdumoulin/conv_arithmetic#convolution-arithmetic" target="_blank" rel="noopener">动图演示</a><br><a href="https://github.com/TJJTJJTJJ/conv_arithmetic" target="_blank" rel="noopener">https://github.com/TJJTJJTJJ/conv_arithmetic</a></p>
 <p><a href="https://buptldy.github.io/2016/10/29/2016-10-29-deconv/" target="_blank" rel="noopener">详细解析</a><br><a id="more"></a></p>
-<p>卷积的公式如下：<br>$$ o = \lfloor\frac{i-k+2p}{s}\rfloor+1 $$</p>
-<p>反卷积对应的是直接在原图上填充0<br>$$ o’ = s’(i’-1)+k’-2p’+out_padding $$</p>
-<p>其中涉及到的数学公式非常简单，因为卷积和反卷积都可以对应到一个矩阵相乘上，可以简单地理解成卷积的卷积核矩阵和反卷积的卷积核矩阵互为转置，当然，我们知道，这只是在大小上可以这么理解，其中的数值是不一样的，除非是正交矩阵。</p>
+<p>卷积的公式如下：</p>
+<script type="math/tex; mode=display">o = \lfloor\frac{i-k+2p}{s}\rfloor+1</script><p>反卷积对应的是直接在原图上填充0</p>
+<script type="math/tex; mode=display">o' = s'(i'-1)+k'-2p'+out\_padding</script><p>其中涉及到的数学公式非常简单，因为卷积和反卷积都可以对应到一个矩阵相乘上，可以简单地理解成卷积的卷积核矩阵和反卷积的卷积核矩阵互为转置，当然，我们知道，这只是在大小上可以这么理解，其中的数值是不一样的，除非是正交矩阵。</p>
 <p>根据动图演示的动态图可以看出：</p>
 <ol>
 <li>反卷积的No padding的演示效果就是卷积的full padding，在padding效果上，反卷积和卷积总是以互补的形式出现。</li>
@@ -462,8 +462,8 @@
 </ol>
 <h1 id="空洞卷积"><a href="#空洞卷积" class="headerlink" title="空洞卷积"></a>空洞卷积</h1><p>扩张卷积的计算公式与上面不一样</p>
 <p>扩张卷积扩张的是卷积，在卷积核内部和外部同时填充0.主要是为了扩大感受野，应用在目标分割等上面.</p>
-<p><a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">扩张卷积</a><br>$$ o’=\lfloor\frac{i’-k+2p-(k-1)*(d-1)}{s}\rfloor+1$$</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3232548-f8342b17bb77e4ed.png?imageMogr2/auto-orient/" alt="感受野示意图"></p>
+<p><a href="https://blog.csdn.net/Quincuntial/article/details/78743033" target="_blank" rel="noopener">扩张卷积</a></p>
+<script type="math/tex; mode=display">o'=\lfloor\frac{i'-k+2p-(k-1)*(d-1)}{s}\rfloor+1</script><p><img src="https://upload-images.jianshu.io/upload_images/3232548-f8342b17bb77e4ed.png?imageMogr2/auto-orient/" alt="感受野示意图"></p>
 <p>感受野的计算公式<br>(a) 普通卷积，1-dilated convolution，卷积核的感受野为$3 \times 3 = 9$。<br>(b) 扩张卷积，2-dilated convolution，卷积核的感受野为$7 \times 7 = 49$。<br>(c) 扩张卷积，4-dilated convolution，卷积核的感受野为$15 \times 15 = 225$。</p>
 
       

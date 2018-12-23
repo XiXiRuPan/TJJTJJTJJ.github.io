@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
+    
+    <lastmod>2018-12-23T15:11:34.619Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/12/10/pytorch-2.0/</loc>
     
-    <lastmod>2018-12-23T14:46:12.814Z</lastmod>
+    <lastmod>2018-12-23T14:47:18.685Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
     
     <lastmod>2018-12-23T08:18:21.787Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
-    
-    <lastmod>2018-12-21T15:45:17.785Z</lastmod>
     
   </url>
   

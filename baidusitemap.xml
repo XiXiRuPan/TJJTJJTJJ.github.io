@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
+    <lastmod>2018-12-23T15:11:34.619Z</lastmod>
+    <data>
+        <display>
+        <title>starGAN</title>
+        <pubTime>2018-12-19T01:44:59.000Z</pubTime>
+        
+        <tag>starGAN</tag>
+         
+        <tag>GAN</tag>
+         
+         
+           
+             
+              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/10/pytorch-2.0/</loc>
-    <lastmod>2018-12-23T14:46:12.814Z</lastmod>
+    <lastmod>2018-12-23T14:47:18.685Z</lastmod>
     <data>
         <display>
         <title>pytorch-2.0</title>
@@ -59,28 +81,6 @@
            
              
               <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
-    <lastmod>2018-12-21T15:45:17.785Z</lastmod>
-    <data>
-        <display>
-        <title>starGAN</title>
-        <pubTime>2018-12-19T01:44:59.000Z</pubTime>
-        
-        <tag>starGAN</tag>
-         
-        <tag>GAN</tag>
-         
-         
-           
-             
-              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
           
         </display>
     </data>
@@ -273,9 +273,9 @@
         <title>github-markdown-mathjax</title>
         <pubTime>2018-12-03T02:59:51.000Z</pubTime>
         
-        <tag>markdown</tag>
-         
         <tag>github</tag>
+         
+        <tag>markdown</tag>
          
         <tag>mathjax</tag>
          
