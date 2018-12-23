@@ -4,6 +4,68 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/10/pytorch-2.0/</loc>
+    <lastmod>2018-12-23T14:46:12.814Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch-2.0</title>
+        <pubTime>2018-12-10T07:18:25.000Z</pubTime>
+        
+        <tag>pytorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    <lastmod>2018-12-23T14:40:33.111Z</lastmod>
+    <data>
+        <display>
+        <title>python-2.0</title>
+        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
+    <lastmod>2018-12-23T08:18:21.787Z</lastmod>
+    <data>
+        <display>
+        <title>markdown-math</title>
+        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+        <tag>math</tag>
+         
+         
+           
+             
+              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
     <lastmod>2018-12-21T15:45:17.785Z</lastmod>
     <data>
@@ -136,28 +198,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
-    <lastmod>2018-12-10T07:44:25.722Z</lastmod>
-    <data>
-        <display>
-        <title>markdown-math</title>
-        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
-        
-        <tag>markdown</tag>
-         
-        <tag>math</tag>
-         
-         
-           
-             
-              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/12/10/SPGAN-tensorflow/</loc>
     <lastmod>2018-12-10T07:20:51.859Z</lastmod>
     <data>
@@ -180,26 +220,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/12/10/pytorch-eval/</loc>
-    <lastmod>2018-12-10T07:20:22.017Z</lastmod>
-    <data>
-        <display>
-        <title>pytorch-eval</title>
-        <pubTime>2018-12-10T07:18:25.000Z</pubTime>
-        
-        <tag>pytorch</tag>
-         
-         
-           
-             
-              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/08/26/pytorch-1.0/</loc>
     <lastmod>2018-12-10T07:17:42.361Z</lastmod>
     <data>
@@ -213,26 +233,6 @@
            
              
               <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    <lastmod>2018-12-03T05:22:46.972Z</lastmod>
-    <data>
-        <display>
-        <title>python-2.0</title>
-        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
@@ -273,9 +273,9 @@
         <title>github-markdown-mathjax</title>
         <pubTime>2018-12-03T02:59:51.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>markdown</tag>
+         
+        <tag>github</tag>
          
         <tag>mathjax</tag>
          
