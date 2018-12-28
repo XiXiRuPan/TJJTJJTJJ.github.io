@@ -4,8 +4,50 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/27/SEIGAN/</loc>
+    <lastmod>2018-12-28T09:11:52.292Z</lastmod>
+    <data>
+        <display>
+        <title>SEIGAN</title>
+        <pubTime>2018-12-27T08:57:16.000Z</pubTime>
+        
+        <tag>GAN</tag>
+         
+         
+           
+             
+              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
+    <lastmod>2018-12-27T15:09:14.367Z</lastmod>
+    <data>
+        <display>
+        <title>markdown-math</title>
+        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+        <tag>math</tag>
+         
+         
+           
+             
+              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/26/GPU/</loc>
-    <lastmod>2018-12-26T10:35:02.221Z</lastmod>
+    <lastmod>2018-12-27T06:55:19.721Z</lastmod>
     <data>
         <display>
         <title>GPU</title>
@@ -35,9 +77,9 @@
         <title>starGAN</title>
         <pubTime>2018-12-19T01:44:59.000Z</pubTime>
         
-        <tag>starGAN</tag>
-         
         <tag>GAN</tag>
+         
+        <tag>starGAN</tag>
          
          
            
@@ -83,28 +125,6 @@
            
              
               <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
-    <lastmod>2018-12-23T08:18:21.787Z</lastmod>
-    <data>
-        <display>
-        <title>markdown-math</title>
-        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
-        
-        <tag>markdown</tag>
-         
-        <tag>math</tag>
-         
-         
-           
-             
-              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
           
         </display>
     </data>

@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/12/27/SEIGAN/</loc>
+    
+    <lastmod>2018-12-28T09:11:52.292Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
+    
+    <lastmod>2018-12-27T15:09:14.367Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/12/26/GPU/</loc>
     
-    <lastmod>2018-12-26T10:35:02.221Z</lastmod>
+    <lastmod>2018-12-27T06:55:19.721Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
     
     <lastmod>2018-12-23T14:40:33.111Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
-    
-    <lastmod>2018-12-23T08:18:21.787Z</lastmod>
     
   </url>
   
