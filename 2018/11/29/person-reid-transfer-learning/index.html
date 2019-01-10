@@ -519,13 +519,13 @@
 <li>学习率，$E_I=10^{-7}, E_T E_C E_S D_C = 10^{-3}, C_S = 2*10^{-3}  $，并且在前几个epoch只更新$E_I$</li>
 <li>优化器：SGD</li>
 </ul>
-<h3 id="1-2-损失函数"><a href="#1-2-损失函数" class="headerlink" title="1.2 损失函数"></a>1.2 损失函数</h3><p>分类损失<br>$$L_{class}=-\sum_{i=1}^{N_s}y_i^s.log\hat{y}_i^s \tag {1}$$</p>
-<p>对比损失<br>$$L_{ctrs}=\sum_{i,j}{\lambda}(e_{c,i}^s-e_{c,j}^s)^2+ ({1-\lambda}) [max(0, m-(e_{c,i}^s-e_{c,j}^s))]^2 \tag {2}$$</p>
-<p>重构误差<br>$$ L_{rec} = \sum_{i=1}^{N_s} ||X_i^s-\hat{X_i^s}||^2 + \sum_{i=1}^{N_t} ||X_i^t-\hat{X_i^t}||^2 \tag 3 $$</p>
-<p>差别损失<br>$$ L_{diff} = || {H_c^s}^T H_p^s ||_F^2 + || {H_c^t}^T H_p^t ||_F^2 \tag 4 $$</p>
-<p>总损失<br>$$ L_{total} = L_{class} + \alpha L_{ctrs} + \beta L_{rec} + \gamma L_{diff} \tag {5} $$</p>
-<p>其中<br>$$ \alpha=0.01, \beta= 2.0, \gamma=1500 $$</p>
-<h3 id="1-3-模块分析"><a href="#1-3-模块分析" class="headerlink" title="1.3 模块分析"></a>1.3 模块分析</h3><p>三个模块:</p>
+<h3 id="1-2-损失函数"><a href="#1-2-损失函数" class="headerlink" title="1.2 损失函数"></a>1.2 损失函数</h3><p>分类损失</p>
+<script type="math/tex; mode=display">L_{class}=-\sum_{i=1}^{N_s}y_i^s.log\hat{y}_i^s \tag {1}</script><p>对比损失</p>
+<script type="math/tex; mode=display">L_{ctrs}=\sum_{i,j}{\lambda}(e_{c,i}^s-e_{c,j}^s)^2+ ({1-\lambda}) [max(0, m-(e_{c,i}^s-e_{c,j}^s))]^2 \tag {2}</script><p>重构误差</p>
+<script type="math/tex; mode=display">L_{rec} = \sum_{i=1}^{N_s} ||X_i^s-\hat{X_i^s}||^2 + \sum_{i=1}^{N_t} ||X_i^t-\hat{X_i^t}||^2 \tag 3</script><p>差别损失</p>
+<script type="math/tex; mode=display">L_{diff} = || {H_c^s}^T H_p^s ||_F^2 + || {H_c^t}^T H_p^t ||_F^2 \tag 4</script><p>总损失</p>
+<script type="math/tex; mode=display">L_{total} = L_{class} + \alpha L_{ctrs} + \beta L_{rec} + \gamma L_{diff} \tag {5}</script><p>其中</p>
+<script type="math/tex; mode=display">\alpha=0.01, \beta= 2.0, \gamma=1500</script><h3 id="1-3-模块分析"><a href="#1-3-模块分析" class="headerlink" title="1.3 模块分析"></a>1.3 模块分析</h3><p>三个模块:</p>
 <ol>
 <li><strong>$ L_{rec} $</strong></li>
 <li><strong>$ L_{class} $和$ L_{ctrs} $</strong></li>
@@ -535,6 +535,7 @@
 <p>参考链接：<a href="https://blog.csdn.net/hijack00/article/details/52238549" target="_blank" rel="noopener">深度学习中的“重构”</a></p>
 <p>作者在这里提示，当只有重构损失函数的时候，应该保持$E_I$不更新，只更新$E_C$.</p>
 <p>S: Market, T: Duke; S: Duke, T: Market</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -555,9 +556,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="1-3-2-监督-L-rec-L-class-和-L-ctrs"><a href="#1-3-2-监督-L-rec-L-class-和-L-ctrs" class="headerlink" title="1.3.2 监督$ L_{rec} $, $ L_{class} $和$ L_{ctrs} $"></a>1.3.2 监督$ L_{rec} $, $ L_{class} $和$ L_{ctrs} $</h4><p>半监督和监督</p>
 <p>监督损失使得共享空间捕获到行人语义信息。</p>
 <p>S: Market, T: Duke; S: Duke, T: Market</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -599,10 +602,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="1-3-3-无监督-L-rec-E-T-和-E-S"><a href="#1-3-3-无监督-L-rec-E-T-和-E-S" class="headerlink" title="1.3.3 无监督$ L_{rec} $, $ E_T $和$ E_S $"></a>1.3.3 无监督$ L_{rec} $, $ E_T $和$ E_S $</h4><p>特有特征的提取是为了去除共享空间的噪声。</p>
 <p>假设共享空间存在，且特有特征空间存在，如果没有特有特征的提取，那么得到的行人特征或多或少地都会包含特征空间的基向量。</p>
 <p>当然，这里也隐含了一些假设，共享空间和特有空间一定是线性无关的。空间的基向量是2048维。</p>
 <p>S: Market, T: Duke; S: Duke, T: Market</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -644,6 +649,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <hr>
 <h2 id="2-HHL"><a href="#2-HHL" class="headerlink" title="2. HHL"></a>2. HHL</h2><p><a href="https://github.com/zhunzhong07/zhunzhong07.github.io/blob/master/paper/HHL.pdf" target="_blank" rel="noopener">Generalizing A Person Retrieval Model Hetero- and Homogeneously</a></p>
 <p>Zhun Zhong, Liang Zheng, Shaozi Li, Yi Yang, ECCV 2018</p>
@@ -666,14 +672,14 @@
 <p>网络的简要介绍</p>
 <ul>
 <li>CNN是resnet50，网络包括两个分支，一个计算源数据集的分类损失，一个计算相似度学习的triplet损失。</li>
-<li>FC-2014的组成：linear(2048，1024)–&gt;bn(1024)–&gt;relu–&gt;dropout(0.5),相当于一个embedding。</li>
+<li>FC-2014的组成：linear(2048，1024)—&gt;bn(1024)—&gt;relu—&gt;dropout(0.5),相当于一个embedding。</li>
 <li>FC-#ID是linear(1024,751), FC-128是linear(1024, 128), 两个分支的具体情况是：</li>
 <li><ul>
-<li>x1–&gt;linear(2048, 1024)–&gt;x2–&gt;bn(1024)–&gt;x3–&gt;relu–&gt;x4–&gt;dropout(0.5)–&gt;x5–&gt;linear(102, 751)–&gt;x6</li>
+<li>x1—&gt;linear(2048, 1024)—&gt;x2—&gt;bn(1024)—&gt;x3—&gt;relu—&gt;x4—&gt;dropout(0.5)—&gt;x5—&gt;linear(102, 751)—&gt;x6</li>
 </ul>
 </li>
 <li><ul>
-<li>x1–&gt;linear(2048, 1024)–&gt;x2–&gt;bn(1024)–&gt;x3–&gt;relu–&gt;x4–&gt;linear(1024, 128)</li>
+<li>x1—&gt;linear(2048, 1024)—&gt;x2—&gt;bn(1024)—&gt;x3—&gt;relu—&gt;x4—&gt;linear(1024, 128)</li>
 </ul>
 </li>
 <li>网络的triplet损失是Batch Hard Triplet Loss</li>
@@ -683,24 +689,22 @@
 <li>关于StarGAN待自己复现之后再做进一步解释，现在只复现过StyleGAN。</li>
 <li>triplet损失的margin=0.3</li>
 </ul>
-<h3 id="2-2-损失函数"><a href="#2-2-损失函数" class="headerlink" title="2.2 损失函数"></a>2.2 损失函数</h3><p>分类损失<br>$$L_{cross}=-\sum_{i=1}^{N_s}y_i^s.log\hat{y}_i^s$$</p>
-<p>triplet损失<br>$$L_T=\sum_{x_a, x_p, x_n}[D_{x_a, x_p}+m-D_{x_a, x_n}]_+$$</p>
-<p>相机不变性的triplet损失</p>
+<h3 id="2-2-损失函数"><a href="#2-2-损失函数" class="headerlink" title="2.2 损失函数"></a>2.2 损失函数</h3><p>分类损失</p>
+<script type="math/tex; mode=display">L_{cross}=-\sum_{i=1}^{N_s}y_i^s.log\hat{y}_i^s</script><p>triplet损失</p>
+<script type="math/tex; mode=display">L_T=\sum_{x_a, x_p, x_n}[D_{x_a, x_p}+m-D_{x_a, x_n}]_+</script><p>相机不变性的triplet损失</p>
 <p>目标域中一张原始图片作为anchor，StarGAN图片为positive，其他图片为negative</p>
-<p>$$L_C=L_T((x_t^i)^{n_t}\bigcup(x_{t^*}^i)^{n_t^*})$$</p>
-<p>域不变性的triplet损失</p>
+<script type="math/tex; mode=display">L_C=L_T((x_t^i)^{n_t}\bigcup(x_{t^\*}^i)^{n_t^*})</script><p>域不变性的triplet损失</p>
 <p>源域中一张图片为anchor，同一id的其他图片作为positive，目标域的任一图片为negative</p>
-<p>$$L_D=L_T((x_s^i)^{n_s}\bigcup(x_t^i)^{n_t})$$</p>
-<p>相机不变性和域不变性的triplet损失</p>
+<script type="math/tex; mode=display">L_D=L_T((x_s^i)^{n_s}\bigcup(x_t^i)^{n_t})</script><p>相机不变性和域不变性的triplet损失</p>
 <p>是将相机不变性和域不变性合为一体，源域的positive不变，negative为源域的其他图片和目标域的图片，目标域的positive不变，negative为源域的图片和目标域的其他行人图片</p>
-<p>$$L_{CD}=L_T((x_s^i)^{n_s}\bigcup(x_t^i)^{n_t}\bigcup(x_{t<em>}^i)^{n_t^</em>})$$</p>
-<p>总损失：<br>$$L_{HHL}=L_{cross}+\beta*L_{CD}$$</p>
-<p>其中：<br>$$\beta=0.5$$</p>
-<h3 id="2-3-模块分析"><a href="#2-3-模块分析" class="headerlink" title="2.3 模块分析"></a>2.3 模块分析</h3><ol>
+<script type="math/tex; mode=display">L_{CD}=L_T((x_s^i)^{n_s}\bigcup(x_t^i)^{n_t}\bigcup(x_{t*}^i)^{n_t^*})</script><p>总损失：</p>
+<script type="math/tex; mode=display">L_{HHL}=L_{cross}+\beta*L_{CD}</script><p>其中：</p>
+<script type="math/tex; mode=display">\beta=0.5</script><h3 id="2-3-模块分析"><a href="#2-3-模块分析" class="headerlink" title="2.3 模块分析"></a>2.3 模块分析</h3><ol>
 <li><strong>starGAN</strong></li>
 <li><strong>sample方法</strong></li>
 </ol>
 <h4 id="2-3-1-starGAN"><a href="#2-3-1-starGAN" class="headerlink" title="2.3.1 starGAN"></a>2.3.1 starGAN</h4><p>在源数据集上训练，在目标数据集上测试不同图像增强方法下的图片距离，通过表格可以得出，预训练的模型对于目标数据集的随机翻转等等有很好的鲁棒性，但是，对于不同摄像头的同一个人，其距离还是很大。因此，利用StarGAN和相机不变性的triplet损失来减少由于摄像头带来的偏差。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -728,6 +732,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="2-3-2-sample方法"><a href="#2-3-2-sample方法" class="headerlink" title="2.3.2 sample方法"></a>2.3.2 sample方法</h4><p>对于目标域的取样方法，对比了三种方法的性能，分别是随机取样、聚类取样、有监督取样，通过下图可以看出，这三种方法的性能是一样的，最后，作者给的代码是随机取样。</p>
 <p><img src="./pic/HHL/HHL2.png" alt="sample"><br><img src="/2018/11/29/person-reid-transfer-learning/HHL2.png" title="sample"></p>
 <h3 id="2-4-实验设置"><a href="#2-4-实验设置" class="headerlink" title="2.4 实验设置"></a>2.4 实验设置</h3><h4 id="2-4-1-Camera-style-transfer-model：StarGAN"><a href="#2-4-1-Camera-style-transfer-model：StarGAN" class="headerlink" title="2.4.1 Camera style transfer model：StarGAN"></a>2.4.1 Camera style transfer model：StarGAN</h4><p>使用StarGAN进行对于摄像头风格转化。</p>
@@ -806,9 +811,10 @@
 <li>LMP网络直接generated domain上训练。</li>
 <li>在论文的tabel2的注释中，可以看到是分成了7份，与PCB的6份差不多。</li>
 </ul>
-<h3 id="3-3-损失函数"><a href="#3-3-损失函数" class="headerlink" title="3.3 损失函数"></a>3.3 损失函数</h3><h4 id="3-3-1-CycleGAN"><a href="#3-3-1-CycleGAN" class="headerlink" title="3.3.1 CycleGAN"></a>3.3.1 CycleGAN</h4><p>$$L_{T_{adv}}(G,D_T,p_x,p_y)=E_{y\sim p_y}[(D_T(y)-1)^2]+E_{x\sim p_x}[(D_T(G(x))-1)^2]$$<br>$$L_{S_{adv}}(F,D_S,p_x,p_y)=E_{x\sim p_x}[(D_S(x)-1)^2]+E_{y\sim p_y}[(D_S(F(y)))^2]$$<br>$$L_{cyc}(G,F)=E_{x\sim p_x}\parallel F(G(x))-x \parallel_1+E_{y\sim p_y}\parallel G(F(y))-y\parallel_1$$<br>$$L_{ide}(G,F,p_x,p_y)=E_{x\sim p_x}\parallel F(x)-x\parallel_1+E_{y\sim p_y}\parallel G(y)-y\parallel_1$$</p>
-<h4 id="3-3-2-SPGAN"><a href="#3-3-2-SPGAN" class="headerlink" title="3.3.2 SPGAN"></a>3.3.2 SPGAN</h4><p>Siameses Net:<br>$$L_{con}(i,x_1,x_2)=(1-i)(max(0,m-d))^2+id^2$$<br>其中，$m\in [0,2]$，$d=1-cos(\theta)\in [0,2]$表示归一化后的欧式距离.正样本是$x_S$和$G(x_S)$或者$x_T$和$F(x_T)$,负样本是$G(x_S)$和$x_T$或者$F(x_T)$和$x_S$。</p>
-<p>Overall objective loss:<br>$$L_{sp}=L_{T_{adv}}+L_{S_{adv}}+\lambda_1 L_{cyc}+\lambda_2 L_{ide}+\lambda_3 L_{con}$$<br>其中，$\lambda_1=10，\lambda_2=5，\lambda_3=2, m=2$</p>
+<h3 id="3-3-损失函数"><a href="#3-3-损失函数" class="headerlink" title="3.3 损失函数"></a>3.3 损失函数</h3><h4 id="3-3-1-CycleGAN"><a href="#3-3-1-CycleGAN" class="headerlink" title="3.3.1 CycleGAN"></a>3.3.1 CycleGAN</h4><script type="math/tex; mode=display">L_{T_{adv}}(G,D_T,p_x,p_y)=E_{y\sim p_y}[(D_T(y)-1)^2]+E_{x\sim p_x}[(D_T(G(x))-1)^2]</script><script type="math/tex; mode=display">L_{S_{adv}}(F,D_S,p_x,p_y)=E_{x\sim p_x}[(D_S(x)-1)^2]+E_{y\sim p_y}[(D_S(F(y)))^2]</script><script type="math/tex; mode=display">L_{cyc}(G,F)=E_{x\sim p_x}\parallel F(G(x))-x \parallel_1+E_{y\sim p_y}\parallel G(F(y))-y\parallel_1</script><script type="math/tex; mode=display">L_{ide}(G,F,p_x,p_y)=E_{x\sim p_x}\parallel F(x)-x\parallel_1+E_{y\sim p_y}\parallel G(y)-y\parallel_1</script><h4 id="3-3-2-SPGAN"><a href="#3-3-2-SPGAN" class="headerlink" title="3.3.2 SPGAN"></a>3.3.2 SPGAN</h4><p>Siameses Net:</p>
+<script type="math/tex; mode=display">L_{con}(i,x_1,x_2)=(1-i)(max(0,m-d))^2+id^2</script><p>其中，$m\in [0,2]$，$d=1-cos(\theta)\in [0,2]$表示归一化后的欧式距离.正样本是$x_S$和$G(x_S)$或者$x_T$和$F(x_T)$,负样本是$G(x_S)$和$x_T$或者$F(x_T)$和$x_S$。</p>
+<p>Overall objective loss:</p>
+<script type="math/tex; mode=display">L_{sp}=L_{T_{adv}}+L_{S_{adv}}+\lambda_1 L_{cyc}+\lambda_2 L_{ide}+\lambda_3 L_{con}</script><p>其中，$\lambda_1=10，\lambda_2=5，\lambda_3=2, m=2$</p>
 <h4 id="3-3-3-行人重识别网络"><a href="#3-3-3-行人重识别网络" class="headerlink" title="3.3.3 行人重识别网络"></a>3.3.3 行人重识别网络</h4><p>以resnet50为基础网络，和PCB类似，分割成两块。</p>
 <h3 id="3-4-实验设置"><a href="#3-4-实验设置" class="headerlink" title="3.4 实验设置"></a>3.4 实验设置</h3><h4 id="3-4-1-SPGAN"><a href="#3-4-1-SPGAN" class="headerlink" title="3.4.1 SPGAN"></a>3.4.1 SPGAN</h4><p>SPGAN的整体训练过程与CycleGAN基本是一致的，建议先参考CycleGAN，再学习SPGAN。</p>
 <p>$\lambda_1=10，\lambda_2=5，\lambda_3=2, m=2$，学习率为0.0002，batch=1，total_epoch=5</p>
@@ -859,15 +865,15 @@
 <p>在pytorch中，bn层在训练时如果设置成eval装填，才可以达到caffe的精度。</p>
 <h4 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h4><p>IDE和IDE+的效果区别为什么会这么大?</p>
 <h3 id="下一步工作-1"><a href="#下一步工作-1" class="headerlink" title="下一步工作"></a>下一步工作</h3><ul>
-<li style="list-style: none"><input type="checkbox" checked> 已经理解源代码</li>
+<li>[x] 已经理解源代码</li>
 </ul>
 <p>尝试在pytorch上复现结果，现在根据作者提供的代码，感觉并不是很难。主要是SPGAN。</p>
 <hr>
 <h2 id="4-基于GAN的类似论文"><a href="#4-基于GAN的类似论文" class="headerlink" title="4. 基于GAN的类似论文"></a>4. 基于GAN的类似论文</h2><p>类似的采取GAN做person-reid方向的论文还有好多，上面两篇是现在最新的，下面就简单地介绍几篇类似的文章，其中涉及到的原理和前文提到的GAN的方法类似。</p>
 <h3 id="4-1-PTGAN"><a href="#4-1-PTGAN" class="headerlink" title="4.1 PTGAN"></a>4.1 PTGAN</h3><p><a href="https://arxiv.org/pdf/1711.08565.pdf" target="_blank" rel="noopener">Person Transfer GAN to Bridge Domain Gap for Person Re-Identification</a></p>
 <p>Longhui Wei1, Shiliang Zhang1, Wen Gao1, Qi Tian</p>
-<p>这篇论文对Cycle-GAN进行了改进，保留ID信息的损失函数如下：<br>$$L_{ID}=E_{a \sim p_{data}(a)} [||(G(a)-a) \odot M(a)||<em>2] + E</em>{b \sim p_{data}(b)} [||(F(b)-b) \odot M(b)||_2]$$</p>
-<p>其中，$M(b)$表示使用PSPNet分割后的结果。</p>
+<p>这篇论文对Cycle-GAN进行了改进，保留ID信息的损失函数如下：</p>
+<script type="math/tex; mode=display">L_{ID}=E_{a \sim p_{data}(a)} [||(G(a)-a) \odot M(a)||_2] + E_{b \sim p_{data}(b)} [||(F(b)-b) \odot M(b)||_2]</script><p>其中，$M(b)$表示使用PSPNet分割后的结果。</p>
 <p>转化效果如下图所示</p>
 <p><img src="./pic/PTGAN/PTGAN.png" alt="PTGAN的转化效果"><br><img src="/2018/11/29/person-reid-transfer-learning/PTGAN.png" title="PTGAN的转化效果"></p>
 <p>这里的Cycle-Gan生成图片的效果和SPGAN生成的效果还是有一些区别的，不是很理解。</p>
@@ -879,7 +885,9 @@
 <p><img src="./pic/DCGAN+CNN/DCGAN+CNN.png" alt="DCGAN+CNN的网络结构"><br><img src="/2018/11/29/person-reid-transfer-learning/DCGAN+CNN.png" title="DCGAN+CNN的网络结构"></p>
 <p>生成效果图</p>
 <p><img src="./pic/DCGAN+CNN/DCGAN+CNN2.png" alt="生成效果图"><br><img src="/2018/11/29/person-reid-transfer-learning/DCGAN+CNN2.png" title="生成效果图"></p>
-<p>生成图片的标签LSRO<br>$$q_{LSR}=\begin{cases} \frac{\epsilon}{K},&amp;k\neq y\\<br>                        1-\epsilon+\frac{\epsilon}{K},&amp;k=y \end{cases}$$<br>$$l_{LSR}=-(1-\epsilon)log(p(y))-\frac{\epsilon}{K}\sum_{k=1}^{K}log(p(k))$$<br>$$q_{LSRO}=\frac{1}{K}$$<br>$$l_{LSRO}=-(1-Z)log(p(y))-\frac{Z}{K}\sum_{k=1}^Klog(p(k))$$<br>其中，真实图片的Z=0，生成图片的Z=1.</p>
+<p>生成图片的标签LSRO</p>
+<script type="math/tex; mode=display">q_{LSR}=\begin{cases} \frac{\epsilon}{K},&k\neq y\\\\
+                        1-\epsilon+\frac{\epsilon}{K},&k=y \end{cases}</script><script type="math/tex; mode=display">l_{LSR}=-(1-\epsilon)log(p(y))-\frac{\epsilon}{K}\sum_{k=1}^{K}log(p(k))</script><script type="math/tex; mode=display">q_{LSRO}=\frac{1}{K}</script><script type="math/tex; mode=display">l_{LSRO}=-(1-Z)log(p(y))-\frac{Z}{K}\sum_{k=1}^Klog(p(k))</script><p>其中，真实图片的Z=0，生成图片的Z=1.</p>
 <h2 id="5-MMFA"><a href="#5-MMFA" class="headerlink" title="5. MMFA"></a>5. MMFA</h2><p><a href="https://arxiv.org/pdf/1807.01440.pdf" target="_blank" rel="noopener">Multi-task Mid-level Feature Alignment Network for Unsupervised Cross-Dataset Person Re-Identification</a></p>
 <p>Shan Lin, Haoliang Li, Chang-Tsun Li, Alex Chichung Kot, BMVC 2018</p>
 <h3 id="5-1-前言"><a href="#5-1-前言" class="headerlink" title="5.1 前言"></a>5.1 前言</h3><p>其想法也是将源域与目标域映射到同一特征空间。创新点是：</p>
@@ -901,13 +909,17 @@
 <li>测试使用max pool的2048维向量的欧式距离</li>
 <li><a href="http://www.liangzheng.org/Project/project_reid.html" target="_blank" rel="noopener">Market</a>有27个<a href="https://github.com/vana77/Market-1501_Attribute" target="_blank" rel="noopener">属性</a>，<a href="http://vision.cs.duke.edu/DukeMTMC/" target="_blank" rel="noopener">Duke</a>有23个<a href="https://github.com/vana77/DukeMTMC-attribute" target="_blank" rel="noopener">属性</a></li>
 </ul>
-<h3 id="5-3-损失函数"><a href="#5-3-损失函数" class="headerlink" title="5.3 损失函数"></a>5.3 损失函数</h3><p>Identity Loss:<br>$$L_{id}=-\frac{1}{n_s}\sum_{i=1}^{n_S}log(p_{id}(h_{S,i}^{id},y_{S,i}))$$</p>
-<p>Attribute Loss:<br>$$L_{attr}=-\frac{1}{M}\frac{1}{n_S}\sum_{m=1}^{M}\sum_{i=1}^{n_S}(a_{S,i}^{m}\cdot log(p_{attr}(h_{S,i}^{attr_m}, m)) -\\<br>(1-a_{S,i}^{m})\cdot log(1-p_{attr}(h_{S,i}^{attr_m}, m)))$$</p>
-<p>Attribute Feature Adaptation<br>$$L_{AAL}=\frac{1}{M}\sum_{m=1}^{M}MMD(H_{S}^{attr_m}, H_{T}^{attr_m})^2\\<br>         =\frac{1}{M}\sum_{m=1}^{M}\parallel \frac{1}{n_S}\sum_{i=1}^{n_S}\phi(h_{S,i}^{attr_m}) - \frac{1}{n_T}\sum_{i=1}^{n_T}\phi(h_{T,j}^{attr_m}) \parallel _{H}^2 \\<br>         =\frac{1}{M}\sum_{m=1}^{M}[ \frac{1}{(n_S)^2}\sum_{i=1}^{n_S}\sum_{i’=1}^{n_S}k(h_{S,i}^{attr_m}, h_{S,i’}^{attr_m})\\<br>         +\frac{1}{(n_T)^2}\sum_{i=1}^{n_T}\sum_{i’=1}^{n_T}k(h_{T,i}^{attr_m}, h_{T,i’}^{attr_m})\\<br>         -\frac{2}{n_S\cdot n_T}\sum_{i=1}^{n_S}\sum_{j=1}^{n_T}k(h_{S,i}^{attr_m}, h_{T,j}^{attr_m})  ] $$</p>
-<p>$$k(h_{S,i}^{attr_m}, h_{T,j}^{attr_m})=exp(-\frac{1}{2\alpha}\parallel  h_{S,i}^{attr_m} - h_{T,j}^{attr_m}\parallel ^2)$$<br>$$\alpha=1,5,10$$</p>
-<p>Mid-level Deep Feature Adaptation<br>$$L_{MDAL}=MMD(H_S,H_T)^2$$</p>
-<p>Overall loss<br>$$L_{all}=L_{id}+\lambda_1 L_{attr}+\lambda_2 L_{AAL}+\lambda_3 L_{MDAL}$$<br>$$\lambda_1=0.1,\lambda_2=1,\lambda_3=1$$</p>
-<h3 id="5-4-实验分析"><a href="#5-4-实验分析" class="headerlink" title="5.4 实验分析"></a>5.4 实验分析</h3><h4 id="5-4-1-实验结果"><a href="#5-4-1-实验结果" class="headerlink" title="5.4.1 实验结果"></a>5.4.1 实验结果</h4><p><img src="./pic/MMFA/MMFA2.png" alt="实验结果"><br><img src="/2018/11/29/person-reid-transfer-learning/MMFA2.png" title="实验结果"></p>
+<h3 id="5-3-损失函数"><a href="#5-3-损失函数" class="headerlink" title="5.3 损失函数"></a>5.3 损失函数</h3><p>Identity Loss:</p>
+<script type="math/tex; mode=display">L_{id}=-\frac{1}{n_s}\sum_{i=1}^{n_S}log(p_{id}(h_{S,i}^{id},y_{S,i}))</script><p>Attribute Loss:</p>
+<script type="math/tex; mode=display">L_{attr}=-\frac{1}{M}\frac{1}{n_S}\sum_{m=1}^{M}\sum_{i=1}^{n_S}(a_{S,i}^{m}\cdot log(p_{attr}(h_{S,i}^{attr_m}, m)) -\\\\
+(1-a_{S,i}^{m})\cdot log(1-p_{attr}(h_{S,i}^{attr_m}, m)))</script><p>Attribute Feature Adaptation</p>
+<script type="math/tex; mode=display">L_{AAL}=\frac{1}{M}\sum_{m=1}^{M}MMD(H_{S}^{attr_m}, H_{T}^{attr_m})^2\\\\
+         =\frac{1}{M}\sum_{m=1}^{M}\parallel \frac{1}{n_S}\sum_{i=1}^{n_S}\phi(h_{S,i}^{attr_m}) - \frac{1}{n_T}\sum_{i=1}^{n_T}\phi(h_{T,j}^{attr_m}) \parallel \_{H}^2 \\\\
+         =\frac{1}{M}\sum_{m=1}^{M}[ \frac{1}{(n_S)^2}\sum_{i=1}^{n_S}\sum_{i'=1}^{n_S}k(h_{S,i}^{attr_m}, h_{S,i'}^{attr_m})\\\\
+         +\frac{1}{(n_T)^2}\sum_{i=1}^{n_T}\sum_{i'=1}^{n_T}k(h_{T,i}^{attr_m}, h_{T,i'}^{attr_m})\\\\
+         -\frac{2}{n_S\cdot n_T}\sum_{i=1}^{n_S}\sum_{j=1}^{n_T}k(h_{S,i}^{attr_m}, h_{T,j}^{attr_m})  ]</script><script type="math/tex; mode=display">k(h_{S,i}^{attr_m}, h_{T,j}^{attr_m})=exp(-\frac{1}{2\alpha}\parallel  h_{S,i}^{attr_m} - h_{T,j}^{attr_m}\parallel ^2)</script><script type="math/tex; mode=display">\alpha=1,5,10</script><p>Mid-level Deep Feature Adaptation</p>
+<script type="math/tex; mode=display">L_{MDAL}=MMD(H_S,H_T)^2</script><p>Overall loss</p>
+<script type="math/tex; mode=display">L_{all}=L_{id}+\lambda_1 L_{attr}+\lambda_2 L_{AAL}+\lambda_3 L_{MDAL}</script><script type="math/tex; mode=display">\lambda_1=0.1,\lambda_2=1,\lambda_3=1</script><h3 id="5-4-实验分析"><a href="#5-4-实验分析" class="headerlink" title="5.4 实验分析"></a>5.4 实验分析</h3><h4 id="5-4-1-实验结果"><a href="#5-4-1-实验结果" class="headerlink" title="5.4.1 实验结果"></a>5.4.1 实验结果</h4><p><img src="./pic/MMFA/MMFA2.png" alt="实验结果"><br><img src="/2018/11/29/person-reid-transfer-learning/MMFA2.png" title="实验结果"></p>
 <h3 id="5-4-2-实验模块"><a href="#5-4-2-实验模块" class="headerlink" title="5.4.2 实验模块"></a>5.4.2 实验模块</h3><p>实验模块对比实验结果<br><img src="./pic/MMFA/MMFA3.png" alt="实验模块对比实验结果"><br><img src="/2018/11/29/person-reid-transfer-learning/MMFA3.png" title="实验模块对比实验结果"></p>
 <h3 id="5-5-附录"><a href="#5-5-附录" class="headerlink" title="5.5 附录"></a>5.5 附录</h3><p>通过实验结果可以看出，在MMFA模型中，ID+Mid-level Deep Feature Adaptation的贡献最大。</p>
 <p>下一步可以尝试考虑Mid-level Deep Feature Adaptation。</p>
@@ -946,11 +958,11 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="6-3-损失函数"><a href="#6-3-损失函数" class="headerlink" title="6.3 损失函数"></a>6.3 损失函数</h3><p>Identity Branch (a) softmax<br>$$L_{id}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}log(p_{id}(I_i^S,y_i^S)) \tag{1}$$</p>
-<p>Attribute Branch(b) sigmoid<br>$$L_{att}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}\sum_{j=1}^{m}(a_{i,j}log(p_{att}(I_i,j))+(1-a_{i,j})log(1-p_{att}(I_i,j))) \tag{2}$$</p>
-<p>Identity Inferred Attribute (IIA) space (c)<br>$$L_{rec}=\parallel x_{id}-f_{IIA}(x_{id}) \parallel ^2 \tag{3}$$<br>$$L_{ID-transfer}=\parallel e_{IIA}-\tilde{p}_{att} \parallel ^2 \tag{4}$$<br>$$L_{att,IIA}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}\sum_{j=1}^{m}(a_{i,j}log(p_{IIA}(I_i,j))+(1-a_{i,j})log(1-p_{IIA}(I_i,j))) \tag{5}$$<br>$$L_{IIA}=L_{att,IIA}+\lambda_1 L_{rec}+\lambda_2 L_{ID-transfer} \tag{6}$$<br>$$\lambda_1=10, \lambda_2=10$$</p>
-<p>Impact of IIA on Identity and Attribute Branches<br>$$L_{att-total}=L_{att}+\lambda_2 L_{ID-transfer} \tag{7}$$</p>
-<h3 id="6-4-训练与部署流程"><a href="#6-4-训练与部署流程" class="headerlink" title="6.4 训练与部署流程"></a>6.4 训练与部署流程</h3><p><img src="./pic/TJ-AIDL/TJ-AIDL3.png" alt="IJ-AIDL的训练与部署流程"><br></p>
+<h3 id="6-3-损失函数"><a href="#6-3-损失函数" class="headerlink" title="6.3 损失函数"></a>6.3 损失函数</h3><p>Identity Branch (a) softmax</p>
+<script type="math/tex; mode=display">L_{id}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}log(p_{id}(I_i^S,y_i^S)) \tag{1}</script><p>Attribute Branch(b) sigmoid</p>
+<script type="math/tex; mode=display">L_{att}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}\sum_{j=1}^{m}(a_{i,j}log(p_{att}(I_i,j))+(1-a_{i,j})log(1-p_{att}(I_i,j))) \tag{2}</script><p>Identity Inferred Attribute (IIA) space (c)</p>
+<script type="math/tex; mode=display">L_{rec}=\parallel x_{id}-f_{IIA}(x_{id}) \parallel ^2 \tag{3}</script><script type="math/tex; mode=display">L_{ID-transfer}=\parallel e_{IIA}-\tilde{p}\_{att} \parallel ^2 \tag{4}</script><script type="math/tex; mode=display">L_{att,IIA}=-\frac{1}{n_{bs}}\sum_{i=1}^{n_{bs}}\sum_{j=1}^{m}(a_{i,j}log(p_{IIA}(I_i,j))+(1-a_{i,j})log(1-p_{IIA}(I_i,j))) \tag{5}</script><script type="math/tex; mode=display">L_{IIA}=L_{att,IIA}+\lambda_1 L_{rec}+\lambda_2 L_{ID-transfer} \tag{6}</script><script type="math/tex; mode=display">\lambda_1=10, \lambda_2=10</script><p>Impact of IIA on Identity and Attribute Branches</p>
+<script type="math/tex; mode=display">L_{att-total}=L_{att}+\lambda_2 L_{ID-transfer} \tag{7}</script><h3 id="6-4-训练与部署流程"><a href="#6-4-训练与部署流程" class="headerlink" title="6.4 训练与部署流程"></a>6.4 训练与部署流程</h3><p><img src="./pic/TJ-AIDL/TJ-AIDL3.png" alt="IJ-AIDL的训练与部署流程"><br></p>
 <h3 id="6-5-模块分析"><a href="#6-5-模块分析" class="headerlink" title="6.5 模块分析"></a>6.5 模块分析</h3><h4 id="6-5-1-ID和Attribute模块分析"><a href="#6-5-1-ID和Attribute模块分析" class="headerlink" title="6.5.1 ID和Attribute模块分析"></a>6.5.1 ID和Attribute模块分析</h4><p><img src="./pic/TJ-AIDL/TJ-AIDL4.png" alt="IJ-AIDL的ID和Attribute模块分析"><br></p>
 <p>通过ID only的mAP和HHL的baseline，可以看出MobileNet和Resnet50对mAP的影响不受很大。</p>
 <p>另外，可以看出，依然是ID占据了很大比重。</p>
