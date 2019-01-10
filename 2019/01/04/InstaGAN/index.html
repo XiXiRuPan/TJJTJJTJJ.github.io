@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="GAN," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="田佳杰" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="实例转换">
+<meta name="keywords" content="GAN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="InstaGAN">
+<meta property="og:url" content="http://yoursite.com/2019/01/04/InstaGAN/index.html">
+<meta property="og:site_name" content="田佳杰">
+<meta property="og:description" content="实例转换">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN3.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN3.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN4.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN4.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN5.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN5.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN6.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN6.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN7.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN7.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN8.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN8.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN9.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN9.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN10.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN10.png">
+<meta property="og:updated_time" content="2019-01-10T14:57:05.795Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="InstaGAN">
+<meta name="twitter:description" content="实例转换">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/04/InstaGAN/InstaGAN/InstaGAN1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/04/InstaGAN/"/>
+
+
+
+
+
+  <title>InstaGAN | 田佳杰</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/TJJTJJTJJ/TJJTJJTJJ.github.io.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">田佳杰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录一些学习到的东西和论文记录</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            something
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/04/InstaGAN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiajie Tian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="田佳杰">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">InstaGAN</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-04T11:25:47+08:00">
+                2019-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index">
+                    <span itemprop="name">paper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/04/InstaGAN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/04/InstaGAN/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>实例转换</p>
+<a id="more"></a>
+<h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p><a href="https://arxiv.org/pdf/1812.10889.pdf" target="_blank" rel="noopener">InstaGAN Instance-aware image-to-image translation</a></p>
+<p>Sangwoo Mo, Minsu Cho, Jinwoo Shin</p>
+<p>github: <a href="https://github.com/sangwoomo/instagan" target="_blank" rel="noopener">https://github.com/sangwoomo/instagan</a></p>
+<p>project: <a href="https://openreview.net/forum?id=ryxwJhC9YX" target="_blank" rel="noopener">https://openreview.net/forum?id=ryxwJhC9YX</a></p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p><img src="./InstaGAN/InstaGAN1.png" alt="Tranlation results"><br><img src="/2019/01/04/InstaGAN/InstaGAN1.png" title="Tranlation results"></p>
+<p>整体分为三部分:</p>
+<ol>
+<li>an instance-augmented neural architecture</li>
+<li>a context preserving loss</li>
+<li>a sequential mini-batch inference/training technique</li>
+</ol>
+<ul>
+<li>an instance-augmented neural architecture: an image and the corresponding set of instance attributes.</li>
+<li>a context preserving loss: target instances and an identity function</li>
+<li>a sequential mini-batch inference/training technique: translating the mini-batches of instance attributes sequentially</li>
+</ul>
+<h1 id="2-InstaGAN"><a href="#2-InstaGAN" class="headerlink" title="2. InstaGAN"></a>2. InstaGAN</h1><p>符号说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\mathcal{X}$, $\mathcal{Y}$</td>
+<td style="text-align:center">image domain</td>
+</tr>
+<tr>
+<td style="text-align:center">$\mathcal{A}, \mathcal{B}$</td>
+<td style="text-align:center">a space of set of instance attributes</td>
+</tr>
+<tr>
+<td style="text-align:center">$\boldsymbol{a} = \lbrace a_i \rbrace _{i=1}^N $</td>
+<td style="text-align:center">set of instance attributes</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">instance segmentation mask</td>
+</tr>
+<tr>
+<td style="text-align:center">$G_{XY}:\mathcal{X}-&gt;\mathcal{Y}, G_{YX}:\mathcal{Y}-&gt;\mathcal{X}$</td>
+<td style="text-align:center">tranlation function</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-1-InstaGAN-architecture"><a href="#2-1-InstaGAN-architecture" class="headerlink" title="2.1 InstaGAN architecture"></a>2.1 InstaGAN architecture</h2><p><img src="./InstaGAN/InstaGAN2.png" alt="InstaGAN architecture"><br><img src="/2019/01/04/InstaGAN/InstaGAN2.png" title="InstaGAN architecture"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$f_{GX}$</td>
+<td style="text-align:center">image feature extractor</td>
+</tr>
+<tr>
+<td style="text-align:center">$f_{GA}$</td>
+<td style="text-align:center">attribute feature extractor</td>
+</tr>
+<tr>
+<td style="text-align:center">$H_{GX}(x,a)=[f_{GX}(x);\sum_{i=1}^Nf_{GA}(a_i)]$</td>
+<td style="text-align:center">image representation</td>
+</tr>
+<tr>
+<td style="text-align:center">$H_{GA}^n(x,a)=[f_{GX}(x);\sum_{i=1}^Nf_{GA}(a_i);f_{GA}(a_n)]$</td>
+<td style="text-align:center">image representation</td>
+</tr>
+<tr>
+<td style="text-align:center">$h_{DX}(x,a)=[f_{DX}(x);\sum_{i=1}^Nf_{DA}(a_i)]$</td>
+<td style="text-align:center">image representation for discriminator</td>
+</tr>
+<tr>
+<td style="text-align:center">$f_{GX},f_{GA},f_{DX},f_{DA},g_{GX},G_{GA},G_{DX}$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$(x,a)-&gt;(y’,b’)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$(y,b)-&gt;(x’,a’)$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>作者为了能实现mask顺序不变性，采用相加的方式</strong>。</p>
+<h2 id="2-2-Training-loss"><a href="#2-2-Training-loss" class="headerlink" title="2.2 Training loss"></a>2.2 Training loss</h2><ol>
+<li><strong>domain loss</strong>: GAN loss</li>
+<li><strong>content loss</strong>: cycle-consistency loss and identity mapping loss and context preserving loss</li>
+</ol>
+<p><strong>LSGAN</strong>: 判断图片是原始的还是生成的<br>$$L_{LSGAN}=(D_X(x,a)-1)^2+(D_X(G_{YX}(y,b)))^2+(D_Y(y,b)-1)^2+(D_Y(G_{XY}(y,b)))^2$$</p>
+<p><strong>cycle-consistency loss</strong>: 循环一致性<br>$$L_{cyc}=\parallel G_{YX}(G_{XY}(x,a))-(x,a) \parallel _1+\parallel G_{XY}(G_{YX}(y,b))-(y,b) \parallel _1$$</p>
+<p><strong>identity mapping loss</strong>: 恒等映射<br>$$L_{idt}=\parallel G_{XY}(y,b)-(y,b) \parallel _1 + \parallel G_{YX}(x,a)-(x,a) \parallel _1$$</p>
+<p><strong>context preserving loss</strong>: 保留背景<br>$$L_{ctx}=\parallel w(a,b’)\odot(x-y’) \parallel _1 + \parallel w(b,a’)\odot(y-x’) \parallel _1 $$<br>其中，$w(a,b’), w(b,a’)$表示在原图片和生成图片都是背景的位置的权重是1.</p>
+<p><strong>Total loss</strong>:<br>$$<br>\begin{align}<br>L_{InstaGAN}&amp;=L_{LSGAN} + \lambda_{cyc} L_{cyc}+ \lambda_{idt} L_{idt}+ \lambda_{ctx} L_{ctx} \<br>&amp;=L_{LSGAN}+L_{content}<br>\end{align}<br>$$</p>
+<h2 id="2-3-sequential-mini-batch-translation"><a href="#2-3-sequential-mini-batch-translation" class="headerlink" title="2.3 sequential mini-batch translation"></a>2.3 sequential mini-batch translation</h2><p>考虑到在图片上的实例可能很多，而GPU的所需空间随之线性增长，可能不符合现实情况，所以需要考虑在图片上可以转化一小部分实例。</p>
+<p><img src="./InstaGAN/InstaGAN3.png" alt="sequential mini-batch translation"><br><img src="/2019/01/04/InstaGAN/InstaGAN3.png" title="sequential mini-batch translation"></p>
+<p>符号说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$a=\cup_{i=1}^Ma_i$</td>
+<td style="text-align:center">divide the set of instance masks a into mini-batch $a_1,a_2,…,a_M$</td>
+</tr>
+<tr>
+<td style="text-align:center">$(x_m, a_m)-&gt;(y’_m, b’_m) or (x_{m+1}, a_{m+1})$</td>
+<td style="text-align:center">mini-batch translation</td>
+</tr>
+<tr>
+<td style="text-align:center">$(y’_m, b’_{1:m})=(y’_m, \cup_{i=1}^m b’_i)$</td>
+<td style="text-align:center">用于判断真假</td>
+</tr>
+</tbody>
+</table>
+<p>在这种情况下，不同的损失函数作用的范围发生改变，第m次时，content loss作用在$(x_m, a_m), (y’_m, b’_m)$，domain loss 作用在$(x,a), (y’_m, b’_{1:m})$，即</p>
+<p>$$L_{InstaGAN-SM}=\sum_{m=1}^M \lbrace L_{LSGAN}((x,a),(y’<em>m, b’</em>{1:m}))+L_{content}((x_m, a_m),(y’_m, b’<em>m)) \rbrace$$<br>$$L</em>{content}=\lambda_{cyc} L_{cyc}+\lambda_{idt} L_{idt}+\lambda_{ctx} L_{ctx}$$</p>
+<ul>
+<li>每m个迭代detach一次，来使用固定大小的GPU。</li>
+<li>划分mini-batch的原则：size of instances, 由大到小</li>
+</ul>
+<h1 id="3-experimental-results"><a href="#3-experimental-results" class="headerlink" title="3. experimental results"></a>3. experimental results</h1><h2 id="3-1-image-to-image-translation-results"><a href="#3-1-image-to-image-translation-results" class="headerlink" title="3.1 image-to-image translation results"></a>3.1 image-to-image translation results</h2><p><img src="./InstaGAN/InstaGAN4.png" alt="translation results"><br><img src="/2019/01/04/InstaGAN/InstaGAN4.png" title="translation results"></p>
+<p>通过上述结果的展示，我可以认为在这方面InstaGAN要比CycleGAN的效果更好，更能得到想要的指定的结果。</p>
+<p><img src="./InstaGAN/InstaGAN5.png" alt="results of translation "><br><img src="/2019/01/04/InstaGAN/InstaGAN5.png" title="results of translation"></p>
+<p>第一个结果表明可以通过控制掩码来控制生成的图片。</p>
+<p>第二个结果表明可以使用预测的掩码进行转换图片，从而减少获取掩码的成本。</p>
+<h2 id="3-2-ablation-study"><a href="#3-2-ablation-study" class="headerlink" title="3.2 ablation study"></a>3.2 ablation study</h2><p><img src="./InstaGAN/InstaGAN6.png" alt="ablation study"><br><img src="/2019/01/04/InstaGAN/InstaGAN6.png" title="ablation study"></p>
+<p>Fig.9 主要使研究作者提出的三部分功能的作用，instance mask，损失函数，mini-batch的影响，从效果上看，还是最后一张图片效果更好一些。</p>
+<p><img src="./InstaGAN/InstaGAN7.png" alt="ablation  study on the effects of the sequential mini-batch inference/training technique "><br><img src="/2019/01/04/InstaGAN/InstaGAN7.png" title="ablation study on the effects of the sequential mini-batch inference/training technique"></p>
+<p>Fig.10分别表示在training和inference中使用one-step还是sequential方法，我觉得都差不多，但是对于有限的GPU是个很好的方法。</p>
+<h1 id="4-Appendix"><a href="#4-Appendix" class="headerlink" title="4. Appendix"></a>4. Appendix</h1><h2 id="4-1-architecture-details"><a href="#4-1-architecture-details" class="headerlink" title="4.1 architecture details"></a>4.1 architecture details</h2><blockquote>
+<p>PatchGAN discriminator is composed of 5 convolutional layers, including normalization and non-linearity layers. We used the first 3 convolution layers for feature extractors, and the last 2 convolution layers for classifier.</p>
+</blockquote>
+<h2 id="4-2-traning-details"><a href="#4-2-traning-details" class="headerlink" title="4.2 traning details"></a>4.2 traning details</h2><ul>
+<li>$\lambda_{cyc}=10, \lambda_{idt}=10, \lambda_{ctx}=10$</li>
+<li>Adam: $\beta_1=0.5, \beta_2=0.999$</li>
+<li>batch_size=4</li>
+<li>GPU = 4</li>
+<li>learning rate: 0.0002 for G, 0.0001 for D, 前m个epoch保持不变，后n个epoch线性衰减为0.不同的数据集的m和n不同</li>
+<li>size对于不同的数据集也不同。</li>
+</ul>
+<h2 id="4-3-trend-of-translation-results"><a href="#4-3-trend-of-translation-results" class="headerlink" title="4.3 trend of translation results"></a>4.3 trend of translation results</h2><p><img src="./InstaGAN/InstaGAN8.png" alt="trend of translation results"><br><img src="/2019/01/04/InstaGAN/InstaGAN8.png" title="trend of translation results"></p>
+<h2 id="4-4-其他"><a href="#4-4-其他" class="headerlink" title="4.4 其他"></a>4.4 其他</h2><p>我觉得这是相当于对于CycleGAN，加上了指向性生成，不再是单独地生成目标域风格的图片，而是对指定区域生成目标域风格的图片。</p>
+<p>刚刚想到一个问题，InstaGAN可以生成指定形状的图片，但是对于同一形状的不同物体，比如生成红色的裙子和黑色的裙子这样子的任务，可能不行。</p>
+<h2 id="4-5-video-translation-results"><a href="#4-5-video-translation-results" class="headerlink" title="4.5 video translation results"></a>4.5 video translation results</h2><p><img src="./InstaGAN/InstaGAN9.png" alt="video translation results"><br><img src="/2019/01/04/InstaGAN/InstaGAN9.png" title="video translation results"></p>
+<p>作者使用pix2pix作为分割。</p>
+<p>感觉在视频上，裤子换成裙子后，能保持所有帧的裙子都是一样的，说明转换的稳定性很好。</p>
+<h1 id="5-code"><a href="#5-code" class="headerlink" title="5. code"></a>5. code</h1><p>看细节还是需要看代码的实现过程。</p>
+<h2 id="5-1-文件目录"><a href="#5-1-文件目录" class="headerlink" title="5.1 文件目录"></a>5.1 文件目录</h2><p><img src="./InstaGAN/InstaGAN10.png" alt="文件目录"><br><img src="/2019/01/04/InstaGAN/InstaGAN10.png" title="文件目录"></p>
+<p>通过文件组织，可以发现cycleGAN尽可能地考虑了可扩展性。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- LICENSE</span><br><span class="line">|-- README.md</span><br><span class="line">|-- data</span><br><span class="line">|   |-- __init__.py</span><br><span class="line">|   |-- aligned_dataset.py</span><br><span class="line">|   |-- base_data_loader.py</span><br><span class="line">|   |-- base_dataset.py</span><br><span class="line">|   |-- image_folder.py</span><br><span class="line">|   |-- single_dataset.py</span><br><span class="line">|   |-- unaligned_dataset.py</span><br><span class="line">|   `-- unaligned_seg_dataset.py</span><br><span class="line">|-- datasets</span><br><span class="line">|   |-- combine_A_and_B.py</span><br><span class="line">|   |-- download_coco.sh</span><br><span class="line">|   |-- download_cyclegan_dataset.sh</span><br><span class="line">|   |-- download_pix2pix_dataset.sh</span><br><span class="line">|   |-- generate_ccp_dataset.py</span><br><span class="line">|   |-- generate_coco_dataset.py</span><br><span class="line">|   |-- generate_mhp_dataset.py</span><br><span class="line">|   |-- make_dataset_aligned.py</span><br><span class="line">|   |-- pants2skirt_mhp</span><br><span class="line">|-- docs</span><br><span class="line">|   `-- more_results.md</span><br><span class="line">|-- environment.yml</span><br><span class="line">|-- models</span><br><span class="line">|   |-- __init__.py</span><br><span class="line">|   |-- base_model.py</span><br><span class="line">|   |-- cycle_gan_model.py</span><br><span class="line">|   |-- insta_gan_model.py</span><br><span class="line">|   |-- networks.py</span><br><span class="line">|   |-- pix2pix_model.py</span><br><span class="line">|   `-- test_model.py</span><br><span class="line">|-- options</span><br><span class="line">|   |-- __init__.py</span><br><span class="line">|   |-- base_options.py</span><br><span class="line">|   |-- test_options.py</span><br><span class="line">|   `-- train_options.py</span><br><span class="line">|-- requirements.txt</span><br><span class="line">|-- scripts</span><br><span class="line">|   |-- conda_deps.sh</span><br><span class="line">|   |-- download_cyclegan_model.sh</span><br><span class="line">|   |-- download_pix2pix_model.sh</span><br><span class="line">|   |-- install_deps.sh</span><br><span class="line">|   |-- test_before_push.py</span><br><span class="line">|   |-- test_cyclegan.sh</span><br><span class="line">|   |-- test_pix2pix.sh</span><br><span class="line">|   |-- test_single.sh</span><br><span class="line">|   |-- train_cyclegan.sh</span><br><span class="line">|   `-- train_pix2pix.sh</span><br><span class="line">|-- test.py</span><br><span class="line">|-- train.py</span><br><span class="line">`-- util</span><br><span class="line">    |-- __init__.py</span><br><span class="line">    |-- get_data.py</span><br><span class="line">    |-- html.py</span><br><span class="line">    |-- image_pool.py</span><br><span class="line">    |-- util.py</span><br><span class="line">    `-- visualizer.py</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-seg"><a href="#5-2-seg" class="headerlink" title="5.2 seg"></a>5.2 seg</h2><p>从下面的代码可以看出，需要读取固定数量的instance的segmentation。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># self.max_instances = 20</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_segs</span><span class="params">(self, seg_path, seed)</span>:</span></span><br><span class="line">  segs = list()</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(self.max_instances):</span><br><span class="line">    path = seg_path.replace(<span class="string">'.png'</span>, <span class="string">'_&#123;&#125;.png'</span>.format(i))</span><br><span class="line">    <span class="keyword">if</span> os.path.isfile(path):</span><br><span class="line">      seg = Image.open(path).convert(<span class="string">'L'</span>)</span><br><span class="line">      seg = self.fixed_transform(seg, seed)</span><br><span class="line">      segs.append(seg)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      segs.append(-torch.ones(segs[<span class="number">0</span>].size()))</span><br><span class="line">  <span class="keyword">return</span> torch.cat(segs)</span><br></pre></td></tr></table></figure>
+<p><strong>备注</strong>: 原始图片transforms之后,0~1变成了-1~1; 分割图片transforms之后-1表示背景,取值-1~1,这也是为什么补充的时候用-1补充的原因.</p>
+<h2 id="5-3-generator"><a href="#5-3-generator" class="headerlink" title="5.3 generator"></a>5.3 generator</h2><blockquote>
+<p>ResNet generator is composed of downsampling blocks, residual blocks, and upsampling blocks. We used downsampling blocks and residual blocks for encoders, and used upsampling blocks for generators.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ResnetSetGenerator</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, input_nc=<span class="number">3</span>, output_nc=<span class="number">3</span>, ngf=<span class="number">64</span>, norm_layer=nn.InstanceNorm2d, use_dropout=False, n_blocks=<span class="number">9</span>, padding_type=<span class="string">'reflect'</span>)</span>:</span></span><br><span class="line">        <span class="keyword">assert</span> (n_blocks &gt;= <span class="number">0</span>)</span><br><span class="line">        super(ResnetSetGenerator, self).__init__()</span><br><span class="line">        self.input_nc = input_nc</span><br><span class="line">        self.output_nc = output_nc</span><br><span class="line">        self.ngf = ngf</span><br><span class="line">        <span class="keyword">if</span> type(norm_layer) == functools.partial:</span><br><span class="line">            use_bias = norm_layer.func == nn.InstanceNorm2d</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            use_bias = norm_layer == nn.InstanceNorm2d</span><br><span class="line"></span><br><span class="line">        n_downsampling = <span class="number">2</span></span><br><span class="line">        self.encoder_img = self.get_encoder(input_nc, n_downsampling, ngf, norm_layer, use_dropout, n_blocks, padding_type, use_bias)</span><br><span class="line">        self.encoder_seg = self.get_encoder(<span class="number">1</span>, n_downsampling, ngf, norm_layer, use_dropout, n_blocks, padding_type, use_bias)</span><br><span class="line">        self.decoder_img = self.get_decoder(output_nc, n_downsampling, <span class="number">2</span> * ngf, norm_layer, use_bias)  <span class="comment"># 2*ngf</span></span><br><span class="line">        self.decoder_seg = self.get_decoder(<span class="number">1</span>, n_downsampling, <span class="number">3</span> * ngf, norm_layer, use_bias)  <span class="comment"># 3*ngf</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_encoder</span><span class="params">(self, input_nc, n_downsampling, ngf, norm_layer, use_dropout, n_blocks, padding_type, use_bias)</span>:</span></span><br><span class="line">        model = [nn.ReflectionPad2d(<span class="number">3</span>),</span><br><span class="line">                 nn.Conv2d(input_nc, ngf, kernel_size=<span class="number">7</span>, padding=<span class="number">0</span>, bias=use_bias),</span><br><span class="line">                 norm_layer(ngf),</span><br><span class="line">                 nn.ReLU(<span class="keyword">True</span>)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n_downsampling):</span><br><span class="line">            mult = <span class="number">2</span> ** i</span><br><span class="line">            model += [nn.Conv2d(ngf * mult, ngf * mult * <span class="number">2</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">2</span>, padding=<span class="number">1</span>, bias=use_bias),</span><br><span class="line">                      norm_layer(ngf * mult * <span class="number">2</span>),</span><br><span class="line">                      nn.ReLU(<span class="keyword">True</span>)]</span><br><span class="line"></span><br><span class="line">        mult = <span class="number">2</span> ** n_downsampling</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n_blocks):</span><br><span class="line">            model += [ResnetBlock(ngf * mult, padding_type=padding_type, norm_layer=norm_layer, use_dropout=use_dropout, use_bias=use_bias)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> nn.Sequential(*model)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_decoder</span><span class="params">(self, output_nc, n_downsampling, ngf, norm_layer, use_bias)</span>:</span></span><br><span class="line">        model = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n_downsampling):</span><br><span class="line">            mult = <span class="number">2</span>**(n_downsampling - i)</span><br><span class="line">            model += [nn.ConvTranspose2d(ngf * mult, int(ngf * mult / <span class="number">2</span>), kernel_size=<span class="number">3</span>, stride=<span class="number">2</span>, padding=<span class="number">1</span>, output_padding=<span class="number">1</span>, bias=use_bias),</span><br><span class="line">                      norm_layer(int(ngf * mult / <span class="number">2</span>)),</span><br><span class="line">                      nn.ReLU(<span class="keyword">True</span>)]</span><br><span class="line">        model += [nn.ReflectionPad2d(<span class="number">3</span>)]</span><br><span class="line">        model += [nn.Conv2d(ngf, output_nc, kernel_size=<span class="number">7</span>, padding=<span class="number">0</span>)]</span><br><span class="line">        model += [nn.Tanh()]</span><br><span class="line">        <span class="keyword">return</span> nn.Sequential(*model)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, inp)</span>:</span></span><br><span class="line">        <span class="comment"># split data</span></span><br><span class="line">        img = inp[:, :self.input_nc, :, :]  <span class="comment"># (B, CX, W, H)</span></span><br><span class="line">        segs = inp[:, self.input_nc:, :, :]  <span class="comment"># (B, CA, W, H)</span></span><br><span class="line">        mean = (segs + <span class="number">1</span>).mean(<span class="number">0</span>).mean(<span class="number">-1</span>).mean(<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">if</span> mean.sum() == <span class="number">0</span>:</span><br><span class="line">            mean[<span class="number">0</span>] = <span class="number">1</span>  <span class="comment"># forward at least one segmentation</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># run encoder</span></span><br><span class="line">        enc_img = self.encoder_img(img)</span><br><span class="line">        enc_segs = list()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(segs.size(<span class="number">1</span>)): <span class="comment"># 第i个instance</span></span><br><span class="line">            <span class="keyword">if</span> mean[i] &gt; <span class="number">0</span>:  <span class="comment"># skip empty segmentation</span></span><br><span class="line">                seg = segs[:, i, :, :].unsqueeze(<span class="number">1</span>)</span><br><span class="line">                enc_segs.append(self.encoder_seg(seg))</span><br><span class="line">        enc_segs = torch.cat(enc_segs)</span><br><span class="line">        enc_segs_sum = torch.sum(enc_segs, dim=<span class="number">0</span>, keepdim=<span class="keyword">True</span>)  <span class="comment"># aggregated set feature</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># run decoder</span></span><br><span class="line">        feat = torch.cat([enc_img, enc_segs_sum], dim=<span class="number">1</span>)</span><br><span class="line">        out = [self.decoder_img(feat)]</span><br><span class="line">        idx = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(segs.size(<span class="number">1</span>)):</span><br><span class="line">            <span class="keyword">if</span> mean[i] &gt; <span class="number">0</span>:</span><br><span class="line">                enc_seg = enc_segs[idx].unsqueeze(<span class="number">0</span>)  <span class="comment"># (1, ngf, w, h)</span></span><br><span class="line">                idx += <span class="number">1</span>  <span class="comment"># move to next index</span></span><br><span class="line">                feat = torch.cat([enc_seg, enc_img, enc_segs_sum], dim=<span class="number">1</span>)</span><br><span class="line">                out += [self.decoder_seg(feat)]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                out += [segs[:, i, :, :].unsqueeze(<span class="number">1</span>)]  <span class="comment"># skip empty segmentation</span></span><br><span class="line">        <span class="keyword">return</span> torch.cat(out, dim=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="5-4-Discriminator"><a href="#5-4-Discriminator" class="headerlink" title="5.4 Discriminator"></a>5.4 Discriminator</h2><blockquote>
+<p>On the other hand, PatchGAN discriminator is composed of 5 convolutional layers, including normalization and non-linearity layers. We used the first 3 convolution layers for feature extractors, and the last 2 convolution layers for classifier.</p>
+<p>In addition, we observed that applying Spectral Normalization (SN) (Miyato et al., 2018) for discriminators significantly improve the performance, although we used LSGAN (Mao et al., 2017), while the original motivation of SN was to enforce Lipschitz condition to match with the theory of WGAN (Arjovsky et al., 2017; Gulrajani et al., 2017).</p>
+</blockquote>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> SpectralNorm 这个是怎么运行的？ <a href="http://www.twistedwg.com/2018/10/13/SNGAN.html" target="_blank" rel="noopener">http://www.twistedwg.com/2018/10/13/SNGAN.html</a></li>
+</ul>
+<p>虽然还是没有太搞懂其原理，但大致清楚了，是求矩阵的谱范数，因为难以求解，便用迭代的方式计算u、v。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define spectral normalization layer</span></span><br><span class="line"><span class="comment"># Code from Christian Cosgrove's repository</span></span><br><span class="line"><span class="comment"># https://github.com/christiancosgrove/pytorch-spectral-normalization-gan/blob/master/spectral_normalization.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">l2normalize</span><span class="params">(v, eps=<span class="number">1e-12</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> v / (v.norm() + eps)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpectralNorm</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, module, name=<span class="string">'weight'</span>, power_iterations=<span class="number">1</span>)</span>:</span></span><br><span class="line">        super(SpectralNorm, self).__init__()</span><br><span class="line">        self.module = module</span><br><span class="line">        self.name = name</span><br><span class="line">        self.power_iterations = power_iterations</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self._made_params():</span><br><span class="line">            self._make_params()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_update_u_v</span><span class="params">(self)</span>:</span></span><br><span class="line">        u = getattr(self.module, self.name + <span class="string">"_u"</span>)</span><br><span class="line">        v = getattr(self.module, self.name + <span class="string">"_v"</span>)</span><br><span class="line">        w = getattr(self.module, self.name + <span class="string">"_bar"</span>)</span><br><span class="line"></span><br><span class="line">        height = w.data.shape[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(self.power_iterations):</span><br><span class="line">            v.data = l2normalize(torch.mv(torch.t(w.view(height, <span class="number">-1</span>).data), u.data))</span><br><span class="line">            u.data = l2normalize(torch.mv(w.view(height, <span class="number">-1</span>).data, v.data))</span><br><span class="line"></span><br><span class="line">        sigma = u.dot(w.view(height, <span class="number">-1</span>).mv(v))</span><br><span class="line">        setattr(self.module, self.name, w / sigma.expand_as(w))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_made_params</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            u = getattr(self.module, self.name + <span class="string">"_u"</span>)</span><br><span class="line">            v = getattr(self.module, self.name + <span class="string">"_v"</span>)</span><br><span class="line">            w = getattr(self.module, self.name + <span class="string">"_bar"</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">except</span> AttributeError:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_make_params</span><span class="params">(self)</span>:</span></span><br><span class="line">        w = getattr(self.module, self.name) <span class="comment"># shape: (64,3,4,4)</span></span><br><span class="line"></span><br><span class="line">        height = w.data.shape[<span class="number">0</span>]  <span class="comment"># int 64</span></span><br><span class="line">        width = w.view(height, <span class="number">-1</span>).data.shape[<span class="number">1</span>] <span class="comment"># int 48</span></span><br><span class="line"></span><br><span class="line">        u = nn.Parameter(w.data.new(height).normal_(<span class="number">0</span>, <span class="number">1</span>), requires_grad=<span class="keyword">False</span>) <span class="comment"># shape (64)</span></span><br><span class="line">        v = nn.Parameter(w.data.new(width).normal_(<span class="number">0</span>, <span class="number">1</span>), requires_grad=<span class="keyword">False</span>) <span class="comment"># shape (48)</span></span><br><span class="line">        u.data = l2normalize(u.data) </span><br><span class="line">        v.data = l2normalize(v.data)</span><br><span class="line">        w_bar = nn.Parameter(w.data)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">del</span> self.module._parameters[self.name]</span><br><span class="line"></span><br><span class="line">        self.module.register_parameter(self.name + <span class="string">"_u"</span>, u)</span><br><span class="line">        self.module.register_parameter(self.name + <span class="string">"_v"</span>, v)</span><br><span class="line">        self.module.register_parameter(self.name + <span class="string">"_bar"</span>, w_bar)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, *args)</span>:</span></span><br><span class="line">        self._update_u_v()</span><br><span class="line">        <span class="keyword">return</span> self.module.forward(*args)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NLayerSetDiscriminator</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, input_nc, ndf=<span class="number">64</span>, n_layers=<span class="number">3</span>, norm_layer=nn.BatchNorm2d, use_sigmoid=False)</span>:</span></span><br><span class="line">        super(NLayerSetDiscriminator, self).__init__()</span><br><span class="line">        self.input_nc = input_nc</span><br><span class="line">        <span class="keyword">if</span> type(norm_layer) == functools.partial:</span><br><span class="line">            use_bias = norm_layer.func == nn.InstanceNorm2d</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            use_bias = norm_layer == nn.InstanceNorm2d</span><br><span class="line"></span><br><span class="line">        kw = <span class="number">4</span></span><br><span class="line">        padw = <span class="number">1</span></span><br><span class="line">        self.feature_img = self.get_feature_extractor(input_nc, ndf, n_layers, kw, padw, norm_layer, use_bias)</span><br><span class="line">        self.feature_seg = self.get_feature_extractor(<span class="number">1</span>, ndf, n_layers, kw, padw, norm_layer, use_bias)</span><br><span class="line">        self.classifier = self.get_classifier(<span class="number">2</span> * ndf, n_layers, kw, padw, norm_layer, use_sigmoid)  <span class="comment"># 2*ndf</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_feature_extractor</span><span class="params">(self, input_nc, ndf, n_layers, kw, padw, norm_layer, use_bias)</span>:</span></span><br><span class="line">        model = [</span><br><span class="line">            <span class="comment"># Use spectral normalization</span></span><br><span class="line">            SpectralNorm(nn.Conv2d(input_nc, ndf, kernel_size=kw, stride=<span class="number">2</span>, padding=padw)),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>, <span class="keyword">True</span>)</span><br><span class="line">        ]</span><br><span class="line">        nf_mult = <span class="number">1</span></span><br><span class="line">        nf_mult_prev = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>, n_layers):</span><br><span class="line">            nf_mult_prev = nf_mult</span><br><span class="line">            nf_mult = min(<span class="number">2</span> ** n, <span class="number">8</span>)</span><br><span class="line">            model += [</span><br><span class="line">                <span class="comment"># Use spectral normalization</span></span><br><span class="line">                SpectralNorm(nn.Conv2d(ndf * nf_mult_prev, ndf * nf_mult, kernel_size=kw, stride=<span class="number">2</span>, padding=padw, bias=use_bias)),</span><br><span class="line">                norm_layer(ndf * nf_mult),</span><br><span class="line">                nn.LeakyReLU(<span class="number">0.2</span>, <span class="keyword">True</span>)</span><br><span class="line">            ]</span><br><span class="line">        <span class="keyword">return</span> nn.Sequential(*model)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_classifier</span><span class="params">(self, ndf, n_layers, kw, padw, norm_layer, use_sigmoid)</span>:</span></span><br><span class="line">        nf_mult_prev = min(<span class="number">2</span> ** (n_layers<span class="number">-1</span>), <span class="number">8</span>)</span><br><span class="line">        nf_mult = min(<span class="number">2</span> ** n_layers, <span class="number">8</span>)</span><br><span class="line">        model = [</span><br><span class="line">            <span class="comment"># Use spectral normalization</span></span><br><span class="line">            SpectralNorm(nn.Conv2d(ndf * nf_mult_prev, ndf * nf_mult, kernel_size=kw, stride=<span class="number">1</span>, padding=padw)),</span><br><span class="line">            norm_layer(ndf * nf_mult),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>, <span class="keyword">True</span>)</span><br><span class="line">        ]</span><br><span class="line">        <span class="comment"># Use spectral normalization</span></span><br><span class="line">        model += [SpectralNorm(nn.Conv2d(ndf * nf_mult, <span class="number">1</span>, kernel_size=kw, stride=<span class="number">1</span>, padding=padw))]</span><br><span class="line">        <span class="keyword">if</span> use_sigmoid:</span><br><span class="line">            model += [nn.Sigmoid()]</span><br><span class="line">        <span class="keyword">return</span> nn.Sequential(*model)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, inp)</span>:</span></span><br><span class="line">        <span class="comment"># split data</span></span><br><span class="line">        img = inp[:, :self.input_nc, :, :]  <span class="comment"># (B, CX, W, H)</span></span><br><span class="line">        segs = inp[:, self.input_nc:, :, :]  <span class="comment"># (B, CA, W, H)</span></span><br><span class="line">        mean = (segs + <span class="number">1</span>).mean(<span class="number">0</span>).mean(<span class="number">-1</span>).mean(<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">if</span> mean.sum() == <span class="number">0</span>:</span><br><span class="line">            mean[<span class="number">0</span>] = <span class="number">1</span>  <span class="comment"># forward at least one segmentation</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># run feature extractor</span></span><br><span class="line">        feat_img = self.feature_img(img)</span><br><span class="line">        feat_segs = list()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(segs.size(<span class="number">1</span>)):  <span class="comment"># 第i个instance</span></span><br><span class="line">            <span class="keyword">if</span> mean[i] &gt; <span class="number">0</span>:  <span class="comment"># skip empty segmentation</span></span><br><span class="line">                seg = segs[:, i, :, :].unsqueeze(<span class="number">1</span>)</span><br><span class="line">                feat_segs.append(self.feature_seg(seg))</span><br><span class="line">        feat_segs_sum = torch.sum(torch.stack(feat_segs), dim=<span class="number">0</span>)  <span class="comment"># aggregated set feature</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># run classifier</span></span><br><span class="line">        feat = torch.cat([feat_img, feat_segs_sum], dim=<span class="number">1</span>)</span><br><span class="line">        out = self.classifier(feat)</span><br><span class="line">        <span class="keyword">return</span> out</span><br></pre></td></tr></table></figure>
+<h2 id="5-5-model-的输入"><a href="#5-5-model-的输入" class="headerlink" title="5.5 model 的输入"></a>5.5 model 的输入</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_input</span><span class="params">(self, input)</span>:</span></span><br><span class="line">    AtoB = self.opt.direction == <span class="string">'AtoB'</span></span><br><span class="line">    self.real_A_img = input[<span class="string">'A'</span> <span class="keyword">if</span> AtoB <span class="keyword">else</span> <span class="string">'B'</span>].to(self.device)</span><br><span class="line">    self.real_B_img = input[<span class="string">'B'</span> <span class="keyword">if</span> AtoB <span class="keyword">else</span> <span class="string">'A'</span>].to(self.device)</span><br><span class="line">    real_A_segs = input[<span class="string">'A_segs'</span> <span class="keyword">if</span> AtoB <span class="keyword">else</span> <span class="string">'B_segs'</span>]</span><br><span class="line">    real_B_segs = input[<span class="string">'B_segs'</span> <span class="keyword">if</span> AtoB <span class="keyword">else</span> <span class="string">'A_segs'</span>]</span><br><span class="line">    self.real_A_segs = self.select_masks(real_A_segs).to(self.device)  <span class="comment"># shape:(1,4,240,160)</span></span><br><span class="line">    self.real_B_segs = self.select_masks(real_B_segs).to(self.device)</span><br><span class="line">    self.real_A = torch.cat([self.real_A_img, self.real_A_segs], dim=<span class="number">1</span>) <span class="comment"># shape:(1,7,240,160)</span></span><br><span class="line">    self.real_B = torch.cat([self.real_B_img, self.real_B_segs], dim=<span class="number">1</span>)</span><br><span class="line">    self.real_A_seg = self.merge_masks(self.real_A_segs)  <span class="comment"># merged mask</span></span><br><span class="line">    self.real_B_seg = self.merge_masks(self.real_B_segs)  <span class="comment"># merged mask</span></span><br><span class="line">    self.image_paths = input[<span class="string">'A_paths'</span> <span class="keyword">if</span> AtoB <span class="keyword">else</span> <span class="string">'B_paths'</span>]</span><br></pre></td></tr></table></figure>
+<p>前面说过，每次都生成20个mask，不足用-1补充，在输入网络时，只取面积最大的4个mask，然后对这4个进行或者从高到低排序或者随机排序。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ins_max = 4</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_masks_random</span><span class="params">(self, segs_batch)</span>:</span></span><br><span class="line">  <span class="string">"""Select masks in random order"""</span></span><br><span class="line">  ret = list()</span><br><span class="line">  <span class="keyword">for</span> segs <span class="keyword">in</span> segs_batch:</span><br><span class="line">    mean = (segs + <span class="number">1</span>).mean(<span class="number">-1</span>).mean(<span class="number">-1</span>)</span><br><span class="line">    m, i = mean.topk(self.opt.ins_max)</span><br><span class="line">    num = min(len(mean.nonzero()), self.opt.ins_max)</span><br><span class="line">    reorder = np.concatenate((np.random.permutation(num), np.arange(num, self.opt.ins_max)))</span><br><span class="line">    ret.append(segs[i[reorder], :, :])</span><br><span class="line">  <span class="keyword">return</span> torch.stack(ret)</span><br></pre></td></tr></table></figure>
+<p>这里的mask的合并没有太看懂，是为了去除(-1,1)之外的数字吗？</p>
+<p>跑了代码,觉得是的,或许是担心有其他干扰因素吧,反正剩下的都是-1~1之间的数字.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_masks</span><span class="params">(self, segs)</span>:</span></span><br><span class="line">  <span class="string">"""Merge masks (B, N, W, H) -&gt; (B, 1, W, H)"""</span></span><br><span class="line">  ret = torch.sum((segs + <span class="number">1</span>)/<span class="number">2</span>, dim=<span class="number">1</span>, keepdim=<span class="keyword">True</span>)  <span class="comment"># (B, 1, W, H)</span></span><br><span class="line">  <span class="keyword">return</span> ret.clamp(max=<span class="number">1</span>, min=<span class="number">0</span>) * <span class="number">2</span> - <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li style="list-style: none"><input type="checkbox"> 这一步的意义是什么？？</li>
+</ul>
+<p>理解了，如果图片中没有instance，那么就不用进行下一步的转换了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.forward_A = (self.real_A_seg_sng + <span class="number">1</span>).sum() &gt; <span class="number">0</span>  <span class="comment"># check if there are remaining instances</span></span><br><span class="line">self.forward_B = (self.real_B_seg_sng + <span class="number">1</span>).sum() &gt; <span class="number">0</span>  <span class="comment"># check if there are remaining instances</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> fake_B_mul的意义是什么？</li>
+</ul>
+<p>因为在sequential mini-batch translation中，GAN_loss是全局的，所以每次需要把之前的fake_B_seg_sng保存起来一起计算，因此每次的临时的self.fake_B_mul，而self.fake_B_seg_list保存是mini-batch计算得到的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> self.forward_A:</span><br><span class="line">    self.real_A_sng = torch.cat([self.real_A_img_sng, self.real_A_seg_sng], dim=<span class="number">1</span>)</span><br><span class="line">    self.fake_B_sng = self.netG_A(self.real_A_sng)</span><br><span class="line">    self.rec_A_sng = self.netG_B(self.fake_B_sng)</span><br><span class="line"></span><br><span class="line">    self.fake_B_img_sng, self.fake_B_seg_sng = self.split(self.fake_B_sng)</span><br><span class="line">    self.rec_A_img_sng, self.rec_A_seg_sng = self.split(self.rec_A_sng)</span><br><span class="line">    fake_B_seg_list = self.fake_B_seg_list + [self.fake_B_seg_sng]  <span class="comment"># not detach</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(self.ins_iter - idx - <span class="number">1</span>):</span><br><span class="line">        fake_B_seg_list.append(empty)</span><br><span class="line"></span><br><span class="line">    self.fake_B_seg_mul = torch.cat(fake_B_seg_list, dim=<span class="number">1</span>)</span><br><span class="line">    self.fake_B_mul = torch.cat([self.fake_B_img_sng, self.fake_B_seg_mul], dim=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 怎么选取的背景</li>
+</ul>
+<p>只要在A中且在B中都是背景的则都算是背景，否则只要有instance的区域不为背景。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_masks</span><span class="params">(self, segs)</span>:</span></span><br><span class="line">    <span class="string">"""Merge masks (B, N, W, H) -&gt; (B, 1, W, H)"""</span></span><br><span class="line">    <span class="comment"># segs: shape(1,4,240,260)， 取值(-1~1) 训练集A中有两个instance，训练集B中有两个instance，</span></span><br><span class="line">    ret = torch.sum((segs + <span class="number">1</span>)/<span class="number">2</span>, dim=<span class="number">1</span>, keepdim=<span class="keyword">True</span>)  <span class="comment"># (B, 1, W, H)</span></span><br><span class="line">    <span class="keyword">return</span> ret.clamp(max=<span class="number">1</span>, min=<span class="number">0</span>) * <span class="number">2</span> - <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_masks</span><span class="params">(self, segs)</span>:</span></span><br><span class="line">    <span class="string">"""Merge masks (B, N, W, H) -&gt; (B, 1, W, H)"""</span></span><br><span class="line">    ret = torch.sum((segs + <span class="number">1</span>)/<span class="number">2</span>, dim=<span class="number">1</span>, keepdim=<span class="keyword">True</span>)  <span class="comment"># (B, 1, W, H)</span></span><br><span class="line">    <span class="keyword">return</span> ret.clamp(max=<span class="number">1</span>, min=<span class="number">0</span>) * <span class="number">2</span> - <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_weight_for_ctx</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">    <span class="string">"""Get weight for context preserving loss"""</span></span><br><span class="line">    z = self.merge_masks(torch.cat([x, y], dim=<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> (<span class="number">1</span> - z) / <span class="number">2</span>  <span class="comment"># [-1,1] -&gt; [1,0]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 这里的empty的作用是什么</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">empty = -torch.ones(self.real_A_seg_sng.size()).to(self.device)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>[ ] pix2pix 是怎么预测mask的，需要提前训练吗，数据集怎么提供？如果可以直接用，那么是否可以直接实现行人重识别的换人？</p>
+</li>
+<li><p>[x] 论文+代码，共4天</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GAN/" rel="tag"># GAN</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/03/deep-learning-network/" rel="next" title="deep-learning-network">
+                <i class="fa fa-chevron-left"></i> deep-learning-network
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Jiajie Tian" />
+            
+              <p class="site-author-name" itemprop="name">Jiajie Tian</p>
+              <p class="site-description motion-element" itemprop="description">做一个有趣的灵魂</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-前言"><span class="nav-number">1.</span> <span class="nav-text">0. 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-InstaGAN"><span class="nav-number">3.</span> <span class="nav-text">2. InstaGAN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-InstaGAN-architecture"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 InstaGAN architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Training-loss"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 Training loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-sequential-mini-batch-translation"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 sequential mini-batch translation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-experimental-results"><span class="nav-number">4.</span> <span class="nav-text">3. experimental results</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-image-to-image-translation-results"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 image-to-image translation results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-ablation-study"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 ablation study</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Appendix"><span class="nav-number">5.</span> <span class="nav-text">4. Appendix</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-architecture-details"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 architecture details</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-traning-details"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 traning details</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-trend-of-translation-results"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 trend of translation results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-其他"><span class="nav-number">5.4.</span> <span class="nav-text">4.4 其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-video-translation-results"><span class="nav-number">5.5.</span> <span class="nav-text">4.5 video translation results</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-code"><span class="nav-number">6.</span> <span class="nav-text">5. code</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-文件目录"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 文件目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-seg"><span class="nav-number">6.2.</span> <span class="nav-text">5.2 seg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-generator"><span class="nav-number">6.3.</span> <span class="nav-text">5.3 generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-Discriminator"><span class="nav-number">6.4.</span> <span class="nav-text">5.4 Discriminator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-model-的输入"><span class="nav-number">6.5.</span> <span class="nav-text">5.5 model 的输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">6.6.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiajie Tian</span>
+
+  
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+<span id="busuanzi_container_site_pv">
+    总访问量: <span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+    总访客: <span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://tjj-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/01/04/InstaGAN/';
+          this.page.identifier = '2019/01/04/InstaGAN/';
+          this.page.title = 'InstaGAN';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tjj-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('4');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

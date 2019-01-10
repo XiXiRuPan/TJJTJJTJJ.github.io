@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/12/27/SEIGAN/</loc>
-    <lastmod>2018-12-28T09:11:52.292Z</lastmod>
+    <loc>http://yoursite.com/2019/01/04/InstaGAN/</loc>
+    <lastmod>2019-01-10T14:57:05.795Z</lastmod>
     <data>
         <display>
-        <title>SEIGAN</title>
-        <pubTime>2018-12-27T08:57:16.000Z</pubTime>
+        <title>InstaGAN</title>
+        <pubTime>2019-01-04T03:25:47.000Z</pubTime>
         
         <tag>GAN</tag>
          
@@ -25,7 +25,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
-    <lastmod>2018-12-27T15:09:14.367Z</lastmod>
+    <lastmod>2019-01-07T09:35:48.697Z</lastmod>
     <data>
         <display>
         <title>markdown-math</title>
@@ -39,6 +39,48 @@
            
              
               <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/01/03/deep-learning-network/</loc>
+    <lastmod>2019-01-04T01:57:14.995Z</lastmod>
+    <data>
+        <display>
+        <title>deep-learning-network</title>
+        <pubTime>2019-01-03T02:43:38.000Z</pubTime>
+        
+        <tag>deep-learning</tag>
+         
+        <tag>network</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep-learning" url="http://yoursite.com/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/27/SEIGAN/</loc>
+    <lastmod>2018-12-28T09:11:52.292Z</lastmod>
+    <data>
+        <display>
+        <title>SEIGAN</title>
+        <pubTime>2018-12-27T08:57:16.000Z</pubTime>
+        
+        <tag>GAN</tag>
+         
+         
+           
+             
+              <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
           
         </display>
     </data>
@@ -159,9 +201,9 @@
         <title>Grad-CAM</title>
         <pubTime>2018-12-14T01:50:53.000Z</pubTime>
         
-        <tag>paper</tag>
-         
         <tag>CNN</tag>
+         
+        <tag>paper</tag>
          
          
            

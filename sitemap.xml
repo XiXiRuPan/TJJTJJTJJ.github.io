@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/12/27/SEIGAN/</loc>
+    <loc>http://yoursite.com/2019/01/04/InstaGAN/</loc>
     
-    <lastmod>2018-12-28T09:11:52.292Z</lastmod>
+    <lastmod>2019-01-10T14:57:05.795Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
     
-    <lastmod>2018-12-27T15:09:14.367Z</lastmod>
+    <lastmod>2019-01-07T09:35:48.697Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/01/03/deep-learning-network/</loc>
+    
+    <lastmod>2019-01-04T01:57:14.995Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/27/SEIGAN/</loc>
+    
+    <lastmod>2018-12-28T09:11:52.292Z</lastmod>
     
   </url>
   
