@@ -470,7 +470,6 @@
 <p>相似工作：<a href="https://arxiv.org/abs/1803.06414" target="_blank" rel="noopener">Learning to segment via cut-and-paste</a></p>
 <p>通过作者的论述，思想相同的地方很多。</p>
 <h1 id="2-Methods"><a href="#2-Methods" class="headerlink" title="2. Methods"></a>2. Methods</h1><h2 id="2-1-Problem-Setting-and-General-Pipeline"><a href="#2-1-Problem-Setting-and-General-Pipeline" class="headerlink" title="2.1 Problem Setting and General Pipeline"></a>2.1 Problem Setting and General Pipeline</h2><p><strong>字符表示</strong>：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -480,7 +479,7 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$x=<o,b_x>$</o,b_x></td>
+<td style="text-align:center">$x=&lt;O,B_x&gt;$</td>
 <td style="text-align:center">图片$x$，由目标$O$和背景$B_x$组成</td>
 </tr>
 <tr>
@@ -488,11 +487,11 @@
 <td style="text-align:center">图片$y$，包含背景$B_y$，没有目标</td>
 </tr>
 <tr>
-<td style="text-align:center">$Y=\{&lt;\emptyset,B_y&gt;\}_{y\in Y}$</td>
+<td style="text-align:center">$Y={&lt;\emptyset,B_y&gt;}_{y\in Y}$</td>
 <td style="text-align:center">背景数据集</td>
 </tr>
 <tr>
-<td style="text-align:center">$X=\{<o_x,b_x>\}_{x\in X}$</o_x,b_x></td>
+<td style="text-align:center">$X={&lt;O_x,B_x&gt;}_{x\in X}$</td>
 <td style="text-align:center">不同物体在不同背景的图片</td>
 </tr>
 <tr>
@@ -509,12 +508,11 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>问题定义</strong>：</p>
-<p>对于任意一组图片$x=<o,b_x>$和$y=&lt;\emptyset,B_y&gt;$，利用模型将其变成$\hat{x}=&lt;\emptyset,\hat{B}_x&gt;$和$\hat{y}=&lt;\hat{O},\hat{B}_y&gt;$，其中$\hat{B}_x\approx B_x$，$\hat{B}_y\approx B_y$和$\hat{O}\approx O$.</o,b_x></p>
+<p>对于任意一组图片$x=&lt;O,B_x&gt;$和$y=&lt;\emptyset,B_y&gt;$，利用模型将其变成$\hat{x}=&lt;\emptyset,\hat{B}_x&gt;$和$\hat{y}=&lt;\hat{O},\hat{B}_y&gt;$，其中$\hat{B}_x\approx B_x$，$\hat{B}_y\approx B_y$和$\hat{O}\approx O$.</p>
 <p><strong>步骤分解</strong>：</p>
 <ul>
-<li>分割(segmentation)：预测图片$x=<o,b_x>$的分割掩码$m=Mask(x)$，并且做简单的粘贴$z=m\odot x+(1-m)\odot y$，$\odot$我的理解是对应元素的乘法。</o,b_x></li>
+<li>分割(segmentation)：预测图片$x=&lt;O,B_x&gt;$的分割掩码$m=Mask(x)$，并且做简单的粘贴$z=m\odot x+(1-m)\odot y$，$\odot$我的理解是对应元素的乘法。</li>
 </ul>
 <blockquote>
 <p>$\odot$ denotes componentwise multiplication;</p>
@@ -529,28 +527,26 @@
 <p>其中 swap network 就是 segmentation network 和 enhancement network 的组合。</p>
 <ul>
 <li>类似CycleGAN，网络架构应用两次，第一次得到$\hat{x}$和$\hat{y}$，第二次得到$\hat{\hat{x}}$和$\hat{\hat{y}}$</li>
-<li>$G_{seg}$：Fig.3.right，输入$x=<o,b_x>$，输出$m=Mask(x)$</o,b_x></li>
+<li>$G_{seg}$：Fig.3.right，输入$x=&lt;O,B_x&gt;$，输出$m=Mask(x)$</li>
 <li>$G_{inp}$：Fig.3.left，输入$(1-m)\odot x$，输出$\hat{x}=&lt;\emptyset,\hat{B}_x&gt;$</li>
 <li>$G_{enh}$：Fig.3.left，输入$z=m\odot x+(1-m)\odot y$和噪声，输出$\hat{y}=&lt;\hat{O},\hat{B}_y&gt;$</li>
 <li>$D_{bg}$：背景判别器，判断真背景($y$)和假背景($\hat{x}$、$\hat{\hat{y}}$)，真为1，假为0</li>
 <li>$D_{obj}$：目标判别器，判断背景和目标是一体的($x$)和背景和目标是合成的($z$,$\hat{y}$)，一体的为1，合成的为0.</li>
 </ul>
-<h2 id="2-2-The-inpainting-Network-G-inp"><a href="#2-2-The-inpainting-Network-G-inp" class="headerlink" title="2.2 The inpainting Network $G_{inp}$"></a>2.2 The inpainting Network $G_{inp}$</h2><p><strong>背景对抗损失函数</strong>:</p>
-<script type="math/tex; mode=display">l^{GAN}\_{inp}=(1-D_{bg}(\hat{x})),l^{GAN}\_{inp2}=(1-D_{bg}(\hat{\hat{y}}))</script><script type="math/tex; mode=display">l^{GAN}_{bg}=\lambda_1 l^{GAN}\_{inp} + \lambda_2 l^{GAN}\_{inp2}</script><p><strong>背景重构损失函数</strong>：</p>
-<script type="math/tex; mode=display">l^{texture}_{bg}=|Gram(VGG_1(y))-Gram(VGG_1(\hat{\hat{y}}))|</script><script type="math/tex; mode=display">l^{perc}_{bg}=|VGG_2(y)-VGG_2(\hat{\hat{y}})|</script><script type="math/tex; mode=display">l^{MAE}\_{bg}=|y-\hat{\hat{y}}|</script><script type="math/tex; mode=display">l^{rec}_{bg}=\lambda_3 l^{texture}_{bg}+\lambda_4 l^{perc}_{bg}+\lambda_5l^{MAE}_{bg}</script><p>其中，$VGG_1(y)$表示VGG19的前五层，$VGG_2(y)$表示VGG19的后五层</p>
+<h2 id="2-2-The-inpainting-Network-G-inp"><a href="#2-2-The-inpainting-Network-G-inp" class="headerlink" title="2.2 The inpainting Network $G_{inp}$"></a>2.2 The inpainting Network $G_{inp}$</h2><p><strong>背景对抗损失函数</strong>:<br>$$l^{GAN}_{inp}=(1-D_{bg}(\hat{x})),l^{GAN}_{inp2}=(1-D_{bg}(\hat{\hat{y}}))$$<br>$$l^{GAN}_{bg}=\lambda_1 l^{GAN}_{inp} + \lambda_2 l^{GAN}_{inp2} $$</p>
+<p><strong>背景重构损失函数</strong>：<br>$$l^{texture}_{bg}=|Gram(VGG_1(y))-Gram(VGG_1(\hat{\hat{y}}))|$$<br>$$l^{perc}_{bg}=|VGG_2(y)-VGG_2(\hat{\hat{y}})|$$<br>$$l^{MAE}_{bg}=|y-\hat{\hat{y}}|$$<br>$$l^{rec}_{bg}=\lambda_3 l^{texture}_{bg}+\lambda_4 l^{perc}_{bg}+\lambda_5l^{MAE}_{bg}$$</p>
+<p>其中，$VGG_1(y)$表示VGG19的前五层，$VGG_2(y)$表示VGG19的后五层</p>
 <p><strong>$G_{inp}$ 的网络架构</strong>:</p>
 <p><img src="./SEIGAN/SEIGAN3.png" alt="$G_{inp}$ 的网络架构"><br><img src="/2018/12/27/SEIGAN/SEIGAN3.png" title="$G_{inp}$ 的网络架构"></p>
 <p>其实没太看懂这个网络，可能还是需要有代码。</p>
 <h2 id="2-3-The-Swap-Network"><a href="#2-3-The-Swap-Network" class="headerlink" title="2.3 The Swap Network"></a>2.3 The Swap Network</h2><p>The swap network = the segmentation network + the enhancement network</p>
-<p><strong>目标重构损失函数</strong>：</p>
-<script type="math/tex; mode=display">l^{perc}_{obj}=|VGG_2(x)-VGG_2(\hat{\hat{x}})|</script><script type="math/tex; mode=display">l^{MAE}\_{obj}=|x-\hat{\hat{x}}|</script><script type="math/tex; mode=display">l^{rec}_{obj}=\lambda_6 l^{perc}_{obj}+\lambda_7 l^{MAE}_{obj}</script><p><strong>目标对抗损失函数</strong>：</p>
-<script type="math/tex; mode=display">l^{GAN}\_{coarse}=(1-D_{obj}(z))^2</script><script type="math/tex; mode=display">l^{GAN}\_{enh}=(1-D_{obj}(\hat{y}))^2</script><script type="math/tex; mode=display">l^{GAN}_{obj}=\lambda_8 l^{GAN}_{coarse} + \lambda_9 l^{GAN}_{enh}</script><p><strong>identity loss</strong>：</p>
-<script type="math/tex; mode=display">l^{id}\_{bg}=|G_{inp}((1-G_{seg}(y))\odot y)-y|</script><script type="math/tex; mode=display">l^{id}\_{obj}=|G_{enh}(x)-x|</script><script type="math/tex; mode=display">l^{id}=\lambda_{10}l^{id}\_{obj} + \lambda_{11}l^{id}_{bg}</script><h2 id="2-4-Total-Loss-Funcion-Remarks-and-Network-Architectures"><a href="#2-4-Total-Loss-Funcion-Remarks-and-Network-Architectures" class="headerlink" title="2.4 Total Loss Funcion, Remarks, and Network Architectures"></a>2.4 Total Loss Funcion, Remarks, and Network Architectures</h2><p><strong>The Generator Loss</strong>:</p>
-<script type="math/tex; mode=display">\begin{split}
-l=\lambda_1 l^{GAN}\_{inp} + \lambda_2 l^{GAN}\_{inp2} + \lambda_4 l^{perc}_{bg} + \lambda_5l^{MAE}_{bg} + \lambda_6 l^{perc}_{obj} + \\
-\lambda_7 l^{MAE}_{obj} + \lambda_8 l^{GAN}_{coarse} + \lambda_9 l^{GAN}\_{enh} + \lambda_{10}l^{id}\_{obj} + \lambda_{11}l^{id}_{bg}
-\end{split}</script><p><strong>The Discriminator Loss</strong>:</p>
-<script type="math/tex; mode=display">l^{disc}\_{bg}=(1-D_{bg}(y))^2+\frac{1}{2}D_{bg}(\hat{x})^2+\frac{1}{2}D_{bg}(\hat{\hat{y}})^2</script><script type="math/tex; mode=display">l^{disc}\_{obj}=(1-D_{obj}(x))^2+\frac{1}{2}D_{obj}(\hat{y})^2+\frac{1}{2}D_{obj}(z)^2</script><p><strong>Remarks</strong>：</p>
+<p><strong>目标重构损失函数</strong>：<br>$$l^{perc}_{obj}=|VGG_2(x)-VGG_2(\hat{\hat{x}})|$$<br>$$l^{MAE}_{obj}=|x-\hat{\hat{x}}|$$<br>$$l^{rec}_{obj}=\lambda_6 l^{perc}_{obj}+\lambda_7 l^{MAE}_{obj}$$</p>
+<p><strong>目标对抗损失函数</strong>：<br>$$l^{GAN}_{coarse}=(1-D_{obj}(z))^2$$<br>$$l^{GAN}_{enh}=(1-D_{obj}(\hat{y}))^2$$<br>$$l^{GAN}_{obj}=\lambda_8 l^{GAN}_{coarse} + \lambda_9 l^{GAN}_{enh}$$</p>
+<p><strong>identity loss</strong>：</p>
+<p>$$l^{id}_{bg}=|G_{inp}((1-G_{seg}(y))\odot y)-y|$$<br>$$l^{id}_{obj}=|G_{enh}(x)-x|$$<br>$$l^{id}=\lambda_{10}l^{id}_{obj} + \lambda_{11}l^{id}_{bg}$$</p>
+<h2 id="2-4-Total-Loss-Funcion-Remarks-and-Network-Architectures"><a href="#2-4-Total-Loss-Funcion-Remarks-and-Network-Architectures" class="headerlink" title="2.4 Total Loss Funcion, Remarks, and Network Architectures"></a>2.4 Total Loss Funcion, Remarks, and Network Architectures</h2><p><strong>The Generator Loss</strong>:<br>$$\begin{split}<br>l=\lambda_1 l^{GAN}_{inp} + \lambda_2 l^{GAN}_{inp2} + \lambda_4 l^{perc}_{bg} + \lambda_5l^{MAE}_{bg} + \lambda_6 l^{perc}_{obj} + \<br>\lambda_7 l^{MAE}_{obj} + \lambda_8 l^{GAN}_{coarse} + \lambda_9 l^{GAN}_{enh} + \lambda_{10}l^{id}_{obj} + \lambda_{11}l^{id}_{bg}<br>\end{split}$$</p>
+<p><strong>The Discriminator Loss</strong>:<br>$$l^{disc}_{bg}=(1-D_{bg}(y))^2+\frac{1}{2}D_{bg}(\hat{x})^2+\frac{1}{2}D_{bg}(\hat{\hat{y}})^2$$<br>$$l^{disc}_{obj}=(1-D_{obj}(x))^2+\frac{1}{2}D_{obj}(\hat{y})^2+\frac{1}{2}D_{obj}(z)^2$$</p>
+<p><strong>Remarks</strong>：</p>
 <ol>
 <li>a pool of fake images，类似Cycle GAN也有。</li>
 <li>对于不同大小和比例的图片$x,y$，作者使用了增强网络</li>
@@ -703,7 +699,7 @@ l=\lambda_1 l^{GAN}\_{inp} + \lambda_2 l^{GAN}\_{inp2} + \lambda_4 l^{perc}_{bg}
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -714,7 +710,7 @@ l=\lambda_1 l^{GAN}\_{inp} + \lambda_2 l^{GAN}\_{inp2} + \lambda_4 l^{perc}_{bg}
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -725,7 +721,7 @@ l=\lambda_1 l^{GAN}\_{inp} + \lambda_2 l^{GAN}\_{inp2} + \lambda_4 l^{perc}_{bg}
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/01/15/tensorboard/</loc>
+    
+    <lastmod>2019-01-17T08:20:10.969Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
+    
+    <lastmod>2019-01-16T15:41:36.322Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    
+    <lastmod>2019-01-15T14:05:30.266Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/01/14/SyRI/</loc>
+    
+    <lastmod>2019-01-14T07:07:45.946Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/09/11/pytorch-chapter8-neural-style/</loc>
+    
+    <lastmod>2019-01-14T03:08:44.031Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/pytorch-optim/</loc>
+    
+    <lastmod>2019-01-14T03:05:43.804Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/01/04/InstaGAN/</loc>
     
     <lastmod>2019-01-10T14:57:05.795Z</lastmod>
@@ -30,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
-    
-    <lastmod>2018-12-27T06:55:19.721Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
     
     <lastmod>2018-12-23T15:11:34.619Z</lastmod>
@@ -47,13 +82,6 @@
     <loc>http://yoursite.com/2018/12/10/pytorch-2.0/</loc>
     
     <lastmod>2018-12-23T14:47:18.685Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    
-    <lastmod>2018-12-23T14:40:33.111Z</lastmod>
     
   </url>
   
@@ -149,13 +177,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/11/05/pytorch-optim/</loc>
-    
-    <lastmod>2018-11-05T15:15:49.854Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/11/05/beyond-part-models/</loc>
     
     <lastmod>2018-11-05T15:14:46.007Z</lastmod>
@@ -222,13 +243,6 @@
     <loc>http://yoursite.com/2018/09/30/pytorch-chapter10-ImageCaption/</loc>
     
     <lastmod>2018-10-04T07:58:45.171Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/11/pytorch-chapter8-neural-style/</loc>
-    
-    <lastmod>2018-10-01T07:49:55.000Z</lastmod>
     
   </url>
   

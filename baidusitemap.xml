@@ -4,6 +4,134 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/01/15/tensorboard/</loc>
+    <lastmod>2019-01-17T08:20:10.969Z</lastmod>
+    <data>
+        <display>
+        <title>tensorboard</title>
+        <pubTime>2019-01-15T09:15:48.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+        <tag>tensorboard</tag>
+         
+         
+           
+             
+              <breadCrumb title="tensorboard" url="http://yoursite.com/categories/tensorboard/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
+    <lastmod>2019-01-16T15:41:36.322Z</lastmod>
+    <data>
+        <display>
+        <title>GPU</title>
+        <pubTime>2018-12-26T07:14:08.000Z</pubTime>
+        
+        <tag>driver</tag>
+         
+        <tag>cuda</tag>
+         
+        <tag>cudnn</tag>
+         
+         
+           
+             
+              <breadCrumb title="GPU" url="http://yoursite.com/categories/GPU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    <lastmod>2019-01-15T14:05:30.266Z</lastmod>
+    <data>
+        <display>
+        <title>python-2.0</title>
+        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/01/14/SyRI/</loc>
+    <lastmod>2019-01-14T07:07:45.946Z</lastmod>
+    <data>
+        <display>
+        <title>SyRI</title>
+        <pubTime>2019-01-14T03:32:20.000Z</pubTime>
+        
+        <tag>person re-identification</tag>
+         
+        <tag>domain adaption</tag>
+         
+         
+           
+             
+              <breadCrumb title="person re-id" url="http://yoursite.com/categories/person-re-id/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/09/11/pytorch-chapter8-neural-style/</loc>
+    <lastmod>2019-01-14T03:08:44.031Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch chapter8 neural style</title>
+        <pubTime>2018-09-11T03:19:25.000Z</pubTime>
+        
+        <tag>neural style transfer</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/pytorch-optim/</loc>
+    <lastmod>2019-01-14T03:05:43.804Z</lastmod>
+    <data>
+        <display>
+        <title>pytorch-optim</title>
+        <pubTime>2018-11-05T09:13:57.000Z</pubTime>
+        
+        <tag>pytorch</tag>
+         
+         
+           
+             
+              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/01/04/InstaGAN/</loc>
     <lastmod>2019-01-10T14:57:05.795Z</lastmod>
     <data>
@@ -88,30 +216,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
-    <lastmod>2018-12-27T06:55:19.721Z</lastmod>
-    <data>
-        <display>
-        <title>GPU</title>
-        <pubTime>2018-12-26T07:14:08.000Z</pubTime>
-        
-        <tag>driver</tag>
-         
-        <tag>cuda</tag>
-         
-        <tag>cudnn</tag>
-         
-         
-           
-             
-              <breadCrumb title="GPU" url="http://yoursite.com/categories/GPU/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/12/19/starGAN/</loc>
     <lastmod>2018-12-23T15:11:34.619Z</lastmod>
     <data>
@@ -147,26 +251,6 @@
            
              
               <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    <lastmod>2018-12-23T14:40:33.111Z</lastmod>
-    <data>
-        <display>
-        <title>python-2.0</title>
-        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
@@ -333,9 +417,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>github</tag>
+         
+        <tag>hexo</tag>
          
         <tag>npm</tag>
          
@@ -442,26 +526,6 @@
         <display>
         <title>pytorch-init</title>
         <pubTime>2018-11-05T08:55:36.000Z</pubTime>
-        
-        <tag>pytorch</tag>
-         
-         
-           
-             
-              <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/11/05/pytorch-optim/</loc>
-    <lastmod>2018-11-05T15:15:49.854Z</lastmod>
-    <data>
-        <display>
-        <title>pytorch-optim</title>
-        <pubTime>2018-11-05T09:13:57.000Z</pubTime>
         
         <tag>pytorch</tag>
          
@@ -664,26 +728,6 @@
            
              
               <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/09/11/pytorch-chapter8-neural-style/</loc>
-    <lastmod>2018-10-01T07:49:55.000Z</lastmod>
-    <data>
-        <display>
-        <title>pytorch chapter8 neural style</title>
-        <pubTime>2018-09-11T03:19:25.000Z</pubTime>
-        
-        <tag>neural style transfer</tag>
-         
-         
-           
-             
-              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
           
         </display>
     </data>
