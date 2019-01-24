@@ -173,7 +173,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">记录一些学习到的东西和论文记录</p>
+        <p class="site-subtitle">代码的搬运工</p>
       
   </div>
 
@@ -269,16 +269,6 @@
               <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
             公益404
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-something">
-          <a href="/something" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
-            
-            something
           </a>
         </li>
       
@@ -512,7 +502,7 @@
 <p><strong>备注：</strong>:</p>
 <ol>
 <li><strong>SummaryWriter以及之前的类似Writer都可以自动创建文件夹</strong>。</li>
-<li><strong>tensorboard –logdir /path/to/log会自动迭代该文件下的所有文件夹和文件，将event展示出来，并且将同名字的scalar放在一起，可以用于对比修改前后的结果</strong>。</li>
+<li><strong>tensorboard —logdir /path/to/log会自动迭代该文件下的所有文件夹和文件，将event展示出来，并且将同名字的scalar放在一起，可以用于对比修改前后的结果</strong>。</li>
 </ol>
 <h2 id="10-2-add-image"><a href="#10-2-add-image" class="headerlink" title="10.2 add_image"></a>10.2 add_image</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">writer.add_image(tag, img_tensor, global_step=<span class="keyword">None</span>)</span><br><span class="line"><span class="comment"># img_tensor: 图像数据，shape（3，H，W) 配合torchvision.utils.make_grid使用</span></span><br><span class="line"><span class="comment"># writer.add_image(tag, img_tensor, global_step=None, walltime=None, dataformats='CHW'),</span></span><br><span class="line"><span class="comment">#  dataformats: 'CHW', 'HWC', 'HW'</span></span><br><span class="line"></span><br><span class="line">image_path = <span class="string">'test.jpg'</span></span><br><span class="line">image_ = Image.open(image_path)</span><br><span class="line">image_tensor = T.ToTensor()(image_)</span><br><span class="line">writer.add_image(<span class="string">'test1'</span>, image_tensor, global_step=<span class="number">2</span>)</span><br><span class="line">writer.add_image(<span class="string">'test2'</span>, torchvision.utils.make_grid(torch.rand(<span class="number">16</span>, <span class="number">3</span>, <span class="number">256</span>,<span class="number">256</span>), nrow=<span class="number">8</span>, padding=<span class="number">20</span>), global_step=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="10-3-add-histogram"><a href="#10-3-add-histogram" class="headerlink" title="10.3 add_histogram"></a>10.3 add_histogram</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">writer.add_histogram(tag,values,global_step=<span class="keyword">None</span>,bins=<span class="string">'tensorflow'</span>)</span><br><span class="line"><span class="comment"># bins:  (string): one of &#123;'tensorflow','auto', 'fd', ...&#125;, this determines</span></span><br><span class="line"><span class="comment"># how the bins are made. You can find other options in:</span></span><br><span class="line"><span class="comment"># https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html</span></span><br><span class="line">writer.add_histogram(<span class="string">'test1'</span>, torch.rand(<span class="number">16</span>, <span class="number">3</span>, <span class="number">256</span>,<span class="number">256</span>), global_step=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 感觉 bins 这个参数也差不多么</span></span><br></pre></td></tr></table></figure>
@@ -569,6 +559,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/17/GANnotation/" rel="prev" title="GANnotation">
+                GANnotation <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -649,7 +643,7 @@
                 alt="Jiajie Tian" />
             
               <p class="site-author-name" itemprop="name">Jiajie Tian</p>
-              <p class="site-description motion-element" itemprop="description">做一个有趣的灵魂</p>
+              <p class="site-description motion-element" itemprop="description">记录一些学习到的东西和论文记录</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -659,7 +653,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -681,7 +675,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

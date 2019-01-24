@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="GAN,face synthesis," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="田佳杰" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="0. 前言这是对GAN应用到人脸合成的改进，只是在arxiv上，先看看再说。">
+<meta name="keywords" content="GAN,face synthesis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GANnotation">
+<meta property="og:url" content="http://yoursite.com/2019/01/17/GANnotation/index.html">
+<meta property="og:site_name" content="田佳杰">
+<meta property="og:description" content="0. 前言这是对GAN应用到人脸合成的改进，只是在arxiv上，先看看再说。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation/GANnotation2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation/GANnotation1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation/GANnotation3.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation3.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation/GANnotation4.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation4.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation/GANnotation5.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation5.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation/GANnotation6.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation6.png">
+<meta property="og:updated_time" content="2019-01-24T07:25:49.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GANnotation">
+<meta name="twitter:description" content="0. 前言这是对GAN应用到人脸合成的改进，只是在arxiv上，先看看再说。">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/17/GANnotation/GANnotation/GANnotation2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/17/GANnotation/"/>
+
+
+
+
+
+  <title>GANnotation | 田佳杰</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/TJJTJJTJJ/TJJTJJTJJ.github.io.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">田佳杰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">代码的搬运工</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/17/GANnotation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiajie Tian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="田佳杰">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GANnotation</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-17T17:00:01+08:00">
+                2019-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/17/GANnotation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/17/GANnotation/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h1><p>这是对GAN应用到人脸合成的改进，只是在arxiv上，先看看再说。</p>
+<a id="more"></a>
+<ul>
+<li>paper: <a href="https://arxiv.org/abs/1811.03492" target="_blank" rel="noopener">https://arxiv.org/abs/1811.03492</a></li>
+<li>github: <a href="https://github.com/ESanchezLozano/GANnotation" target="_blank" rel="noopener">https://github.com/ESanchezLozano/GANnotation</a></li>
+<li>youtube: <a href="https://youtu.be/-8r7zexg4yg" target="_blank" rel="noopener">https://youtu.be/-8r7zexg4yg</a></li>
+</ul>
+<p>key word: self-consistency loss, triple consistency loss, progressive image translation</p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>作者对 <strong>self-consistency loss</strong> 的有效性进行了论证， self-consistency loss 可以有效地使图片转换前后 <strong>preserve identity</strong>，并且提出了新的loss <strong>triple consistency loss</strong>.</p>
+<p><img src="./GANnotation/GANnotation2.png" alt="triple consistency loss"><br><img src="/2019/01/17/GANnotation/GANnotation2.png" title="triple consistency loss"></p>
+<p>作者观察到当生成的图片再次经过生成另一种属性的图片时，生成的效果很差。记生成的图片再次经过网络生成新的图片的过程为 <strong>“progressive image translation”</strong>。比如输入一张图片a，先通过网络生成图片b，再将图片b送入网络，得到生成图片c。</p>
+<p><img src="./GANnotation/GANnotation1.png" alt="progressive image translation"><br><img src="/2019/01/17/GANnotation/GANnotation1.png" title="progressive image translation"></p>
+<p>并且作者提出了<strong>GAN-notation</strong>，即 <strong>unconstrained landmark guided face-to-face synthesis</strong>, 同时改变人脸的姿势和表情(simultaneous change in pose and expression)， 论证了 triple consistency loss 的有效性。</p>
+<h1 id="2-Proposed-approach"><a href="#2-Proposed-approach" class="headerlink" title="2. Proposed approach"></a>2. Proposed approach</h1><p><img src="./GANnotation/GANnotation3.png" alt="Proposed approach"><br><img src="/2019/01/17/GANnotation/GANnotation3.png" title="Proposed approach"></p>
+<h2 id="2-1-Notation"><a href="#2-1-Notation" class="headerlink" title="2.1 Notation"></a>2.1 Notation</h2><p>符号说明：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$I\in \mathcal{I}, w × h$</td>
+<td style="text-align:center">人脸图片$I$</td>
+</tr>
+<tr>
+<td style="text-align:center">$s_i \in \mathbb{R}^{2n}$</td>
+<td style="text-align:center">$n$个有序点的集合</td>
+</tr>
+<tr>
+<td style="text-align:center">$H(s_t) \in \mathcal{H}, H(s_t) \in \mathbb{R}^{n×w×h}$</td>
+<td style="text-align:center">$s_i$编码成 heatmap，以均值为点的高斯分布的形式呈现</td>
+</tr>
+<tr>
+<td style="text-align:center">$G: \mathcal{I}×\mathcal{H} \to \hat{\mathcal{I}}$</td>
+<td style="text-align:center">$\hat{\mathcal{I}}$是生成图片的集合</td>
+</tr>
+<tr>
+<td style="text-align:center">$\hat{I} = G(I;H(s_t))$</td>
+<td style="text-align:center">其中$I$和$H(s_t)$是在通道维拼接而成的</td>
+</tr>
+<tr>
+<td style="text-align:center">$\mathbb{P}_{\mathcal{I}}$</td>
+<td style="text-align:center">图片$I$的分布</td>
+</tr>
+<tr>
+<td style="text-align:center">$\mathbb{P}_{\hat{\mathcal{I}}}$</td>
+<td style="text-align:center">图片$\hat{I}$的分布</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-2-Architecture"><a href="#2-2-Architecture" class="headerlink" title="2.2 Architecture"></a>2.2 Architecture</h2><p><strong>G</strong>:</p>
+<ul>
+<li>two spatial downsampling convolutions</li>
+<li>followed by a set of residual blocks</li>
+<li>two spatial upsampling blocks with 1=2 strided convolutions</li>
+<li>output: colour image $C$ and a mask $M$.</li>
+</ul>
+<script type="math/tex; mode=display">\hat{I}=(1-M) \circ C + M \circ I</script><p><strong>D</strong>: PatchGAN, 128×128—&gt;4×4×512</p>
+<h2 id="2-3-Training"><a href="#2-3-Training" class="headerlink" title="2.3 Training"></a>2.3 Training</h2><h3 id="2-3-1-Adversarial-loss"><a href="#2-3-1-Adversarial-loss" class="headerlink" title="2.3.1 Adversarial loss"></a>2.3.1 Adversarial loss</h3><p>作者使用的是 hinge adversarial loss。</p>
+<p>我在参考<a href="https://arxiv.org/pdf/1705.02894.pdf" target="_blank" rel="noopener">文献19</a>中没有找到类似的loss，自己理解的是，对于判别器D而言，希望真图片的真值是$y \leqslant -1$，生成图片的真值是$y \geqslant 1$， 对于生成器G而言，希望生成的图片的真值是$y \geqslant 0$</p>
+<script type="math/tex; mode=display">
+\begin{align}
+L_{adv}(D) = &-\mathbb{E}_{\hat{I}\backsim \mathbb{P}_{\hat{\mathcal{I}}}}[min(0, -1+D(\hat{I}))]+ \\
+&-\mathbb{E}_{I\backsim \mathbb{P}_{\mathcal{I}}}[min(0, -1+D(\hat{I}))]
+\end{align}</script><script type="math/tex; mode=display">L_{adv}(G)=-\mathbb{E}_{I \backsim \mathbb{P}_I } [D(\hat{I})]</script><h3 id="2-3-2-Pixel-loss"><a href="#2-3-2-Pixel-loss" class="headerlink" title="2.3.2 Pixel loss"></a>2.3.2 Pixel loss</h3><p>这个公式应该需要成对图片</p>
+<script type="math/tex; mode=display">L_{pix} = \parallel G(I;H(s_t)) - I_t \parallel</script><h3 id="2-3-3-Consistency-loss"><a href="#2-3-3-Consistency-loss" class="headerlink" title="2.3.3 Consistency loss"></a>2.3.3 Consistency loss</h3><script type="math/tex; mode=display">L_{self}=\parallel G(G(I;H(s_t)); H(s_i)) - I \parallel</script><h3 id="2-3-4-Triple-Consistency-loss"><a href="#2-3-4-Triple-Consistency-loss" class="headerlink" title="2.3.4 Triple Consistency loss"></a>2.3.4 Triple Consistency loss</h3><script type="math/tex; mode=display">L_{triple}=\parallel G(\hat{I};H(s_n)) - G(I;H(s_n)) \parallel ^2</script><p>其中，$ \hat{I} = G(I;H(s_t)) $.</p>
+<h3 id="2-3-5-Identity-preserving-loss"><a href="#2-3-5-Identity-preserving-loss" class="headerlink" title="2.3.5 Identity preserving loss"></a>2.3.5 Identity preserving loss</h3><script type="math/tex; mode=display">L_{id}=\sum_{l=fc,p} \parallel \Phi_{CNN}^l(I) - \Phi_{CNN}^l(\hat{I})  \parallel</script><p>其中，这个公式的目的是为了preserve the identity(???), 使用 Light CNN 的 fully connected layer 和 last pooling layer 提取出的特征。</p>
+<p>不懂，为啥子呢？之前看StarGAN已经不使用这个公式了。</p>
+<h3 id="2-3-6-Perceptual-loss"><a href="#2-3-6-Perceptual-loss" class="headerlink" title="2.3.6 Perceptual loss"></a>2.3.6 Perceptual loss</h3><p>这个应该就是之前见过的Vgg提取特征做损失。</p>
+<script type="math/tex; mode=display">
+\begin{align}
+L_{pp} =& \sum_{l} \parallel \Phi_{VGG}^l(I) \Phi_{VGG}^l(\hat{I}) \parallel \\
+&+\parallel  \Gamma(\Phi_{VGG}^{relu3_3}(I)) - \Phi_{VGG}^{relu3_3}(\hat{I}) \parallel_F
+\end{align}</script><p>其中，$l=\lbrace relu1_2, relu2_2, relu3_3, relu4_3\rbrace$</p>
+<p>感觉用到的损失太多了。</p>
+<h3 id="2-3-7-Full-loss"><a href="#2-3-7-Full-loss" class="headerlink" title="2.3.7 Full loss"></a>2.3.7 Full loss</h3><script type="math/tex; mode=display">\begin{align}
+L(G) =& \lambda_{adv}L_{adv} + \lambda_{pix}L_{pix}+\lambda_{self}L_{self}+\\
+&\lambda_{triple}L_{triple}+\lambda_{id}L_{id}+\lambda_{pp}L_{pp}+\lambda_{tv}L_{tv}
+\end{align}</script><p>其中，$\lambda_{adv}=1, \lambda_{pix}=10, \lambda_{self}=100, \lambda_{triple}=100, \lambda_{id}=1, \lambda_{pp}=10, \lambda_{tv}=10^{-4} $</p>
+<p>在作者给的<a href="https://arxiv.org/pdf/1603.08155.pdf" target="_blank" rel="noopener">参考文献14</a>中，也没有明确找到$L_{tv}$的表达式。之后看代码再确定一下吧。</p>
+<h1 id="3-Experiments"><a href="#3-Experiments" class="headerlink" title="3. Experiments"></a>3. Experiments</h1><ul>
+<li>Adam, $\beta_1=0.5, \beta_2=0.999$</li>
+</ul>
+<h2 id="3-1-On-the-use-of-a-triple-consistency-loss"><a href="#3-1-On-the-use-of-a-triple-consistency-loss" class="headerlink" title="3.1 On the use of a triple consistency loss"></a>3.1 On the use of a triple consistency loss</h2><p><img src="./GANnotation/GANnotation4.png" alt="StarGAN with/without triple consistency loss"><br><img src="/2019/01/17/GANnotation/GANnotation4.png" title="StarGAN with/without triple consistency loss"></p>
+<p>可以看到即使是 one-to-one ， with triple consistency loss 的效果也要更好一些。</p>
+<h2 id="3-2-GANnotation"><a href="#3-2-GANnotation" class="headerlink" title="3.2 GANnotation"></a>3.2 GANnotation</h2><p>StarGAN只能对很粗的概念进行转换，但是GANnotation可以直接对比较细的属性pose进行转换，而且还可以连续变换，更厉害一些。</p>
+<p><img src="./GANnotation/GANnotation5.png" alt="GANnotation"><br><img src="/2019/01/17/GANnotation/GANnotation5.png" title="GANnotation"></p>
+<p><img src="./GANnotation/GANnotation6.png" alt="GANnotation.vs.CR-GAN"><br><img src="/2019/01/17/GANnotation/GANnotation6.png" title="GANnotation.vs.CR-GAN"></p>
+<h1 id="4-code"><a href="#4-code" class="headerlink" title="4. code"></a>4. code</h1><h2 id="4-1-生成器G"><a href="#4-1-生成器G" class="headerlink" title="4.1 生成器G"></a>4.1 生成器G</h2><p>生成器G输入是一张3通道的人脸图片和66通道的目标人脸关键点热力图，输出是3通道的colour image 和1通道的mask图。</p>
+<p>生成器G共分为5部分：down_conv、bottleneck、feature_layer、colour_layer、mask_layer。</p>
+<ul>
+<li>[x] colour_image 和 mask 怎么理解？</li>
+</ul>
+<script type="math/tex; mode=display">\hat{I}=(1-M) \circ C + M \circ I</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Generator</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, conv_dim=<span class="number">64</span>, c_dim=<span class="number">66</span>, repeat_num=<span class="number">6</span>)</span>:</span></span><br><span class="line">        super(Generator, self).__init__()</span><br><span class="line">        initial_layer = [nn.Conv2d(<span class="number">3</span>+c_dim, conv_dim, kernel_size=<span class="number">7</span>, stride=<span class="number">1</span>,padding=<span class="number">3</span>, bias=<span class="keyword">False</span>)]</span><br><span class="line">        initial_layer += [nn.InstanceNorm2d(conv_dim, affine=<span class="keyword">True</span>)]</span><br><span class="line">        initial_layer += [nn.LeakyReLU(<span class="number">0.2</span>, inplace=<span class="keyword">True</span>)]</span><br><span class="line"></span><br><span class="line">        curr_dim = conv_dim</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">            initial_layer += [nn.Conv2d(curr_dim, curr_dim*<span class="number">2</span>, kernel_size=<span class="number">4</span>, stride=<span class="number">2</span>, padding=<span class="number">1</span>, bias=<span class="keyword">False</span>)]</span><br><span class="line">            initial_layer += [nn.InstanceNorm2d(curr_dim*<span class="number">2</span>, affine=<span class="keyword">True</span>)]</span><br><span class="line">            initial_layer += [nn.LeakyReLU(<span class="number">0.2</span>, inplace=<span class="keyword">True</span>)]</span><br><span class="line">            curr_dim = curr_dim * <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        self.down_conv = nn.Sequential(*initial_layer)</span><br><span class="line"></span><br><span class="line">        bottleneck = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(repeat_num):</span><br><span class="line">            bottleneck += [ResidualBlock(curr_dim)]</span><br><span class="line"></span><br><span class="line">        self.bottleneck = nn.Sequential(*bottleneck)</span><br><span class="line"></span><br><span class="line">        features = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">            features += [nn.ConvTranspose2d(curr_dim, curr_dim//<span class="number">2</span>, kernel_size=<span class="number">4</span>, stride=<span class="number">2</span>, padding=<span class="number">1</span>, bias=<span class="keyword">False</span>)]</span><br><span class="line">            features += [nn.InstanceNorm2d(curr_dim//<span class="number">2</span>, affine=<span class="keyword">True</span>)]</span><br><span class="line">            features += [nn.LeakyReLU(<span class="number">0.2</span>,inplace=<span class="keyword">True</span>)]</span><br><span class="line">            curr_dim = curr_dim // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        self.feature_layer = nn.Sequential(*features)</span><br><span class="line"></span><br><span class="line">        colour = [nn.Conv2d(curr_dim, <span class="number">3</span>, kernel_size=<span class="number">7</span>, stride=<span class="number">1</span>, padding=<span class="number">3</span>, bias=<span class="keyword">False</span>)]</span><br><span class="line">        colour += [nn.Tanh()]</span><br><span class="line">        self.colour_layer = nn.Sequential(*colour)</span><br><span class="line"></span><br><span class="line">        mask = [nn.Conv2d(curr_dim, <span class="number">1</span>, kernel_size=<span class="number">7</span>, stride=<span class="number">1</span>, padding=<span class="number">3</span>, bias=<span class="keyword">False</span>)]</span><br><span class="line">        mask += [nn.Sigmoid()]</span><br><span class="line">        self.mask_layer = nn.Sequential(*mask)</span><br><span class="line">        init_weights(self)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">( self, x )</span>:</span></span><br><span class="line">        down = self.down_conv(x)</span><br><span class="line">        bottle = self.bottleneck(down)</span><br><span class="line">        features = self.feature_layer(bottle)</span><br><span class="line">        col = self.colour_layer(features)</span><br><span class="line">        mask = self.mask_layer(features)</span><br><span class="line">        output = mask * ( x[:,<span class="number">0</span>:<span class="number">3</span>,:,:] - col ) + col</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+<p>初始化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init_weights</span><span class="params">(net, init_type=<span class="string">'normal'</span>, gain=<span class="number">0.02</span>)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init_func</span><span class="params">(m)</span>:</span></span><br><span class="line">        classname = m.__class__.__name__</span><br><span class="line">        <span class="keyword">if</span> hasattr(m, <span class="string">'weight'</span>) <span class="keyword">and</span> (classname.find(<span class="string">'Conv'</span>) != <span class="number">-1</span> <span class="keyword">or</span> classname.find(<span class="string">'Linear'</span>) != <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> init_type == <span class="string">'normal'</span>:</span><br><span class="line">                weight_init.normal_(m.weight.data, <span class="number">0.0</span>, gain)</span><br><span class="line">            <span class="keyword">elif</span> init_type == <span class="string">'xavier'</span>:</span><br><span class="line">                weight_init.xavier_normal_(m.weight.data, gain=gain)</span><br><span class="line">            <span class="keyword">elif</span> init_type == <span class="string">'kaiming'</span>:</span><br><span class="line">                weight_init.kaiming_normal_(m.weight.data, a=<span class="number">0</span>, mode=<span class="string">'fan_in'</span>)</span><br><span class="line">            <span class="keyword">elif</span> init_type == <span class="string">'orthogonal'</span>:</span><br><span class="line">                weight_init.orthogonal_(m.weight.data, gain=gain)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">raise</span> NotImplementedError(<span class="string">'initialization method [%s] is not implemented'</span> % init_type)</span><br><span class="line">            <span class="keyword">if</span> hasattr(m, <span class="string">'bias'</span>) <span class="keyword">and</span> m.bias <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">                weight_init.constant_(m.bias.data, <span class="number">0.0</span>)</span><br><span class="line">        <span class="keyword">elif</span> classname.find(<span class="string">'BatchNorm2d'</span>) != <span class="number">-1</span>:</span><br><span class="line">            weight_init.normal_(m.weight.data, <span class="number">1.0</span>, gain)</span><br><span class="line">            weight_init.constant_(m.bias.data, <span class="number">0.0</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'initialize network with %s'</span> % init_type)</span><br><span class="line">    net.apply(init_func)</span><br></pre></td></tr></table></figure>
+<p>np.loadtxt</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">points = np.loadtxt(<span class="string">'test_images/test_1.txt'</span>).transpose().reshape(<span class="number">66</span>,<span class="number">2</span>,<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-其他"><a href="#4-2-其他" class="headerlink" title="4.2 其他"></a>4.2 其他</h2><p>作者现在只公布了demo代码。但不久就会公布训练代码，搓搓小手手期待中。</p>
+<h2 id="4-3-StarGAN-with-Triple-Consistency-Loss"><a href="#4-3-StarGAN-with-Triple-Consistency-Loss" class="headerlink" title="4.3 StarGAN-with-Triple-Consistency-Loss"></a>4.3 StarGAN-with-Triple-Consistency-Loss</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Generate target domain labels randomly.</span></span><br><span class="line">rand_idx = torch.randperm(label_org.size(<span class="number">0</span>))</span><br><span class="line">label_trg = label_org[rand_idx]</span><br><span class="line"></span><br><span class="line">rand_idx = torch.randperm(label_org.size(<span class="number">0</span>))</span><br><span class="line">label_third = label_org[rand_idx]</span><br><span class="line"><span class="comment"># ================================================================================#</span></span><br><span class="line"><span class="comment">#                               Triple consistency loss.                          #</span></span><br><span class="line"><span class="comment"># ================================================================================#</span></span><br><span class="line">x_third = self.G(x_fake, c_third)</span><br><span class="line">x_third_real = self.G(x_real, c_third)</span><br><span class="line">g_loss_triple = torch.mean(torch.abs(x_third - x_third_real))</span><br></pre></td></tr></table></figure>
+<h1 id="5-答疑解惑"><a href="#5-答疑解惑" class="headerlink" title="5. 答疑解惑"></a>5. 答疑解惑</h1><h2 id="5-1-colour-image-和-mask-怎么理解？"><a href="#5-1-colour-image-和-mask-怎么理解？" class="headerlink" title="5.1 colour_image 和 mask 怎么理解？"></a>5.1 colour_image 和 mask 怎么理解？</h2><p>这个公式来源于</p>
+<p>paper: <a href="http://arxiv.org/abs/1807.09251" target="_blank" rel="noopener">Ganimation: Anatomically-aware facial animation from a single image</a></p>
+<p>github: <a href="https://github.com/albertpumarola/GANimatio" target="_blank" rel="noopener">https://github.com/albertpumarola/GANimatio</a></p>
+<p>project: <a href="http://www.albertpumarola.com/#projects" target="_blank" rel="noopener">http://www.albertpumarola.com/#projects</a></p>
+<script type="math/tex; mode=display">\hat{I}=(1-M) \circ C + M \circ I</script><p>网络生成器没有直接回归整个图像，而是输出两个掩码，一个着色掩码C和一个注意力掩码A，其中，掩码A表示C的每个像素在多大程度上对输出图像有贡献，这样生成器就无需渲染与表情无关的元素，仅聚焦于定义了人脸表情的像素上。</p>
+<p>这个公式貌似比StarGAN还牛逼。能不能放在StarGAN上呢？</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GAN/" rel="tag"># GAN</a>
+          
+            <a href="/tags/face-synthesis/" rel="tag"># face synthesis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/15/tensorboard/" rel="next" title="tensorboard">
+                <i class="fa fa-chevron-left"></i> tensorboard
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Jiajie Tian" />
+            
+              <p class="site-author-name" itemprop="name">Jiajie Tian</p>
+              <p class="site-description motion-element" itemprop="description">记录一些学习到的东西和论文记录</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-前言"><span class="nav-number">1.</span> <span class="nav-text">0. 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Proposed-approach"><span class="nav-number">3.</span> <span class="nav-text">2. Proposed approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Notation"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Architecture"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 Architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Training"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 Training</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-Adversarial-loss"><span class="nav-number">3.3.1.</span> <span class="nav-text">2.3.1 Adversarial loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-Pixel-loss"><span class="nav-number">3.3.2.</span> <span class="nav-text">2.3.2 Pixel loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-Consistency-loss"><span class="nav-number">3.3.3.</span> <span class="nav-text">2.3.3 Consistency loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-Triple-Consistency-loss"><span class="nav-number">3.3.4.</span> <span class="nav-text">2.3.4 Triple Consistency loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-5-Identity-preserving-loss"><span class="nav-number">3.3.5.</span> <span class="nav-text">2.3.5 Identity preserving loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-6-Perceptual-loss"><span class="nav-number">3.3.6.</span> <span class="nav-text">2.3.6 Perceptual loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-7-Full-loss"><span class="nav-number">3.3.7.</span> <span class="nav-text">2.3.7 Full loss</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Experiments"><span class="nav-number">4.</span> <span class="nav-text">3. Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-On-the-use-of-a-triple-consistency-loss"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 On the use of a triple consistency loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-GANnotation"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 GANnotation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-code"><span class="nav-number">5.</span> <span class="nav-text">4. code</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-生成器G"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 生成器G</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-其他"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-StarGAN-with-Triple-Consistency-Loss"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 StarGAN-with-Triple-Consistency-Loss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-答疑解惑"><span class="nav-number">6.</span> <span class="nav-text">5. 答疑解惑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-colour-image-和-mask-怎么理解？"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 colour_image 和 mask 怎么理解？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiajie Tian</span>
+
+  
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+<span id="busuanzi_container_site_pv">
+    总访问量: <span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+    总访客: <span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://tjj-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/01/17/GANnotation/';
+          this.page.identifier = '2019/01/17/GANnotation/';
+          this.page.title = 'GANnotation';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tjj-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('4');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

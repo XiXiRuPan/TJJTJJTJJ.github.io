@@ -4,22 +4,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2019/01/15/tensorboard/</loc>
-    <lastmod>2019-01-17T08:20:10.969Z</lastmod>
+    <loc>http://yoursite.com/2019/01/17/GANnotation/</loc>
+    <lastmod>2019-01-24T07:25:49.642Z</lastmod>
     <data>
         <display>
-        <title>tensorboard</title>
-        <pubTime>2019-01-15T09:15:48.000Z</pubTime>
+        <title>GANnotation</title>
+        <pubTime>2019-01-17T09:00:01.000Z</pubTime>
         
-        <tag>tensorflow</tag>
+        <tag>GAN</tag>
          
-        <tag>tensorboard</tag>
+        <tag>face synthesis</tag>
          
          
            
-             
-              <breadCrumb title="tensorboard" url="http://yoursite.com/categories/tensorboard/"/>
-          
         </display>
     </data>
     </url>
@@ -27,7 +24,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/12/26/GPU/</loc>
-    <lastmod>2019-01-16T15:41:36.322Z</lastmod>
+    <lastmod>2019-01-18T13:35:49.258Z</lastmod>
     <data>
         <display>
         <title>GPU</title>
@@ -43,6 +40,51 @@
            
              
               <breadCrumb title="GPU" url="http://yoursite.com/categories/GPU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
+    <lastmod>2019-01-18T07:38:35.073Z</lastmod>
+    <data>
+        <display>
+        <title>markdown-math</title>
+        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+        <tag>math</tag>
+         
+         
+           
+             
+              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://yoursite.com/2019/01/15/tensorboard/</loc>
+    <lastmod>2019-01-17T08:20:10.969Z</lastmod>
+    <data>
+        <display>
+        <title>tensorboard</title>
+        <pubTime>2019-01-15T09:15:48.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+        <tag>tensorboard</tag>
+         
+         
+           
+             
+              <breadCrumb title="tensorboard" url="http://yoursite.com/categories/tensorboard/"/>
           
         </display>
     </data>
@@ -145,28 +187,6 @@
            
              
               <breadCrumb title="paper" url="http://yoursite.com/categories/paper/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
-    <lastmod>2019-01-07T09:35:48.697Z</lastmod>
-    <data>
-        <display>
-        <title>markdown-math</title>
-        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
-        
-        <tag>markdown</tag>
-         
-        <tag>math</tag>
-         
-         
-           
-             
-              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
           
         </display>
     </data>
@@ -827,6 +847,5 @@
     </data>
     </url>
 
-    
     
 </urlset>

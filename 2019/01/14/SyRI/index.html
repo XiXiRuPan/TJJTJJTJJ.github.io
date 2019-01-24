@@ -167,7 +167,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">记录一些学习到的东西和论文记录</p>
+        <p class="site-subtitle">代码的搬运工</p>
       
   </div>
 
@@ -263,16 +263,6 @@
               <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
             公益404
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-something">
-          <a href="/something" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
-            
-            something
           </a>
         </li>
       
@@ -461,11 +451,7 @@
 <h1 id="罗浩对这篇文章的解读"><a href="#罗浩对这篇文章的解读" class="headerlink" title="罗浩对这篇文章的解读"></a>罗浩对这篇文章的解读</h1><p><a href="https://zhuanlan.zhihu.com/p/44212707" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/44212707</a></p>
 <blockquote>
 <p>由于训练数据的缺乏，以及3D建模的技术增强，利用游戏等合成的逼真数据来进行视觉研究已经逐渐打入各个领域。这一篇就是利用电脑合成数据在进行ReID的论文。论文提出了新的合成数据集SyRI dataset，该数据集通过改变HDR参数等，一个行人ID可以拥有一百多个环境下图像数据。此外，为了在未见过的真实场景上实现更好的域适应效果，论文基于这个合成数据集提出了一种新的方法。</p>
-</blockquote>
-<blockquote>
 <p>整个Pipeline包括三个环节。第一步是拿到了target domain $R_{M+1}$ 的一些未标注图片之后，要对光照进行一个推理，在合成数据集 $S_{k^*}$ 里面找到最接近样本 。然后利用CycleGAN将合成数据生成target domain style的数据。最后利用生成的数据对ReID网络进行fune-tuning。整体来说pipeline比较简单.</p>
-</blockquote>
-<blockquote>
 <p>例如，在CycleGAN生成图环节，为了得到更高质量的图像，论文使用了和PTGAN一样的前景mask的思想。不同点在于PTGAN是借助于语义分割网络得到一个行人前景的mask，本文是直接使用了一个2D高斯核作为mask</p>
 </blockquote>
 
@@ -593,7 +579,7 @@
                 alt="Jiajie Tian" />
             
               <p class="site-author-name" itemprop="name">Jiajie Tian</p>
-              <p class="site-description motion-element" itemprop="description">做一个有趣的灵魂</p>
+              <p class="site-description motion-element" itemprop="description">记录一些学习到的东西和论文记录</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -603,7 +589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -625,7 +611,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
