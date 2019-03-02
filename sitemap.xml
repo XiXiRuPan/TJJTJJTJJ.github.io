@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
+    
+    <lastmod>2019-03-02T03:49:26.703Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/01/24/GANimation/</loc>
     
     <lastmod>2019-01-25T09:34:17.937Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/2019/01/17/GANnotation/</loc>
     
     <lastmod>2019-01-24T07:25:49.642Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
-    
-    <lastmod>2019-01-18T13:35:49.258Z</lastmod>
     
   </url>
   

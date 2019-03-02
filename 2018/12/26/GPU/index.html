@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="田佳杰">
 <meta property="og:description" content="主要记录从安装显卡驱动到cudnn的过程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-18T13:35:49.258Z">
+<meta property="og:updated_time" content="2019-03-02T03:49:26.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GPU">
 <meta name="twitter:description" content="主要记录从安装显卡驱动到cudnn的过程。">
@@ -531,7 +531,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure>
 <h1 id="4-ananconda"><a href="#4-ananconda" class="headerlink" title="4. ananconda"></a>4. ananconda</h1><p><strong>下载</strong>: Anaconda3-5.2.0-Linux-x86_64.sh</p>
 <p><strong>安装</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh ./Anaconda3-5.2.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sh ./Anaconda3-5.2.0-Linux-x86_64.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 路径</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>默认或者同意</p>
 <p><strong>清华源</strong>:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>

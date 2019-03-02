@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
+    <lastmod>2019-03-02T03:49:26.703Z</lastmod>
+    <data>
+        <display>
+        <title>GPU</title>
+        <pubTime>2018-12-26T07:14:08.000Z</pubTime>
+        
+        <tag>driver</tag>
+         
+        <tag>cuda</tag>
+         
+        <tag>cudnn</tag>
+         
+         
+           
+             
+              <breadCrumb title="GPU" url="http://yoursite.com/categories/GPU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/01/24/GANimation/</loc>
     <lastmod>2019-01-25T09:34:17.937Z</lastmod>
     <data>
@@ -39,30 +63,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
-    <lastmod>2019-01-18T13:35:49.258Z</lastmod>
-    <data>
-        <display>
-        <title>GPU</title>
-        <pubTime>2018-12-26T07:14:08.000Z</pubTime>
-        
-        <tag>driver</tag>
-         
-        <tag>cuda</tag>
-         
-        <tag>cudnn</tag>
-         
-         
-           
-             
-              <breadCrumb title="GPU" url="http://yoursite.com/categories/GPU/"/>
-          
         </display>
     </data>
     </url>
