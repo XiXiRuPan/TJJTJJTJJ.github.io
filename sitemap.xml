@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
+    <loc>http://yoursite.com/2019/03/27/One-Example-reID/</loc>
     
-    <lastmod>2019-03-02T03:49:26.703Z</lastmod>
+    <lastmod>2019-03-28T11:32:38.535Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/01/24/GANimation/</loc>
     
-    <lastmod>2019-01-25T09:34:17.937Z</lastmod>
+    <lastmod>2019-03-28T08:15:53.709Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    
+    <lastmod>2019-03-27T14:59:18.117Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
+    
+    <lastmod>2019-03-02T03:49:26.703Z</lastmod>
     
   </url>
   
@@ -40,13 +54,6 @@
     <loc>http://yoursite.com/2019/01/15/tensorboard/</loc>
     
     <lastmod>2019-01-17T08:20:10.969Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    
-    <lastmod>2019-01-15T14:05:30.266Z</lastmod>
     
   </url>
   

@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="田佳杰">
 <meta property="og:description" content="这也是关于python的一些记录，与其他python不矛盾，也不一定相互独立。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-15T14:05:30.266Z">
+<meta property="og:updated_time" content="2019-03-27T14:59:18.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python-2.0">
 <meta name="twitter:description" content="这也是关于python的一些记录，与其他python不矛盾，也不一定相互独立。">
@@ -483,6 +483,109 @@
 <h1 id="10-重定向"><a href="#10-重定向" class="headerlink" title="10.重定向"></a>10.重定向</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Logger</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, fpath=None)</span>:</span></span><br><span class="line">        self.console = sys.stdout</span><br><span class="line">        self.file = <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">if</span> fpath <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">            mkdir_if_missing(os.path.dirname(fpath))</span><br><span class="line">            self.file = open(fpath, <span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, *args)</span>:</span></span><br><span class="line">        self.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(self, msg)</span>:</span></span><br><span class="line">        self.console.write(msg)</span><br><span class="line">        <span class="keyword">if</span> self.file <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">            self.file.write(msg)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flush</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.console.flush()</span><br><span class="line">        <span class="keyword">if</span> self.file <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">            self.file.flush()</span><br><span class="line">            os.fsync(self.file.fileno())</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.console.close()</span><br><span class="line">        <span class="keyword">if</span> self.file <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">            self.file.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mkdir_if_missing</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):</span><br><span class="line">        os.makedirs(path)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    sys.stdout = Logger(fpath=<span class="string">'./log.txt'</span>)</span><br><span class="line">    print(<span class="string">'2222222222'</span>)</span><br></pre></td></tr></table></figure>
 <h1 id="11-其他"><a href="#11-其他" class="headerlink" title="11. 其他"></a>11. 其他</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># id2labels</span></span><br><span class="line">trainval_ids2labels = dict(zip(trainval_ids, range(len(trainval_ids))))</span><br></pre></td></tr></table></figure>
 <h1 id="12-path"><a href="#12-path" class="headerlink" title="12. path"></a>12. path</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">seg_path.mkdir()</span><br><span class="line">args.data_root = Path(args.data_root)</span><br><span class="line">args.img_root = args.data_root / <span class="string">'images'</span></span><br><span class="line">args.ann_root = args.data_root / <span class="string">'annotations'</span></span><br><span class="line"><span class="keyword">for</span> ann_path <span class="keyword">in</span> args.ann_root.iterdir():</span><br><span class="line">ann_path.name.split(<span class="string">'_'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="13-list-dict-tuple-set"><a href="#13-list-dict-tuple-set" class="headerlink" title="13. list dict tuple set"></a>13. list dict tuple set</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>list</th>
+<th>dict</th>
+<th>tuple</th>
+<th>set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>索引</td>
+<td>支持</td>
+<td>不支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>有无序</td>
+<td>有序</td>
+<td>无序</td>
+<td>有序</td>
+<td>无序</td>
+</tr>
+<tr>
+<td>+*</td>
+<td>支持</td>
+<td></td>
+<td>支持</td>
+<td></td>
+</tr>
+<tr>
+<td>增</td>
+<td></td>
+<td></td>
+<td></td>
+<td>支持, add(item), update(iter)</td>
+</tr>
+<tr>
+<td>单个元素删除</td>
+<td></td>
+<td></td>
+<td>不支持</td>
+<td>discard, remove, pop,</td>
+</tr>
+<tr>
+<td>单个元素修改</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td></td>
+</tr>
+<tr>
+<td>整体删除</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持 del</td>
+<td>支持 del, clear</td>
+</tr>
+<tr>
+<td>内置函数</td>
+<td></td>
+<td></td>
+<td>cmp,len,max,tuple</td>
+<td></td>
+</tr>
+<tr>
+<td>初始化</td>
+<td></td>
+<td></td>
+<td></td>
+<td>set(),{}</td>
+</tr>
+<tr>
+<td>其他</td>
+<td></td>
+<td></td>
+<td>元素可以为list</td>
+<td>不能有可变元素list,dict,set等</td>
+</tr>
+<tr>
+<td>其他</td>
+<td></td>
+<td></td>
+<td>拆包</td>
+<td></td>
+</tr>
+<tr>
+<td>其他</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>tuple一旦创建，增删改都需要以一个整体为单位进行</li>
+<li>集合：子集(&lt;, issubset)，并集 |, 交集 &amp;，差集 -，对称差 ^</li>
+</ul>
+
       
     </div>
     
@@ -615,7 +718,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -626,7 +729,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -637,7 +740,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -677,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-python-matlab"><span class="nav-number">1.</span> <span class="nav-text">1.python+matlab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-python与文件IO"><span class="nav-number">2.</span> <span class="nav-text">2.python与文件IO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-文本-txt"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 文本.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-print的分隔符与行尾符"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 print的分隔符与行尾符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-二进制数据"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 二进制数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-模拟普通文件"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 模拟普通文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-压缩文件"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 压缩文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-csv"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 csv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-json"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 json</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-sys-path"><span class="nav-number">3.</span> <span class="nav-text">3. sys.path</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-os-path"><span class="nav-number">4.</span> <span class="nav-text">4. os.path</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-glob-glob"><span class="nav-number">5.</span> <span class="nav-text">5. glob.glob</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-argparse"><span class="nav-number">6.</span> <span class="nav-text">6. argparse</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#位置参数"><span class="nav-number">6.1.</span> <span class="nav-text">位置参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选项参数"><span class="nav-number">6.2.</span> <span class="nav-text">选项参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊的选项参数"><span class="nav-number">6.3.</span> <span class="nav-text">特殊的选项参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数"><span class="nav-number">6.4.</span> <span class="nav-text">自定义函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-defaultdict"><span class="nav-number">7.</span> <span class="nav-text">7. defaultdict</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-shuti"><span class="nav-number">8.</span> <span class="nav-text">8. shuti</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-pickle"><span class="nav-number">9.</span> <span class="nav-text">9. pickle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-重定向"><span class="nav-number">10.</span> <span class="nav-text">10.重定向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-其他"><span class="nav-number">11.</span> <span class="nav-text">11. 其他</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-path"><span class="nav-number">12.</span> <span class="nav-text">12. path</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-python-matlab"><span class="nav-number">1.</span> <span class="nav-text">1.python+matlab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-python与文件IO"><span class="nav-number">2.</span> <span class="nav-text">2.python与文件IO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-文本-txt"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 文本.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-print的分隔符与行尾符"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 print的分隔符与行尾符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-二进制数据"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 二进制数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-模拟普通文件"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 模拟普通文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-压缩文件"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 压缩文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-csv"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 csv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-json"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 json</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-sys-path"><span class="nav-number">3.</span> <span class="nav-text">3. sys.path</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-os-path"><span class="nav-number">4.</span> <span class="nav-text">4. os.path</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-glob-glob"><span class="nav-number">5.</span> <span class="nav-text">5. glob.glob</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-argparse"><span class="nav-number">6.</span> <span class="nav-text">6. argparse</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#位置参数"><span class="nav-number">6.1.</span> <span class="nav-text">位置参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选项参数"><span class="nav-number">6.2.</span> <span class="nav-text">选项参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊的选项参数"><span class="nav-number">6.3.</span> <span class="nav-text">特殊的选项参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数"><span class="nav-number">6.4.</span> <span class="nav-text">自定义函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-defaultdict"><span class="nav-number">7.</span> <span class="nav-text">7. defaultdict</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-shuti"><span class="nav-number">8.</span> <span class="nav-text">8. shuti</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-pickle"><span class="nav-number">9.</span> <span class="nav-text">9. pickle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-重定向"><span class="nav-number">10.</span> <span class="nav-text">10.重定向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-其他"><span class="nav-number">11.</span> <span class="nav-text">11. 其他</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-path"><span class="nav-number">12.</span> <span class="nav-text">12. path</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-list-dict-tuple-set"><span class="nav-number">13.</span> <span class="nav-text">13. list dict tuple set</span></a></li></ol></div>
             
 
           </div>

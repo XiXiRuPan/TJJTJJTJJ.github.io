@@ -4,6 +4,70 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/03/27/One-Example-reID/</loc>
+    <lastmod>2019-03-28T11:32:38.535Z</lastmod>
+    <data>
+        <display>
+        <title>One_Example_reID</title>
+        <pubTime>2019-03-27T07:25:37.000Z</pubTime>
+        
+        <tag>one_example</tag>
+         
+        <tag>re-ID</tag>
+         
+         
+           
+             
+              <breadCrumb title="re-ID" url="http://yoursite.com/categories/re-ID/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/01/24/GANimation/</loc>
+    <lastmod>2019-03-28T08:15:53.709Z</lastmod>
+    <data>
+        <display>
+        <title>GANimation</title>
+        <pubTime>2019-01-24T07:53:06.000Z</pubTime>
+        
+        <tag>GAN</tag>
+         
+        <tag>mask and colour</tag>
+         
+         
+           
+             
+              <breadCrumb title="GAN" url="http://yoursite.com/categories/GAN/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    <lastmod>2019-03-27T14:59:18.117Z</lastmod>
+    <data>
+        <display>
+        <title>python-2.0</title>
+        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/12/26/GPU/</loc>
     <lastmod>2019-03-02T03:49:26.703Z</lastmod>
     <data>
@@ -21,28 +85,6 @@
            
              
               <breadCrumb title="GPU" url="http://yoursite.com/categories/GPU/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2019/01/24/GANimation/</loc>
-    <lastmod>2019-01-25T09:34:17.937Z</lastmod>
-    <data>
-        <display>
-        <title>GANimation</title>
-        <pubTime>2019-01-24T07:53:06.000Z</pubTime>
-        
-        <tag>GAN</tag>
-         
-        <tag>mask and colour</tag>
-         
-         
-           
-             
-              <breadCrumb title="GAN" url="http://yoursite.com/categories/GAN/"/>
           
         </display>
     </data>
@@ -107,26 +149,6 @@
            
              
               <breadCrumb title="tensorboard" url="http://yoursite.com/categories/tensorboard/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    <lastmod>2019-01-15T14:05:30.266Z</lastmod>
-    <data>
-        <display>
-        <title>python-2.0</title>
-        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
@@ -459,9 +481,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>github</tag>
          
         <tag>npm</tag>
          
