@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/30/Domain-Guided-Dropout/</loc>
+    
+    <lastmod>2019-05-02T12:05:58.980Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    
+    <lastmod>2019-04-18T08:16:58.401Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/27/One-Example-reID/</loc>
     
-    <lastmod>2019-03-28T11:32:38.535Z</lastmod>
+    <lastmod>2019-03-29T10:33:27.247Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/2019/01/24/GANimation/</loc>
     
     <lastmod>2019-03-28T08:15:53.709Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    
-    <lastmod>2019-03-27T14:59:18.117Z</lastmod>
     
   </url>
   

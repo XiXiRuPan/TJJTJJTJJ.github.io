@@ -4,8 +4,50 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/04/30/Domain-Guided-Dropout/</loc>
+    <lastmod>2019-05-02T12:05:58.980Z</lastmod>
+    <data>
+        <display>
+        <title>Domain Guided Dropout</title>
+        <pubTime>2019-04-30T07:38:36.000Z</pubTime>
+        
+        <tag>person re-id</tag>
+         
+        <tag>multi-domain</tag>
+         
+         
+           
+             
+              <breadCrumb title="person re-id" url="http://yoursite.com/categories/person-re-id/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    <lastmod>2019-04-18T08:16:58.401Z</lastmod>
+    <data>
+        <display>
+        <title>python-2.0</title>
+        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/03/27/One-Example-reID/</loc>
-    <lastmod>2019-03-28T11:32:38.535Z</lastmod>
+    <lastmod>2019-03-29T10:33:27.247Z</lastmod>
     <data>
         <display>
         <title>One_Example_reID</title>
@@ -41,26 +83,6 @@
            
              
               <breadCrumb title="GAN" url="http://yoursite.com/categories/GAN/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    <lastmod>2019-03-27T14:59:18.117Z</lastmod>
-    <data>
-        <display>
-        <title>python-2.0</title>
-        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
@@ -481,9 +503,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>github</tag>
+         
+        <tag>hexo</tag>
          
         <tag>npm</tag>
          
