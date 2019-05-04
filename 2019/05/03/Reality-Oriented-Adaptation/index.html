@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="0. 前言0.0 HydraPlus-Net顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。">
+<meta name="description" content="0. 前言0.0 前言这篇文章主要解决的问题是：当语义分割网络在合成数据集(有标签)上训练好，在真实数据集(没有标签)上性能下降比较多。作者认为有两个原因：对合成数据过拟合，合成数据与真实数据存在分布差异。(好吧，我认为这两是一个原因)。作者提出target guided distillation 和 spatial-aware adaptation 来改进性能，效果还挺好的。我主要看target">
 <meta name="keywords" content="semantice segmentation,domain guided distillation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reality Oriented Adaptation">
 <meta property="og:url" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/index.html">
 <meta property="og:site_name" content="田佳杰">
-<meta property="og:description" content="0. 前言0.0 HydraPlus-Net顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。">
+<meta property="og:description" content="0. 前言0.0 前言这篇文章主要解决的问题是：当语义分割网络在合成数据集(有标签)上训练好，在真实数据集(没有标签)上性能下降比较多。作者认为有两个原因：对合成数据过拟合，合成数据与真实数据存在分布差异。(好吧，我认为这两是一个原因)。作者提出target guided distillation 和 spatial-aware adaptation 来改进性能，效果还挺好的。我主要看target">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/HydraPlus.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/ROAD_Net.png">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/td.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/spt.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/domain_classifier.png">
-<meta property="og:updated_time" content="2019-05-04T06:30:41.979Z">
+<meta property="og:updated_time" content="2019-05-04T08:18:41.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reality Oriented Adaptation">
-<meta name="twitter:description" content="0. 前言0.0 HydraPlus-Net顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。">
+<meta name="twitter:description" content="0. 前言0.0 前言这篇文章主要解决的问题是：当语义分割网络在合成数据集(有标签)上训练好，在真实数据集(没有标签)上性能下降比较多。作者认为有两个原因：对合成数据过拟合，合成数据与真实数据存在分布差异。(好吧，我认为这两是一个原因)。作者提出target guided distillation 和 spatial-aware adaptation 来改进性能，效果还挺好的。我主要看target">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/HydraPlus.png">
 
 
@@ -439,7 +439,12 @@
       
 
       
-        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><h3 id="0-0-HydraPlus-Net"><a href="#0-0-HydraPlus-Net" class="headerlink" title="0.0 HydraPlus-Net"></a>0.0 HydraPlus-Net</h3><p>顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。</p>
+        <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><h3 id="0-0-前言"><a href="#0-0-前言" class="headerlink" title="0.0 前言"></a>0.0 前言</h3><p>这篇文章主要解决的问题是：当语义分割网络在合成数据集(有标签)上训练好，在真实数据集(没有标签)上性能下降比较多。作者认为有两个原因：对合成数据过拟合，合成数据与真实数据存在分布差异。(好吧，我认为这两是一个原因)。作者提出target guided distillation 和 spatial-aware adaptation 来改进性能，效果还挺好的。我主要看target guided distillaiton。</p>
+<ul>
+<li>paper: <a href="https://arxiv.org/pdf/1711.11556.pdf" target="_blank" rel="noopener">CVPR2018_ROAD: Reality Oriented Adaptation for Semantic Segmentation of Urban Scenes</a></li>
+<li>code: 无</li>
+</ul>
+<h3 id="0-1-HydraPlus-Net"><a href="#0-1-HydraPlus-Net" class="headerlink" title="0.1 HydraPlus-Net"></a>0.1 HydraPlus-Net</h3><p>顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。</p>
 <a id="more"></a>
 <ul>
 <li>paper: <a href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Liu_HydraPlus-Net_Attentive_Deep_ICCV_2017_paper.pdf" target="_blank" rel="noopener">ICCV2017: HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis</a></li>
@@ -450,11 +455,6 @@
 <ul>
 <li>attention不仅可以用于本block，也可以用于其他block</li>
 <li>一个block可以生成多个attention map</li>
-</ul>
-<h3 id="0-1-前言"><a href="#0-1-前言" class="headerlink" title="0.1 前言"></a>0.1 前言</h3><p>这篇文章主要解决的问题是：当语义分割网络在合成数据集(有标签)上训练好，在真实数据集(没有标签)上性能下降比较多。作者认为有两个原因：对合成数据过拟合，合成数据与真实数据存在分布差异。(好吧，我认为这两是一个原因)。作者提出target guided distillation 和 spatial-aware adaptation 来改进性能，效果还挺好的。我主要看target guided distillaiton。</p>
-<ul>
-<li>paper: <a href="https://arxiv.org/pdf/1711.11556.pdf" target="_blank" rel="noopener">CVPR2018_ROAD: Reality Oriented Adaptation for Semantic Segmentation of Urban Scenes</a></li>
-<li>code: 无</li>
 </ul>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h2><p>针对合成数据集的模型在真实数据集上性能很差，作者提出原因可能是：过拟合和分布不一致，因此提出模型：ROAD-Net。下面对作者提出的名词做出解释</p>
 <ul>
@@ -487,12 +487,13 @@
 <h3 id="4-1-Domain-Adaptation"><a href="#4-1-Domain-Adaptation" class="headerlink" title="4.1 Domain Adaptation"></a>4.1 Domain Adaptation</h3><p><a href="https://arxiv.org/pdf/1409.7495v2.pdf" target="_blank" rel="noopener">Unsupervised Domain Adaptation by Backpropagation</a></p>
 <img src="/2019/05/03/Reality-Oriented-Adaptation/domain_classifier.png" title="domain classifier">
 <p><a href="https://blog.csdn.net/MataFela/article/details/77827217" target="_blank" rel="noopener">Domain Adaptation</a></p>
-<h3 id="4-2-Distillation"><a href="#4-2-Distillation" class="headerlink" title="4.2 Distillation"></a>4.2 Distillation</h3><script type="math/tex; mode=display">q_i=\frac{exp(z_i/T)}{\sum_j exp(z_j/T)}</script><script type="math/tex; mode=display">L(p,q)=\sum_i p_i * (-\log q_i)</script><p><a href="https://arxiv.org/pdf/1606.09282.pdf" target="_blank" rel="noopener">Learning without Forgetting</a></p>
+<h3 id="4-2-Distillation"><a href="#4-2-Distillation" class="headerlink" title="4.2 Distillation"></a>4.2 Distillation</h3><script type="math/tex; mode=display">q_i=\frac{exp(z_i/T)}{\sum_j exp(z_j/T)}</script><script type="math/tex; mode=display">L(p,q)=\sum_i p_i * (-\log q_i)</script><p><a href="https://github.com/dkozlov/awesome-knowledge-distillation" target="_blank" rel="noopener">Awesome Knowledge Distillation</a>中有相关的论文和一部分实现。</p>
+<p><a href="https://arxiv.org/pdf/1606.09282.pdf" target="_blank" rel="noopener">Learning without Forgetting</a></p>
 
 <p><a href="https://www.jianshu.com/p/e73851f32c9f" target="_blank" rel="noopener">模型压缩总览</a></p>
 <p><a href="https://blog.csdn.net/nature553863/article/details/80568658" target="_blank" rel="noopener">知识蒸馏</a></p>
 <p><a href="https://blog.csdn.net/qzrdypbuqk/article/details/81482598" target="_blank" rel="noopener">Knowledge Distillation</a></p>
-<p>终于找到一个 KD (knowledge-distillation) loss 的<a href="https://github.com/peterliht/knowledge-distillation-pytorch" target="_blank" rel="noopener">代码</a>.</p>
+<p>终于找到一个 KD (knowledge-distillation) loss 的<a href="https://github.com/peterliht/knowledge-distillation-pytorch" target="_blank" rel="noopener">代码</a>. <strong>这个我看懂了</strong>。</p>
 <script type="math/tex; mode=display">D_{KL}(P||Q)=\sum P(i)\frac{P(i)}{Q(i)}</script><script type="math/tex; mode=display">H(p,q)=E_p[-\log q]=H(p)+D_{KL}(P||Q)</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 标准的KD，利用的是交叉熵求KD</span></span><br><span class="line"><span class="comment"># 但速度很慢</span></span><br><span class="line">x, target = x.to(device), target.to(device)</span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    out = teacher(x)</span><br><span class="line">    soft_target = F.softmax(out/T, dim=<span class="number">1</span>)</span><br><span class="line">hard_target = target</span><br><span class="line">out = student(x)  <span class="comment">## this is the input to softmax</span></span><br><span class="line">logp = F.log_softmax(out/T, dim=<span class="number">1</span>)</span><br><span class="line">loss_soft_target = -torch.mean(torch.sum(soft_target * logp, dim=<span class="number">1</span>))</span><br><span class="line">loss_hard_target = nn.CrossEntropyLoss()(out, hard_target)</span><br><span class="line">loss = loss_soft_target * T * T + alpha * loss_hard_target</span><br></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">L_{KD}=\alpha T^2 KLdiv(Q_S^T,Q_T^T)+(1-\alpha)CrossEntrop(Q_s,y_{true})</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 利用KL散度求KD</span></span><br><span class="line"><span class="comment"># 理论上和实际上KL散度等同于交叉熵，速度很快，结果相同</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loss_fn_kd</span><span class="params">(outputs, labels, teacher_outputs, params)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Compute the knowledge-distillation (KD) loss given outputs, labels.</span></span><br><span class="line"><span class="string">    "Hyperparameters": temperature and alpha</span></span><br><span class="line"><span class="string">    NOTE: the KL Divergence for PyTorch comparing the softmaxs of teacher</span></span><br><span class="line"><span class="string">    and student expects the input tensor to be log probabilities! See Issue #2</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    alpha = params.alpha</span><br><span class="line">    T = params.temperature</span><br><span class="line">    KD_loss = nn.KLDivLoss()(F.log_softmax(outputs/T, dim=<span class="number">1</span>),</span><br><span class="line">                             F.softmax(teacher_outputs/T, dim=<span class="number">1</span>)) * (alpha * T * T) + \</span><br><span class="line">              F.cross_entropy(outputs, labels) * (<span class="number">1.</span> - alpha)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> KD_loss</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这段代码证明了DL散度和交叉熵的反向传播是一样的</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="comment"># sample number</span></span><br><span class="line">N = <span class="number">10</span></span><br><span class="line"><span class="comment"># category number</span></span><br><span class="line">C = <span class="number">5</span></span><br><span class="line"><span class="comment"># softmax output of teacher</span></span><br><span class="line">p = torch.softmax(torch.rand(N, C), dim=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># logit output of student</span></span><br><span class="line">s = torch.rand(N, C, requires_grad=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment"># softmax output of student, T = 1</span></span><br><span class="line">q = torch.softmax(s, dim=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># KL Diverse</span></span><br><span class="line"><span class="comment"># this is the implementation of the author's</span></span><br><span class="line"><span class="comment"># torch will do element mean because it is the default option</span></span><br><span class="line"><span class="comment"># kl_loss = nn.KLDivLoss()(torch.log(q), p)</span></span><br><span class="line"><span class="comment"># I think this should be the right solution</span></span><br><span class="line">kl_loss = (nn.KLDivLoss(reduction=<span class="string">'none'</span>)(torch.log(q), p)).sum(dim=<span class="number">1</span>).mean()</span><br><span class="line">kl_loss.backward(retain_graph=<span class="keyword">True</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'grad using KL DivLoss'</span></span><br><span class="line"><span class="keyword">print</span> s.grad</span><br><span class="line"><span class="comment"># clear the grad</span></span><br><span class="line">s.grad.zero_()</span><br><span class="line"><span class="comment"># bug2: should not do element wise mean operation</span></span><br><span class="line"><span class="comment"># ce_loss = torch.mean(-torch.log(q) * p)</span></span><br><span class="line">ce_loss = torch.mean(torch.sum(-torch.log(q) * p, dim=<span class="number">1</span>))</span><br><span class="line">ce_loss.backward()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'grad using ce loss'</span></span><br><span class="line"><span class="keyword">print</span> s.grad</span><br><span class="line"><span class="comment"># the real gradient of s should be `(q - p) / batch_size`</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'real grad, should be (q-p) / batch_size'</span></span><br><span class="line"><span class="keyword">print</span> (q - p) / N</span><br></pre></td></tr></table></figure>
@@ -538,6 +539,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/04/SE-block/" rel="prev" title="SE block">
+                SE block <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -628,7 +633,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -639,7 +644,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -650,7 +655,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -690,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-前言"><span class="nav-number">1.</span> <span class="nav-text">0. 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-0-HydraPlus-Net"><span class="nav-number">1.1.</span> <span class="nav-text">0.0 HydraPlus-Net</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1-前言"><span class="nav-number">1.2.</span> <span class="nav-text">0.1 前言</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">2.</span> <span class="nav-text">1.Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Reality-Oriented-Adaptation-Networks"><span class="nav-number">3.</span> <span class="nav-text">2. Reality Oriented Adaptation Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Target-Guided-Distillation"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 Target Guided Distillation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Spatial-Aware-Adaptation"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 Spatial-Aware Adaptation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Network-Overview"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 Network Overview</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Experimental-Results"><span class="nav-number">4.</span> <span class="nav-text">3. Experimental Results</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Experimental-Results"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 Experimental Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Analysis-on-Real-Style-Orientation"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 Analysis on Real Style Orientation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Analysis-on-Real-Distribution-Orientation"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 Analysis on Real Distribution Orientation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Others"><span class="nav-number">5.</span> <span class="nav-text">4. Others</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Domain-Adaptation"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 Domain Adaptation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Distillation"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 Distillation</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-前言"><span class="nav-number">1.</span> <span class="nav-text">0. 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-0-前言"><span class="nav-number">1.1.</span> <span class="nav-text">0.0 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1-HydraPlus-Net"><span class="nav-number">1.2.</span> <span class="nav-text">0.1 HydraPlus-Net</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">2.</span> <span class="nav-text">1.Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Reality-Oriented-Adaptation-Networks"><span class="nav-number">3.</span> <span class="nav-text">2. Reality Oriented Adaptation Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Target-Guided-Distillation"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 Target Guided Distillation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Spatial-Aware-Adaptation"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 Spatial-Aware Adaptation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Network-Overview"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 Network Overview</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Experimental-Results"><span class="nav-number">4.</span> <span class="nav-text">3. Experimental Results</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Experimental-Results"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 Experimental Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Analysis-on-Real-Style-Orientation"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 Analysis on Real Style Orientation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Analysis-on-Real-Distribution-Orientation"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 Analysis on Real Distribution Orientation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Others"><span class="nav-number">5.</span> <span class="nav-text">4. Others</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Domain-Adaptation"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 Domain Adaptation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Distillation"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 Distillation</span></a></li></ol></li></ol></div>
             
 
           </div>
