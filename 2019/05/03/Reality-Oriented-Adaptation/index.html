@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="0. 前言0.0 HydraPlus-Net顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。  paper: ICCV2017: HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis code: caffe   其主要创新点在于：  attent">
+<meta name="description" content="0. 前言0.0 HydraPlus-Net顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。">
 <meta name="keywords" content="semantice segmentation,domain guided distillation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reality Oriented Adaptation">
 <meta property="og:url" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/index.html">
 <meta property="og:site_name" content="田佳杰">
-<meta property="og:description" content="0. 前言0.0 HydraPlus-Net顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。  paper: ICCV2017: HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis code: caffe   其主要创新点在于：  attent">
+<meta property="og:description" content="0. 前言0.0 HydraPlus-Net顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/HydraPlus.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/ROAD_Net.png">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/td.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/spt.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/domain_classifier.png">
-<meta property="og:updated_time" content="2019-05-04T06:26:21.538Z">
+<meta property="og:updated_time" content="2019-05-04T06:29:07.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reality Oriented Adaptation">
-<meta name="twitter:description" content="0. 前言0.0 HydraPlus-Net顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。  paper: ICCV2017: HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis code: caffe   其主要创新点在于：  attent">
+<meta name="twitter:description" content="0. 前言0.0 HydraPlus-Net顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/HydraPlus.png">
 
 
@@ -440,6 +440,7 @@
 
       
         <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><h3 id="0-0-HydraPlus-Net"><a href="#0-0-HydraPlus-Net" class="headerlink" title="0.0 HydraPlus-Net"></a>0.0 HydraPlus-Net</h3><p>顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。</p>
+<a id="more"></a>
 <ul>
 <li>paper: <a href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Liu_HydraPlus-Net_Attentive_Deep_ICCV_2017_paper.pdf" target="_blank" rel="noopener">ICCV2017: HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis</a></li>
 <li>code: <a href="https://github.com/xh-liu/HydraPlus-Net" target="_blank" rel="noopener">caffe</a></li>
@@ -455,7 +456,6 @@
 <li>paper: <a href="https://arxiv.org/pdf/1711.11556.pdf" target="_blank" rel="noopener">CVPR2018_ROAD: Reality Oriented Adaptation for Semantic Segmentation of Urban Scenes</a></li>
 <li>code: 无</li>
 </ul>
-<a id="more"></a>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h2><p>针对合成数据集的模型在真实数据集上性能很差，作者提出原因可能是：过拟合和分布不一致，因此提出模型：ROAD-Net。下面对作者提出的名词做出解释</p>
 <ul>
 <li>Reality Oriented Adaptation Networks(ROAD-Net)</li>

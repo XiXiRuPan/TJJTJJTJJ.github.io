@@ -434,21 +434,6 @@
       
         
           <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><h3 id="0-0-HydraPlus-Net"><a href="#0-0-HydraPlus-Net" class="headerlink" title="0.0 HydraPlus-Net"></a>0.0 HydraPlus-Net</h3><p>顺便记录下刚看的论文 HydraPlus-Net，因为这篇论文是caffe代码且对我的帮助不大，所以只是简单地记录下其中的创新点。</p>
-<ul>
-<li>paper: <a href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Liu_HydraPlus-Net_Attentive_Deep_ICCV_2017_paper.pdf" target="_blank" rel="noopener">ICCV2017: HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis</a></li>
-<li>code: <a href="https://github.com/xh-liu/HydraPlus-Net" target="_blank" rel="noopener">caffe</a></li>
-</ul>
-<img src="/2019/05/03/Reality-Oriented-Adaptation/HydraPlus.png" title="HydraPlus network">
-<p>其主要创新点在于：</p>
-<ul>
-<li>attention不仅可以用于本block，也可以用于其他block</li>
-<li>一个block可以生成多个attention map</li>
-</ul>
-<h3 id="0-1-前言"><a href="#0-1-前言" class="headerlink" title="0.1 前言"></a>0.1 前言</h3><p>这篇文章主要解决的问题是：当语义分割网络在合成数据集(有标签)上训练好，在真实数据集(没有标签)上性能下降比较多。作者认为有两个原因：对合成数据过拟合，合成数据与真实数据存在分布差异。(好吧，我认为这两是一个原因)。作者提出target guided distillation 和 spatial-aware adaptation 来改进性能，效果还挺好的。我主要看target guided distillaiton。</p>
-<ul>
-<li>paper: <a href="https://arxiv.org/pdf/1711.11556.pdf" target="_blank" rel="noopener">CVPR2018_ROAD: Reality Oriented Adaptation for Semantic Segmentation of Urban Scenes</a></li>
-<li>code: 无</li>
-</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/03/Reality-Oriented-Adaptation/#more" rel="contents">
