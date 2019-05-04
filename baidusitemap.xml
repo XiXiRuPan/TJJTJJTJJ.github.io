@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/05/03/Reality-Oriented-Adaptation/</loc>
+    <lastmod>2019-05-04T06:15:31.319Z</lastmod>
+    <data>
+        <display>
+        <title>Reality Oriented Adaptation</title>
+        <pubTime>2019-05-03T07:52:58.000Z</pubTime>
+        
+        <tag>semantice segmentation</tag>
+         
+        <tag>domain guided distillation</tag>
+         
+         
+           
+             
+              <breadCrumb title="semantice segmentation" url="http://yoursite.com/categories/semantice-segmentation/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/04/30/Domain-Guided-Dropout/</loc>
     <lastmod>2019-05-02T12:05:58.980Z</lastmod>
     <data>
