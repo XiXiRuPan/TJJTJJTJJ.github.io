@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/05/06/ECN/</loc>
+    
+    <lastmod>2019-05-09T08:31:18.129Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/</loc>
     
     <lastmod>2019-05-06T06:32:00.200Z</lastmod>
