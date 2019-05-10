@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/05/10/residual-attention_and_CBAM_GCNet/</loc>
+    <lastmod>2019-05-10T08:14:31.646Z</lastmod>
+    <data>
+        <display>
+        <title>residual_attention</title>
+        <pubTime>2019-05-10T02:12:48.000Z</pubTime>
+        
+        <tag>attention</tag>
+         
+         
+           
+             
+              <breadCrumb title="attention" url="http://yoursite.com/categories/attention/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/</loc>
+    <lastmod>2019-05-09T14:40:32.941Z</lastmod>
+    <data>
+        <display>
+        <title>Dual Attention Network for Scene Segmentation</title>
+        <pubTime>2019-05-05T02:21:36.000Z</pubTime>
+        
+        <tag>segmentation</tag>
+         
+        <tag>attention</tag>
+         
+         
+           
+             
+              <breadCrumb title="segmentation" url="http://yoursite.com/categories/segmentation/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/05/06/ECN/</loc>
     <lastmod>2019-05-09T08:31:18.129Z</lastmod>
     <data>
@@ -19,28 +61,6 @@
            
              
               <breadCrumb title="preson re-id" url="http://yoursite.com/categories/preson-re-id/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/</loc>
-    <lastmod>2019-05-06T06:32:00.200Z</lastmod>
-    <data>
-        <display>
-        <title>Dual Attention Network for Scene Segmentation</title>
-        <pubTime>2019-05-05T02:21:36.000Z</pubTime>
-        
-        <tag>segmentation</tag>
-         
-        <tag>attention</tag>
-         
-         
-           
-             
-              <breadCrumb title="segmentation" url="http://yoursite.com/categories/segmentation/"/>
           
         </display>
     </data>
