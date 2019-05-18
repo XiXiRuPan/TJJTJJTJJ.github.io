@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/05/17/BNNeck/</loc>
+    <lastmod>2019-05-18T04:51:43.060Z</lastmod>
+    <data>
+        <display>
+        <title>BNNeck</title>
+        <pubTime>2019-05-17T08:20:21.000Z</pubTime>
+        
+        <tag>re-id</tag>
+         
+         
+           
+             
+              <breadCrumb title="re-id" url="http://yoursite.com/categories/re-id/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    <lastmod>2019-05-17T08:29:51.461Z</lastmod>
+    <data>
+        <display>
+        <title>python-2.0</title>
+        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/05/13/MAR/</loc>
+    <lastmod>2019-05-15T10:48:41.828Z</lastmod>
+    <data>
+        <display>
+        <title>MAR</title>
+        <pubTime>2019-05-13T03:29:27.000Z</pubTime>
+        
+        <tag>person re-id</tag>
+         
+         
+           
+             
+              <breadCrumb title="deep learning" url="http://yoursite.com/categories/deep-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/05/10/residual-attention_and_CBAM_GCNet/</loc>
     <lastmod>2019-05-10T08:14:31.646Z</lastmod>
     <data>
@@ -127,26 +187,6 @@
            
              
               <breadCrumb title="person re-id" url="http://yoursite.com/categories/person-re-id/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    <lastmod>2019-04-18T08:16:58.401Z</lastmod>
-    <data>
-        <display>
-        <title>python-2.0</title>
-        <pubTime>2018-11-05T09:27:03.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
@@ -611,9 +651,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>github</tag>
+         
+        <tag>hexo</tag>
          
         <tag>npm</tag>
          
@@ -991,9 +1031,9 @@
         <title>data</title>
         <pubTime>2018-09-06T15:06:10.000Z</pubTime>
         
-        <tag>data</tag>
-         
         <tag>re-id</tag>
+         
+        <tag>data</tag>
          
          
            

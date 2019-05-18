@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/05/17/BNNeck/</loc>
+    
+    <lastmod>2019-05-18T04:51:43.060Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
+    
+    <lastmod>2019-05-17T08:29:51.461Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/05/13/MAR/</loc>
+    
+    <lastmod>2019-05-15T10:48:41.828Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/05/10/residual-attention_and_CBAM_GCNet/</loc>
     
     <lastmod>2019-05-10T08:14:31.646Z</lastmod>
@@ -40,13 +61,6 @@
     <loc>http://yoursite.com/2019/04/30/Domain-Guided-Dropout/</loc>
     
     <lastmod>2019-05-02T12:05:58.980Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/11/05/python-2.0/</loc>
-    
-    <lastmod>2019-04-18T08:16:58.401Z</lastmod>
     
   </url>
   
