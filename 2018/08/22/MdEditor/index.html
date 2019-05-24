@@ -715,8 +715,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/26/python/" rel="prev" title="python">
-                python <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/26/Cmd Markdown/" rel="prev" title="Cmd Markdown">
+                Cmd Markdown <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -908,9 +908,11 @@
   <span id="busuanzi_container_site_uv">
       总访客: <span id="busuanzi_value_site_uv"></span>
   </span>
-  <span id="busuanzi_container_page_pv">
-    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-  </span>
+  <% if ( !index ){ %>
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  <% } %>
 
 
 

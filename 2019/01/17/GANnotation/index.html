@@ -767,9 +767,11 @@ L(G) =& \lambda_{adv}L_{adv} + \lambda_{pix}L_{pix}+\lambda_{self}L_{self}+\\
   <span id="busuanzi_container_site_uv">
       总访客: <span id="busuanzi_value_site_uv"></span>
   </span>
-  <span id="busuanzi_container_page_pv">
-    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-  </span>
+  <% if ( !index ){ %>
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  <% } %>
 
 
 
