@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/05/22/Deep-CV-MIML/</loc>
+    <lastmod>2019-05-24T02:44:44.356Z</lastmod>
+    <data>
+        <display>
+        <title>Deep CV-MIML</title>
+        <pubTime>2019-05-22T02:26:35.000Z</pubTime>
+        
+        <tag>person re-id</tag>
+         
+         
+           
+             
+              <breadCrumb title="person re-id" url="http://yoursite.com/categories/person-re-id/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/</loc>
+    <lastmod>2019-05-20T07:45:23.148Z</lastmod>
+    <data>
+        <display>
+        <title>Dual Attention Network for Scene Segmentation</title>
+        <pubTime>2019-05-05T02:21:36.000Z</pubTime>
+        
+        <tag>segmentation</tag>
+         
+        <tag>attention</tag>
+         
+         
+           
+             
+              <breadCrumb title="segmentation" url="http://yoursite.com/categories/segmentation/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/05/17/BNNeck/</loc>
     <lastmod>2019-05-18T07:02:18.096Z</lastmod>
     <data>
@@ -77,28 +119,6 @@
            
              
               <breadCrumb title="attention" url="http://yoursite.com/categories/attention/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/</loc>
-    <lastmod>2019-05-09T14:40:32.941Z</lastmod>
-    <data>
-        <display>
-        <title>Dual Attention Network for Scene Segmentation</title>
-        <pubTime>2019-05-05T02:21:36.000Z</pubTime>
-        
-        <tag>segmentation</tag>
-         
-        <tag>attention</tag>
-         
-         
-           
-             
-              <breadCrumb title="segmentation" url="http://yoursite.com/categories/segmentation/"/>
           
         </display>
     </data>

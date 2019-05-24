@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/05/22/Deep-CV-MIML/</loc>
+    
+    <lastmod>2019-05-24T02:44:44.356Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/</loc>
+    
+    <lastmod>2019-05-20T07:45:23.148Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/05/17/BNNeck/</loc>
     
     <lastmod>2019-05-18T07:02:18.096Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>http://yoursite.com/2019/05/10/residual-attention_and_CBAM_GCNet/</loc>
     
     <lastmod>2019-05-10T08:14:31.646Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/</loc>
-    
-    <lastmod>2019-05-09T14:40:32.941Z</lastmod>
     
   </url>
   

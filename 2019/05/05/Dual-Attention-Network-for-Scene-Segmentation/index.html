@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/poly.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/sigmoid.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/all.jpg">
-<meta property="og:updated_time" content="2019-05-09T14:40:32.941Z">
+<meta property="og:updated_time" content="2019-05-20T07:45:23.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dual Attention Network for Scene Segmentation">
 <meta name="twitter:description" content="0. 前言这篇文章的重点在于 dual attention 的作用，并且attention的使用和之前看到的 SE block 还不太一样。dual attention 主要解决了全局依赖性，即其他位置的物体对当前位置的的物体的特征的影响。重点不是场景分割，自己也不是很懂分割的代码和实现，暂时对分割不做过多研究。  paper: CPVR2019: Dual Attention Network f">
@@ -487,7 +487,7 @@
        &=[\sum_i s_{1i}D_i, \sum_i s_{2i}D_i,... ,\sum_i s_{Ni}D_i] \\
 \hat{e}_{j}&=\sum_i^N(s_{ji}D_i)
 \end{aligned}</script><p>从而得到$E\in R^{C\times N}$,</p>
-<script type="math/tex; mode=display">E_j=\alpha \sum_i^N(s_{ji}D_i)+A_j</script><p>相当于 $\hat{E}$ 与 $A$ 进行了线性组合，并对其reshape变成$E\in R^{C\times H\times W}$，其中$\alpha$从0开始初始化并逐步变大。</p>
+<script type="math/tex; mode=display">E_j=\alpha \sum_i^N(s_{ji}D_i)+A_j</script><p>相当于 $\hat{E}$ 与 $A$ 进行了线性组合，并对其reshape变成$E\in R^{C\times H\times W}$，其中$\alpha$是一个可学习参数，网络自动学习，初始化为0。</p>
 <p>如果不考虑其中的 softmax, 可以写成:</p>
 <script type="math/tex; mode=display">E=\alpha D\times (C^T \times B)^T+A</script><h3 id="3-3-Channel-Attention-Module"><a href="#3-3-Channel-Attention-Module" class="headerlink" title="3.3 Channel Attention Module"></a>3.3 Channel Attention Module</h3><p>Position Attention Module 是把每个位置的通道作为其特征 $R^C$ ，Channel Attention Module 是把每个通道的特征图作为其特征 $R^N$。</p>
 <p>与 Position Attention Module 不同的地方还有没有经过三个滤波器得到 $B,C,D$ ，而是直接使用A。</p>
@@ -499,8 +499,9 @@
 <script type="math/tex; mode=display">x_{ji}=\frac{\exp(-A_i \cdot A_j)}{\sum_{i=1}^N \exp(-A_i \cdot A_j)}</script><p>同样可以理解成对 $\hat{X}$ 的每一行做一次softmax，可以理解成A的自相关性。结合后面的 channel attention 的可视化，不同通道代表的类别不同，所以这里应该是越不相似值越大。</p>
 <p>然后类似地我们得到$E\in R^{C\times H \times W}$:</p>
 <script type="math/tex; mode=display">E_j=\beta \sum_i^N(x_{ji}A_i)+A_j</script><p>如果不考虑其中的 softmax, 可以写成:</p>
-<script type="math/tex; mode=display">E=\alpha (A \times A^T)\times A+A</script><p>这里给我的感觉更多地是在加法，而不是 SE block 用的乘法。</p>
+<script type="math/tex; mode=display">E=\beta (A \times A^T)\times A+A</script><p>这里给我的感觉更多地是在加法，而不是 SE block 用的乘法。</p>
 <p>其实看到这里我是表示很怀疑的，这种 attention 能有效果吗？后面的可视化证明了作者的思路是正确的。</p>
+<p>其中$\beta$也是一个可学习参数，网络自动学习，初始化为0。</p>
 <h2 id="4-Experiments"><a href="#4-Experiments" class="headerlink" title="4. Experiments"></a>4. Experiments</h2><h3 id="4-1-Implementation-Details"><a href="#4-1-Implementation-Details" class="headerlink" title="4.1 Implementation Details"></a>4.1 Implementation Details</h3><p>学习率: 多项式衰减</p>
 <script type="math/tex; mode=display">(1-\frac{iter}{total iter})^{0.9}</script><p>下面专门做一个学习率衰减的情况。</p>
 <h3 id="4-2-Results-on-Datasets"><a href="#4-2-Results-on-Datasets" class="headerlink" title="4.2 Results on Datasets"></a>4.2 Results on Datasets</h3><h4 id="4-2-1-Ablation-Study-for-Attention-Modules"><a href="#4-2-1-Ablation-Study-for-Attention-Modules" class="headerlink" title="4.2.1 Ablation Study for Attention Modules"></a>4.2.1 Ablation Study for Attention Modules</h4><img src="/2019/05/05/Dual-Attention-Network-for-Scene-Segmentation/ablation_on_Cityscapes.png" title="ablation study on Cityscapes">
@@ -684,7 +685,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -774,7 +775,7 @@
 
   
 </div>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
 
 <span id="busuanzi_container_site_pv">
     总访问量: <span id="busuanzi_value_site_pv"></span>
