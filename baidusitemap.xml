@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2019/05/22/Deep-CV-MIML/</loc>
-    <lastmod>2019-05-24T03:32:55.697Z</lastmod>
+    <lastmod>2019-05-25T09:17:05.233Z</lastmod>
     <data>
         <display>
         <title>Deep CV-MIML</title>
@@ -17,6 +17,54 @@
            
              
               <breadCrumb title="person re-id" url="http://yoursite.com/categories/person-re-id/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
+    <lastmod>2019-05-24T08:45:45.738Z</lastmod>
+    <data>
+        <display>
+        <title>markdown-math</title>
+        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+        <tag>math</tag>
+         
+         
+           
+             
+              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/08/17/hexo/</loc>
+    <lastmod>2019-05-24T06:37:42.329Z</lastmod>
+    <data>
+        <display>
+        <title>hexo</title>
+        <pubTime>2018-08-17T13:00:33.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+        <tag>hexo</tag>
+         
+        <tag>npm</tag>
+         
+        <tag>基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="搭建博客" url="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
           
         </display>
     </data>
@@ -295,28 +343,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
-    <lastmod>2019-01-18T07:38:35.073Z</lastmod>
-    <data>
-        <display>
-        <title>markdown-math</title>
-        <pubTime>2018-12-03T02:17:02.000Z</pubTime>
-        
-        <tag>markdown</tag>
-         
-        <tag>math</tag>
-         
-         
-           
-             
-              <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
-          
         </display>
     </data>
     </url>
@@ -657,32 +683,6 @@
            
              
               <breadCrumb title="pytorch" url="http://yoursite.com/categories/pytorch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/17/hexo/</loc>
-    <lastmod>2018-12-03T03:39:38.748Z</lastmod>
-    <data>
-        <display>
-        <title>hexo</title>
-        <pubTime>2018-08-17T13:00:33.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>github</tag>
-         
-        <tag>npm</tag>
-         
-        <tag>基础</tag>
-         
-         
-           
-             
-              <breadCrumb title="搭建博客" url="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
           
         </display>
     </data>
