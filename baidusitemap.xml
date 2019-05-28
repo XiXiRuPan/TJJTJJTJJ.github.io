@@ -4,19 +4,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2019/05/22/Deep-CV-MIML/</loc>
-    <lastmod>2019-05-25T09:17:05.233Z</lastmod>
+    <loc>http://yoursite.com/2019/05/27/STGAN/</loc>
+    <lastmod>2019-05-28T08:11:37.231Z</lastmod>
     <data>
         <display>
-        <title>Deep CV-MIML</title>
-        <pubTime>2019-05-22T02:26:35.000Z</pubTime>
+        <title>STGAN</title>
+        <pubTime>2019-05-27T03:03:40.000Z</pubTime>
         
-        <tag>person re-id</tag>
+        <tag>GAN</tag>
          
          
            
              
-              <breadCrumb title="person re-id" url="http://yoursite.com/categories/person-re-id/"/>
+              <breadCrumb title="GAN" url="http://yoursite.com/categories/GAN/"/>
           
         </display>
     </data>
@@ -25,7 +25,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/12/03/markdown-math/</loc>
-    <lastmod>2019-05-24T08:45:45.738Z</lastmod>
+    <lastmod>2019-05-25T09:17:34.820Z</lastmod>
     <data>
         <display>
         <title>markdown-math</title>
@@ -39,6 +39,26 @@
            
              
               <breadCrumb title="markdown" url="http://yoursite.com/categories/markdown/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/05/22/Deep-CV-MIML/</loc>
+    <lastmod>2019-05-25T09:17:05.233Z</lastmod>
+    <data>
+        <display>
+        <title>Deep CV-MIML</title>
+        <pubTime>2019-05-22T02:26:35.000Z</pubTime>
+        
+        <tag>person re-id</tag>
+         
+         
+           
+             
+              <breadCrumb title="person re-id" url="http://yoursite.com/categories/person-re-id/"/>
           
         </display>
     </data>
