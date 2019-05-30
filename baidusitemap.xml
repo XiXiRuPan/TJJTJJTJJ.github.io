@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/05/29/FUNIT/</loc>
+    <lastmod>2019-05-30T06:21:58.515Z</lastmod>
+    <data>
+        <display>
+        <title>FUNIT</title>
+        <pubTime>2019-05-29T03:08:24.000Z</pubTime>
+        
+        <tag>GAN</tag>
+         
+        <tag>few-shot</tag>
+         
+         
+           
+             
+              <breadCrumb title="GAN" url="http://yoursite.com/categories/GAN/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/05/27/STGAN/</loc>
     <lastmod>2019-05-28T08:11:37.231Z</lastmod>
     <data>
