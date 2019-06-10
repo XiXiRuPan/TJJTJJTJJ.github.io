@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/05/06/ECN/weight.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/06/ECN/number.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/06/ECN/MSMT.png">
-<meta property="og:updated_time" content="2019-05-09T08:31:18.129Z">
+<meta property="og:updated_time" content="2019-06-03T09:20:33.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECN">
 <meta name="twitter:description" content="0. 前言钟准团队的CCPR2019文章，牛逼。思想有一丢丢类似聚类，但是比聚类强的是，赋予了id。与HHL文章有很大的不同。什也不说了，虚心学习。  paper: CVPR2019_Invariance Matters Exemplar Memory for Domain Adaptive Person Re-identification code: pytorch">
@@ -442,6 +442,9 @@
 <li>code: <a href="https://github.com/zhunzhong07/ECN" target="_blank" rel="noopener">pytorch</a></li>
 </ul>
 <a id="more"></a>
+<ul>
+<li>[x] 2019-06-03: 这篇文章和 <a href="https://tjjtjjtjj.github.io/2019/03/27/One-Example-reID/#more" target="_blank" rel="noopener">One Example reID</a> 有些相似啊。感觉大家的论文之间的联系错综复杂。</li>
+</ul>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>作者的注意力还是集中在如何区分 target domain 中的图片。考虑了三个因素，exemplar-invariance, camera-invariance and neighborhood-invariance. 可以简单地理解成每个人是一类，StarGAN生成的图片是一类，特征相似的是一类，并且为了实现上述目标，需要存储 target domain 中 train 数据集的所有特征，这一点有点疑问，需要的存储空间和计算时间消耗大吗？作者在第一节的最后有解答，消耗的空间和时间都很小。等自己实验的时候就知道了。它是用了两个分类器，一个用于训练 source 数据集， label 是 source 的label，一个用于训练 target 数据集， label 是 target 的label，两个label不一样。网络模型与HHL略有不同。</p>
 <p>第一，通过分类损失使 target domain 的图片全部可分。分类模型学到的更可能是图片视觉上的相似性而不是语义相似性，并且数据集中同一id的图片在视觉上变化很大，所以，索性将target数据集上的每张图片作为一类，迫使不同id的相似图片变得不相似。行吧，这个理由，(⊙o⊙)…，怎么有点牵强吧，因为和后面的特征相似的作为一类有一丢丢矛盾。不对，有点类似既然不知道你们的id，那就把让你们之间先全部可分，这个思路在哪篇论文见过，想不起来了。</p>
 <p>第二，同一 content 不同 camera style 的图片视为一类。这个和HHL的数据集处理方法一样，用 StarGAN 生成同一图片在不同 camera 下的图片，并视为一类，因为刚刚对图片使用了分类损失，所以这时候可以直接用到分类损失上，而不用再考虑三元组损失，(我觉得可能是基于分类损失的作用一直大于二元组损失，三元组损失)，这时可以保证同一 content 不同 camera style 的图片视为一类。这时 StarGAN 生成图片中的人的形态等基本保留，感觉更多是亮度上的变化(肉眼可见)，偶尔会有衣服颜色的变换，但是不能变换这个人的姿势，比如正面走变成侧面走这种，HHL 已经证明了 camera style 的影响，但是我觉得姿势的变换也是一个重要的因素才对，因为分类模型的起家就是识别同一类物体不同形态的图片。好像 CVPR 2019 这个团队有做这方面的内容，抽空膜拜一波。</p>
@@ -673,7 +676,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -695,7 +698,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

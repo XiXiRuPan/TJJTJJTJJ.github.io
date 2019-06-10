@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/06/03/DIMN/</loc>
+    <lastmod>2019-06-10T08:19:40.061Z</lastmod>
+    <data>
+        <display>
+        <title>DIMN</title>
+        <pubTime>2019-06-03T08:16:17.000Z</pubTime>
+        
+        <tag>meta-learning</tag>
+         
+        <tag>few-shot learning</tag>
+         
+        <tag>cross-domain person re-id</tag>
+         
+         
+           
+             
+              <breadCrumb title="person re-id" url="http://yoursite.com/categories/person-re-id/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/05/06/ECN/</loc>
+    <lastmod>2019-06-03T09:20:33.708Z</lastmod>
+    <data>
+        <display>
+        <title>ECN</title>
+        <pubTime>2019-05-06T07:32:26.000Z</pubTime>
+        
+        <tag>person re-id</tag>
+         
+        <tag>cross domain</tag>
+         
+         
+           
+             
+              <breadCrumb title="preson re-id" url="http://yoursite.com/categories/preson-re-id/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/05/30/ArcFace/</loc>
     <lastmod>2019-05-31T02:20:55.383Z</lastmod>
     <data>
@@ -231,28 +277,6 @@
            
              
               <breadCrumb title="attention" url="http://yoursite.com/categories/attention/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2019/05/06/ECN/</loc>
-    <lastmod>2019-05-09T08:31:18.129Z</lastmod>
-    <data>
-        <display>
-        <title>ECN</title>
-        <pubTime>2019-05-06T07:32:26.000Z</pubTime>
-        
-        <tag>person re-id</tag>
-         
-        <tag>cross domain</tag>
-         
-         
-           
-             
-              <breadCrumb title="preson re-id" url="http://yoursite.com/categories/preson-re-id/"/>
           
         </display>
     </data>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/06/03/DIMN/</loc>
+    
+    <lastmod>2019-06-10T08:19:40.061Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/05/06/ECN/</loc>
+    
+    <lastmod>2019-06-03T09:20:33.708Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/05/30/ArcFace/</loc>
     
     <lastmod>2019-05-31T02:20:55.383Z</lastmod>
@@ -75,13 +89,6 @@
     <loc>http://yoursite.com/2019/05/10/residual-attention_and_CBAM_GCNet/</loc>
     
     <lastmod>2019-05-10T08:14:31.646Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/05/06/ECN/</loc>
-    
-    <lastmod>2019-05-09T08:31:18.129Z</lastmod>
     
   </url>
   
