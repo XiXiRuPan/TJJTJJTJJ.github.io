@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="person re-id,memory," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="田佳杰" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1. Introduction paper: CVPR2017_Joint Detection and Identification Feature Learning for Person Search code: caffe, [pytorch][https://github.com/Cysu/open-reid] project: End-to-End Deep Learning for Pe">
+<meta name="keywords" content="person re-id,memory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OIM">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/OIM/index.html">
+<meta property="og:site_name" content="田佳杰">
+<meta property="og:description" content="1. Introduction paper: CVPR2017_Joint Detection and Identification Feature Learning for Person Search code: caffe, [pytorch][https://github.com/Cysu/open-reid] project: End-to-End Deep Learning for Pe">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/person_search.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/framework.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/LUT.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/OIM_Softmax.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/Softmax_OIM.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/sub_sampling.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/low_dimensional_subspace.png">
+<meta property="og:updated_time" content="2019-06-13T07:07:03.015Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OIM">
+<meta name="twitter:description" content="1. Introduction paper: CVPR2017_Joint Detection and Identification Feature Learning for Person Search code: caffe, [pytorch][https://github.com/Cysu/open-reid] project: End-to-End Deep Learning for Pe">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/10/OIM/person_search.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/10/OIM/"/>
+
+
+
+
+
+  <title>OIM | 田佳杰</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/TJJTJJTJJ/TJJTJJTJJ.github.io.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">田佳杰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">代码的搬运工</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/10/OIM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiajie Tian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="田佳杰">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OIM</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-10T16:32:49+08:00">
+                2019-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/person-re-id/" itemprop="url" rel="index">
+                    <span itemprop="name">person re-id</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/10/OIM/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/06/10/OIM/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><ul>
+<li>paper: <a href="https://arxiv.org/abs/1604.01850" target="_blank" rel="noopener">CVPR2017_Joint Detection and Identification Feature Learning for Person Search</a></li>
+<li>code: <a href="https://github.com/ShuangLI59/person_search" target="_blank" rel="noopener">caffe</a>, [pytorch][<a href="https://github.com/Cysu/open-reid" target="_blank" rel="noopener">https://github.com/Cysu/open-reid</a>]</li>
+<li>project: <a href="http://www.ee.cuhk.edu.hk/~xgwang/PS/dataset.html" target="_blank" rel="noopener">End-to-End Deep Learning for Person Search</a></li>
+</ul>
+<a id="more"></a>
+<p>1作: <a href="http://www.mit.edu/~lishuang/" target="_blank" rel="noopener">Shuang Li</a>，跟过汤晓鸥。</p>
+<p>这一篇文章之前就已经看过了，这次的主要目的是 memory 的使用，因为看到 memory 在 ECN、DIMN 中都有使用，所以看看大家都是怎么用的。</p>
+<p>作者提出 <strong>Online Instance Matching (OIM)</strong> loss function 来融合 pedestrian detection and person re-id.</p>
+<p>作者提出了新的数据集，18184 张图片，8432 个行人，96143 个行人框。</p>
+<p>作者重新定义了 test 的过程。在传统的 test 过程中，gallery 中的图片是已经裁剪好的单个行人图片，作者定义 gallery 中的图片是未经裁剪、有多个行人的图片，需要匹配是哪张图片的哪个行人。</p>
+<img src="/2019/06/10/OIM/person_search.png" title="person search">
+<p>CNN 由两部分组成，给定一张 gallery image, a pedestrian proposal net 用于生成行人的 bounding boxes, 更偏向于召回率而不是精确度, 然后 a identification net 用于提取相应的特征。</p>
+<h2 id="3-Method"><a href="#3-Method" class="headerlink" title="3. Method"></a>3. Method</h2><img src="/2019/06/10/OIM/framework.png" title="framework">
+<ul>
+<li>a pedestrian proposal net</li>
+<li>a identification net</li>
+</ul>
+<h3 id="3-1-Online-Instance-Matching-Loss"><a href="#3-1-Online-Instance-Matching-Loss" class="headerlink" title="3.1 Online Instance Matching Loss"></a>3.1 Online Instance Matching Loss</h3><p>a pedestrian proposal net 共检测出三类：labeled identities, unlabeled identities, background clutter. 这里只考虑 labeled identities and unlabeled identities.</p>
+<p>假设 a labeled identity $x\in R^D$，其中 $D$ 表示特征维度，作者建立了一个 <strong>lookup table (LUT)</strong> $V\in R^{D\times L}$ 来储存所有的 feature of all labeled identities，前向传播过程中，计算 cos 距离 $V^T x$，反向传播时 $v_t \gets \gamma v_t (1-\gamma) x$，其中 $\gamma\in [0, 1]$, 并进行归一化。这个过程和 ECN 基本一样。</p>
+<img src="/2019/06/10/OIM/LUT.png" title="LUT">
+<p>对于 a unlabeled identites，使用 <strong>a circular queue</strong> $U\in R^{D\times Q}$ 来储存 the features of unlabeed identites that appear in recent mini-batches，其中 $Q$ 表示　queue size. 前向传播时，计算 cos 距离 $V^T x$，反向传播时，弹出 queue 顶端的 features，插入当前 batch 的特征。</p>
+<p>通过上面两个结构，作者重新定义了 $x$ 属于某类的概率:</p>
+<script type="math/tex; mode=display">p_i = \frac{\exp(v_i^T x/\tau)}{\sum_{j=1}^L \exp(v_j^T x/\tau)}+ \sum_{k=1}^Q \exp(u_k^T x/\tau)</script><p>其中，更高的 $\tau$ 导致更平缓的分布。</p>
+<script type="math/tex; mode=display">q_i = \frac{\exp(u_i^T x/\tau)}{\sum_{j=1}^L \exp(v_j^T x/\tau)}+ \sum_{k=1}^Q \exp(u_k^T x/\tau)</script><p>损失函数为:</p>
+<script type="math/tex; mode=display">L = E_x [-\log p_t]</script><p>我觉得作者这里写错了，但无伤大雅。</p>
+<p>其对 $x$ 的反向推导很有意思，是：</p>
+<script type="math/tex; mode=display">\frac{\partial L}{\partial x}=-\frac{1}{\tau}[ v_t-\sum_{j=1}^L p_j v_t-\sum_{k=1}^Q q_k u_k ]</script><p>后面会补充整个推导过程</p>
+<p><strong>Why not Softmax loss</strong>: 作者不使用 Softmax loss 有两个方面的原因：第一个原因不是很理解，不是很赞同，第二个原因是 unkown identities 没有 label.</p>
+<p><strong>Scalability</strong>: 随着 id 的增加，分母的计算时间会成为瓶颈，所以采用 sub-sampling 的方法计算，具体见下文</p>
+<p>除此之外，OIM loss 看似和 Softmax 相似，但是OIM loss是非参数的，缺点是容易过拟合，L2-normalized 能减少过拟合。</p>
+<p><strong>Question</strong>: Memory 是否真的比 fc 好用，是否可以单独做一个 memory 和 fc 的对比实验？</p>
+<p>2019-06-12: ICCV 2019 三个 WR, 凉凉。</p>
+<p><strong>补充反向传播推导过程</strong>：</p>
+<p>第一步：假设只有两个变量，很容易就可以推导到多个变量，令</p>
+<script type="math/tex; mode=display">f_1=\frac{e^{x_1}}{e^{x_1}+e^{x_2}}, f_2=\frac{e^{x_2}}{e^{x_1}+e^{x_2}}</script><p>不能随便地使用$f_1+f_2=1$，则</p>
+<script type="math/tex; mode=display">\frac{\partial f_1}{\partial x_1} = \frac{e^{x_1}(e^{x_1}+e^{x_2})-e^{x_1} e^{x_1}}{(e^{x_1}+e^{x_2})^2}=f_1-(f_1)^2</script><script type="math/tex; mode=display">\frac{\partial f_1}{\partial x_2} = -e^{x_1} \frac{e^{x_2}}{(e^{x_1}+e^{x_2})^2}=-f_1 \cdot f_2</script><p>第二步：令 $x_1=v_1 x, x_2=v_2 x$:</p>
+<script type="math/tex; mode=display">f_1=\frac{e^{v_1 x}}{e^{v_1 x}+e^{v_2 x}}, f_2=\frac{e^{v_2 x}}{e^{v_1 x}+e^{v_2 x}}</script><p>则</p>
+<script type="math/tex; mode=display">\frac{\partial f_1}{\partial x} = \frac{\partial f_1}{\partial x_1} \frac{\partial x_1}{\partial x} + \frac{\partial f_1}{\partial x_2} \frac{\partial x_2}{\partial x}=(f_1-(f_1)^2)v_1 + (-f_1 \cdot f_2)v_2</script><script type="math/tex; mode=display">\frac{\partial f_1}{\partial v_1} = \frac{\partial f_1}{\partial x_1} \frac{\partial x_1}{\partial v_1}=(f_1-(f_1)^2)x</script><script type="math/tex; mode=display">\frac{\partial f_1}{\partial v_2} = \frac{\partial f_1}{\partial x_2} \frac{\partial x_2}{\partial v_2}= (-f_1 \cdot f_2)x</script><p>第三步：计算损失函数，假设最优值是第一个， $L=-\log(f_1)$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\partial L}{\partial x} &= \frac{\partial L}{\partial f_1} \frac{\partial f_1}{\partial x} \\
+&= - \frac{1}{f_1} \cdot ((f_1-(f_1)^2)v_1 + (-f_1 \cdot f_2)v_2) \\
+&= (1-f_1) v_1 - f_2 v_2 \\
+&= v_1 - (f_1 v_1 + v_2 v_2)
+\end{aligned}</script><script type="math/tex; mode=display">\frac{\partial L}{\partial v_1} = \frac{\partial L}{\partial f_1} \frac{\partial f_1}{\partial v_1}=-(1-f_1)x</script><script type="math/tex; mode=display">\frac{\partial L}{\partial v_2} = \frac{\partial L}{\partial f_1} \frac{\partial f_1}{\partial v_2}= f_2 x</script><p>第四步：推广到多个变量$v_1, v_2, v_3…$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\partial L}{\partial x} &= v1-(\sum_i v_i x) \\
+\frac{\partial L}{\partial v_1} &= -(1-f_1)x \\
+\frac{\partial L}{\partial v_2} &= f_2 x \\
+\frac{\partial L}{\partial v_3} &= f_3 x
+\end{aligned}</script><h2 id="4-Experiments"><a href="#4-Experiments" class="headerlink" title="4. Experiments"></a>4. Experiments</h2><h3 id="4-1-Effectiveness-of-Online-Instance-Matching"><a href="#4-1-Effectiveness-of-Online-Instance-Matching" class="headerlink" title="4.1 Effectiveness of Online Instance Matching"></a>4.1 Effectiveness of Online Instance Matching</h3><img src="/2019/06/10/OIM/OIM_Softmax.png" title="comparisons between the OIM and Softmax loss">
+<img src="/2019/06/10/OIM/Softmax_OIM.png" title="Softmax OIM for standard person re-id task">
+<p><strong>Sub-sampling the identities</strong>:</p>
+<img src="/2019/06/10/OIM/sub_sampling.png" title="sub-sampling">
+<p>当 sub-sampling 的 size 更小的时候，最终性能差不多，但是收敛速度更快，说明了作者提出的方法能有效地处理大规模数据集。</p>
+<p><strong>Low-dimensional subspace</strong>: 作者对比了 128, 256, 512, 1024， 2048-dimention，发现原始的 2048 维特征得到结果不如其他。</p>
+<img src="/2019/06/10/OIM/low_dimensional_subspace.png" title="low dimensional subspace">
+<h2 id="5-code"><a href="#5-code" class="headerlink" title="5. code"></a>5. code</h2><p>从 open-reid 中只能看到 LUT 的代码，可以看出来，这个代码和 ECN 的代码可以说是一样，牛逼啊。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn, autograd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OIM</span><span class="params">(autograd.Function)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, lut, momentum=<span class="number">0.5</span>)</span>:</span></span><br><span class="line">        super(OIM, self).__init__()</span><br><span class="line">        self.lut = lut</span><br><span class="line">        self.momentum = momentum</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, inputs, targets)</span>:</span></span><br><span class="line">        self.save_for_backward(inputs, targets)</span><br><span class="line">        outputs = inputs.mm(self.lut.t())</span><br><span class="line">        <span class="keyword">return</span> outputs</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(self, grad_outputs)</span>:</span></span><br><span class="line">        inputs, targets = self.saved_tensors</span><br><span class="line">        grad_inputs = <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">if</span> self.needs_input_grad[<span class="number">0</span>]:</span><br><span class="line">            grad_inputs = grad_outputs.mm(self.lut)</span><br><span class="line">        <span class="keyword">for</span> x, y <span class="keyword">in</span> zip(inputs, targets):</span><br><span class="line">            self.lut[y] = self.momentum * self.lut[y] + (<span class="number">1.</span> - self.momentum) * x</span><br><span class="line">            self.lut[y] /= self.lut[y].norm()</span><br><span class="line">        <span class="keyword">return</span> grad_inputs, <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">oim</span><span class="params">(inputs, targets, lut, momentum=<span class="number">0.5</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> OIM(lut, momentum=momentum)(inputs, targets)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OIMLoss</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, num_features, num_classes, scalar=<span class="number">1.0</span>, momentum=<span class="number">0.5</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                 weight=None, size_average=True)</span>:</span></span><br><span class="line">        super(OIMLoss, self).__init__()</span><br><span class="line">        self.num_features = num_features</span><br><span class="line">        self.num_classes = num_classes</span><br><span class="line">        self.momentum = momentum</span><br><span class="line">        self.scalar = scalar <span class="comment"># Temperature</span></span><br><span class="line">        self.weight = weight</span><br><span class="line">        self.size_average = size_average</span><br><span class="line">        <span class="comment"># ECN 这里用的 nn.Parapmeter</span></span><br><span class="line">        self.register_buffer(<span class="string">'lut'</span>, torch.zeros(num_classes, num_features))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, inputs, targets)</span>:</span></span><br><span class="line">        inputs = oim(inputs, targets, self.lut, momentum=self.momentum)</span><br><span class="line">        inputs *= self.scalar</span><br><span class="line">        loss = F.cross_entropy(inputs, targets, weight=self.weight,</span><br><span class="line">                               size_average=self.size_average)</span><br><span class="line">        <span class="keyword">return</span> loss, inputs</span><br></pre></td></tr></table></figure>
+<p>这里我有点晕，简单理一理。</p>
+<p>第一，定义 operation: $output =  F (input, target;\theta)$。因为 LUT 的前向传播和反向传播不同于一般的 operation，所以需要重新定义 operation，手动实现前向传播和反向传播，前向传播需要 lut, inputs，反向传播对 inputs 求导和 利用 target 对 lut 的更新。</p>
+<p>第二，定义损失函数 Loss. 这个 OIMLoss 用了一个层来包装整个 operation 和 变量，方便管理。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/person-re-id/" rel="tag"># person re-id</a>
+          
+            <a href="/tags/memory/" rel="tag"># memory</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/03/DIMN/" rel="next" title="DIMN">
+                <i class="fa fa-chevron-left"></i> DIMN
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Jiajie Tian" />
+            
+              <p class="site-author-name" itemprop="name">Jiajie Tian</p>
+              <p class="site-description motion-element" itemprop="description">记录一些学习到的东西和论文记录</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Method"><span class="nav-number">2.</span> <span class="nav-text">3. Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Online-Instance-Matching-Loss"><span class="nav-number">2.1.</span> <span class="nav-text">3.1 Online Instance Matching Loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Experiments"><span class="nav-number">3.</span> <span class="nav-text">4. Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Effectiveness-of-Online-Instance-Matching"><span class="nav-number">3.1.</span> <span class="nav-text">4.1 Effectiveness of Online Instance Matching</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-code"><span class="nav-number">4.</span> <span class="nav-text">5. code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiajie Tian</span>
+
+  
+</div>
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+  <span id="busuanzi_container_site_pv">
+      总访问量: <span id="busuanzi_value_site_pv"></span>
+  </span>
+  <span id="busuanzi_container_site_uv">
+      总访客: <span id="busuanzi_value_site_uv"></span>
+  </span>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量: <span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://tjj-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/06/10/OIM/';
+          this.page.identifier = '2019/06/10/OIM/';
+          this.page.title = 'OIM';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tjj-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'ErGCGWbk2tFGvy1PwEHyWep2-gzGzoHsz',
+        appKey: 'lDeNb0Sq8mjWkijnty2BuE7V',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('4');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

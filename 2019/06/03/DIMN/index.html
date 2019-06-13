@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/06/03/DIMN/Network.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/03/DIMN/dataset.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/03/DIMN/ablation.png">
-<meta property="og:updated_time" content="2019-06-10T08:19:40.061Z">
+<meta property="og:updated_time" content="2019-06-10T08:35:17.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DIMN">
 <meta name="twitter:description" content="1. 前言 paper: Generalizable Person Re-identification by Domain-Invariant Mapping Network code: 暂无">
@@ -489,7 +489,7 @@
 </ul>
 <p><strong>Encoding Subnet</strong>(最基本的分类损失): MobilenetV2，这个也是 (MobilenetV2，另外一篇 distill 也是) 。假设在融合后的 $M$ 个数据集中一共有 $C$ 个行人，每个 mini-batch 中取 $C_b$ 个行人，对于每个行人 $l_i$，取两张图片，分别设置为 gallery $\tilde{x}_i$ 和 probe $x_i$，所以在每个 batch 中有 $2C_b$ 个行人图片，组成 $2C_b$ pairs(两张图片可以调过来)。</p>
 <p>最基本的分类损失：</p>
-<script type="math/tex; mode=display">L_{id}=\sum_{i=1}^{C_b}$ Cross\_Entropy(l_i, Softmax(f_{\theta}(g_{\phi}(x_i)))</script><p>其中 $x_i$ 表示输入图片，$l_i$ 表示标签，$g_{\phi}$ 表示 encoding subnet，得到的是 D 维特征向量，$f_{\theta}$表示分类器，$\theta \in R^{D\times C}$</p>
+<script type="math/tex; mode=display">L_{id}=\sum_{i=1}^{C_b} Cross\_Entropy(l_i, Softmax(f_{\theta}(g_{\phi}(x_i)))</script><p>其中 $x_i$ 表示输入图片，$l_i$ 表示标签，$g_{\phi}$ 表示 encoding subnet，得到的是 D 维特征向量，$f_{\theta}$表示分类器，$\theta \in R^{D\times C}$</p>
 <p><strong>Mapping Subnet</strong>：相对于传统的分类权重 $\theta_{\cdot,j}$ 作为模型参数的一部分，作者直接生成分类权重 identity classifier weight vector：</p>
 <script type="math/tex; mode=display">\hat{\theta}_{\cdot,j}=h_w(g_{\phi}(\tilde{x}_i))</script><p>其中 mapping subnet $h_w$ 可以理解成 hyper-network(不懂，难道为其他网络生成参数就是 hyper-network)，这里可以使用简单的 multi-layer perception (MLP)。</p>
 <p>对于给定的 gallery image $\tilde{x}_j$ and probe image $x_i$，得到 $\hat{\theta}_{\cdot,j}$，进而得到 logit vector $p$:</p>
@@ -578,6 +578,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/10/OIM/" rel="prev" title="OIM">
+                OIM <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -668,7 +672,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -690,7 +694,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
