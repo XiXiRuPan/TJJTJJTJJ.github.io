@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/Softmax_OIM.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/sub_sampling.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/10/OIM/low_dimensional_subspace.png">
-<meta property="og:updated_time" content="2019-06-13T07:58:18.176Z">
+<meta property="og:updated_time" content="2019-06-14T08:54:52.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OIM">
 <meta name="twitter:description" content="1. Introduction paper: CVPR2017_Joint Detection and Identification Feature Learning for Person Search code: caffe, [pytorch][https://github.com/Cysu/open-reid] project: End-to-End Deep Learning for Pe">
@@ -442,7 +442,7 @@
 <li>paper: <a href="https://arxiv.org/abs/1604.01850" target="_blank" rel="noopener">CVPR2017_Joint Detection and Identification Feature Learning for Person Search</a></li>
 <li>code: <a href="https://github.com/ShuangLI59/person_search" target="_blank" rel="noopener">caffe</a>, [pytorch][<a href="https://github.com/Cysu/open-reid" target="_blank" rel="noopener">https://github.com/Cysu/open-reid</a>]</li>
 <li>project: <a href="http://www.ee.cuhk.edu.hk/~xgwang/PS/dataset.html" target="_blank" rel="noopener">End-to-End Deep Learning for Person Search</a></li>
-<li>memory: </li>
+<li>memory: OIM, DIMN, MAR, ECN</li>
 </ul>
 <a id="more"></a>
 <p>1作: <a href="http://www.mit.edu/~lishuang/" target="_blank" rel="noopener">Shuang Li</a>，跟过汤晓鸥。</p>
@@ -462,8 +462,8 @@
 <img src="/2019/06/10/OIM/LUT.png" title="LUT">
 <p>对于 a unlabeled identites，使用 <strong>a circular queue</strong> $U\in R^{D\times Q}$ 来储存 the features of unlabeed identites that appear in recent mini-batches，其中 $Q$ 表示　queue size. 前向传播时，计算 cos 距离 $V^T x$，反向传播时，弹出 queue 顶端的 features，插入当前 batch 的特征。</p>
 <p>通过上面两个结构，作者重新定义了 $x$ 属于某类的概率:</p>
-<script type="math/tex; mode=display">p_i = \frac{\exp(v_i^T x/\tau)}{\sum_{j=1}^L \exp(v_j^T x/\tau)}+ \sum_{k=1}^Q \exp(u_k^T x/\tau)</script><p>其中，更高的 $\tau$ 导致更平缓的分布。</p>
-<script type="math/tex; mode=display">q_i = \frac{\exp(u_i^T x/\tau)}{\sum_{j=1}^L \exp(v_j^T x/\tau)}+ \sum_{k=1}^Q \exp(u_k^T x/\tau)</script><p>损失函数为:</p>
+<script type="math/tex; mode=display">p_i = \frac{\exp(v_i^T x/\tau)}{\sum_{j=1}^L \exp(v_j^T x/\tau)+ \sum_{k=1}^Q \exp(u_k^T x/\tau)}</script><p>其中，更高的 $\tau$ 导致更平缓的分布。</p>
+<script type="math/tex; mode=display">q_i = \frac{\exp(u_i^T x/\tau)}{\sum_{j=1}^L \exp(v_j^T x/\tau)+ \sum_{k=1}^Q \exp(u_k^T x/\tau)}</script><p>损失函数为:</p>
 <script type="math/tex; mode=display">L = E_x [-\log p_t]</script><p>我觉得作者这里写错了，但无伤大雅。</p>
 <p>其对 $x$ 的反向推导很有意思，是：</p>
 <script type="math/tex; mode=display">\frac{\partial L}{\partial x}=-\frac{1}{\tau}[ v_t-\sum_{j=1}^L p_j v_t-\sum_{k=1}^Q q_k u_k ]</script><p>后面会补充整个推导过程</p>
@@ -544,6 +544,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/14/person-re-id-with-memory/" rel="prev" title="person re-id with memory ">
+                person re-id with memory  <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -634,7 +638,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
