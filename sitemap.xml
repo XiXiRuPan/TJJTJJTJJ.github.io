@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/11/20/docker/</loc>
+    
+    <lastmod>2019-12-05T07:39:23.699Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/04/docker/Docker/</loc>
+    
+    <lastmod>2019-12-04T08:22:20.598Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
+    
+    <lastmod>2019-11-26T09:13:13.504Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/10/object-detection/</loc>
+    
+    <lastmod>2019-10-11T08:32:30.014Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/06/14/person-re-id-with-memory/</loc>
     
     <lastmod>2019-06-14T09:00:40.235Z</lastmod>
@@ -138,13 +166,6 @@
     <loc>http://yoursite.com/2019/01/24/GANimation/</loc>
     
     <lastmod>2019-03-28T08:15:53.709Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
-    
-    <lastmod>2019-03-02T03:49:26.703Z</lastmod>
     
   </url>
   

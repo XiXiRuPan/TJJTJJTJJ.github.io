@@ -4,6 +4,87 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/11/20/docker/</loc>
+    <lastmod>2019-12-05T07:39:23.699Z</lastmod>
+    <data>
+        <display>
+        <title>docker</title>
+        <pubTime>2019-11-20T07:46:58.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>容器</tag>
+         
+         
+           
+             
+              <breadCrumb title="容器" url="http://yoursite.com/categories/%E5%AE%B9%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/12/04/docker/Docker/</loc>
+    <lastmod>2019-12-04T08:22:20.598Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2019-12-04T08:20:45.687Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
+    <lastmod>2019-11-26T09:13:13.504Z</lastmod>
+    <data>
+        <display>
+        <title>GPU</title>
+        <pubTime>2018-12-26T07:14:08.000Z</pubTime>
+        
+        <tag>driver</tag>
+         
+        <tag>cuda</tag>
+         
+        <tag>cudnn</tag>
+         
+         
+           
+             
+              <breadCrumb title="GPU" url="http://yoursite.com/categories/GPU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/10/10/object-detection/</loc>
+    <lastmod>2019-10-11T08:32:30.014Z</lastmod>
+    <data>
+        <display>
+        <title>object detection</title>
+        <pubTime>2019-10-10T14:11:48.000Z</pubTime>
+        
+        <tag>object detection</tag>
+         
+         
+           
+             
+              <breadCrumb title="object detection" url="http://yoursite.com/categories/object-detection/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/06/14/person-re-id-with-memory/</loc>
     <lastmod>2019-06-14T09:00:40.235Z</lastmod>
     <data>
@@ -431,30 +512,6 @@
            
              
               <breadCrumb title="GAN" url="http://yoursite.com/categories/GAN/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/26/GPU/</loc>
-    <lastmod>2019-03-02T03:49:26.703Z</lastmod>
-    <data>
-        <display>
-        <title>GPU</title>
-        <pubTime>2018-12-26T07:14:08.000Z</pubTime>
-        
-        <tag>driver</tag>
-         
-        <tag>cuda</tag>
-         
-        <tag>cudnn</tag>
-         
-         
-           
-             
-              <breadCrumb title="GPU" url="http://yoursite.com/categories/GPU/"/>
           
         </display>
     </data>

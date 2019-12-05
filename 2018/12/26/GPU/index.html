@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="田佳杰">
 <meta property="og:description" content="主要记录从安装显卡驱动到cudnn的过程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-02T03:49:26.703Z">
+<meta property="og:updated_time" content="2019-11-26T09:13:13.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GPU">
 <meta name="twitter:description" content="主要记录从安装显卡驱动到cudnn的过程。">
@@ -594,7 +594,13 @@
 <h1 id="9-cuda、cudnn的卸载"><a href="#9-cuda、cudnn的卸载" class="headerlink" title="9. cuda、cudnn的卸载"></a>9. cuda、cudnn的卸载</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 卸载cuda</span><br><span class="line">sudo /usr/local/cuda-9.0/bin/uninstall_cuda_9.0.pl</span><br><span class="line"><span class="meta">#</span> 删除cuda</span><br><span class="line">sudo rm -rf /usr/local/cuda-9.0</span><br><span class="line"><span class="meta">#</span> 卸载cudnn</span><br><span class="line">sudo rm -rf /usr/local/cuda/include/cudnn.h</span><br><span class="line">sudo rm -rf /usr/local/cuda/lib64/libcudnn</span><br></pre></td></tr></table></figure>
 <h1 id="10-teamviewer-for-Linux-的安装与卸载"><a href="#10-teamviewer-for-Linux-的安装与卸载" class="headerlink" title="10. teamviewer for Linux 的安装与卸载"></a>10. teamviewer for Linux 的安装与卸载</h1><p>主要针对teamviewer出现商业用途时使用。</p>
 <p>参考: <a href="https://www.cnblogs.com/fxust/p/8040706.html" target="_blank" rel="noopener">https://www.cnblogs.com/fxust/p/8040706.html</a></p>
+<p>第一种方法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 1. 卸载</span></span><br><span class="line">dpkg -l |grep xxx</span><br><span class="line"><span class="comment">#xxx就是安装的软件名</span></span><br><span class="line">sudo dpkg --purge xxxx</span><br><span class="line">rm -rf ~/.local/share/xxxx</span><br><span class="line"><span class="comment"># 然后把所有teamviewer的文件，尤其是log文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 安装</span></span><br><span class="line">sudo dpkg -i teamviewer_13<span class="number">.0</span><span class="number">.5693</span>_amd64.deb</span><br><span class="line"><span class="comment"># 2.1 如果出现错误</span></span><br><span class="line"><span class="comment">#添加架构依赖</span></span><br><span class="line">sudo dpkg --add-architecture i386</span><br><span class="line"><span class="comment">#更新软件库</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="comment">#执行强制安装</span></span><br><span class="line">sudo apt-get -f install</span><br><span class="line"><span class="comment">#再安装</span></span><br><span class="line">sudo dpkg -i teamviewer_13<span class="number">.0</span><span class="number">.5693</span>_amd64.deb</span><br><span class="line"><span class="comment"># 配置文件可以修改，可以不改</span></span><br></pre></td></tr></table></figure>
+<p>第二种方法</p>
+<p><a href="https://blog.csdn.net/gaowu959/article/details/80460815" target="_blank" rel="noopener">https://blog.csdn.net/gaowu959/article/details/80460815</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/init.d/rc.local</span><br><span class="line"></span><br><span class="line">sudo /sbin/ifconfig eth0 down</span><br><span class="line"></span><br><span class="line">sudo /sbin/ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE（新的MAC地址）</span><br><span class="line"></span><br><span class="line">sudo /sbin/ifconfig eht0 up</span><br></pre></td></tr></table></figure>
+<p>点击右上角网络连接-&gt;编辑连接-&gt;以太网<br>在克隆MAC地址一栏输入00:AA:BB:CC:DD:EE（新的MAC地址）</p>
+
       
     </div>
     
@@ -731,7 +737,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -742,7 +748,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -753,7 +759,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
