@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2019/11/20/docker/</loc>
-    <lastmod>2019-12-05T07:39:23.699Z</lastmod>
+    <lastmod>2019-12-05T08:32:59.106Z</lastmod>
     <data>
         <display>
         <title>docker</title>
@@ -20,21 +20,6 @@
              
               <breadCrumb title="容器" url="http://yoursite.com/categories/%E5%AE%B9%E5%99%A8/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2019/12/04/docker/Docker/</loc>
-    <lastmod>2019-12-04T08:22:20.598Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2019-12-04T08:20:45.687Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -288,9 +273,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>github</tag>
          
         <tag>npm</tag>
          
