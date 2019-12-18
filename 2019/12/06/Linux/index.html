@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="田佳杰" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="参考资料：  尚硅谷">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="http://yoursite.com/2019/12/06/Linux/index.html">
+<meta property="og:site_name" content="田佳杰">
+<meta property="og:description" content="参考资料：  尚硅谷">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-16T13:41:50.860Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux">
+<meta name="twitter:description" content="参考资料：  尚硅谷">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/06/Linux/"/>
+
+
+
+
+
+  <title>Linux | 田佳杰</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/TJJTJJTJJ/TJJTJJTJJ.github.io.git"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">田佳杰</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">代码的搬运工</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/06/Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiajie Tian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="田佳杰">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-06T16:26:19+08:00">
+                2019-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/06/Linux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/12/06/Linux/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>参考资料：</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/av21303002?p=1" target="_blank" rel="noopener">尚硅谷</a></li>
+</ul>
+<a id="more"></a>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><ul>
+<li><a href="http://c.biancheng.net/view/714.html" target="_blank" rel="noopener">http://c.biancheng.net/view/714.html</a></li>
+<li><a href="https://blog.csdn.net/qq_39038465/article/details/81478847" target="_blank" rel="noopener">https://blog.csdn.net/qq_39038465/article/details/81478847</a></li>
+<li><a href="https://blog.csdn.net/qq_42570879/article/details/82853708" target="_blank" rel="noopener">https://blog.csdn.net/qq_42570879/article/details/82853708</a></li>
+</ul>
+<p>主机BIOS开启虚拟化+VM workstation+centos(GNOME Desktop+NAT)</p>
+<p><strong>网络连接</strong>：</p>
+<p>假设教室的主机都在同一个网段 192.168.0.0，</p>
+<ul>
+<li>桥接模式：张三的虚拟机的ip也是192.168.0.xxx，占用网络ip，相当于新来了个主机，可以与张三互相通信，也可以和教室的其他主机互相通信，可以访问外网，缺点是可能会造成ip冲突</li>
+<li>NAT(常用)：李四的主机此时会出现两个ip，原有ip 192.168.0.50 和新ip 192.168.100.4，两个不在同一个网段，而虚拟机的ip是 192.168.100.5，虚拟机可以和李四的主机通过局域网 192.168.100.0 互相通信，虚拟机也可以和李四的其他虚拟机互相通信，也可以借助李四的主机访问到其他主机，可以上外网，但是其他主机无法访问到李四的虚拟机。不过可以使用端口转发功能实现其他主机访问李四的虚拟机。</li>
+<li>仅主机：虚拟机是一个独立的主机，只能与主机相互通信，无法与其他主机通信，也无法上网。可以通过网卡共享实现上网。</li>
+</ul>
+<p>网络连接测试:</p>
+<p>因为主机是直接连接在255的网络上，所以无法测试虚拟机与局域网内的其他主机的通信情况(ping)。</p>
+<p>VM安装之后宿主机自动配置网络 V1:192.168.176.1, V8:192.168.44.1</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">虚拟机</th>
+<th style="text-align:center">虚拟机ip</th>
+<th style="text-align:center">宿主机新增ip</th>
+<th style="text-align:center">虚拟机与宿主机通信</th>
+<th style="text-align:center">虚拟机之间通信</th>
+<th style="text-align:center">虚拟机上网</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">v1:桥接</td>
+<td style="text-align:center">ens33没有ip，virbr0:192.168.122.1</td>
+<td style="text-align:center">宿主机出现以太网2，没有ip</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">v2:NAT</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>算了，还是没折腾明白，以后有机会再说吧。</p>
+<p><strong>分区</strong>：</p>
+<ul>
+<li>/boot: 200M，linux启动文件，ext4</li>
+<li>/：</li>
+<li>swap：2048M，内存的1.5倍，ext4</li>
+</ul>
+<p><strong>win和虚拟机的复制粘贴命令，共享文件夹</strong>: vmtools, /mnt/</p>
+<p>linux一切皆为文件</p>
+<p>Xshell: 远程登录软件 XFTP5：远程上传下载文件</p>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>yy|复制当前行<br>5yy|复制当前行的向下5行<br>p|粘贴<br>dd|删除当前行<br>5dd|删除当前行的向下5行<br>/hhh|查找hhh<br>n|查找下一个<br>:set nu|设置行号<br>:set nonu|取消行号<br>gg|首行<br>5gg|第5行<br>G|末行<br>20+shift+g|第20行</p>
+<h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><p>shutdown:</p>
+<ul>
+<li>shutdown -h now: 立即关机</li>
+<li>shutdown -h 1: 1分钟后关机</li>
+<li>shutdown -r now: 立即重启</li>
+</ul>
+<p>halt: 关机<br>reboot: 重启<br>sync: 内存数据同步到磁盘</p>
+<p>应该先执行 sync，再关机</p>
+<p>logout：注销用户，在运行级别3下有效，在用户界面无效</p>
+<p>logout: 只能在非用户界面的登录的shell使用，<br>exit：可以用于脚本并返回信息，可以在套层shell中退出当前shell，可以在切换过用户的情况下使用</p>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用户管理</span></span><br><span class="line">useradd [] 用户名</span><br><span class="line">useradd tjj</span><br><span class="line">useradd -d /home/tiger zf</span><br><span class="line">passwd zf <span class="comment"># 指定或者修改密码</span></span><br><span class="line">userdel zf <span class="comment"># 保留/HOME_NAME目录</span></span><br><span class="line">userdel -r zf <span class="comment"># 删除/HOME_NAME目录</span></span><br><span class="line">usermod -d /usr/newfolder -u uid username <span class="comment"># 修改用户目录</span></span><br><span class="line"></span><br><span class="line">id root</span><br><span class="line">su zf <span class="comment"># 只是切换用户，shell环境还是之前用户的shell，只能用exit退出</span></span><br><span class="line">su - zf <span class="comment"># 用户和shell都一起切换，可以用logout, exit退出</span></span><br><span class="line"><span class="comment"># su, su - : echo $PATH, pwd 都不一样</span></span><br><span class="line">whoami</span><br><span class="line"></span><br><span class="line"><span class="comment"># 组的管理</span></span><br><span class="line">groupadd wudang</span><br><span class="line">groupdel wudang</span><br><span class="line">useradd -g wudang zwj</span><br><span class="line">usermod -g shaolin zwj</span><br><span class="line"></span><br><span class="line"><span class="comment"># 相关文件</span></span><br><span class="line">/etc/passwd <span class="comment"># 用户信息</span></span><br><span class="line">/etc/group <span class="comment"># 组信息</span></span><br><span class="line">/etc/shadow <span class="comment"># 密码等信息</span></span><br></pre></td></tr></table></figure>
+<h2 id="实用指令"><a href="#实用指令" class="headerlink" title="实用指令"></a>实用指令</h2><h3 id="运行级别"><a href="#运行级别" class="headerlink" title="运行级别"></a>运行级别</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定运行级别</span></span><br><span class="line"><span class="comment"># 常用3和5</span></span><br><span class="line">0: 关机</span><br><span class="line">1: 单用户，找回丢失密码</span><br><span class="line">2: 多用户无网络服务</span><br><span class="line">3: 多用户有网络服务</span><br><span class="line">4: 系统未实用保留给用户</span><br><span class="line">5: 图形界面</span><br><span class="line">6: 系统重启</span><br><span class="line">/etc/inittab <span class="comment"># 运行级别配置文件</span></span><br><span class="line">init 2 <span class="comment"># 切换到运行级别</span></span><br><span class="line"><span class="comment"># centos7 使用systemctl代替init</span></span><br><span class="line">systemctl get-default</span><br><span class="line">systemctl <span class="built_in">set</span>-default multi-user.target</span><br><span class="line">systemctl isolate multi-user.target</span><br><span class="line">systemctl isolate graphical.target</span><br><span class="line">runlevel</span><br><span class="line"><span class="comment"># 找回/修改root密码</span></span><br><span class="line"><span class="comment"># 进入单用户模式, centos6 和 7 有点区别</span></span><br><span class="line"><span class="comment"># https://www.cnblogs.com/jsjrj01/p/10301603.html</span></span><br></pre></td></tr></table></figure>
+<h3 id="帮助指令"><a href="#帮助指令" class="headerlink" title="帮助指令"></a>帮助指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">man ls</span><br><span class="line"><span class="built_in">help</span> <span class="built_in">cd</span></span><br><span class="line">ls --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br><span class="line">mkdir -p /home/tjj/animal/dog</span><br><span class="line">rmdir <span class="comment"># 删除空目录</span></span><br><span class="line">rm -rf <span class="comment"># 非空目录</span></span><br><span class="line">touch test1.txt test2.txt <span class="comment"># 创建空文件</span></span><br><span class="line">cp aaa.txt ./bbb/ <span class="comment"># bbb/aaa.txt</span></span><br><span class="line">cp aaa.txt ./bbb/bbb.txt <span class="comment"># bbb/bbb.txt</span></span><br><span class="line">cp -r bbb/ ccc/ <span class="comment"># ccc/bbb/bbb.txt</span></span><br><span class="line">cp -r bbb/ ccc/ddd <span class="comment"># ccc/ddd/bbb.txt</span></span><br><span class="line">cp -r bbb/. ccc/ <span class="comment"># 文件夹下的所有文件复制到另一个文件夹 ccc/aaa.txt ccc/bbb.txt</span></span><br><span class="line">cp -r bbb/* ccc/ <span class="comment"># 同上，文件夹下的所有文件复制到另一个文件夹</span></span><br><span class="line">mv oldName newName <span class="comment"># 重命名，需要oldName和newName在同一个文件夹</span></span><br><span class="line">mv aaa.txt ./bbb/bbb.txt <span class="comment"># 移动的同时重命名，./bbb 存在</span></span><br><span class="line">mv aaa.txt ./bbb/ <span class="comment"># bbb存在，移动</span></span><br><span class="line">cat -n /etc/profile | more <span class="comment"># 空格，enter</span></span><br><span class="line">more /etc/profile <span class="comment"># 空格，enter</span></span><br><span class="line">less /etc/profile <span class="comment"># 只加载需要显示的内容，对于大型文件有效率，空格，enter</span></span><br><span class="line">less /etc/profile , /hhh <span class="comment"># 查找</span></span><br></pre></td></tr></table></figure>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;  <span class="comment"># 输出重定向，覆盖写，文件可不存在</span></span><br><span class="line">&gt;&gt; <span class="comment"># 输出重定向，追加</span></span><br></pre></td></tr></table></figure>
+<h3 id="echo-head-tail"><a href="#echo-head-tail" class="headerlink" title="echo head tail"></a>echo head tail</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello"</span></span><br><span class="line">head /etc/profile <span class="comment"># 查看文件的开头部分内容</span></span><br><span class="line">head -n 5 /etc/profile</span><br><span class="line">tail /etc/profile <span class="comment"># 查看文件的尾部内容</span></span><br><span class="line">tail -n 5 /etc/profile</span><br><span class="line">tail -f log.txt <span class="comment"># 实时追踪文件的更新</span></span><br></pre></td></tr></table></figure>
+<h3 id="ln-history"><a href="#ln-history" class="headerlink" title="ln history"></a>ln history</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ln -s /root/ /home/tjj/linkToRoot <span class="comment"># 软连接</span></span><br><span class="line">rm -rf /home/tjj/linkToRoot <span class="comment"># 不能写成 /home/tjj/linkToRoot/</span></span><br><span class="line"><span class="built_in">history</span></span><br><span class="line"><span class="built_in">history</span> 10 <span class="comment"># 最近的10条指令</span></span><br><span class="line">!178 <span class="comment"># 执行编号是178的指令</span></span><br></pre></td></tr></table></figure>
+<h3 id="时间日期"><a href="#时间日期" class="headerlink" title="时间日期"></a>时间日期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">date <span class="comment"># 显示日期</span></span><br><span class="line">date <span class="string">"+%Y %m %d %H:%M:%S"</span> <span class="comment"># 显示日期,+不能省略</span></span><br><span class="line">date -s <span class="string">"2019-11-11 12:23:34"</span> <span class="comment"># 设置系统时间</span></span><br><span class="line"></span><br><span class="line">cal <span class="comment"># 日历</span></span><br><span class="line">cal 2020 <span class="comment"># 显示2020年的日历</span></span><br></pre></td></tr></table></figure>
+<h3 id="搜索查找类"><a href="#搜索查找类" class="headerlink" title="搜索查找类"></a>搜索查找类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">find [搜索范围] [选项]</span><br><span class="line">find /home -name hello.txt <span class="comment"># 按名字搜索</span></span><br><span class="line">find /home -user tjj <span class="comment"># 按照拥有者查找</span></span><br><span class="line">find / -size +20M <span class="comment"># 查找大于20M的文件，20k, -20M(小于20M), 20M(等于20M)</span></span><br><span class="line">find /home -name <span class="string">"*.txt"</span> <span class="comment"># \*.txt, m*.txt, "m*.txt"</span></span><br><span class="line"></span><br><span class="line">updatedb <span class="comment"># 第一次运行时需要建立 locate 数据库</span></span><br><span class="line">locate hello.txt</span><br><span class="line"></span><br><span class="line">grep [选项] 查找内容 源文件</span><br><span class="line">grep -n yes hello.txt <span class="comment"># 显示行号</span></span><br><span class="line">grep -i yes hello.txt <span class="comment"># 忽略大小写</span></span><br><span class="line">cat hello.txt | grep -n yes</span><br></pre></td></tr></table></figure>
+<h3 id="压缩和解压缩"><a href="#压缩和解压缩" class="headerlink" title="压缩和解压缩"></a>压缩和解压缩</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">gzip/gunzip</span><br><span class="line">gzip hello.txt <span class="comment"># 压缩成.gz文件，并且压缩后不会保留原文件</span></span><br><span class="line">gunzip hello.txt.gz <span class="comment"># 解压</span></span><br><span class="line">gzip hello1.txt hello2.txt <span class="comment"># 压缩成 hello1.txt.gz hello2.txt.gz</span></span><br><span class="line"></span><br><span class="line">zip/unzip</span><br><span class="line">zip -r mypackage.zip /home/tjj/ <span class="comment"># 递归压缩</span></span><br><span class="line">unzip -d /opt/tmp/ mypackage.zip <span class="comment"># 指定解压后的文件目录</span></span><br><span class="line"></span><br><span class="line">tar <span class="comment"># .tar.gz</span></span><br><span class="line">tar -zcvf a.tar.gz a1.txt a2.txt <span class="comment"># 将a1.txt和a2.txt压缩到一个压缩包，a.tar.gz</span></span><br><span class="line">tar -zcvf a.tar.gz /home/tjj/ <span class="comment"># 压缩文件夹</span></span><br><span class="line">tar -zxvf a.tar.gz <span class="comment">#</span></span><br><span class="line">tar -zxvf a.tar.gz -C /opt/ <span class="comment"># 解压到/opt下</span></span><br></pre></td></tr></table></figure>
+<h1 id="组管理和权限管理"><a href="#组管理和权限管理" class="headerlink" title="组管理和权限管理"></a>组管理和权限管理</h1><h2 id="组"><a href="#组" class="headerlink" title="组"></a>组</h2><p>文件: 所有人，所有组，其他组<br>所有人的组可以和所有组不一致。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">ls -ahl ok.txt</span><br><span class="line">groupadd police</span><br><span class="line">useradd -g police tom</span><br><span class="line">passwd tom</span><br><span class="line">su tom</span><br><span class="line">touch ok.txt</span><br><span class="line">[tom@localhost ~]$ ls -hl</span><br><span class="line">total 0</span><br><span class="line">-rw-r--r--. 1 tom police 0 Dec 12 21:37 ok.txt</span><br><span class="line"></span><br><span class="line">chown tjj ok.txt <span class="comment"># 修改文件所有人</span></span><br><span class="line">[root@localhost tom]<span class="comment"># chown tjj ok.txt</span></span><br><span class="line">[root@localhost tom]<span class="comment"># ls -l</span></span><br><span class="line">total 0</span><br><span class="line">-rw-r--r--. 1 tjj police 0 Dec 12 21:37 ok.txt <span class="comment"># 组没有发生变化</span></span><br><span class="line"></span><br><span class="line">chown tom:police ok.txt <span class="comment"># 同时修改文件的所有人和所有者</span></span><br><span class="line">chown -R tom:police test1/ <span class="comment"># 递归修改目录及其所有子目录的所有人和所有者</span></span><br><span class="line"></span><br><span class="line">chgrp shaolin ok.txt <span class="comment"># 只修改所在组</span></span><br><span class="line">chgrp -R shaolin test2/ <span class="comment"># 递归所有目录修改所在组</span></span><br><span class="line">[root@localhost tom]<span class="comment"># chgrp shaolin ok.txt</span></span><br><span class="line">[root@localhost tom]<span class="comment"># ls -l</span></span><br><span class="line">total 0</span><br><span class="line">-rw-r--r--. 1 tjj shaolin 0 Dec 12 21:37 ok.txt</span><br><span class="line"></span><br><span class="line">usermod -g 组名 用户名 <span class="comment"># 修改用户所在组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 情况一：建立test1.txt，默认所有人和所有组，当所有人所在组发生改变时，文件的所有组也发生改变</span></span><br><span class="line">[root@localhost tom]<span class="comment"># ls -l</span></span><br><span class="line">total 0</span><br><span class="line">-rw-r--r--. 1 tom police 0 Dec 12 21:47 test1.txt</span><br><span class="line">[root@localhost tom]<span class="comment"># usermod -g shaolin tom</span></span><br><span class="line">[root@localhost tom]<span class="comment"># id tom</span></span><br><span class="line">uid=1006(tom) gid=1006(shaolin) groups=1006(shaolin)</span><br><span class="line">[root@localhost tom]<span class="comment"># ls -l</span></span><br><span class="line">total 0</span><br><span class="line">-rw-r--r--. 1 tom shaolin 0 Dec 12 21:47 test1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 情况二：建立test1.txt，对文件所在组发生改变后，当所有人所在组发生改变时，文件的所在组不发生改变</span></span><br><span class="line">[root@localhost tom]<span class="comment"># chgrp shaolin test1.txt</span></span><br><span class="line">[root@localhost tom]<span class="comment"># ls -l</span></span><br><span class="line">total 0</span><br><span class="line">-rw-r--r--. 1 tom shaolin 0 Dec 12 21:55 test1.txt</span><br><span class="line">[root@localhost tom]<span class="comment"># usermod -g test1 tom</span></span><br><span class="line">[root@localhost tom]<span class="comment"># ls -l</span></span><br><span class="line">total 0</span><br><span class="line">-rw-r--r--. 1 tom shaolin 0 Dec 12 21:55 test1.txt</span><br><span class="line">[root@localhost tom]<span class="comment"># id tom</span></span><br><span class="line">uid=1006(tom) gid=1001(test1) groups=1001(test1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 情况三：修改所有人的所在组和文件的所有组一致后，再修改所有人的所在组就会改变文件的所在组</span></span><br><span class="line">[root@localhost tom]<span class="comment"># usermod -g shaolin tom</span></span><br><span class="line">[root@localhost tom]<span class="comment"># id tom</span></span><br><span class="line">uid=1006(tom) gid=1006(shaolin) groups=1006(shaolin)</span><br><span class="line">[root@localhost tom]<span class="comment"># ls -l</span></span><br><span class="line">total 0</span><br><span class="line">-rw-r--r--. 1 tom shaolin 0 Dec 12 21:55 test1.txt</span><br><span class="line">[root@localhost tom]<span class="comment"># usermod -g test1 tom</span></span><br><span class="line">[root@localhost tom]<span class="comment"># id tom</span></span><br><span class="line">uid=1006(tom) gid=1001(test1) groups=1001(test1)</span><br><span class="line">[root@localhost tom]<span class="comment"># ls -l</span></span><br><span class="line">total 0</span><br><span class="line">-rw-r--r--. 1 tom test1 0 Dec 12 21:55 test1.txt</span><br></pre></td></tr></table></figure>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p>文件和目录的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost tjj]<span class="comment"># ls -l</span></span><br><span class="line">total 64344</span><br><span class="line">-rw-rw-r--. 1 tjj tjj        0 Dec 12 20:56 a1.txt</span><br><span class="line">drwxrwxr-x. 4 tjj tjj       28 Dec 12 21:01 animal</span><br><span class="line">drwxr-xr-x. 2 tjj tjj   6 Dec  9 16:04 Music</span><br><span class="line">drwxr-xr-x. 2 tjj tjj   6 Dec  9 16:04 Pictures</span><br><span class="line">drwxr-xr-x. 2 tjj tjj   6 Dec  9 16:04 Public</span><br><span class="line">drwxr-xr-x. 2 tjj tjj   6 Dec  9 16:04 Templates</span><br><span class="line">drwxr-xr-x. 2 tjj tjj   6 Dec  9 16:04 Videos</span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件类型</span></span><br><span class="line">- <span class="comment"># 普通文件</span></span><br><span class="line">d <span class="comment"># 目录</span></span><br><span class="line">l <span class="comment"># 软连接</span></span><br><span class="line">c <span class="comment"># 字符设备，键盘，鼠标等</span></span><br><span class="line">b <span class="comment"># 块文件，硬盘等</span></span><br><span class="line"></span><br><span class="line">1 <span class="comment"># 文件：硬链接 或者 目录: 子目录的个数</span></span><br><span class="line"></span><br><span class="line">7 <span class="comment"># 文件内的字符个数+1 '\0'</span></span><br><span class="line">4096 <span class="comment"># 目录的大小：4096，这里与老师讲的不一致。一种解释是块的大小是4KB</span></span><br><span class="line"></span><br><span class="line">Dec 12 21:55 <span class="comment"># 最后修改时间</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## rwx 详解</span></span><br><span class="line"><span class="comment"># 文件</span></span><br><span class="line"><span class="comment"># r=4, w=2, x=1</span></span><br><span class="line">r <span class="comment"># 读</span></span><br><span class="line">w <span class="comment"># 写，可以修改文件内的内容，对文件重命名</span></span><br><span class="line">x <span class="comment"># 可执行</span></span><br><span class="line"><span class="comment"># 目录</span></span><br><span class="line">r <span class="comment"># 读，ls</span></span><br><span class="line">w <span class="comment"># 写，可以在目录内创建、删除，对目录重命名</span></span><br><span class="line">x <span class="comment"># 可以进入，cd</span></span><br></pre></td></tr></table></figure>
+<h2 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="comment"># 修改文件或者目录权限</span></span><br><span class="line">+ - = <span class="comment"># 变更权限</span></span><br><span class="line">u: 所有者 g: 所在组 o: 其他人 a: 所有人</span><br><span class="line">chmod u=rwx,g=rx,o=x 文件目录名</span><br><span class="line">chmod o+w 文件目录名</span><br><span class="line">chmod a-x 文件目录名</span><br><span class="line">chmod 751 文件目录名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 权限实践-警察土匪游戏</span></span><br><span class="line"><span class="comment"># police: jack, jerry; bandit: xh, xq</span></span><br><span class="line">groupadd police</span><br><span class="line">groupadd bandit</span><br><span class="line">useradd -g police jack</span><br><span class="line">passwd jack</span><br><span class="line">useradd -g police jerry</span><br><span class="line">passwd jerry</span><br><span class="line">useradd -g bandit xh</span><br><span class="line">passwd xh</span><br><span class="line">useradd -g bandit xq</span><br><span class="line">passwd xq</span><br><span class="line"><span class="comment"># jack 创建一个文件，自己可以读写，本组人可以读，其他人没有任何权限</span></span><br><span class="line">touch test1.txt</span><br><span class="line">chmod 641 test1.txt</span><br><span class="line"><span class="comment"># jack 修改文件权限，本组人可以读写，其他人可以读</span></span><br><span class="line">chmod g=rw,o=r test1.txt</span><br><span class="line"><span class="comment"># xh 投靠警察，看看是否可以读写</span></span><br><span class="line">usermod -g police xh</span><br><span class="line">id xh</span><br><span class="line">chmod g=x test1.txt <span class="comment"># x 可以保证xh cd jack, 读写test1.txt，但是不能使用ls</span></span><br><span class="line"><span class="built_in">logout</span> <span class="comment"># xh, 重新登录刷新权限</span></span><br></pre></td></tr></table></figure>
+<h1 id="实操篇：crond-任务调度"><a href="#实操篇：crond-任务调度" class="headerlink" title="实操篇：crond 任务调度"></a>实操篇：crond 任务调度</h1><p>定时运行特定的命令或者脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">yum -y install vixie-cron</span><br><span class="line">yum -y install crontabs</span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">systemctl start crond.service</span><br><span class="line">systemctl status crond.service</span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">crontab -e</span><br><span class="line">*/1 * * * * ls -l /etc/ &gt; /tmp/to.txt</span><br><span class="line"><span class="comment"># 五个*分别表示：</span></span><br><span class="line"><span class="comment"># 一小时中的第几分钟: 0-59</span></span><br><span class="line"><span class="comment"># 一天的第几个小时 :  0-23</span></span><br><span class="line"><span class="comment"># 一个月的第几天   :  1-31</span></span><br><span class="line"><span class="comment"># 一年的第几个月   :  1-12</span></span><br><span class="line"><span class="comment"># 一周的第几周     :  0-7 (0表示星期日)</span></span><br><span class="line">* 23-7/1 1,3 * *  <span class="comment"># 每个月的第1,3天的晚上11点到早上7点之间，每隔一小时</span></span><br><span class="line">crontab -l <span class="comment"># 查看定时任务</span></span><br><span class="line">crontab -r <span class="comment"># 删除所有定时任务</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 案例1：每隔1分钟，将当前日期信息追加到 /tmp/mydate 中</span></span><br><span class="line"><span class="comment"># 编写脚本</span></span><br><span class="line">vim /home/mytask1.sh</span><br><span class="line">data &gt;&gt; /tmp/mydate</span><br><span class="line">chmod u+x mytask1.sh</span><br><span class="line"><span class="comment"># 定时运行</span></span><br><span class="line">crontab -e</span><br><span class="line">*/1 * * * * /home/mytask1.sh</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/20/docker/" rel="next" title="docker">
+                <i class="fa fa-chevron-left"></i> docker
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Jiajie Tian" />
+            
+              <p class="site-author-name" itemprop="name">Jiajie Tian</p>
+              <p class="site-description motion-element" itemprop="description">记录一些学习到的东西和论文记录</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-number">1.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vim"><span class="nav-number">1.1.</span> <span class="nav-text">vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关机"><span class="nav-number">1.2.</span> <span class="nav-text">关机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理"><span class="nav-number">1.3.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用指令"><span class="nav-number">1.4.</span> <span class="nav-text">实用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行级别"><span class="nav-number">1.4.1.</span> <span class="nav-text">运行级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帮助指令"><span class="nav-number">1.4.2.</span> <span class="nav-text">帮助指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件目录"><span class="nav-number">1.4.3.</span> <span class="nav-text">文件目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向"><span class="nav-number">1.4.4.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#echo-head-tail"><span class="nav-number">1.4.5.</span> <span class="nav-text">echo head tail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ln-history"><span class="nav-number">1.4.6.</span> <span class="nav-text">ln history</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间日期"><span class="nav-number">1.4.7.</span> <span class="nav-text">时间日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索查找类"><span class="nav-number">1.4.8.</span> <span class="nav-text">搜索查找类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩和解压缩"><span class="nav-number">1.4.9.</span> <span class="nav-text">压缩和解压缩</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#组管理和权限管理"><span class="nav-number">2.</span> <span class="nav-text">组管理和权限管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组"><span class="nav-number">2.1.</span> <span class="nav-text">组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限"><span class="nav-number">2.2.</span> <span class="nav-text">权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限管理"><span class="nav-number">2.3.</span> <span class="nav-text">权限管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实操篇：crond-任务调度"><span class="nav-number">3.</span> <span class="nav-text">实操篇：crond 任务调度</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiajie Tian</span>
+
+  
+</div>
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+  <span id="busuanzi_container_site_pv">
+      总访问量: <span id="busuanzi_value_site_pv"></span>
+  </span>
+  <span id="busuanzi_container_site_uv">
+      总访客: <span id="busuanzi_value_site_uv"></span>
+  </span>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量: <span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://tjj-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/12/06/Linux/';
+          this.page.identifier = '2019/12/06/Linux/';
+          this.page.title = 'Linux';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tjj-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'ErGCGWbk2tFGvy1PwEHyWep2-gzGzoHsz',
+        appKey: 'lDeNb0Sq8mjWkijnty2BuE7V',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('4');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

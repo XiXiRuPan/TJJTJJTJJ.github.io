@@ -4,30 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2019/11/20/docker/</loc>
-    <lastmod>2019-12-05T13:43:56.775Z</lastmod>
-    <data>
-        <display>
-        <title>docker</title>
-        <pubTime>2019-11-20T07:46:58.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>容器</tag>
-         
-         
-           
-             
-              <breadCrumb title="容器" url="http://yoursite.com/categories/%E5%AE%B9%E5%99%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/12/26/GPU/</loc>
-    <lastmod>2019-11-26T09:13:13.504Z</lastmod>
+    <lastmod>2019-12-18T02:15:47.419Z</lastmod>
     <data>
         <display>
         <title>GPU</title>
@@ -43,6 +21,48 @@
            
              
               <breadCrumb title="GPU" url="http://yoursite.com/categories/GPU/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/12/06/Linux/</loc>
+    <lastmod>2019-12-16T13:41:50.860Z</lastmod>
+    <data>
+        <display>
+        <title>Linux</title>
+        <pubTime>2019-12-06T08:26:19.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://yoursite.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/11/20/docker/</loc>
+    <lastmod>2019-12-06T09:13:13.524Z</lastmod>
+    <data>
+        <display>
+        <title>docker</title>
+        <pubTime>2019-11-20T07:46:58.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>容器</tag>
+         
+         
+           
+             
+              <breadCrumb title="容器" url="http://yoursite.com/categories/%E5%AE%B9%E5%99%A8/"/>
           
         </display>
     </data>
@@ -273,9 +293,9 @@
         <title>hexo</title>
         <pubTime>2018-08-17T13:00:33.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>github</tag>
+         
+        <tag>hexo</tag>
          
         <tag>npm</tag>
          
